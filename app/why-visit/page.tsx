@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import PartnersSection from "@/components/home/PartnersSection";
 
 export default function WhyVisitPage() {
   const [loading, setLoading] = useState(true);
@@ -188,18 +189,6 @@ export default function WhyVisitPage() {
 
       {/* Main Content */}
       <div className="page-spacing-wrapper pt-32">
-        {/* Hero Section */}
-        <article className="container mx-auto space-y-5 px-4 py-20">
-          <h1 className="text-center font-bebas text-6xl font-bold text-black md:text-7xl lg:text-8xl">Why Visit ITS Tyre Expo</h1>
-          <p className="text-center text-xl text-gray-600 max-w-3xl mx-auto">
-            Join 8,500+ professionals exploring the latest tyre manufacturing technologies, equipment, and innovations. Connect with global suppliers, discover new solutions, and meet the decision-makers driving the industry forward.
-          </p>
-          <div className="flex justify-center">
-            <Link href="/visitor-registration">
-              <button className="bg-orange-600 px-8 py-3 font-bebas text-xl text-white transition-all hover:bg-black">Register Now</button>
-            </Link>
-          </div>
-        </article>
 
         {/* Heart of Industry Section */}
         <div className="animated-block">
@@ -485,27 +474,7 @@ export default function WhyVisitPage() {
         </div>
 
         {/* Partners Section */}
-        <div className="animated-block mt-20">
-          <div className="animated-block-target">
-            <div className="bg-orange-50 py-20">
-              <div className="container relative mx-auto px-4">
-                <div className="mb-10">
-                  <h4 className="font-bebas text-5xl text-black md:text-6xl">Partners and Sponsors</h4>
-                </div>
-                <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                  {partners.map((partner, idx) => (
-                    <div key={idx} className="flex flex-col items-center">
-                      <div className="overflow-hidden rounded-lg bg-white px-6 py-4 shadow-lg">
-                        <div className="h-20 w-32 bg-gray-200"></div>
-                      </div>
-                      <small className="mt-3 text-center text-sm text-gray-600">{partner}</small>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PartnersSection/>
       </div>
 
 

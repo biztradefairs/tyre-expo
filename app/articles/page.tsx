@@ -161,35 +161,13 @@ export default function ArticlesPage() {
 
   return (
     <div className="page-spacing-wrapper">
-      {/* Hero Section */}
-      <article className="container mx-auto px-4 space-y-5 py-40 text-center">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold hero-element split-text-optimized text-black">
-          Insights, Trends, and Industry Knowledge
-        </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Explore a wealth of knowledge in our articles section, where we bring
-          you in-depth analysis, the latest trends, and expert opinions from
-          the heart of the mining industry.
-        </p>
-      </article>
+
 
       {/* Articles Grid Section */}
       <div className="animated-block">
         <div className="animated-block-target">
           <div className="container mx-auto px-4 py-16">
-            {/* Search Bar */}
-            <div className="mb-10 max-w-md mx-auto">
-              <input
-                type="text"
-                placeholder="Search articles..."
-                value={searchTerm}
-                onChange={(e) => {
-                  setSearchTerm(e.target.value);
-                  setCurrentPage(1);
-                }}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-              />
-            </div>
+        
 
             {/* Articles Grid */}
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

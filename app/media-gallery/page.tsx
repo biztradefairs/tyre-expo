@@ -114,19 +114,7 @@ const galleryCategories = [
 export default function MediaGalleryPage() {
   return (
     <div className="page-spacing-wrapper">
-      {/* Hero Section */}
-      <article className="container mx-auto px-4 space-y-5 py-40 text-center">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold hero-element split-text-optimized text-black">
-          Relive MiningWorld Over the Years
-        </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Step into the history of Mining World with our curated gallery,
-          showcasing captivating moments from past events. Explore a collection
-          of photos that highlight the innovation, collaboration, and scale of
-          the exhibition over the years—an authentic look at how the industry
-          has evolved and continues to shape the future of mining.
-        </p>
-      </article>
+
 
       {/* Gallery Grid Section */}
       <div className="animated-block">

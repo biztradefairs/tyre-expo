@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import PartnersSection from "@/components/home/PartnersSection";
 
 export default function AdvertisingDetailsPage() {
   const [loading, setLoading] = useState(true);
@@ -123,13 +124,7 @@ export default function AdvertisingDetailsPage() {
 
       {/* Main Content */}
       <div className="page-spacing-wrapper pt-32">
-        {/* Hero Section */}
-        <article className="container mx-auto space-y-5 px-4 py-20">
-          <h1 className="text-center font-bebas text-6xl font-bold text-black md:text-7xl lg:text-8xl">Maximize Your Brand Impact at ITS Tyre Expo 2026</h1>
-          <p className="text-center text-xl text-gray-600 max-w-3xl mx-auto">
-            Enhance your company's presence and visibility at ITS Tyre Expo 2026 with exclusive advertising and sponsorship opportunities. Whether before, during, or after the exhibition, these opportunities provide a powerful platform to amplify your brand and engage with key industry professionals.
-          </p>
-        </article>
+        
 
         {/* Benefits Section */}
         <div className="animated-block">
@@ -187,27 +182,7 @@ export default function AdvertisingDetailsPage() {
         </div>
 
         {/* Partners Section */}
-        <div className="animated-block mt-10">
-          <div className="animated-block-target">
-            <div className="bg-orange-50 py-20">
-              <div className="container relative mx-auto px-4">
-                <div className="mb-10">
-                  <h4 className="font-bebas text-5xl text-black md:text-6xl">Partners and Sponsors</h4>
-                </div>
-                <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                  {partners.map((partner, idx) => (
-                    <div key={idx} className="flex flex-col items-center">
-                      <div className="overflow-hidden rounded-lg bg-white px-6 py-4 shadow-lg">
-                        <div className="h-20 w-32 bg-gray-200"></div>
-                      </div>
-                      <small className="mt-3 text-center text-sm text-gray-600">{partner}</small>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+         <PartnersSection/>
       </div>
 
 
