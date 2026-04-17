@@ -40,7 +40,7 @@ const navItems = [
     title: 'Insights',
     links: [
       { text: 'Articles and Latest News', href: '/articles/' },
-      { text: 'Why India Report', href: '/beyond-the-surface/' },
+      { text: 'Why India Report', href: '/insights/' },
       { text: 'Event Brochure', href: '/event-brochure/' },
       { text: 'Post-Show Report', href: '/post-show-report/' },
       { text: 'Media Gallery', href: '/media-gallery/' },
