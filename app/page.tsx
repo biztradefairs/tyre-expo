@@ -84,7 +84,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main className="intro-animation">
         <HeroSection />
         <AboutSection />
@@ -97,7 +97,7 @@ export default function HomePage() {
         <NewsletterSection />
         <PartnersSection />
       </main>
-      <Footer />
+      {/* <Footer /> */}
       <BackToTop />
     </>
   );

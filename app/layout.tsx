@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Bebas_Neue, Roboto } from "next/font/google";
 import "./globals.css";
 
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+
 const bebas = Bebas_Neue({
   subsets: ["latin"],
   weight: "400",
@@ -15,7 +18,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Mining World",
+  title: "ITS TYRE EXPO",
   description: "Expo Website",
 };
 
@@ -30,7 +33,19 @@ export default function RootLayout({
       className={`${bebas.variable} ${roboto.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
-        {children}
+        
+        {/* ✅ Header */}
+       
+
+        {/* ✅ IMPORTANT: spacing for fixed header */}
+       
+           <Header />
+          {children}
+      
+
+        {/* ✅ Footer */}
+        <Footer />
+
       </body>
     </html>
   );
