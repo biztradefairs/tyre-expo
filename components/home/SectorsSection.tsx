@@ -120,11 +120,13 @@ export default function SectorsSection() {
         </div>
 
         {/* BUTTON */}
-        <div className="mt-12 px-6">
-          <Button href="/sectors/" variant="primary" size="lg">
-            Explore All The Sectors
-          </Button>
-        </div>
+<div className="mt-12 px-6">
+  <Link href="/sectors/">
+    <button className="bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white hover:bg-black transition-all">
+      Explore All The Sectors
+    </button>
+  </Link>
+</div>
 
       </div>
     </Section>
