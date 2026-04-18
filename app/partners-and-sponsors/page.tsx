@@ -85,104 +85,140 @@ export default function PartnersSponsorsPage() {
 
   // Quick links data
   const quickLinks = [
-    { icon: '📋', text: 'Enquire to Exhibit', link: '/exhibiting-enquiry' },
-    { icon: '📄', text: 'Download Event Brochure', link: '/event-brochure' },
-    { icon: '📊', text: 'Exhibitor List', link: '/exhibitor-list' },
-    { icon: '✈️', text: 'Plan Your Travel', link: '/plan-your-travel' },
-    { icon: 'ℹ️', text: 'About India Tyre Show', link: '/about-indiatyreshow' },
+    { label: "Enquire to Exhibit", link: "/exhibiting-enquiry", icon: "/icons/enquire.png" },
+    { label: "Download Event Brochure", link: "/event-brochure", icon: "/icons/brochure.png" },
+    { label: "Exhibitor List", link: "/exhibitor-list", icon: "/icons/list.png" },
+    { label: "Plan Your Travel", link: "/plan-your-travel", icon: "/icons/travel.png" },
+    { label: "Why Visit", link: "/why-visit", icon: "/icons/visit.png" }
   ];
 
   return (
     <div className="page-spacing-wrapper">
-      {/* Event Partners Section */}
-      <section className="py-16 lg:py-24">
-        <div className="container">
-          {/* <h2 className="title-70 text-black mb-10 lg:mb-20 text-center">Event Partners</h2> */}
-          <div className="flex flex-wrap gap-6 justify-center">
-            {eventPartners.map((partner, index) => (
-              <div
-                key={index}
-                className="flex w-full max-w-[300px] flex-col items-center gap-5 border border-mainColor1 p-5 text-center rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300"
-              >
-                <div className="h-32 flex items-center justify-center">
-                  <Image
-                    src={partner.logo}
-                    alt={partner.name}
-                    width={120}
-                    height={100}
-                    className="object-contain max-h-28"
-                  />
-                </div>
-                <h3 className="title-20 font-semibold text-black text-center">{partner.name}</h3>
-                <p className="text-gray-500 text-sm">{partner.type}</p>
-                <Link
-                  href={partner.website}
-                  target="_blank"
-                  className="w-full mt-auto inline-flex items-center justify-center gap-2 bg-mainColor1 text-white px-6 py-2 rounded-lg font-semibold hover:bg-black transition-colors"
+      {/* Header spacing to account for fixed navbar */}
+      <div className="pt-[120px] lg:pt-[140px]">
+        
+        {/* Event Partners Section */}
+        <section className="py-16 lg:py-20">
+          <div className="container mx-auto px-4">
+            <h2 className="font-bebas text-5xl text-black md:text-6xl text-center mb-10 lg:mb-16">
+              Event Partners
+            </h2>
+            <div className="flex flex-wrap gap-8 justify-center">
+              {eventPartners.map((partner, index) => (
+                <div
+                  key={index}
+                  className="flex w-full max-w-[320px] flex-col items-center gap-5 border border-gray-200 p-6 text-center rounded-lg bg-white shadow-md hover:shadow-xl transition-all duration-300"
                 >
-                  Visit Website
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Media Partners Section */}
-      <section className="py-16 lg:py-24 bg-mainColor5">
-        <div className="container">
-          <h2 className="title-70 text-black mb-10 lg:mb-20 text-center">Media Partners</h2>
-          <div className="flex flex-wrap gap-6 justify-center">
-            {mediaPartners.map((partner, index) => (
-              <div
-                key={index}
-                className="flex w-full max-w-[280px] flex-col items-center gap-4 border border-mainColor1 p-4 text-center rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300"
-              >
-                <div className="h-24 flex items-center justify-center">
-                  <Image
-                    src={partner.logo}
-                    alt={partner.name}
-                    width={100}
-                    height={80}
-                    className="object-contain max-h-20"
-                  />
+                  <div className="h-32 flex items-center justify-center">
+                    <Image
+                      src={partner.logo}
+                      alt={partner.name}
+                      width={140}
+                      height={100}
+                      className="object-contain max-h-28"
+                      unoptimized
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold text-black text-center">{partner.name}</h3>
+                  <p className="text-orange-600 text-sm font-medium">{partner.type}</p>
+                  <Link
+                    href={partner.website}
+                    target="_blank"
+                    className="w-full mt-auto inline-flex items-center justify-center gap-2 bg-orange-600 text-white px-6 py-2.5 rounded-md font-semibold hover:bg-black transition-colors"
+                  >
+                    Visit Website
+                  </Link>
                 </div>
-                <h3 className="text-base font-semibold text-black text-center">{partner.name}</h3>
-                <p className="text-gray-500 text-xs">{partner.type}</p>
-                <Link
-                  href={partner.website}
-                  target="_blank"
-                  className="w-full mt-auto inline-flex items-center justify-center gap-2 bg-mainColor1 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-black transition-colors"
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Media Partners Section */}
+        <section className="py-16 lg:py-20 bg-orange-50">
+          <div className="container mx-auto px-4">
+            <h2 className="font-bebas text-5xl text-black md:text-6xl text-center mb-10 lg:mb-16">
+              Media Partners
+            </h2>
+            <div className="flex flex-wrap gap-6 justify-center">
+              {mediaPartners.map((partner, index) => (
+                <div
+                  key={index}
+                  className="flex w-full max-w-[280px] flex-col items-center gap-4 border border-gray-200 p-5 text-center rounded-lg bg-white shadow-md hover:shadow-xl transition-all duration-300"
                 >
-                  Visit Website
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Navigation Section */}
-      <section className="border-t-8 border-mainColor1 bg-black py-20 text-white">
-        <div className="container">
-          <h2 className="title-70 text-center mb-12">Quick Navigation</h2>
-
-          <div className="flex flex-wrap justify-center gap-8">
-            {quickLinks.map((link, index) => (
-              <Link
-                key={index}
-                href={link.link}
-                className="group flex flex-col items-center gap-3 transition-transform hover:scale-105"
-              >
-                <div className="size-20 rounded-full bg-[#1a1a1a] flex items-center justify-center text-3xl group-hover:bg-mainColor1 transition-colors">
-                  {link.icon}
+                  <div className="h-24 flex items-center justify-center">
+                    <Image
+                      src={partner.logo}
+                      alt={partner.name}
+                      width={120}
+                      height={80}
+                      className="object-contain max-h-20"
+                      unoptimized
+                    />
+                  </div>
+                  <h3 className="text-base font-semibold text-black text-center line-clamp-2 min-h-[48px]">
+                    {partner.name}
+                  </h3>
+                  <p className="text-orange-600 text-xs font-medium">{partner.type}</p>
+                  <Link
+                    href={partner.website}
+                    target="_blank"
+                    className="w-full mt-auto inline-flex items-center justify-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-black transition-colors"
+                  >
+                    Visit Website
+                  </Link>
                 </div>
-                <span className="text-sm font-medium text-center max-w-[100px]">{link.text}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Quick Navigation Section */}
+<div className="animated-block mt-20">
+  <div className="animated-block-target">
+    <div className="border-t-8 border-orange-600 bg-black py-20 text-white">
+      
+      <div className="container mx-auto px-4">
+        
+        {/* HEADING */}
+        <h2 className="font-bebas text-6xl md:text-7xl">
+          Quick Navigation
+        </h2>
+
+        {/* NAV ITEMS */}
+        <div className="mt-16 grid grid-cols-2 gap-y-10 md:grid-cols-5">
+          
+          {quickLinks.map((item, idx) => (
+            <div key={idx} className="relative flex flex-col items-center justify-center text-center">
+              
+              {/* VERTICAL DIVIDER */}
+              {idx !== 0 && (
+                <div className="absolute left-0 top-1/2 hidden h-16 w-px -translate-y-1/2 bg-gray-700 md:block"></div>
+              )}
+
+              <Link href={item.link} className="flex flex-col items-center">
+                
+                {/* ICON CIRCLE */}
+                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gray-800">
+                  <div className="h-8 w-8 bg-orange-500 rounded-sm"></div>
+                </div>
+
+                {/* LABEL */}
+                <p className="mt-4 text-sm font-semibold text-gray-300">
+                  {item.label}
+                </p>
+
               </Link>
-            ))}
-          </div>
+            </div>
+          ))}
+
         </div>
-      </section>
+
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
     </div>
   );
 }
