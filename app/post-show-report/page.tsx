@@ -220,7 +220,7 @@ export default function ReportDownload() {
             </ul>
           </div>
 
-          {/* IMAGE */}
+          {/* IMAGE */} 
           <div className="mt-10">
             <Image
               src="/report-preview.png"

@@ -125,11 +125,11 @@ export default function AboutPage() {
       <div className="page-spacing-wrapper">
         {/* Add margin-top to account for fixed header (adjust based on your header height) */}
         <div className="pt-[120px] lg:pt-[140px]">
-          
+
           {/* Transforming Tyre Operations Section */}
           <div className="bg-white py-20">
             <div className="container mx-auto grid items-center gap-12 px-4 lg:grid-cols-2 lg:gap-20">
-              
+
               {/* LEFT IMAGE */}
               <div className="w-full h-[350px] lg:h-[500px] overflow-hidden rounded-sm">
                 <img
@@ -157,37 +157,37 @@ export default function AboutPage() {
 
                 {/* STATS SECTION */}
                 <div className="mt-10 flex flex-wrap items-center justify-between bg-gray-100 px-6 py-8 rounded-md">
-                  
+
                   <div className="text-center flex-1">
-                    <h3 className="text-4xl font-bebas text-orange-600">10th</h3>
+                    <h3 className="text-4xl font-bebas text-[#F08400]">10th</h3>
                     <p className="text-sm tracking-wide text-black mt-2">EDITION</p>
                   </div>
 
                   <div className="hidden md:block h-12 w-px bg-gray-300"></div>
 
                   <div className="text-center flex-1">
-                    <h3 className="text-4xl font-bebas text-orange-600">8,500+</h3>
+                    <h3 className="text-4xl font-bebas text-[#F08400]">8,500+</h3>
                     <p className="text-sm tracking-wide text-black mt-2">VISITORS</p>
                   </div>
 
                   <div className="hidden md:block h-12 w-px bg-gray-300"></div>
 
                   <div className="text-center flex-1">
-                    <h3 className="text-4xl font-bebas text-orange-600">350+</h3>
+                    <h3 className="text-4xl font-bebas text-[#F08400]">350+</h3>
                     <p className="text-sm tracking-wide text-black mt-2">EXHIBITORS</p>
                   </div>
 
                   <div className="hidden md:block h-12 w-px bg-gray-300"></div>
 
                   <div className="text-center flex-1">
-                    <h3 className="text-4xl font-bebas text-orange-600">60+</h3>
+                    <h3 className="text-4xl font-bebas text-[#F08400]">60+</h3>
                     <p className="text-sm tracking-wide text-black mt-2">CONFERENCE SPEAKERS</p>
                   </div>
                 </div>
 
                 <div className="mt-10">
                   <Link href="/why-exhibit">
-                    <button className="bg-orange-600 px-10 py-3 text-xl font-bebas text-white transition-all hover:bg-black">
+                    <button className="bg-[#F08400] px-10 py-3 text-xl font-bebas text-white transition-all hover:bg-black">
                       Why Exhibit
                     </button>
                   </Link>
@@ -202,7 +202,7 @@ export default function AboutPage() {
               <div className="container relative mx-auto px-4">
                 <h3 className="font-bebas text-5xl text-black md:text-6xl">Explore Our Event Sectors</h3>
                 <Link href="/sectors">
-                  <button className="flex-center global-transition group mb-10 w-fit gap-2 overflow-hidden bg-orange-600 px-10 py-3 font-bebas text-2xl text-white hover:bg-black">See All Sectors</button>
+                  <button className="flex-center global-transition group mb-10 w-fit gap-2 overflow-hidden bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white hover:bg-black">See All Sectors</button>
                 </Link>
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {sectors.map((sector, idx) => (
@@ -212,7 +212,7 @@ export default function AboutPage() {
                         <h4 className="text-xl font-semibold text-black">{sector.title}</h4>
                         <p className="text-gray-600 line-clamp-2">{sector.description}</p>
                         <Link href={`/sectors/${sector.slug}`}>
-                          <button className="flex-center group gap-2 font-bebas text-xl text-orange-600">Read More →</button>
+                          <button className="flex-center group gap-2 font-bebas text-xl text-[#F08400]">Read More →</button>
                         </Link>
                       </div>
                     </div>
@@ -245,7 +245,7 @@ export default function AboutPage() {
                           ))}
                         </ul>
                         <Link href={item.buttonLink}>
-                          <button className="mt-4 w-fit bg-orange-600 px-6 py-2 font-bebas text-xl text-white transition-all hover:bg-black">{item.buttonText}</button>
+                          <button className="mt-4 w-fit bg-[#F08400] px-6 py-2 font-bebas text-xl text-white transition-all hover:bg-black">{item.buttonText}</button>
                         </Link>
                       </div>
                     </div>
@@ -256,103 +256,103 @@ export default function AboutPage() {
           </div>
 
           {/* Download Brochure Section */}
-      <div className="animated-block mt-20">
-  <div className="animated-block-target">
-    
-    <div className="relative mx-auto overflow-hidden py-20 text-white">
-      
-      {/* 🔥 BACKGROUND IMAGE */}
-      <div className="absolute inset-0">
-        <img
-          src="https://cdn.itegroupnews.com/img_3_4b6edc76d1.jpg" // 👈 your image here
-          alt="Event Background"
-          className="h-full w-full object-cover"
-        />
-      </div>
+          <div className="animated-block mt-20">
+            <div className="animated-block-target">
 
-      {/* 🔥 DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/60"></div>
+              <div className="relative mx-auto overflow-hidden py-20 text-white">
 
-      {/* CONTENT */}
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="grid items-center gap-10 md:grid-cols-12">
-          
-          {/* LEFT IMAGE / MOCKUP */}
-  <div className="flex justify-center md:col-span-4">
-  <img
-    src="https://cdn.itegroupnews.com/Sales_Brochure_84b3c56f9d.png"
-    alt="Brochure"
-    className="h-64 w-auto object-contain"
-  />
-</div>
+                {/* 🔥 BACKGROUND IMAGE */}
+                <div className="absolute inset-0">
+                  <img
+                    src="https://cdn.itegroupnews.com/img_3_4b6edc76d1.jpg" // 👈 your image here
+                    alt="Event Background"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
 
-          {/* RIGHT CONTENT */}
-          <div className="flex flex-col gap-5 md:col-span-8">
-            <h3 className="font-bebas text-6xl md:text-7xl leading-tight">
-              Download Your Event Brochure
-            </h3>
+                {/* 🔥 DARK OVERLAY */}
+                <div className="absolute inset-0 bg-black/60"></div>
 
-            <p className="max-w-[700px] text-lg text-gray-200">
-              Make sure you grab your copy of the event brochure to learn more
-              about the show and explore your participation opportunities.
-            </p>
+                {/* CONTENT */}
+                <div className="container relative z-10 mx-auto px-4">
+                  <div className="grid items-center gap-10 md:grid-cols-12">
 
-            <Link href="/event-brochure">
-              <button className="bg-orange-600 px-10 py-3 font-bebas text-2xl text-white transition-all hover:bg-black">
-                Download Now
-              </button>
-            </Link>
+                    {/* LEFT IMAGE / MOCKUP */}
+                    <div className="flex justify-center md:col-span-4">
+                      <img
+                        src="https://cdn.itegroupnews.com/Sales_Brochure_84b3c56f9d.png"
+                        alt="Brochure"
+                        className="h-64 w-auto object-contain"
+                      />
+                    </div>
+
+                    {/* RIGHT CONTENT */}
+                    <div className="flex flex-col gap-5 md:col-span-8">
+                      <h3 className="font-bebas text-6xl md:text-7xl leading-tight">
+                        Download Your Event Brochure
+                      </h3>
+
+                      <p className="max-w-[700px] text-lg text-gray-200">
+                        Make sure you grab your copy of the event brochure to learn more
+                        about the show and explore your participation opportunities.
+                      </p>
+
+                      <Link href="/event-brochure">
+                        <button className="bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white transition-all hover:bg-black">
+                          Download Now
+                        </button>
+                      </Link>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
 
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
           {/* Leading Exhibitors Section */}
-      <div className="animated-block mt-20">
-  <div className="animated-block-target">
-    <div className="container mx-auto px-4">
+          <div className="animated-block mt-20">
+            <div className="animated-block-target">
+              <div className="container mx-auto px-4">
 
-      {/* HEADING */}
-      <h3 className="font-bebas text-5xl text-black md:text-6xl">
-        Meet the Leading Exhibitors of 2026
-      </h3>
+                {/* HEADING */}
+                <h3 className="font-bebas text-5xl text-black md:text-6xl">
+                  Meet the Leading Exhibitors of 2026
+                </h3>
 
-      {/* CARD */}
-      <div className="mt-10 rounded-lg bg-orange-50 p-8">
+                {/* CARD */}
+                <div className="mt-10 rounded-lg bg-orange-50 p-8">
 
-        <h4 className="text-4xl font-bold text-black text-center">
-          Exhibiting at ITS Tyre Expo Elevates Your Brand and Expands Your Network
-        </h4>
+                  <h4 className="text-4xl font-bold text-black text-center">
+                    Exhibiting at ITS Tyre Expo Elevates Your Brand and Expands Your Network
+                  </h4>
 
-        {/* 🔥 BIG IMAGE */}
-        <div className="mt-8 w-full overflow-hidden rounded-lg">
-          <img
-            src="/images/image2.png" // 👈 replace with your image
-            alt="Exhibitors"
-            className="h-[250px] w-full object-cover md:h-[350px] lg:h-[400px] transition-transform duration-500 hover:scale-105"
-          />
-        </div>
+                  {/* 🔥 BIG IMAGE */}
+                  <div className="mt-8 w-full overflow-hidden rounded-lg">
+                    <img
+                      src="/images/image2.png" // 👈 replace with your image
+                      alt="Exhibitors"
+                      className="h-[250px] w-full object-cover md:h-[350px] lg:h-[400px] transition-transform duration-500 hover:scale-105"
+                    />
+                  </div>
 
-        {/* BUTTON */}
-        <div className="mt-8 flex justify-start">
-          <Link
-            href="https://catalogue.ite-expo.ru/en-GB/exhibitorlist.aspx?project_id=522"
-            target="_blank"
-          >
-            <button className="bg-orange-600 px-8 py-3 font-bebas text-xl text-white transition-all hover:bg-black">
-              View Full Exhibitor List
-            </button>
-          </Link>
-        </div>
+                  {/* BUTTON */}
+                  <div className="mt-8 flex justify-start">
+                    <Link
+                      href="https://catalogue.ite-expo.ru/en-GB/exhibitorlist.aspx?project_id=522"
+                      target="_blank"
+                    >
+                      <button className="bg-[#F08400] px-8 py-3 font-bebas text-xl text-white transition-all hover:bg-black">
+                        View Full Exhibitor List
+                      </button>
+                    </Link>
+                  </div>
 
-      </div>
-    </div>
-  </div>
-</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* Venue Section */}
           <div className="animated-block mt-20">
@@ -397,7 +397,7 @@ export default function AboutPage() {
                         <p className="text-gray-600 line-clamp-4">{event.description}</p>
                         {event.buttonText && (
                           <Link href={event.buttonLink}>
-                            <button className="mt-2 w-fit bg-orange-600 px-6 py-2 font-bebas text-xl text-white transition-all hover:bg-black">{event.buttonText}</button>
+                            <button className="mt-2 w-fit bg-[#F08400] px-6 py-2 font-bebas text-xl text-white transition-all hover:bg-black">{event.buttonText}</button>
                           </Link>
                         )}
                       </div>
@@ -409,56 +409,56 @@ export default function AboutPage() {
           </div>
 
           {/* Partners Section */}
-          <PartnersSection/>
+          <PartnersSection />
 
           {/* Quick Navigation */}
-<div className="animated-block mt-20">
-  <div className="animated-block-target">
-    <div className="border-t-8 border-orange-600 bg-black py-20 text-white">
-      
-      <div className="container mx-auto px-4">
-        
-        {/* HEADING */}
-        <h2 className="font-bebas text-6xl md:text-7xl">
-          Quick Navigation
-        </h2>
+          <div className="animated-block mt-20">
+            <div className="animated-block-target">
+              <div className="border-t-8 border-orange-600 bg-black py-20 text-white">
 
-        {/* NAV ITEMS */}
-        <div className="mt-16 grid grid-cols-2 gap-y-10 md:grid-cols-5">
-          
-          {quickLinks.map((item, idx) => (
-            <div key={idx} className="relative flex flex-col items-center justify-center text-center">
-              
-              {/* VERTICAL DIVIDER */}
-              {idx !== 0 && (
-                <div className="absolute left-0 top-1/2 hidden h-16 w-px -translate-y-1/2 bg-gray-700 md:block"></div>
-              )}
+                <div className="container mx-auto px-4">
 
-              <Link href={item.link} className="flex flex-col items-center">
-                
-                {/* ICON CIRCLE */}
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gray-800">
-                  <div className="h-8 w-8 bg-orange-500 rounded-sm"></div>
+                  {/* HEADING */}
+                  <h2 className="font-bebas text-6xl md:text-7xl">
+                    Quick Navigation
+                  </h2>
+
+                  {/* NAV ITEMS */}
+                  <div className="mt-16 grid grid-cols-2 gap-y-10 md:grid-cols-5">
+
+                    {quickLinks.map((item, idx) => (
+                      <div key={idx} className="relative flex flex-col items-center justify-center text-center">
+
+                        {/* VERTICAL DIVIDER */}
+                        {idx !== 0 && (
+                          <div className="absolute left-0 top-1/2 hidden h-16 w-px -translate-y-1/2 bg-gray-700 md:block"></div>
+                        )}
+
+                        <Link href={item.link} className="flex flex-col items-center">
+
+                          {/* ICON CIRCLE */}
+                          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gray-800">
+                            <div className="h-8 w-8 bg-orange-500 rounded-sm"></div>
+                          </div>
+
+                          {/* LABEL */}
+                          <p className="mt-4 text-sm font-semibold text-gray-300">
+                            {item.label}
+                          </p>
+
+                        </Link>
+                      </div>
+                    ))}
+
+                  </div>
+
                 </div>
-
-                {/* LABEL */}
-                <p className="mt-4 text-sm font-semibold text-gray-300">
-                  {item.label}
-                </p>
-
-              </Link>
+              </div>
             </div>
-          ))}
-
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
+          </div>
         </div>
       </div>
-      
+
       <style jsx>{`
         .global-transition {
           transition: all 0.3s ease;
