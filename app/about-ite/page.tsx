@@ -384,7 +384,7 @@ export default function AboutITEPage() {
                       <p>End Date: <span className="font-bold">{exhibition.endDate}</span></p>
                       <p>Venue: <span className="font-bold">{exhibition.venue}</span></p>
                       <Link href={exhibition.siteLink} target="_blank" className="mt-auto block">
-                        <button className="flex-center group gap-2 font-bebas text-2xl text-orange-600 transition-all hover:text-black">
+                        <button className="flex-center group gap-2 font-bebas text-2xl text-[#F08400] transition-all hover:text-black">
                           Visit Website
                           <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                             <path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path>

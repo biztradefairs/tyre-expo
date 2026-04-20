@@ -124,7 +124,7 @@ export default function PartnersSponsorsPage() {
                   <Link
                     href={partner.website}
                     target="_blank"
-                    className="w-full mt-auto inline-flex items-center justify-center gap-2 bg-orange-600 text-white px-6 py-2.5 rounded-md font-semibold hover:bg-black transition-colors"
+                    className="w-full mt-auto inline-flex items-center justify-center gap-2 bg-[#F08400] text-white px-6 py-2.5 rounded-md font-semibold hover:bg-black transition-colors"
                   >
                     Visit Website
                   </Link>
@@ -163,7 +163,7 @@ export default function PartnersSponsorsPage() {
                   <Link
                     href={partner.website}
                     target="_blank"
-                    className="w-full mt-auto inline-flex items-center justify-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-black transition-colors"
+                    className="w-full mt-auto inline-flex items-center justify-center gap-2 bg-[#F08400] text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-black transition-colors"
                   >
                     Visit Website
                   </Link>
