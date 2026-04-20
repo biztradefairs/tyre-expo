@@ -21,7 +21,7 @@ export default function OutcomesSection({ outcomes }: OutcomesSectionProps) {
   Key Outcomes of Exhibiting
 </p>
 
-        <h2 className="mt-4 font-heading text-[36px] sm:text-[48px] lg:text-[64px] leading-[1.05] tracking-[2px] uppercase text-black">
+        <h2 className="mt-4 font-bebas text-[16px] sm:text-[28px] lg:text-[48px] leading-[1.05] tracking-[2px] uppercase text-black font-bold">
   DELIVERING MEASURABLE BUSINESS IMPACT
 </h2>
 

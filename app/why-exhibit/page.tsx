@@ -117,7 +117,7 @@ export default function WhyExhibitPage() {
       {/* Main Content */}
       <div className="page-spacing-wrapper">
         <div className="pt-[120px] lg:pt-[140px]">
-          
+
           {/* Powering Progress Section */}
           <div className="animated-block">
             <div className="animated-block-target">
@@ -214,7 +214,7 @@ export default function WhyExhibitPage() {
             </div>
           </div>
 
- <SectorsSection/>
+          <SectorsSection />
 
           {/* Visitor Breakdown Section */}
           <div className="animated-block mt-20">
@@ -252,74 +252,74 @@ export default function WhyExhibitPage() {
                     </Link>
                   </div>
                 </div>
-               <div className="order-first h-full lg:col-span-2">
-  <div className="h-120 w-full overflow-hidden">
-    <img
-      src="https://cdn.itegroupnews.com/mw24_1095_min_aaba01f5dd.jpg" // 👈 put your image here
-      alt="Visitors"
-      className="h-full w-full object-cover"
-    />
-  </div>
-</div>
+                <div className="order-first h-full lg:col-span-2">
+                  <div className="h-120 w-full overflow-hidden">
+                    <img
+                      src="https://cdn.itegroupnews.com/mw24_1095_min_aaba01f5dd.jpg" // 👈 put your image here
+                      alt="Visitors"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Download Brochure Section */}
-      <div className="animated-block mt-20">
-  <div className="animated-block-target">
-    
-    <div className="relative mx-auto overflow-hidden py-20 text-white">
-      
-      {/* 🔥 BACKGROUND IMAGE */}
-      <div className="absolute inset-0">
-        <img
-          src="https://cdn.itegroupnews.com/img_3_4b6edc76d1.jpg" // 👈 your image here
-          alt="Event Background"
-          className="h-full w-full object-cover"
-        />
-      </div>
+          <div className="animated-block mt-20">
+            <div className="animated-block-target">
 
-      {/* 🔥 DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/60"></div>
+              <div className="relative mx-auto overflow-hidden py-20 text-white">
 
-      {/* CONTENT */}
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="grid items-center gap-10 md:grid-cols-12">
-          
-          {/* LEFT IMAGE / MOCKUP */}
-  <div className="flex justify-center md:col-span-4">
-  <img
-    src="https://cdn.itegroupnews.com/Sales_Brochure_84b3c56f9d.png"
-    alt="Brochure"
-    className="h-64 w-auto object-contain"
-  />
-</div>
+                {/* 🔥 BACKGROUND IMAGE */}
+                <div className="absolute inset-0">
+                  <img
+                    src="https://cdn.itegroupnews.com/img_3_4b6edc76d1.jpg" // 👈 your image here
+                    alt="Event Background"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
 
-          {/* RIGHT CONTENT */}
-          <div className="flex flex-col gap-5 md:col-span-8">
-            <h3 className="font-bebas text-6xl md:text-7xl leading-tight">
-              Download Your Event Brochure
-            </h3>
+                {/* 🔥 DARK OVERLAY */}
+                <div className="absolute inset-0 bg-black/60"></div>
 
-            <p className="max-w-[700px] text-lg text-gray-200">
-              Make sure you grab your copy of the event brochure to learn more
-              about the show and explore your participation opportunities.
-            </p>
+                {/* CONTENT */}
+                <div className="container relative z-10 mx-auto px-4">
+                  <div className="grid items-center gap-10 md:grid-cols-12">
 
-            <Link href="/event-brochure">
-              <button className="bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white transition-all hover:bg-black">
-                Download Now
-              </button>
-            </Link>
+                    {/* LEFT IMAGE / MOCKUP */}
+                    <div className="flex justify-center md:col-span-4">
+                      <img
+                        src="https://cdn.itegroupnews.com/Sales_Brochure_84b3c56f9d.png"
+                        alt="Brochure"
+                        className="h-64 w-auto object-contain"
+                      />
+                    </div>
+
+                    {/* RIGHT CONTENT */}
+                    <div className="flex flex-col gap-5 md:col-span-8">
+                      <h3 className="font-bebas text-6xl md:text-7xl leading-tight">
+                        Download Your Event Brochure
+                      </h3>
+
+                      <p className="max-w-[700px] text-lg text-gray-200">
+                        Make sure you grab your copy of the event brochure to learn more
+                        about the show and explore your participation opportunities.
+                      </p>
+
+                      <Link href="/event-brochure">
+                        <button className="bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white transition-all hover:bg-black">
+                          Download Now
+                        </button>
+                      </Link>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 
           {/* Why ASEAN Section */}
@@ -329,55 +329,55 @@ export default function WhyExhibitPage() {
                 <h2 className="mb-10 font-bebas text-6xl text-black md:text-7xl">Why Southeast Asia?</h2>
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {[
-  {
-    title: "Rapid Tyre Manufacturing Expansion",
-    desc: "The CIS mining sector is undergoing rapid modernisation. Imports of earthmoving, crushing, and processing equipment have surged, driven by the need to upgrade ageing infrastructure and improve operational efficiency across mines and processing plants.",
-    image: "https://cdn.itegroupnews.com/wide_angle_shot_excavation_machines_lookout_jackerath_garzweiler_skywalk_germany_58dec187f5.jpg"
-  },
-  {
-    title: "Government Support for EV & Automotive",
-    desc: "Flagship projects such as Baimskaya (copper), Udokan (copper), and Sukhoi Log (gold) are driving multi-billion-dollar investments in extraction and processing capacity creating sustained demand for advanced machinery, automation, and logistics solutions.",
-    image: "https://cdn.itegroupnews.com/business_team_global_business_planning_working_concept_4d7db7d78d.jpg"
-  },
-  {
-    title: "Growing Demand for Sustainable Solutions",
-    desc: "Russia and CIS governments are increasing exploration spending to boost reserves of strategic minerals such as copper, lithium, and rare earths. The federal programme “Geology: Revival of a Legend” is being extended to 2030, supporting new deposits and advanced exploration technologies.",
-    image: "https://cdn.itegroupnews.com/view_heavy_machinery_used_construction_industry_a179c698c8.jpg"
-  }
-].map((item, idx) => (
+                    {
+                      title: "Rapid Tyre Manufacturing Expansion",
+                      desc: "The CIS mining sector is undergoing rapid modernisation. Imports of earthmoving, crushing, and processing equipment have surged, driven by the need to upgrade ageing infrastructure and improve operational efficiency across mines and processing plants.",
+                      image: "https://cdn.itegroupnews.com/wide_angle_shot_excavation_machines_lookout_jackerath_garzweiler_skywalk_germany_58dec187f5.jpg"
+                    },
+                    {
+                      title: "Government Support for EV & Automotive",
+                      desc: "Flagship projects such as Baimskaya (copper), Udokan (copper), and Sukhoi Log (gold) are driving multi-billion-dollar investments in extraction and processing capacity creating sustained demand for advanced machinery, automation, and logistics solutions.",
+                      image: "https://cdn.itegroupnews.com/business_team_global_business_planning_working_concept_4d7db7d78d.jpg"
+                    },
+                    {
+                      title: "Growing Demand for Sustainable Solutions",
+                      desc: "Russia and CIS governments are increasing exploration spending to boost reserves of strategic minerals such as copper, lithium, and rare earths. The federal programme “Geology: Revival of a Legend” is being extended to 2030, supporting new deposits and advanced exploration technologies.",
+                      image: "https://cdn.itegroupnews.com/view_heavy_machinery_used_construction_industry_a179c698c8.jpg"
+                    }
+                  ].map((item, idx) => (
                     <div
-  key={idx}
-  className="relative flex min-h-[350px] flex-col overflow-hidden text-white"
->
+                      key={idx}
+                      className="relative flex min-h-[350px] flex-col overflow-hidden text-white"
+                    >
 
-  {/* 🔥 BACKGROUND IMAGE */}
-  <div className="absolute inset-0">
-    <img
-      src={item.image}
-      alt={item.title}
-      className="h-full w-full object-cover"
-    />
-  </div>
+                      {/* 🔥 BACKGROUND IMAGE */}
+                      <div className="absolute inset-0">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
 
-  {/* 🔥 DARK OVERLAY */}
-  <div className="absolute inset-0 bg-black/60"></div>
+                      {/* 🔥 DARK OVERLAY */}
+                      <div className="absolute inset-0 bg-black/60"></div>
 
-  {/* CONTENT */}
-  <div className="relative z-10 flex h-full flex-col justify-end gap-4 p-6">
+                      {/* CONTENT */}
+                      <div className="relative z-10 flex h-full flex-col justify-end gap-4 p-6">
 
 
 
-    {/* TEXT */}
-    <h3 className="text-2xl font-bold leading-tight">
-      {item.title}
-    </h3>
+                        {/* TEXT */}
+                        <h3 className="text-2xl font-bold leading-tight">
+                          {item.title}
+                        </h3>
 
-    <p className="text-gray-200">
-      {item.desc}
-    </p>
+                        <p className="text-gray-200">
+                          {item.desc}
+                        </p>
 
-  </div>
-</div>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -420,61 +420,61 @@ export default function WhyExhibitPage() {
           </div>
 
           {/* When and Where Section */}
-       <div className="animated-block mt-20">
-  <div className="animated-block-target">
-    <div className="container mx-auto px-4 text-black">
+          <div className="animated-block mt-20">
+            <div className="animated-block-target">
+              <div className="container mx-auto px-4 text-black">
 
-      {/* HEADING */}
-      <h2 className="mb-10 font-bebas text-6xl md:text-7xl">
-        When and Where
-      </h2>
+                {/* HEADING */}
+                <h2 className="mb-10 font-bebas text-6xl md:text-7xl">
+                  When and Where
+                </h2>
 
-      {/* TOP CARDS */}
-      <div className="grid gap-6 lg:grid-cols-2">
+                {/* TOP CARDS */}
+                <div className="grid gap-6 lg:grid-cols-2">
 
-        {/* OPENING HOURS */}
-        <div className="rounded-xl bg-[#FEFAF5] p-6">
-          <p className="mb-2 text-lg font-semibold text-black">
-            Opening Hours
-          </p>
+                  {/* OPENING HOURS */}
+                  <div className="rounded-xl bg-[#FEFAF5] p-6">
+                    <p className="mb-2 text-lg font-semibold text-black">
+                      Opening Hours
+                    </p>
 
-          <h4 className="text-xl font-bold">
-            22, 23 April 2026: 10:00 - 18:00
-          </h4>
-          <h4 className="mt-2 text-xl font-bold">
-            24 April 2026: 10:00 - 16:00
-          </h4>
-        </div>
+                    <h4 className="text-xl font-bold">
+                      22, 23 April 2026: 10:00 - 18:00
+                    </h4>
+                    <h4 className="mt-2 text-xl font-bold">
+                      24 April 2026: 10:00 - 16:00
+                    </h4>
+                  </div>
 
-        {/* VENUE */}
-        <div className="rounded-xl bg-[#FEFAF5] p-6">
-          <p className="mb-2 text-lg font-semibold text-black">
-            Venue
-          </p>
+                  {/* VENUE */}
+                  <div className="rounded-xl bg-[#FEFAF5] p-6">
+                    <p className="mb-2 text-lg font-semibold text-black">
+                      Venue
+                    </p>
 
-          <h4 className="text-xl font-bold">
-            Pavilion 1 & 2, Crocus Expo IEC, Moscow, Russia
-          </h4>
-        </div>
+                    <h4 className="text-xl font-bold">
+                      Pavilion 1 & 2, Crocus Expo IEC, Moscow, Russia
+                    </h4>
+                  </div>
 
-      </div>
+                </div>
 
-      {/* 🔥 FULL WIDTH MAP */}
-      <div className="mt-8 overflow-hidden">
+                {/* 🔥 FULL WIDTH MAP */}
+                <div className="mt-8 overflow-hidden">
 
-        <iframe
-          src="https://www.google.com/maps?q=Crocus%20Expo%20IEC%20Moscow&output=embed"
-          className="w-full h-[400px] border-0"
-          allowFullScreen
-          loading="lazy"
-        ></iframe>
+                  <iframe
+                    src="https://www.google.com/maps?q=Crocus%20Expo%20IEC%20Moscow&output=embed"
+                    className="w-full h-[400px] border-0"
+                    allowFullScreen
+                    loading="lazy"
+                  ></iframe>
 
-      </div>
+                </div>
 
-    </div>
-  </div>
-</div>
-          
+              </div>
+            </div>
+          </div>
+
           <PartnersSection />
 
           {/* Quick Navigation Footer */}

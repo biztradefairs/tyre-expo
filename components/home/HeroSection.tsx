@@ -8,8 +8,8 @@ import Link from 'next/link';
 
 // Use working image URLs or local fallbacks
 const slides = [
-  { id: 1, image: 'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=1920&q=75' }, // Mining/industry fallback
-  { id: 2, image: 'https://images.unsplash.com/photo-1581092335871-4c5c5d4b5b5b?w=1920&q=75' },
+  { id: 1, image: 'https://rubber-tyre.com.vn/wp-content/uploads/2025/07/CTHE0129-min-scaled.webp' }, // Mining/industry fallback
+  { id: 2, image: 'https://global.divhunt.com/3ed74ea1f32f6d8d53c3acfec927b4bc_113152.webp' },
 ];
 
 export default function HeroSection() {
@@ -68,10 +68,14 @@ export default function HeroSection() {
   <div className="max-w-8xl">
     
     {/* BIG HEADING */}
-<h1 className="font-heading uppercase whitespace-nowrap 
-text-[28px] sm:text-[52px] lg:text-[90px] 
-leading-[0.9] tracking-[1px] 
-max-w-[900px]">
+<h1
+  className="
+    font-bebas font-bold uppercase
+    text-[28px] sm:text-[40px] lg:text-[60px] xl:text-[100px]
+    leading-[0.85]
+    tracking-[2px]
+  "
+>
   <span className="text-white">MINING WORLD </span>
   <span className="text-[#F08400]">2026</span>
 </h1>
