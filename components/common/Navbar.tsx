@@ -23,7 +23,7 @@ const navItems = [
       { text: 'Exhibitor Resource Center', href: '/exhibitor-resource-center/' },
       { text: 'Become an Exhibitor', href: '/exhibiting-enquiry/' },
       { text: 'Advertising Opportunities', href: '/advertising-details/' },
-      { text: 'View Exhibitor List 2026', href: '/exhibitor-list/' },
+      { text: 'View Exhibitor List 2026', href: '/exhibition-directory/' },
     ],
   },
   {
