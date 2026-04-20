@@ -33,7 +33,7 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
 </p>
 
           {/* 🔥 ONE LINE TITLE */}
-        <h2 className="font-heading text-[32px] sm:text-[44px] lg:text-[56px] leading-[1.05] tracking-[2px] uppercase text-black">
+        <h2 className="font-bebas font-bold text-[12px] sm:text-[24px] lg:text-[46px] leading-[1.05] tracking-[2px] uppercase text-black">
   EVENT INSIGHTS & INDUSTRY TRENDS
 </h2>
 

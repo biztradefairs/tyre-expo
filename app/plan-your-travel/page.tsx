@@ -9,6 +9,7 @@ import PartnersSection from "@/components/home/PartnersSection";
 export default function PlanYourTravelPage() {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("exhibitor");
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 800);
@@ -26,11 +27,11 @@ export default function PlanYourTravelPage() {
   }
 
   const quickLinks = [
-    { label: "Enquire to Exhibit", link: "/exhibiting-enquiry", icon: "/icons/enquire.png" },
-    { label: "Download Event Brochure", link: "/event-brochure", icon: "/icons/brochure.png" },
-    { label: "Exhibitor List", link: "/exhibitor-list", icon: "/icons/list.png" },
-    { label: "Plan Your Travel", link: "/plan-your-travel", icon: "/icons/travel.png" },
-    { label: "Why Visit", link: "/why-visit", icon: "/icons/visit.png" }
+    { label: "Enquire to Exhibit", link: "/exhibiting-enquiry", icon: "📋" },
+    { label: "Download Event Brochure", link: "/event-brochure", icon: "📄" },
+    { label: "Exhibitor List", link: "/exhibitor-list", icon: "📊" },
+    { label: "Plan Your Travel", link: "/plan-your-travel", icon: "✈️" },
+    { label: "Why Visit", link: "/why-visit", icon: "ℹ️" }
   ];
 
   const exhibitorTabs = [
@@ -39,21 +40,24 @@ export default function PlanYourTravelPage() {
       description: "A regular business visa is suitable for business visits to Thailand aimed at negotiating, concluding contracts, participating in exhibitions, conferences, or other business meetings and events.",
       buttonText: "More Info",
       buttonLink: "/visa",
-      image: "https://cdn.itegroupnews.com/Visa_5bceffab8a_802e5140f4.webp"
+      image: "https://cdn.itegroupnews.com/Visa_5bceffab8a_802e5140f4.webp",
+      fallbackIcon: "🛂"
     },
     {
       title: "Freight, Handling & Customs",
       description: "We recommend DMW EXPO for shipping your products, equipment, materials, or displays. Their reliable service ensures timely and safe delivery for your stand allowing you to focus on your stand.",
       buttonText: "More Info",
       buttonLink: "/exhibitor-resource-center",
-      image: "https://cdn.itegroupnews.com/Rules_of_Entry_7bceffab8a_802e5140f4.webp"
+      image: "https://cdn.itegroupnews.com/Freight_Handling_and_Customs_f1ff7e4873.webp",
+      fallbackIcon: "📦"
     },
     {
       title: "Preparation Checklist",
       description: "To make your experience as seamless as possible, we have put together a checklist for you, to keep track of all the necessary requirements you will need to keep note of leading up to the event.",
       buttonText: "More Info",
       buttonLink: "/exhibitor-resource-center",
-      image: "https://cdn.itegroupnews.com/When_and_Where_8bceffab8a_802e5140f4.webp"
+      image: "https://cdn.itegroupnews.com/Preperation_Checklist_e2dbffca54.webp",
+      fallbackIcon: "✅"
     }
   ];
 
@@ -63,21 +67,24 @@ export default function PlanYourTravelPage() {
       description: "The most convenient way to obtain a visa to Thailand is with our official travel partner. Get assistance with your visa application for a smooth travel experience.",
       buttonText: "More Info",
       buttonLink: "/visa",
-      image: "https://cdn.itegroupnews.com/Visa_5bceffab8a_802e5140f4.webp"
+      image: "https://cdn.itegroupnews.com/Visa_5bceffab8a_802e5140f4.webp",
+      fallbackIcon: "🛂"
     },
     {
       title: "Rules of Entry",
       description: "Prior to your visit to ITS Tyre Expo, we as the event organisers urge you to adhere to the guidelines put in place for entry into Thailand.",
       buttonText: "More Info",
       buttonLink: "/terms-of-visiting",
-      image: "https://cdn.itegroupnews.com/Freight_Handling_and_Customs_f1ff7e4873.webp"
+      image: "https://cdn.itegroupnews.com/Freight_Handling_and_Customs_f1ff7e4873.webp",
+      fallbackIcon: "📋"
     },
     {
       title: "When and Where",
       description: "Find out the time and place where you need to be to join us at ITS Tyre Expo 2026. Plan your schedule accordingly.",
       buttonText: "More Info",
       buttonLink: "/about-its-tyre-expo",
-      image: "https://cdn.itegroupnews.com/Preperation_Checklist_e2dbffca54.webp"
+      image: "https://cdn.itegroupnews.com/Preperation_Checklist_e2dbffca54.webp",
+      fallbackIcon: "📍"
     }
   ];
 
@@ -87,86 +94,123 @@ export default function PlanYourTravelPage() {
       description: "Located in the heart of Bangkok's business district, a 15-minute drive from BITEC. The hotel features 350 luxury rooms, a rooftop pool, spa, fitness center, and 5 world-class restaurants. Free shuttle service to BITEC during exhibition days.",
       bookLink: "https://www.grandsukhumvit.com/",
       mapLink: "https://maps.google.com",
-      image: "https://cdn.itegroupnews.com/hotel_grand_sukhumvit_1a2b3c4d5e.jpg"
+      image: "https://cdn.itegroupnews.com/Art_Moscow_0e9113a0b9.webp"
     },
     {
       name: "Novotel Bangkok Sukhumvit 4*",
       description: "Conveniently located near BTS On Nut station, direct connection to BITEC via Skytrain. Modern rooms, outdoor pool, fitness center, and all-day dining restaurant. Special expo rates available.",
       bookLink: "https://www.novotelbangkok.com/",
       mapLink: "https://maps.google.com",
-      image: "https://cdn.itegroupnews.com/hotel_novotel_2b3c4d5e6f.jpg"
+      image: "https://cdn.itegroupnews.com/Penta_Hotel_417b45162b.webp"
     },
     {
       name: "Holiday Inn Express Sukhumvit 3*",
       description: "Budget-friendly option with modern amenities. Located near BTS Nana station, 20 minutes from BITEC. Complimentary breakfast and free Wi-Fi included.",
       bookLink: "https://www.hiexpress.com/bangkok",
       mapLink: "https://maps.google.com",
-      image: "https://cdn.itegroupnews.com/hotel_holiday_inn_3c4d5e6f7g.jpg"
+      image: "https://cdn.itegroupnews.com/Hotel_Peter_2_fda8f0151c.webp"
     },
     {
       name: "The St. Regis Bangkok 5*",
       description: "Luxury hotel with direct access to BTS Ratchadamri station. World-class spa, Michelin-starred dining, and butler service. 25 minutes to BITEC.",
       bookLink: "https://www.stregisbangkok.com/",
       mapLink: "https://maps.google.com",
-      image: "https://cdn.itegroupnews.com/hotel_stregis_4d5e6f7g8h.jpg"
+      image: "https://cdn.itegroupnews.com/Radisson_b7ae653ffc.webp"
     },
     {
       name: "W Bangkok Hotel 5*",
       description: "Stylish hotel near BTS Chong Nonsi. Modern design, rooftop bar, spa, and fitness facilities. 20 minutes to BITEC.",
       bookLink: "https://www.wbangkok.com/",
       mapLink: "https://maps.google.com",
-      image: "https://cdn.itegroupnews.com/hotel_w_bangkok_5e6f7g8h9i.jpg"
+      image: "https://cdn.itegroupnews.com/Golden_Ring_Hotel_e270350c1a.webp"
     },
     {
       name: "Ibis Styles Bangkok Sukhumvit 3*",
       description: "Affordable comfort near BTS On Nut station. Modern rooms, swimming pool, and all-day dining. Perfect for budget-conscious exhibitors.",
       bookLink: "https://www.ibisstylesbangkok.com/",
       mapLink: "https://maps.google.com",
-      image: "https://cdn.itegroupnews.com/hotel_ibis_6f7g8h9i0j.jpg"
+      image: "https://cdn.itegroupnews.com/Golden_Wood_Hotel_07b6676d88.webp"
     },
     {
       name: "The Berkeley Hotel Pratunam 4*",
       description: "Located in the shopping district, 30 minutes from BITEC. 600 rooms, rooftop pool, and multiple dining options. Free shuttle service available.",
       bookLink: "https://www.berkeleypratunam.com/",
       mapLink: "https://maps.google.com",
-      image: "https://cdn.itegroupnews.com/hotel_berkeley_7g8h9i0j1k.jpg"
+      image: "https://cdn.itegroupnews.com/ibis_65d9a5f2ce.webp"
     },
     {
       name: "Avani Sukhumvit Bangkok 4*",
       description: "Modern hotel connected to BTS On Nut station. Rooftop pool, fitness center, and multiple restaurants. Direct Skytrain access to BITEC.",
       bookLink: "https://www.avanihotels.com/sukhumvit",
       mapLink: "https://maps.google.com",
-      image: "https://cdn.itegroupnews.com/hotel_avani_8h9i0j1k2l.jpg"
+      image: "https://cdn.itegroupnews.com/Novotel_4bfc71dbc0.webp"
     },
     {
       name: "Oakwood Hotel & Residence 4*",
       description: "Serviced apartments near BTS Phrom Phong. Ideal for longer stays with kitchen facilities. 25 minutes to BITEC.",
       bookLink: "https://www.oakwoodbangkok.com/",
       mapLink: "https://maps.google.com",
-      image: "https://cdn.itegroupnews.com/hotel_oakwood_9i0j1k2l3m.jpg"
+      image: "https://cdn.itegroupnews.com/Metropol_f71f39d395.webp"
     },
     {
       name: "The Quarter Ari by UHG 4*",
       description: "Modern hotel in the Ari district. Rooftop pool with city views, fitness center, and restaurant. 35 minutes to BITEC.",
       bookLink: "https://www.thequarterari.com/",
       mapLink: "https://maps.google.com",
-      image: "https://cdn.itegroupnews.com/hotel_quarter_0j1k2l3m4n.jpg"
+      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop",
+      fallbackIcon: "🏨"
     },
     {
       name: "Nysa Hotel Bangkok 4*",
       description: "Boutique hotel near BITEC. Modern design, swimming pool, and fitness center. Just 5 minutes from the exhibition center.",
       bookLink: "https://www.nysahotelbangkok.com/",
       mapLink: "https://maps.google.com",
-      image: "https://cdn.itegroupnews.com/hotel_nysa_1k2l3m4n5o.jpg"
+      image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&h=300&fit=crop",
+      fallbackIcon: "🏨"
     },
     {
       name: "The Park Nine Hotel 4*",
       description: "Located in the Bangna area, just 10 minutes from BITEC. Spacious rooms, outdoor pool, and fitness center.",
       bookLink: "https://www.theparknine.com/",
       mapLink: "https://maps.google.com",
-      image: "https://cdn.itegroupnews.com/hotel_parknine_2l3m4n5o6p.jpg"
+      image: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=400&h=300&fit=crop",
+      fallbackIcon: "🏨"
     }
   ];
+
+  // Helper component for images with fallback
+  const ImageWithFallback = ({ 
+    src, 
+    alt, 
+    fallbackIcon, 
+    className = "" 
+  }: { 
+    src: string; 
+    alt: string; 
+    fallbackIcon?: string; 
+    className?: string;
+  }) => {
+    const [error, setError] = useState(false);
+
+    if (error || !src) {
+      return (
+        <div className={`flex items-center justify-center bg-gradient-to-br from-orange-100 to-orange-200 ${className}`}>
+          <span className="text-5xl">{fallbackIcon || "🏨"}</span>
+        </div>
+      );
+    }
+
+    return (
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className={`object-cover ${className}`}
+        onError={() => setError(true)}
+        unoptimized={src.includes('unsplash')}
+      />
+    );
+  };
 
   return (
     <div className="intro-animation">
@@ -243,22 +287,11 @@ export default function PlanYourTravelPage() {
                       <div key={idx} className="grid grid-cols-1 items-center gap-5 xl:grid-cols-7">
                         {/* Image */}
                         <div className="relative h-32 w-32 overflow-hidden rounded-lg bg-gray-200 xl:col-span-2">
-                          <Image
+                          <ImageWithFallback
                             src={item.image}
                             alt={item.title}
-                            fill
-                            className="object-cover"
-                            onError={(e) => {
-                              const target = e.currentTarget;
-                              target.style.display = 'none';
-                              const parent = target.parentElement;
-                              if (parent) {
-                                const fallback = document.createElement('div');
-                                fallback.className = 'absolute inset-0 flex items-center justify-center bg-gradient-to-br from-orange-100 to-orange-200';
-                                fallback.innerHTML = `<span class="text-4xl">${item.title === "Visa" ? "🛂" : item.title === "Freight, Handling & Customs" ? "📦" : "✅"}</span>`;
-                                parent.appendChild(fallback);
-                              }
-                            }}
+                            fallbackIcon={item.fallbackIcon}
+                            className="h-full w-full"
                           />
                         </div>
                         <h5 className="text-2xl font-bold text-black xl:col-span-2">{item.title}</h5>
@@ -281,22 +314,11 @@ export default function PlanYourTravelPage() {
                       <div key={idx} className="grid grid-cols-1 items-center gap-5 xl:grid-cols-7">
                         {/* Image */}
                         <div className="relative h-32 w-32 overflow-hidden rounded-lg bg-gray-200 xl:col-span-2">
-                          <Image
+                          <ImageWithFallback
                             src={item.image}
                             alt={item.title}
-                            fill
-                            className="object-cover"
-                            onError={(e) => {
-                              const target = e.currentTarget;
-                              target.style.display = 'none';
-                              const parent = target.parentElement;
-                              if (parent) {
-                                const fallback = document.createElement('div');
-                                fallback.className = 'absolute inset-0 flex items-center justify-center bg-gradient-to-br from-orange-100 to-orange-200';
-                                fallback.innerHTML = `<span class="text-4xl">${item.title === "Visa" ? "🛂" : item.title === "Rules of Entry" ? "📋" : "📍"}</span>`;
-                                parent.appendChild(fallback);
-                              }
-                            }}
+                            fallbackIcon={item.fallbackIcon}
+                            className="h-full w-full"
                           />
                         </div>
                         <h5 className="text-2xl font-bold text-black xl:col-span-2">{item.title}</h5>
@@ -328,25 +350,14 @@ export default function PlanYourTravelPage() {
 
               <div className="mt-10 space-y-10">
                 {hotels.map((hotel, idx) => (
-                  <div key={idx} className={`flex flex-col items-center gap-10 py-10 even:bg-orange-50 lg:flex-row lg:gap-20`}>
+                  <div key={idx} className={`flex flex-col items-center gap-10 py-10 ${idx % 2 === 1 ? 'bg-orange-50' : ''} lg:flex-row lg:gap-20`}>
                     {/* Hotel Image */}
                     <div className="relative h-48 w-48 shrink-0 overflow-hidden rounded-lg bg-gray-200 lg:h-60 lg:w-60">
-                      <Image
+                      <ImageWithFallback
                         src={hotel.image}
                         alt={hotel.name}
-                        fill
-                        className="object-cover"
-                        onError={(e) => {
-                          const target = e.currentTarget;
-                          target.style.display = 'none';
-                          const parent = target.parentElement;
-                          if (parent) {
-                            const fallback = document.createElement('div');
-                            fallback.className = 'absolute inset-0 flex items-center justify-center bg-gradient-to-br from-orange-100 to-orange-200';
-                            fallback.innerHTML = `<span class="text-5xl">🏨</span>`;
-                            parent.appendChild(fallback);
-                          }
-                        }}
+                        fallbackIcon={hotel.fallbackIcon || "🏨"}
+                        className="h-full w-full"
                       />
                     </div>
                     <div>
@@ -384,12 +395,8 @@ export default function PlanYourTravelPage() {
                       )}
                       <Link href={item.link} className="flex flex-col items-center group">
                         <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gray-800 transition-colors group-hover:bg-[#F08400]">
-                          <div className="text-2xl">
-                            {idx === 0 && "📋"}
-                            {idx === 1 && "📄"}
-                            {idx === 2 && "📊"}
-                            {idx === 3 && "✈️"}
-                            {idx === 4 && "ℹ️"}
+                          <div className="text-3xl">
+                            {item.icon}
                           </div>
                         </div>
                         <p className="mt-4 text-sm font-semibold text-gray-300 transition-colors group-hover:text-[#F08400]">

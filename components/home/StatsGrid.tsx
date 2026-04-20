@@ -22,7 +22,7 @@ export default function StatsGrid({ stats }: StatsGridProps) {
             `}
           >
             {/* NUMBER */}
-            <h3 className="text-[40px] md:text-[52px] lg:text-[60px] font-bold text-[#F08400] leading-none">
+            <h3 className="text-[25px] md:text-[35px] lg:text-[42px] font-bold text-[#F08400] leading-none">
               {stat.number}
             </h3>
 
