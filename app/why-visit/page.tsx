@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PartnersSection from "@/components/home/PartnersSection";
+import SectorsSection from "@/components/home/SectorsSection";
 
 export default function WhyVisitPage() {
   const [loading, setLoading] = useState(true);
@@ -17,8 +18,8 @@ export default function WhyVisitPage() {
   if (loading) {
     return (
       <div className="fixed inset-0 z-100 grid place-content-center bg-black">
-        <div className="flex size-20 animate-spin items-center justify-center rounded-full border-4 border-transparent border-t-orange-500 text-4xl">
-          <div className="flex size-16 animate-spin items-center justify-center rounded-full border-4 border-transparent border-t-orange-300 text-2xl"></div>
+        <div className="flex size-20 animate-spin items-center justify-center rounded-full border-4 border-transparent border-t-[#F08400] text-4xl">
+          <div className="flex size-16 animate-spin items-center justify-center rounded-full border-4 border-transparent border-t-[#F08400] text-2xl"></div>
         </div>
       </div>
     );
@@ -44,22 +45,22 @@ export default function WhyVisitPage() {
     {
       title: "See What's Powering Asia's Tyre Manufacturing Boom",
       description: "Experience the latest machinery, automation systems, and processing technologies driving large-scale tyre plant modernisation and expansion across the region.",
-      image: "/images/attendee-1.jpg"
+      image: "https://cdn.itegroupnews.com/1_1f3ae141f5.png"
     },
     {
       title: "Meet the Buyers Behind Multi-Million Projects",
       description: "Engage directly with procurement heads, plant managers, and investors responsible for sourcing equipment and solutions for new and existing tyre manufacturing operations.",
-      image: "/images/attendee-2.jpg"
+      image: "https://cdn.itegroupnews.com/2_6ab692408b.png"
     },
     {
       title: "Benchmark Against Global Industry Leaders",
       description: "Explore innovations from 350+ exhibitors across 15 countries and understand how leading international manufacturers are redefining performance, efficiency, and sustainability.",
-      image: "/images/attendee-3.jpg"
+      image: "https://cdn.itegroupnews.com/3_3310ab1131.png"
     },
     {
       title: "Gain a Front-Row View of Market Trends",
       description: "Stay ahead of industry shifts from automation and Industry 4.0 to sustainability, circular economy, and digital transformation shaping the future of tyre manufacturing.",
-      image: "/images/attendee-4.jpg"
+      image: "https://cdn.itegroupnews.com/4_2e07c29daf.png"
     }
   ];
 
@@ -87,64 +88,64 @@ export default function WhyVisitPage() {
     "Automation and software providers"
   ];
 
-  const sectors = [
-    {
-      title: "Raw Materials & Rubber Compounds",
-      slug: "raw-materials",
-      description: "Natural rubber, synthetic rubber, carbon black, silica, processing oils, and specialty chemicals.",
-      image: "/images/sectors/raw-materials.jpg"
-    },
-    {
-      title: "Tyre Manufacturing Machinery",
-      slug: "tyre-manufacturing-machinery",
-      description: "Banbury mixers, calenders, extruders, tyre building machines, curing presses, and finishing equipment.",
-      image: "/images/sectors/manufacturing.jpg"
-    },
-    {
-      title: "Rubber Processing Equipment",
-      slug: "rubber-processing-equipment",
-      description: "Two-roll mills, internal mixers, strainers, pelletizers, and rubber bale cutters.",
-      image: "/images/sectors/processing.jpg"
-    },
-    {
-      title: "Tyre Testing & Quality Control",
-      slug: "tyre-testing",
-      description: "Durability testers, uniformity machines, balance testers, X-ray inspection, and lab equipment.",
-      image: "/images/sectors/testing.jpg"
-    },
-    {
-      title: "Recycling & Sustainability",
-      slug: "recycling",
-      description: "Tyre recycling machinery, crumb rubber production, pyrolysis systems, and sustainable material innovations.",
-      image: "/images/sectors/recycling.jpg"
-    },
-    {
-      title: "Automation & Industry 4.0",
-      slug: "automation",
-      description: "MES systems, AI quality inspection, predictive maintenance, and smart factory solutions.",
-      image: "/images/sectors/automation.jpg"
-    }
-  ];
+  // const sectors = [
+  //   {
+  //     title: "Raw Materials & Rubber Compounds",
+  //     slug: "raw-materials",
+  //     description: "Natural rubber, synthetic rubber, carbon black, silica, processing oils, and specialty chemicals.",
+  //     image: "https://cdn.itegroupnews.com/Mining_World_Sectors_Images_1_ce66f08346.png"
+  //   },
+  //   {
+  //     title: "Tyre Manufacturing Machinery",
+  //     slug: "tyre-manufacturing-machinery",
+  //     description: "Banbury mixers, calenders, extruders, tyre building machines, curing presses, and finishing equipment.",
+  //     image: "https://cdn.itegroupnews.com/Mining_World_Sectors_Images_1_ce66f08346.png"
+  //   },
+  //   {
+  //     title: "Rubber Processing Equipment",
+  //     slug: "rubber-processing-equipment",
+  //     description: "Two-roll mills, internal mixers, strainers, pelletizers, and rubber bale cutters.",
+  //     image: "https://cdn.itegroupnews.com/Mining_World_Sectors_Images_1_ce66f08346.png"
+  //   },
+  //   {
+  //     title: "Tyre Testing & Quality Control",
+  //     slug: "tyre-testing",
+  //     description: "Durability testers, uniformity machines, balance testers, X-ray inspection, and lab equipment.",
+  //     image: "https://cdn.itegroupnews.com/Mining_World_Sectors_Images_1_ce66f08346.png"
+  //   },
+  //   {
+  //     title: "Recycling & Sustainability",
+  //     slug: "recycling",
+  //     description: "Tyre recycling machinery, crumb rubber production, pyrolysis systems, and sustainable material innovations.",
+  //     image: "https://cdn.itegroupnews.com/Mining_World_Sectors_Images_1_ce66f08346.png"
+  //   },
+  //   {
+  //     title: "Automation & Industry 4.0",
+  //     slug: "automation",
+  //     description: "MES systems, AI quality inspection, predictive maintenance, and smart factory solutions.",
+  //     image: "https://cdn.itegroupnews.com/Mining_World_Sectors_Images_1_ce66f08346.png"
+  //   }
+  // ];
 
   const beyondExhibition = [
     {
       title: "Conference Programme",
       description: "Join 12 specialised sessions tackling the industry's most pressing challenges from technological innovation to sustainability and market dynamics. Gain actionable insights to enhance efficiency and strengthen your operations.",
-      image: "/images/conference.jpg",
+      image: "https://cdn.itegroupnews.com/MW_24_2304_0004_FORUM_i_c9f88bc608.jpg",
       buttonText: "Learn More",
       buttonLink: "/conference-programme"
     },
     {
       title: "ITS Tyre Expo Connect",
       description: "Connect with peers, explore opportunities, and access event schedules, exhibitor deals, and floor plans with the official ITS Tyre Expo app – your year-round networking tool.",
-      image: "/images/connect.jpg",
+      image: "https://cdn.itegroupnews.com/QR_MW_eng_web_site_e73baacf2e.svg",
       buttonText: "Learn More",
       buttonLink: "/connect"
     },
     {
       title: "Awards",
       description: "The Tyre Innovation Awards honor innovative projects that boost safety, efficiency, and sustainability, setting benchmarks for excellence in tyre manufacturing.",
-      image: "/images/awards.jpg",
+      image: "https://cdn.itegroupnews.com/QR_MW_eng_web_site_e73baacf2e.svg",
       buttonText: "Learn More",
       buttonLink: "/awards"
     }
@@ -157,18 +158,13 @@ export default function WhyVisitPage() {
     { label: "Plan your Travel", link: "/plan-your-travel", icon: "/icons/travel.png" }
   ];
 
-  const partners = [
-    "ProfiMiner", "Times International", "TotalExpo.ru", "Vedomosti",
-    "Industry of Eurasia", "Miners of Russia", "Zyfra", "Market and Business Analysis"
-  ];
-
   return (
     <div className="intro-animation">
       {/* Mobile Header */}
       <div className="fixed left-0 top-0 z-50 w-full bg-black px-5 py-2 lg:hidden">
         <div className="flex justify-between">
           <Link href="/">
-            <Image src="/imgs/logo-its.png" alt="ITS Tyre Expo" width="140" height="40" className="h-auto w-auto object-contain" />
+            <Image src="/imgs/logo-its.png" alt="ITS Tyre Expo" width={140} height={40} className="h-auto w-auto object-contain" />
           </Link>
           <button className="z-10">
             <svg width="32" height="20" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -181,7 +177,7 @@ export default function WhyVisitPage() {
       {/* Back to Top Button */}
       <div className="fixed bottom-3 right-3 z-50 opacity-0 transition-all duration-300 lg:bottom-10 lg:right-2">
         <button className="m-0 rounded-full border-none bg-white p-0 outline-hidden drop-shadow-lg">
-          <svg className="size-10 fill-orange-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <svg className="size-10 fill-[#F08400]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M22 12c0-5.522-4.476-10-10-10C6.479 2 2 6.479 2 12c0 5.524 4.478 10 10 10c5.524 0 10-4.476 10-10zm-14.53.28a.75.75 0 0 1-.073-.976l.073-.084l4-4a.75.75 0 0 1 .977-.073l.085.072l4 4.002a.75.75 0 0 1-.977 1.133l-.084-.073l-2.72-2.721v6.691a.75.75 0 0 1-.649.743l-.102.007a.75.75 0 0 1-.743-.648l-.007-.102v-6.69l-2.72 2.72a.75.75 0 0 1-.976.072l-.084-.072z"></path>
           </svg>
         </button>
@@ -201,96 +197,183 @@ export default function WhyVisitPage() {
                     Experience the complete tyre manufacturing value chain in one place. ITS Tyre Expo brings together technology leaders, equipment manufacturers, and industry professionals to exchange ideas, discover innovations, and drive the next phase of growth in global tyre manufacturing.
                   </p>
                 </div>
-                <div className="mt-10 grid grid-cols-2 gap-6 bg-orange-50 p-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="mt-10 grid grid-cols-2 gap-6 bg-[#F08400]/10 p-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {stats.map((stat, idx) => (
                     <div key={idx} className="flex w-fit flex-col font-bebas">
-                      <h3 className="mb-3 text-5xl font-bold text-orange-600">{stat.value}</h3>
+                      <h3 className="mb-3 text-5xl font-bold text-[#F08400]">{stat.value}</h3>
                       <p className="text-xl text-black">{stat.label}</p>
                     </div>
                   ))}
                 </div>
                 <div className="mt-10">
                   <Link href="/visitor-registration">
-                    <button className="flex-center global-transition group w-fit gap-2 overflow-hidden border-2 border-orange-600 px-10 py-3 font-bebas text-2xl text-orange-600 transition-all hover:bg-black hover:text-white">Get your Badge Today</button>
+                    <button className="flex-center global-transition group w-fit gap-2 overflow-hidden border-2 border-[#F08400] px-10 py-3 font-bebas text-2xl text-[#F08400] transition-all hover:bg-black hover:text-white">Get your Badge Today</button>
                   </Link>
                 </div>
               </div>
               <div className="order-first h-full lg:col-span-2">
-                <div className="h-80 w-full bg-gray-300 object-cover lg:h-96"></div>
+                <div className="relative h-100 w-full overflow-hidden lg:h-130">
+  <Image
+    src="https://cdn.itegroupnews.com/1_1f3ae141f5.png" // 👉 your image
+    alt="Tyre Industry"
+    fill
+    className="object-cover"
+  />
+</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Global Network Section */}
-        <div className="animated-block mt-20">
-          <div className="animated-block-target">
-            <div className="relative overflow-hidden bg-gray-800 py-20 text-white">
-              <div className="absolute inset-0 bg-black/50"></div>
-              <div className="container relative z-10 px-4">
-                <div className="grid gap-5">
-                  <p className="font-bold text-orange-400">Connect with the Global Tyre Network at ITS Tyre Expo</p>
-                  <h3 className="max-w-[1000px] font-bebas text-5xl text-white md:text-6xl">Where Tyre Manufacturing's Key Players Meet and Opportunities Take Shape</h3>
-                  <Link href="/exhibitor-list" target="_blank">
-                    <button className="w-fit bg-orange-600 px-8 py-3 font-bebas text-xl text-white transition-all hover:bg-black">Explore the Exhibitors List</button>
-                  </Link>
-                  <div className="mt-10 flex flex-wrap items-center gap-6 rounded-l-3xl bg-black/70 py-5 pl-5 font-bebas text-white">
-                    {countries.map((country, idx) => (
-                      <div key={idx} className="flag flex-center gap-3">
-                        <div className="h-8 w-8 rounded-full bg-gray-500 lg:h-10 lg:w-10"></div>
-                        <h5 className="text-xl lg:text-2xl">{country.name}</h5>
-                      </div>
-                    ))}
-                  </div>
+<div className="animated-block mt-20">
+  <div className="animated-block-target">
+    
+   <div
+  className="relative overflow-hidden bg-gray-800 py-20 text-white bg-cover bg-center"
+  style={{
+    backgroundImage: "url('https://miningworldexpo.com/imgs/shape-1.svg')"
+  }}
+>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/50"></div>
+
+      <div className="container relative z-10 px-10">
+        <div className="grid gap-5">
+
+          <p className="font-bold text-[#F08400]">
+            Connect with the Global Tyre Network at ITS Tyre Expo
+          </p>
+
+          <h3 className="max-w-[1000px] font-bebas text-5xl text-white md:text-6xl">
+            Where Tyre Manufacturing's Key Players Meet and Opportunities Take Shape
+          </h3>
+
+          <Link href="/exhibitor-list" target="_blank">
+            <button className="w-fit bg-[#F08400] px-8 py-3 font-bebas text-xl text-white transition-all hover:bg-black">
+              Explore the Exhibitors List
+            </button>
+          </Link>
+
+          <div className="mt-10 flex flex-wrap items-center gap-6 rounded-l-3xl bg-black/70 py-5 pl-5 font-bebas text-white">
+            {countries.map((country, idx) => (
+              <div key={idx} className="flag flex-center gap-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-500 text-xs lg:h-10 lg:w-10">
+                  Flag
                 </div>
+                <h5 className="text-xl lg:text-2xl">{country.name}</h5>
               </div>
-            </div>
+            ))}
           </div>
+
         </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
         {/* Why Attend Section */}
-        <div className="animated-block mt-20">
-          <div className="animated-block-target">
-            <div className="container mx-auto px-4">
-              <h3 className="font-bebas text-5xl text-black md:text-6xl">Why Attend ITS Tyre Expo</h3>
-              <div className="mt-10 grid gap-6 md:grid-cols-2">
-                {attendeeCategories.map((item, idx) => (
-                  <div key={idx} className="relative flex min-h-[300px] flex-col overflow-hidden rounded-lg bg-gray-100 p-6">
-                    <div className="relative z-10 flex flex-col gap-4">
-                      <h4 className="text-2xl font-bold text-black">{item.title}</h4>
-                      <p className="text-gray-600">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+<div className="mt-20 space-y-16">
+  {attendeeCategories.map((item, idx) => {
+    const isReverse = idx % 2 !== 0;
+
+    return (
+      <div key={idx} className="px-6 md:px-10 lg:px-16">
+        <div
+          className={`grid items-stretch gap-6 lg:grid-cols-2 ${
+            isReverse ? "" : ""
+          }`}
+        >
+          {/* CONTENT */}
+          <div
+            className={`flex flex-col justify-center bg-[#f1eee9] p-10 md:p-14 lg:p-16 ${
+              isReverse ? "lg:order-2" : "lg:order-1"
+            }`}
+          >
+            <h4 className="mb-6 text-4xl md:text-5xl font-bold text-black leading-tight">
+              {item.title}
+            </h4>
+
+            <p className="text-lg text-gray-700 leading-relaxed max-w-[600px]">
+              {item.description}
+            </p>
+          </div>
+
+          {/* IMAGE */}
+          <div
+            className={`relative min-h-[350px] md:min-h-[450px] lg:min-h-[520px] ${
+              isReverse ? "lg:order-1" : "lg:order-2"
+            }`}
+          >
+            <img
+              src={item.image}
+              alt={item.title}
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
+      </div>
+    );
+  })}
+</div>
 
         {/* Download Brochure Section */}
-        <div className="animated-block mt-20">
-          <div className="animated-block-target">
-            <div className="relative z-1 mx-auto overflow-hidden bg-orange-900 py-20 text-white">
-              <div className="absolute inset-0 z-1 bg-black/50"></div>
-              <div className="container relative z-10 mx-auto px-4">
-                <div className="grid items-center gap-10 md:grid-cols-12">
-                  <div className="flex-center md:col-span-4">
-                    <div className="h-64 w-64 bg-white/20"></div>
-                  </div>
-                  <div className="flex flex-col gap-5 md:col-span-8">
-                    <h3 className="font-bebas text-6xl md:text-7xl">Download Your Event Brochure</h3>
-                    <p className="max-w-[700px] text-lg">
-                      See why the industry's leading buyers and suppliers choose ITS Tyre Expo. Download the brochure to uncover the facts, figures, and growth potential.
-                    </p>
-                    <Link href="/event-brochure">
-                      <button className="flex-center global-transition group w-fit gap-2 overflow-hidden bg-orange-600 px-10 py-3 font-bebas text-2xl text-white hover:bg-black">Download Event Brochure</button>
-                    </Link>
+          <div className="animated-block mt-20">
+            <div className="animated-block-target">
+
+              <div className="relative mx-auto overflow-hidden py-20 text-white">
+
+                {/* 🔥 BACKGROUND IMAGE */}
+                <div className="absolute inset-0">
+                  <img
+                    src="https://cdn.itegroupnews.com/img_3_4b6edc76d1.jpg" // 👈 your image here
+                    alt="Event Background"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+
+                {/* 🔥 DARK OVERLAY */}
+                <div className="absolute inset-0 bg-black/60"></div>
+
+                {/* CONTENT */}
+                <div className="container relative z-10 mx-auto px-4">
+                  <div className="grid items-center gap-10 md:grid-cols-12">
+
+                    {/* LEFT IMAGE / MOCKUP */}
+                    <div className="flex justify-center md:col-span-4">
+                      <img
+                        src="https://cdn.itegroupnews.com/Sales_Brochure_84b3c56f9d.png"
+                        alt="Brochure"
+                        className="h-64 w-auto object-contain"
+                      />
+                    </div>
+
+                    {/* RIGHT CONTENT */}
+                    <div className="flex flex-col gap-5 md:col-span-8">
+                      <h3 className="font-bebas text-6xl md:text-7xl leading-tight">
+                        Download Your Event Brochure
+                      </h3>
+
+                      <p className="max-w-[700px] text-lg text-gray-200">
+                        Make sure you grab your copy of the event brochure to learn more
+                        about the show and explore your participation opportunities.
+                      </p>
+
+                      <Link href="/event-brochure">
+                        <button className="bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white transition-all hover:bg-black">
+                          Download Now
+                        </button>
+                      </Link>
+                    </div>
+
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
-        </div>
 
         {/* Business Areas Section */}
         <div className="animated-block mt-20">
@@ -303,70 +386,100 @@ export default function WhyVisitPage() {
                     ITS Tyre Expo attracts a diverse audience from industries such as manufacturing, distribution, technology, and services. Understanding their business focus allows you to identify potential partners, customise your offerings, and engage directly with decision-makers driving innovation.
                   </p>
                 </div>
-                <div className="mt-10 grid grid-cols-2 gap-6 bg-orange-50 p-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-10 grid grid-cols-2 gap-6 bg-[#F08400]/10 p-8 sm:grid-cols-2 lg:grid-cols-3">
                   {businessAreas.map((area, idx) => (
                     <div key={idx} className="flex w-fit flex-col font-bebas">
-                      <h3 className="mb-3 text-5xl font-bold text-orange-600">{area.percentage}</h3>
+                      <h3 className="mb-3 text-5xl font-bold text-[#F08400]">{area.percentage}</h3>
                       <p className="text-xl text-black">{area.label}</p>
                     </div>
                   ))}
                 </div>
                 <div className="mt-10">
                   <Link href="/post-show-report">
-                    <button className="flex-center global-transition group w-fit gap-2 overflow-hidden bg-orange-600 px-10 py-3 font-bebas text-2xl text-white hover:bg-black">Download Your Post-Show Report</button>
+                    <button className="flex-center global-transition group w-fit gap-2 overflow-hidden bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white hover:bg-black">Download Your Post-Show Report</button>
                   </Link>
                 </div>
               </div>
               <div className="order-first h-full lg:col-span-2">
-                <div className="h-80 w-full bg-gray-300 object-cover lg:h-96"></div>
+                <div className="relative h-100 w-full lg:h-130">
+  <Image
+    src="https://cdn.itegroupnews.com/Untitled_design_11_c8dee1a839.png " // 👉 change to your image path
+    alt="Business Areas"
+    fill
+    className="object-cover "
+  />
+</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Who is it for Section */}
-        <div className="animated-block mt-20">
-          <div className="animated-block-target">
-            <div className="container mx-auto px-4">
-              <h3 className="font-bebas text-5xl text-black md:text-6xl">Who is ITS Tyre Expo for?</h3>
-              <div className="mt-10 grid gap-6 md:grid-cols-2">
-                <div className="relative flex min-h-[400px] flex-col overflow-hidden rounded-lg bg-gray-800 p-6 text-white">
-                  <div className="relative z-10">
-                    <ul className="list-disc space-y-2 pl-5">
-                      {visitorIndustries.map((industry, idx) => (
-                        <li key={idx}>{industry}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-                <div className="relative flex min-h-[400px] flex-col overflow-hidden rounded-lg bg-gray-800 p-6 text-white">
-                  <div className="relative z-10">
-                    <ul className="list-disc space-y-2 pl-5">
-                      {supplierIndustries.map((industry, idx) => (
-                        <li key={idx}>{industry}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+<div className="animated-block mt-20">
+  <div className="animated-block-target">
+    <div className="container mx-auto px-4">
+
+      <h3 className="font-bebas text-5xl text-black md:text-6xl">
+        Who is ITS Tyre Expo for?
+      </h3>
+
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
+
+        {/* LEFT CARD */}
+        <div className="relative min-h-[400px] overflow-hidden rounded-lg text-white">
+          <img
+            src="https://cdn.itegroupnews.com/img_3_4b6edc76d1.jpg"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60"></div>
+
+          <div className="relative z-10 p-8">
+            <ul className="space-y-4 text-lg">
+              {visitorIndustries.map((industry, idx) => (
+                <li key={idx}>{industry}</li>
+              ))}
+            </ul>
           </div>
         </div>
+
+        {/* RIGHT CARD */}
+        <div className="relative min-h-[400px] overflow-hidden rounded-lg text-white">
+          <img
+            src="https://cdn.itegroupnews.com/img_3_4b6edc76d1.jpg"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60"></div>
+
+          <div className="relative z-10 p-8">
+            <ul className="space-y-4 text-lg">
+              {supplierIndustries.map((industry, idx) => (
+                <li key={idx}>{industry}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
 
         {/* Past Exhibitors Section */}
         <div className="animated-block mt-20">
           <div className="animated-block-target">
             <div className="container mx-auto px-4">
               <h3 className="font-bebas text-5xl text-black md:text-6xl">Have a Look at Our Past Exhibitors</h3>
-              <div className="mt-10 rounded-lg bg-orange-50 p-8">
-                <div className="flex flex-wrap items-center justify-center gap-8">
-                  {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                    <div key={i} className="h-16 w-32 bg-gray-300"></div>
-                  ))}
-                </div>
+              <div className="mt-10 rounded-lg bg-[#F08400]/10 p-8">
+               <div className="mt-10 overflow-hidden rounded-lg">
+  <img
+    src="https://cdn.itegroupnews.com/MWR_Past_Exhibitors_1_dcd641cb9b.png" // 👉 put your image here
+    alt="Past Exhibitors"
+    className="h-[300px] w-full object-cover md:h-[400px] lg:h-[450px]"
+  />
+</div>
                 <div className="mt-8 flex justify-center">
                   <Link href="https://catalogue.ite-expo.ru/en-GB/exhibitorlist.aspx?project_id=541" target="_blank">
-                    <button className="bg-orange-600 px-8 py-3 font-bebas text-xl text-white transition-all hover:bg-black">View the Exhibitor List</button>
+                    <button className="bg-[#F08400] px-8 py-3 font-bebas text-xl text-white transition-all hover:bg-black">View the Exhibitor List</button>
                   </Link>
                 </div>
               </div>
@@ -375,30 +488,7 @@ export default function WhyVisitPage() {
         </div>
 
         {/* Event Sectors Section */}
-        <div className="animated-block mt-20">
-          <div className="animated-block-target">
-            <div className="container relative mx-auto px-4">
-              <h3 className="font-bebas text-5xl text-black md:text-6xl">Event Sectors On Display At The Event</h3>
-              <Link href="/sectors">
-                <button className="flex-center global-transition group mb-10 w-fit gap-2 overflow-hidden border-2 border-orange-600 px-10 py-3 font-bebas text-2xl text-orange-600 transition-all hover:bg-black hover:text-white">Explore All the Event Sectors</button>
-              </Link>
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {sectors.map((sector, idx) => (
-                  <div key={idx} className="group flex flex-col overflow-hidden rounded-lg bg-orange-50 transition-shadow duration-300 ease-in-out hover:shadow-lg">
-                    <div className="relative h-48 bg-gray-300"></div>
-                    <div className="flex flex-col gap-4 p-5">
-                      <h4 className="text-xl font-semibold text-black">{sector.title}</h4>
-                      <p className="text-gray-600 line-clamp-2">{sector.description}</p>
-                      <Link href={`/sectors/${sector.slug}`}>
-                        <button className="flex-center group gap-2 font-bebas text-xl text-orange-600">Read More →</button>
-                      </Link>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+        <SectorsSection />
 
         {/* Beyond an Exhibition Section */}
         <div className="animated-block mt-20">
@@ -414,13 +504,20 @@ export default function WhyVisitPage() {
               </div>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {beyondExhibition.map((item, idx) => (
-                  <div key={idx} className="group flex flex-col overflow-hidden rounded-lg bg-orange-50 transition-shadow duration-300 ease-in-out hover:shadow-lg">
-                    <div className="relative h-48 bg-gray-300"></div>
+                  <div key={idx} className="group flex flex-col overflow-hidden rounded-lg bg-[#F08400]/10 transition-shadow duration-300 ease-in-out hover:shadow-lg">
+                    <div className="relative h-48 w-full overflow-hidden">
+  <Image
+    src={item.image}
+    alt={item.title}
+    fill
+    className="object-cover transition-transform duration-500 group-hover:scale-105"
+  />
+</div>
                     <div className="flex flex-col gap-4 p-5">
                       <h4 className="text-2xl font-bold text-black">{item.title}</h4>
                       <p className="text-gray-600 line-clamp-3">{item.description}</p>
                       <Link href={item.buttonLink}>
-                        <button className="mt-2 w-fit bg-orange-600 px-6 py-2 font-bebas text-xl text-white transition-all hover:bg-black">{item.buttonText}</button>
+                        <button className="mt-2 w-fit bg-[#F08400] px-6 py-2 font-bebas text-xl text-white transition-all hover:bg-black">{item.buttonText}</button>
                       </Link>
                     </div>
                   </div>
@@ -436,18 +533,28 @@ export default function WhyVisitPage() {
             <div className="container mx-auto flex flex-col gap-6 px-4 text-black">
               <h3 className="font-bebas text-5xl text-black md:text-6xl">When and Where</h3>
               <div className="grid gap-6 lg:grid-cols-2">
-                <div className="rounded-xl bg-orange-50 p-6">
+                <div className="rounded-xl bg-[#F08400]/10 p-6">
                   <p className="mb-2 font-bold">Venue</p>
                   <h4 className="text-2xl font-bold">BITEC, Bangkok, Thailand</h4>
                 </div>
-                <div className="rounded-xl bg-orange-50 p-6">
+                <div className="rounded-xl bg-[#F08400]/10 p-6">
                   <p className="mb-2 font-bold">Opening Hours</p>
                   <h4 className="text-2xl font-bold">15 October 2026: 10:00 - 18:00</h4>
                   <h4 className="text-2xl font-bold">16 October 2026: 10:00 - 18:00</h4>
                   <h4 className="text-2xl font-bold">17 October 2026: 10:00 - 16:00</h4>
                 </div>
               </div>
-              <div className="h-96 w-full rounded-xl bg-gray-200"></div>
+              <div className="h-96 w-full overflow-hidden rounded-xl">
+  <iframe
+    src="https://www.google.com/maps?q=BITEC%20Bangkok%20Thailand&output=embed"
+    width="100%"
+    height="100%"
+    style={{ border: 0 }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  ></iframe>
+</div>
             </div>
           </div>
         </div>
@@ -455,19 +562,33 @@ export default function WhyVisitPage() {
         {/* Quick Navigation */}
         <div className="animated-block mt-20">
           <div className="animated-block-target">
-            <div className="-mt-px border-t-8 border-orange-600 bg-black py-20 text-white">
+            <div className="-mt-px border-t-8 border-[#F08400] bg-black py-20 text-white">
               <div className="container relative z-1 mx-auto w-full space-y-8 overflow-hidden px-4">
                 <h2 className="font-bebas text-6xl md:text-7xl">Quick Navigation</h2>
-                <div className="flex flex-wrap gap-12">
-                  {quickLinks.map((item, idx) => (
-                    <Link key={idx} href={item.link}>
-                      <div className="flex-center h-20 w-20 rounded-full bg-gray-800">
-                        <div className="h-8 w-8 bg-gray-600"></div>
-                      </div>
-                      <p className="mt-3 text-center text-sm font-bold">{item.label}</p>
-                    </Link>
-                  ))}
-                </div>
+               <div className="mt-12 grid grid-cols-2 gap-y-10 text-center md:grid-cols-4">
+
+  {quickLinks.map((item, idx) => (
+    <Link key={idx} href={item.link} className="relative flex flex-col items-center justify-center">
+
+      {/* Divider (except last item) */}
+      {idx !== quickLinks.length - 1 && (
+        <div className="absolute right-0 top-1/2 hidden h-16 w-[1px] -translate-y-1/2 bg-white/20 md:block"></div>
+      )}
+
+      {/* ICON */}
+      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#1a1a1a]">
+        <img src={item.icon} alt={item.label} className="h-8 w-8 object-contain" />
+      </div>
+
+      {/* TEXT */}
+      <p className="mt-4 text-sm font-medium text-white/90">
+        {item.label}
+      </p>
+
+    </Link>
+  ))}
+
+</div>
               </div>
             </div>
           </div>
@@ -476,8 +597,6 @@ export default function WhyVisitPage() {
         {/* Partners Section */}
         <PartnersSection/>
       </div>
-
-
 
       <style jsx>{`
         .global-transition {

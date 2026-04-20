@@ -19,22 +19,21 @@ export default function SectionHeader({
       {/* TOP TEXT */}
       {topText && (
         <p className="text-[#F08400] font-sans text-[14px] uppercase tracking-[1.5px]">
-  {topText}
-</p>
+          {topText}
+        </p>
       )}
 
       {/* TITLE */}
-   <h2 className="font-heading text-[36px] sm:text-[48px] lg:text-[64px] leading-[1.05] tracking-[2px] uppercase text-black mt-4">
-  {title}
-</h2>
+      <h2 className="font-bebas font-bold  text-[52px] md:text-[70px] uppercase tracking-[1.5px] text-[#1a1a1a] leading-[1.05] mt-3">
+        {title}
+      </h2>
 
       {/* DESCRIPTION */}
       {description && (
         <p
-          className={`
-            text-gray-600 mt-6 text-lg leading-relaxed
-            ${isCenter ? 'mx-auto max-w-[700px]' : 'max-w-[700px]'}
-          `}
+          className={`text-gray-600 mt-6 text-lg leading-relaxed ${
+            isCenter ? 'mx-auto max-w-[700px]' : 'max-w-[700px]'
+          }`}
         >
           {description}
         </p>

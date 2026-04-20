@@ -1,84 +1,21 @@
 // app/articles/[slug]/page.tsx
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams, notFound } from "next/navigation";
+import { getArticleBySlug, getRelatedArticles } from "../data";
 
-// Mock data - In production, fetch this from your CMS/API
-// This simulates the article data from the HTML
-const getArticleData = (slug: string) => {
-  // This mapping would come from your CMS in production
-  const articles: Record<string, any> = {
-    "the-share-of-standardized-parts-in-the-equipment-of-npo-akonit-today-averages-47": {
-      id: 220,
-      title:
-        "The share of standardized parts in the equipment of NPO Akonit today averages 47%.",
-      slug: "the-share-of-standardized-parts-in-the-equipment-of-npo-akonit-today-averages-47",
-      excerpt: "",
-      image:
-        "https://cdn.itegroupnews.com/20250218260_61bf798bb7.webp",
-      publishedDate: "2026-03-27T06:15:00.000Z",
-      content: `
-        <h2><strong>A year ago, it did not exceed 20%. More information will be available at the company's stand at the MiningWorld Russia 2026 exhibition.</strong></h2>
-        <p><br><img src="https://cdn.itegroupnews.com/6_4ae41fb0f9.webp" alt="6.webp"></p>
-        <p>&nbsp;</p>
-        <p>For chemical industry enterprises (potash fertilizer production), when manufacturing conveyor systems, the percentage of standardized parts in the equipment today already reaches an average of over 70%.</p>
-        <p>&nbsp;</p>
-        <p>These are the results of the standardization project for 2025. Last February, at an event held by the Akonit Closed Club in Tatarstan, the results of the standardization project launch were presented, and guests were shown a working prototype of the conveyor, consisting entirely of standardized components. "Generation A2" is the company's name for this line of standardized equipment. In April, this model was on display at the MiningWorld Russia 2025 exhibition.</p>
-        <p>&nbsp;</p>
-        <p>Much has changed over the past year: the percentage of standardized parts in designed and manufactured conveyor equipment has increased, and a line of "Generation A3" conveyors for metallurgical plants has emerged, taking into account the specific needs of metallurgists.</p>
-        <p>&nbsp;</p>
-        <p>"We're seeing that customers are increasingly seeing the benefits of standardization: reduced equipment delivery times, improved reliability and quality through the use of proven parts and repeatability of components and technical solutions. The share of standardized parts in equipment orders is constantly increasing. This demonstrates that we've chosen the right path: focusing on import prevention and building our own technical capabilities in technologies," comments Dmitry Viktorov, Director of NPO Akonit, on the project's results.</p>
-        <p>&nbsp;</p>
-        <p><img src="https://cdn.itegroupnews.com/10_9c8b796685.webp" alt="10.webp" width="900" height="1200"></p>
-        <p>&nbsp;</p>
-        <h3><strong>Visit the company's stand at MiningWorld Russia 2026</strong></h3>
-        <h3><br><strong>Get a free ticket now with promo code NEWS and attend Russia's premier mining event without unnecessary costs or queues.</strong></h3>
-        <p><br><a href="https://miningworld.ru/ru/visit/visitor-registration/?utm_source=https://miningworld.ru/ru/media/news/&amp;utm_medium=Media&amp;utm_campaign=cross-promo&amp;promo=NEWS"><strong>GET A TICKET</strong></a></p>
-      `,
-    },
-  };
-  return articles[slug] || null;
-};
-
-export default function ArticlePage({ params }: { params: { slug: string } }) {
-  const [article, setArticle] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // In production, replace with actual API call:
-    // fetch(`/api/articles/${params.slug}`).then(res => res.json()).then(data => {...})
-    const data = getArticleData(params.slug);
-    setArticle(data);
-    setLoading(false);
-  }, [params.slug]);
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-[60vh]">
-        <div className="flex size-20 animate-spin items-center justify-center rounded-full border-4 border-transparent border-t-orange-500 text-4xl">
-          <div className="flex size-16 animate-spin items-center justify-center rounded-full border-4 border-transparent border-t-orange-300 text-2xl"></div>
-        </div>
-      </div>
-    );
-  }
+export default function ArticlePage() {
+  const params = useParams();
+  const slug = params.slug as string;
+  
+  const article = getArticleBySlug(slug);
+  const relatedArticles = getRelatedArticles(slug, 3);
 
   if (!article) {
-    return (
-      <div className="container mx-auto px-4 py-40 text-center">
-        <h1 className="text-4xl font-bold mb-4">Article Not Found</h1>
-        <p className="text-gray-600 mb-8">
-          The article you're looking for doesn't exist or has been moved.
-        </p>
-        <Link
-          href="/articles"
-          className="inline-block bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-black transition-colors"
-        >
-          Back to Articles
-        </Link>
-      </div>
-    );
+    notFound();
   }
 
   const formatDate = (dateString: string) => {
@@ -92,51 +29,106 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="page-spacing-wrapper">
-      <article className="container mx-auto px-4 space-y-5 py-40 max-w-4xl">
-        {/* Article Title */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold hero-element split-text-optimized text-black">
-          {article.title}
-        </h1>
+      <article className="px-6 md:px-10 lg:px-12 py-16 md:py-24">
+        {/* Date */}
+        <div className="mb-6 text-center">
+          <time className="text-sm md:text-base text-orange-500 font-semibold tracking-wide uppercase">
+            {formatDate(article.publishedDate)}
+          </time>
+        </div>
 
-        {/* Article Image */}
-        <div className="hero-element">
+        {/* Title */}
+      <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-black uppercase text-center leading-tight whitespace-nowrap overflow-hidden text-ellipsis mb-8">
+  {article.title}
+</h1>
+        
+        {/* Featured Image */}
+        <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-lg mb-12">
           <Image
             alt={article.title}
-            width={1000}
-            height={600}
-            className="size-full max-w-[1000px] object-cover rounded-lg"
+            fill
+            className="object-cover"
             src={article.image}
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
           />
         </div>
-
-        {/* Article Meta Info */}
-        <div className="text-gray-500 text-sm">
-          Published on {formatDate(article.publishedDate)}
+        
+        {/* Article Content */}
+        <div className="prose prose-lg md:prose-xl max-w-none mx-auto
+          prose-headings:font-heading prose-headings:text-black prose-headings:uppercase
+          prose-h1:text-3xl md:prose-h1:text-4xl prose-h1:mb-6
+          prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:text-orange-600
+          prose-h3:text-xl md:prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
+          prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-5
+          prose-strong:text-black prose-strong:font-bold
+          prose-a:text-orange-500 prose-a:no-underline hover:prose-a:underline
+          prose-img:rounded-lg prose-img:shadow-md prose-img:my-6
+          prose-ul:list-disc prose-ul:pl-6 prose-ul:my-4
+          prose-li:text-gray-700 prose-li:mb-1
+          [&_figure]:my-8 [&_figure_img]:rounded-lg [&_figure_img]:shadow-md
+        ">
+          <div dangerouslySetInnerHTML={{ __html: article.content }} />
         </div>
 
-        {/* Article Content */}
-        <div
-          className="cms-rt mt-10 prose prose-lg max-w-none
-            prose-headings:text-black prose-headings:font-bold
-            prose-p:text-gray-700 prose-p:leading-relaxed
-            prose-a:text-orange-500 prose-a:no-underline hover:prose-a:underline
-            prose-img:rounded-lg prose-img:w-full
-            prose-strong:text-black
-            prose-ul:list-disc prose-ul:pl-5
-            prose-ol:list-decimal prose-ol:pl-5
-            prose-li:text-gray-700"
-          dangerouslySetInnerHTML={{ __html: article.content }}
-        />
+        {/* Divider */}
+        <div className="relative my-12">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-200"></div>
+          </div>
+          <div className="relative flex justify-center">
+            <span className="bg-white px-4 text-sm text-gray-400">✦ ✦ ✦</span>
+          </div>
+        </div>
 
         {/* Back to Articles Link */}
-        <div className="mt-10 pt-6 border-t border-gray-200">
+        <div className="text-center">
           <Link
             href="/articles"
-            className="inline-flex items-center gap-2 text-orange-500 hover:text-black transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-all duration-300 shadow-md hover:shadow-lg"
           >
-            ← Back to all articles
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to All Articles
           </Link>
         </div>
+
+        {/* Related Articles */}
+        {relatedArticles.length > 0 && (
+          <div className="mt-20 pt-8 border-t border-gray-200">
+            <h3 className="font-heading text-2xl md:text-3xl text-black uppercase mb-8 text-center">
+              You Might Also Like
+            </h3>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {relatedArticles.map((relatedArticle) => (
+                <Link
+                  key={relatedArticle.id}
+                  href={`/articles/${relatedArticle.slug}`}
+                  className="group block bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                >
+                  <div className="relative h-48 overflow-hidden bg-gray-100">
+                    <Image
+                      alt={relatedArticle.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      src={relatedArticle.image}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <time className="text-xs text-orange-500 font-semibold uppercase tracking-wide">
+                      {formatDate(relatedArticle.publishedDate)}
+                    </time>
+                    <h4 className="font-heading text-base md:text-lg text-black uppercase mt-2 line-clamp-3 group-hover:text-orange-500 transition-colors duration-300">
+                      {relatedArticle.title}
+                    </h4>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </article>
     </div>
   );

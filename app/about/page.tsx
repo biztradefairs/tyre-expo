@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PartnersSection from "@/components/home/PartnersSection";
+import SectorsSection from "@/components/home/SectorsSection";
 
 export default function AboutPage() {
   const [loading, setLoading] = useState(true);
@@ -91,21 +92,21 @@ export default function AboutPage() {
     {
       title: "Conference Programme",
       description: "Each year, ITS Tyre Expo hosts a comprehensive three-day conference programme featuring industry forums, analytical sessions, plenary discussions, and expert lectures. The agenda brings together leading professionals, government representatives, and technical experts to share insights, explore industry challenges, and discuss the latest trends shaping the tyre manufacturing sector.",
-      image: "/images/conference.jpg",
+      image: "https://cdn.itegroupnews.com/MW_24_2304_0005_G_i_1_0c28de356a.jpg",
       buttonText: "Learn More",
       buttonLink: "/conference-programme"
     },
     {
       title: "LeadScanning",
       description: "ITS Tyre Expo Connect is the exhibition's dedicated business networking platform, designed to facilitate meaningful connections between exhibitors, visitors, media, professional associations, and industry experts from across Asia and beyond.",
-      image: "/images/leadscanning.jpg",
+      image: "https://cdn.itegroupnews.com/Untitled_400_x_490_px_400_x_250_px_13b6d04f0b.png",
       buttonText: "Join Now",
       buttonLink: "/leadscanning"
     },
     {
       title: "Awards",
       description: "The Tyre Innovation Awards, part of ITS Tyre Expo since 2021, recognize digital and sustainable projects that improve tyre manufacturing efficiency and sustainability. An independent jury selects the most innovative projects addressing key industry challenges.",
-      image: "/images/awards.jpg",
+      image: "https://cdn.itegroupnews.com/mw2022_gi_5d2b509b31.jpg",
       buttonText: "",
       buttonLink: ""
     }
@@ -197,31 +198,7 @@ export default function AboutPage() {
           </div>
 
           {/* Explore Our Event Sectors Section */}
-          <div className="animated-block mt-20">
-            <div className="animated-block-target">
-              <div className="container relative mx-auto px-4">
-                <h3 className="font-bebas text-5xl text-black md:text-6xl">Explore Our Event Sectors</h3>
-                <Link href="/sectors">
-                  <button className="flex-center global-transition group mb-10 w-fit gap-2 overflow-hidden bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white hover:bg-black">See All Sectors</button>
-                </Link>
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {sectors.map((sector, idx) => (
-                    <div key={idx} className="group flex flex-col overflow-hidden rounded-lg bg-orange-50 transition-shadow duration-300 ease-in-out hover:shadow-lg">
-                      <div className="relative h-48 bg-gray-300"></div>
-                      <div className="flex flex-col gap-4 p-5">
-                        <h4 className="text-xl font-semibold text-black">{sector.title}</h4>
-                        <p className="text-gray-600 line-clamp-2">{sector.description}</p>
-                        <Link href={`/sectors/${sector.slug}`}>
-                          <button className="flex-center group gap-2 font-bebas text-xl text-[#F08400]">Read More →</button>
-                        </Link>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
+          <SectorsSection/>
           {/* Year-Round Industry Ecosystem Section */}
           <div className="animated-block mt-20">
             <div className="animated-block-target">
@@ -371,7 +348,16 @@ export default function AboutPage() {
                     <h4 className="text-2xl font-bold">BITEC, Bangkok, Thailand</h4>
                   </div>
                 </div>
-                <div className="h-96 w-full rounded-xl bg-gray-200"></div>
+                   <div className="mt-8 overflow-hidden">
+
+        <iframe
+          src="https://www.google.com/maps?q=Crocus%20Expo%20IEC%20Moscow&output=embed"
+          className="w-full h-[400px] border-0"
+          allowFullScreen
+          loading="lazy"
+        ></iframe>
+
+      </div>
               </div>
             </div>
           </div>
@@ -390,8 +376,16 @@ export default function AboutPage() {
                 </div>
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {keyEvents.map((event, idx) => (
-                    <div key={idx} className="group flex flex-col overflow-hidden rounded-lg bg-orange-50 transition-shadow duration-300 ease-in-out hover:shadow-lg">
-                      <div className="relative h-48 bg-gray-300"></div>
+                    <div key={idx} className="group flex flex-col overflow-hidden  bg-orange-50 transition-shadow duration-300 ease-in-out hover:shadow-lg">
+                      <div className="relative h-48 w-full overflow-hidden">
+  <Image
+    src={event.image}
+    alt={event.title}
+    fill
+    className="object-cover transition-transform duration-500 group-hover:scale-105"
+  />
+  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition"></div>
+</div>
                       <div className="flex flex-col gap-4 p-5">
                         <h4 className="text-xl font-bold text-black">{event.title}</h4>
                         <p className="text-gray-600 line-clamp-4">{event.description}</p>

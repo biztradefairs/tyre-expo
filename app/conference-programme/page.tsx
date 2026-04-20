@@ -23,7 +23,7 @@ const mainEventsData = [
     title:
       "Mining Leaders Forum – 3 Days of High-Level Discussions and Insightful Sessions",
     content: (
-      <ul className="title-20 list-bullet-style">
+      <ul className="list-bullet-style space-y-3">
         <li>
           <strong>Main Plenary Session: </strong>Featuring top executives from
           Norilsk Nickel, EVRAZ, Mikhailovsky GOK (named after A. V. Varichev),
@@ -32,10 +32,9 @@ const mainEventsData = [
           Focus: The impact of industrial technologies – how mining enterprises
           are accelerating growth, improving efficiency, and boosting
           profitability.
-          <br />&nbsp;
         </li>
         <li>
-          <strong>Mining Industry 4.0" Competition: </strong>A showcase of the
+          <strong>Mining Industry 4.0 Competition: </strong>A showcase of the
           most effective digital projects in the mining sector.
         </li>
       </ul>
@@ -44,31 +43,27 @@ const mainEventsData = [
   {
     title: "New for This Year – Exclusive Forums and Round Tables",
     content: (
-      <ul className="title-20 list-bullet-style">
+      <ul className="list-bullet-style space-y-3">
         <li>
           <strong>MINGEO Forum – Debut Edition: </strong>Mineral Resources in a
           Multipolar World: Investments. Knowledge. Technologies.
-          <br />&nbsp;
         </li>
         <li>
           <strong>Round Table: The Future of Procurement in Mining and Metallurgy: </strong>
           In-depth dialogue on modernising procurement strategies and
           partnerships.
-          <br />&nbsp;
         </li>
         <li>
           <strong>Round Table: Coal Industry Perspectives: </strong>Energy of
           Change: New Paths and Solutions for the Coal Industry. Held in
           collaboration with TeDo and featuring SUEK representatives.
-          <br />&nbsp;
         </li>
         <li>
           <strong>Round Table: Safety in the Workplace: </strong>From Theory to
           Practice – actionable strategies for operational safety in mining.
-          <br />&nbsp;
         </li>
         <li>
-          <strong>Round Table: Engineering Skills &amp; Innovation: </strong>
+          <strong>Round Table: Engineering Skills & Innovation: </strong>
           Exploring the evolving demands for engineering expertise and the
           realities of innovation adoption in the mining sector.
         </li>
@@ -78,15 +73,14 @@ const mainEventsData = [
   {
     title: "Technical Conferences",
     content: (
-      <ul className="title-20 list-bullet-style">
+      <ul className="list-bullet-style space-y-3">
         <li>
-          <strong>Processing &amp; Enrichment of Mineral Raw Materials: </strong>
+          <strong>Processing & Enrichment of Mineral Raw Materials: </strong>
           Featuring mining and processing plant experts and presentations of
           cutting-edge technologies.
-          <br />&nbsp;
         </li>
         <li>
-          <strong>Gold &amp; Technology Conference:</strong> Latest innovations,
+          <strong>Gold & Technology Conference:</strong> Latest innovations,
           methods, and insights at the intersection of gold mining and
           technology.
         </li>
@@ -130,197 +124,201 @@ const conferencePartners = [
   },
 ];
 
-const partnersSponsors = [
-  { name: "ProfiMiner", logo: "https://cdn.itegroupnews.com/Profi_Miner_5d476ae93b.webp" },
-  { name: "Times International", logo: "https://cdn.itegroupnews.com/1_c80a02899c.png" },
-  { name: "TotalExpo.ru", logo: "https://cdn.itegroupnews.com/Total_Expo_ru_26b429a05b.webp" },
-  { name: "Vedomosti", logo: "https://cdn.itegroupnews.com/Vedomosti_7814bd5d9d.webp" },
-  { name: "Industry of Eurasia: Mining", logo: "https://cdn.itegroupnews.com/Industry_of_Eurasia_Mining_158b39f188.webp" },
-  { name: "Miners of Russia", logo: "https://cdn.itegroupnews.com/miners_of_russia_78f659f949.webp" },
-];
-
 export default function ConferenceProgrammePage() {
   return (
-    <div className="page-spacing-wrapper">
-
-
-      {/* Innovate Through Knowledge Section */}
-      <div className="animated-block">
-        <div className="animated-block-target">
-          <div className="">
-            <div className="container z-1 grid items-center gap-10 overflow-hidden lg:grid-cols-5 lg:gap-20">
-              <div className="lg:col-span-5">
-                <div className="flex flex-col gap-5">
-                  <h5 className="title-70 text-black">Innovate Through Knowledge</h5>
-                  <p>
-                    A dynamic three-day conference featuring industry leaders
-                    from mining companies, processing plants, and geological
-                    exploration firms. Designed for decision-makers, engineers,
-                    and specialists, the program tackles key challenges,
-                    innovations, and trends shaping the mining sector.
-                    <br />
-                    <br />
-                    Engage, collaborate, and stay ahead in the industry!
-                  </p>
+    <>
+      <div className="pt-[60px] min-[1100px]:pt-[170px]">
+        
+        {/* Innovate Through Knowledge Section */}
+        <div className="animated-block">
+          <div className="animated-block-target">
+            {/* Added px-10 for horizontal spacing like navbar */}
+            <div className="relative z-10 overflow-hidden px-8 py-16 lg:py-24">
+              <div className="px-6 md:px-10 lg:px-12">
+                <div className="grid gap-10 lg:grid-cols-5 lg:gap-20">
+                  <div className="lg:col-span-5">
+                    <div className="flex flex-col gap-5">
+                      <h5 className="font-heading text-2xl font-bold tracking-tight text-black lg:text-6xl xl:text-7xl uppercase">
+                        Innovate Through Knowledge
+                      </h5>
+                      <p className="font-sans text-base leading-relaxed text-gray-700 lg:text-lg">
+                        A dynamic three-day conference featuring industry leaders
+                        from mining companies, processing plants, and geological
+                        exploration firms. Designed for decision-makers, engineers,
+                        and specialists, the program tackles key challenges,
+                        innovations, and trends shaping the mining sector.
+                        <br />
+                        <br />
+                        Engage, collaborate, and stay ahead in the industry!
+                      </p>
+                    </div>
+                    <div className="mt-10 flex flex-wrap gap-10 border-y border-gray-200 py-8 2xl:gap-20">
+                      {statsData.map((stat, idx) => (
+                        <div
+                          key={idx}
+                          className="flex w-fit flex-col justify-center lg:border-r lg:pr-10 2xl:pr-20"
+                        >
+                          <h3 className="font-heading text-4xl font-bold text-[#F08400] lg:text-5xl xl:text-6xl">
+                            {stat.value}
+                          </h3>
+                          <p className="font-sans text-base font-medium text-black lg:text-lg">
+                            {stat.label}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-10">
+                      <Link
+                        href="https://cdn-ite.prismetic.com/CP_Agenda_MWR_2025_f934b33dd5.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block"
+                      >
+                        <button className="flex-center global-transition group gap-2 overflow-hidden bg-[#F08400] px-8 py-3 font-heading text-xl font-bold uppercase tracking-wide text-white transition-colors hover:bg-black lg:px-10 lg:text-2xl">
+                          View Agenda
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-                <div className="mt-10 flex flex-wrap gap-10 2xl:gap-20">
-                  {statsData.map((stat, idx) => (
+  
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Events Section */}
+        <div className="animated-block bg-gray-50">
+          <div className="animated-block-target">
+            {/* Added px-10 for horizontal spacing like navbar */}
+            <div className="px-6 py-10 lg:py-14">
+              <div className="px-6 md:px-10 lg:px-12">
+                <h2 className="font-heading text-3xl font-bold text-black lg:text-4xl xl:text-5xl uppercase">
+                  Main events of the business program <br /> April 23-25, 2025
+                </h2>
+                <div className="mt-10 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-2 lg:gap-8">
+                  {mainEventsData.map((event, idx) => (
                     <div
                       key={idx}
-                      className="flex w-fit flex-col justify-center font-bebas last-of-type:border-none lg:border-r lg:pr-10 2xl:pr-20"
+                      className="relative flex min-h-[500px] flex-col bg-[#F08400]/10 p-6 text-black lg:p-10"
                     >
-                      <h3 className="title-70 mb-3 font-bold text-mainColor1">
-                        {stat.value}
-                      </h3>
-                      <p className="title-20 text-black">{stat.label}</p>
+                      <div className="z-10 flex flex-col gap-5">
+                        <h3 className="font-heading text-2xl font-bold leading-tight lg:text-3xl xl:text-4xl">
+                          {event.title}
+                        </h3>
+                        <div className="font-sans text-base leading-relaxed lg:text-lg">
+                          {event.content}
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
-                <div className="mt-10">
-                  <Link
-                    href="https://cdn-ite.prismetic.com/CP_Agenda_MWR_2025_f934b33dd5.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <button className="flex-center global-transition group w-fit gap-2 overflow-hidden bg-mainColor1 px-10 py-3 font-bebas text-2xl text-white hover:bg-black">
-                      View Agenda
-                    </button>
-                  </Link>
-                </div>
               </div>
-              <img
-                alt="Mining World"
-                loading="lazy"
-                width="500"
-                height="500"
-                decoding="async"
-                className="absolute top-1/2 size-[400px] -translate-y-1/2 object-cover opacity-10 lg:right-[-15vw] lg:size-[30vw] lg:opacity-20"
-                src="/imgs/shape-1.svg"
-              />
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Main Events Section */}
-      <div className="animated-block">
-        <div className="animated-block-target">
-          <div className="container">
-            <h2 className="title-70 py-10 text-black">
-              Main events of the business program April 23-25, 2025
-            </h2>
-            <div className="grid size-full grid-cols-1 gap-5 md:grid-cols-2">
-              {mainEventsData.map((event, idx) => (
-                <div
-                  key={idx}
-                  className="bg-mainColor2 relative flex size-full min-h-[500px] flex-col p-5 text-black lg:p-10"
-                >
-                  <div className="z-10 flex flex-col gap-5">
-                    <h2 className="title-40 font-semibold">{event.title}</h2>
-                    <div className="title-20">{event.content}</div>
-                    <div className="flex w-full flex-wrap gap-5"></div>
+        {/* Key Events Carousel Section */}
+        <div className="animated-block">
+          <div className="animated-block-target">
+            {/* Added px-10 for horizontal spacing like navbar */}
+            <div className="px-6 py-10 lg:py-14">
+              <div className="px-6 md:px-10 lg:px-12">
+                <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                  <div className="lg:basis-2/3">
+                    <h4 className="font-heading text-3xl font-bold text-black lg:text-4xl xl:text-5xl uppercase">
+                      Key Events
+                    </h4>
+                    <p className="mt-4 font-sans text-base leading-relaxed text-gray-700 lg:text-lg">
+                      The MiningWorld 2025 conference program united top experts and
+                      industry leaders for three days of in-depth discussions.
+                      Participants shared valuable insights and explored
+                      sustainability in mining, with a focus on innovations,
+                      business processes, and management strategies vital for the
+                      sector’s future.
+                    </p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Key Events Carousel Section */}
-      <div className="animated-block">
-        <div className="animated-block-target">
-          <div className="container">
-            <div className="mb-5 flex justify-between lg:items-end">
-              <div className="lg:basis-2/3">
-                <h4 className="title-70 my-3 text-black">Key Events</h4>
-                <p>
-                  The MiningWorld 2025 conference program united top experts and
-                  industry leaders for three days of in-depth discussions.
-                  Participants shared valuable insights and explored
-                  sustainability in mining, with a focus on innovations,
-                  business processes, and management strategies vital for the
-                  sector’s future.
-                </p>
+                <div className="relative mt-10 w-full">
+                  <Carousel>
+                    <CarouselContent className="-ml-4">
+                      {keyEventsData.map((event, idx) => (
+                        <CarouselItem
+                          key={idx}
+                          className="pl-4 md:basis-1/2 lg:basis-1/3"
+                        >
+                          <div className="flex flex-col overflow-hidden bg-white transition-shadow duration-300 hover:shadow-lg">
+                            <div className="relative h-56 w-full lg:h-64">
+                              <Image
+                                alt={event.title}
+                                fill
+                                className="object-cover"
+                                src={event.image}
+                              />
+                            </div>
+                            <div className="flex flex-col gap-3 p-5">
+                              <h5 className="font-heading text-xl font-bold text-black lg:text-2xl">
+                                {event.title}
+                              </h5>
+                            </div>
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                  </Carousel>
+                </div>
               </div>
             </div>
-            <div className="relative mt-10 w-full" role="region">
-              <Carousel>
-                <CarouselContent className="-ml-4">
-                  {keyEventsData.map((event, idx) => (
-                    <CarouselItem
+          </div>
+        </div>
+
+        {/* Conference Partners Section */}
+        <div className="animated-block bg-gray-50">
+          <div className="animated-block-target">
+            {/* Added px-10 for horizontal spacing like navbar */}
+            <div className="px-6 py-10 lg:py-14">
+              <div className="px-6 md:px-10 lg:px-12">
+                <h2 className="font-heading text-3xl font-bold text-black lg:text-4xl xl:text-5xl uppercase">
+                  Conference Partners
+                </h2>
+                <div className="mt-10 flex flex-wrap gap-8 lg:mt-12">
+                  {conferencePartners.map((partner, idx) => (
+                    <div
                       key={idx}
-                      className="pl-4 group lg:basis-1/2 xl:basis-1/3"
+                      className="flex w-full max-w-[280px] flex-col items-center gap-5 border border-mainColor1 bg-white p-6 text-center"
                     >
-                      <div className="flex flex-col bg-mainColor5 transition-shadow duration-300 ease-in-out hover:shadow-lg">
-                        <div className="relative lg:h-60">
-                          <Image
-                            alt={event.title}
-                            width={500}
-                            height={500}
-                            className="size-full object-cover"
-                            src={event.image}
-                          />
-                        </div>
-                        <div className="flex flex-col gap-4 p-5">
-                          <h5 className="title-30 font-bebas text-black">
-                            {event.title}
-                          </h5>
-                          <p className="line-clamp-3"> </p>
-                        </div>
+                      <div className="relative h-24 w-32">
+                        <Image
+                          alt={partner.name}
+                          fill
+                          className="object-contain"
+                          src={partner.logo}
+                        />
                       </div>
-                    </CarouselItem>
+                      <h3 className="font-heading text-xl font-semibold text-black">
+                        {partner.name}
+                      </h3>
+                      <p className="font-sans text-sm text-gray-600">{partner.type}</p>
+                      <Link
+                        href={partner.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-auto w-full"
+                      >
+                        <button className="flex-center global-transition w-full gap-2 bg-mainColor1 px-4 py-2 font-heading text-lg font-bold uppercase tracking-wide text-white transition-colors hover:bg-black">
+                          Visit Website
+                        </button>
+                      </Link>
+                    </div>
                   ))}
-                </CarouselContent>
-              </Carousel>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Conference Partners Section */}
-      <div className="animated-block">
-        <div className="animated-block-target">
-          <div className="container">
-            <h2 className="title-70 mb-10 text-black lg:mb-20">
-              Conference Partners
-            </h2>
-            <div className="flex flex-wrap gap-5">
-              {conferencePartners.map((partner, idx) => (
-                <div
-                  key={idx}
-                  className="flex w-full max-w-[300px] flex-col items-center gap-5 border border-mainColor1 p-5 text-center"
-                >
-                  <Image
-                    alt={partner.name}
-                    width={500}
-                    height={500}
-                    className="object-fit h-40 w-auto"
-                    src={partner.logo}
-                  />
-                  <h3 className="title-20 font-semibold text-black">
-                    {partner.name}
-                  </h3>
-                  <p className=" ">{partner.type}</p>
-                  <Link
-                    href={partner.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative mt-auto w-full"
-                  >
-                    <button className="flex-center global-transition group w-full gap-2 overflow-hidden bg-mainColor1 px-10 py-3 font-bebas text-2xl text-white hover:bg-black">
-                      Visit Website
-                    </button>
-                  </Link>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <PartnersSection/>
 
-    </div>
+        <PartnersSection />
+      </div>
+    </>
   );
 }
