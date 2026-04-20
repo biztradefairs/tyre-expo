@@ -76,7 +76,7 @@ export default function SectorsSection() {
             {sectorsData.map((sector) => (
       <div
   key={sector.id}
-  className="min-w-[320px] lg:min-w-[420px] flex-shrink-0 rounded-2xl overflow-hidden group relative"
+  className="min-w-[320px] lg:min-w-[420px] flex-shrink-0  overflow-hidden group relative"
 >
 
   {/* IMAGE */}

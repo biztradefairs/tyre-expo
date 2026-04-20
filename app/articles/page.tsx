@@ -4,127 +4,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { getAllArticles, type Article } from "./data";
 
-// Mock Data (Replace with actual data fetching from CMS)
-const articlesData = [
-  {
-    id: 220,
-    title:
-      "The share of standardized parts in the equipment of NPO Akonit today averages 47%.",
-    slug: "the-share-of-standardized-parts-in-the-equipment-of-npo-akonit-today-averages-47",
-    excerpt: "",
-    image:
-      "https://cdn.itegroupnews.com/20250218260_61bf798bb7.webp",
-    publishedDate: "2026-03-27T06:15:00.000Z",
-  },
-  {
-    id: 217,
-    title:
-      "One month until MiningWorld Russia 2026 — get your ticket with promo code NEWS",
-    slug: "one-month-until-mining-world-russia-2026-get-your-ticket-with-promo-code-news",
-    excerpt: "",
-    image:
-      "https://cdn.itegroupnews.com/mnng25_2126_ddf2e61fe5.webp",
-    publishedDate: "2026-03-23T08:00:00.000Z",
-  },
-  {
-    id: 218,
-    title:
-      "Complex Raw Materials Economics: Russia is Reviving Hydroxamate Production",
-    slug: "complex-raw-materials-economics-russia-is-reviving-hydroxamate-production",
-    excerpt: "",
-    image:
-      "https://cdn.itegroupnews.com/photo_2026_03_13_10_14_58_6241b6097b.webp",
-    publishedDate: "2026-03-19T07:15:00.000Z",
-  },
-  {
-    id: 219,
-    title:
-      "The Russian Ministry of Industry and Trade supports the MiningWorld Russia 2026 exhibition.",
-    slug: "the-russian-ministry-of-industry-and-trade-supports-the-mining-world-russia-2026-exhibition",
-    excerpt: "",
-    image:
-      "https://cdn.itegroupnews.com/hd_0v0a9460_874ebf2c28.webp",
-    publishedDate: "2026-03-18T08:00:00.000Z",
-  },
-  {
-    id: 214,
-    title:
-      "12 product groups at MiningWorld Russia 2026 – all the equipment for the mining industry at one exhibition",
-    slug: "12-product-groups-at-mining-world-russia-2026-all-the-equipment-for-the-mining-industry-at-one-exhibition",
-    excerpt: "",
-    image:
-      "https://cdn.itegroupnews.com/mnng25_1077_1_84e0fb312f.webp",
-    publishedDate: "2026-03-17T07:15:00.000Z",
-  },
-  {
-    id: 215,
-    title:
-      'Large-scale equipment at the "Heavy Equipment Territory" – visit the unique exhibition',
-    slug: "large-scale-equipment-at-the-heavy-equipment-territory-visit-the-unique-exhibition",
-    excerpt: "",
-    image:
-      "https://cdn.itegroupnews.com/mnng25_1273_1ebc43e900.webp",
-    publishedDate: "2026-03-16T07:15:00.000Z",
-  },
-  {
-    id: 216,
-    title:
-      'Invitation to participate in the study "Mining Industry of Russia: Investments in Digital Technologies 2026 and a Look into the Future"',
-    slug: "invitation-to-participate-in-the-study-mining-industry-of-russia-investments-in-digital-technologies-2026-and-a-look-into-the-future",
-    excerpt: "",
-    image:
-      "https://cdn.itegroupnews.com/kept_logo_22052_9dfac2c206.webp",
-    publishedDate: "2026-03-13T07:00:00.000Z",
-  },
-  {
-    id: 203,
-    title: "RIVS has developed specialized aeration units for flotation machines",
-    slug: "rivs-has-developed-specialized-aeration-units-for-flotation-machines",
-    excerpt: "",
-    image:
-      "https://cdn.itegroupnews.com/Specz_aeraczionnye_uzly_1_9ffc14864d.webp",
-    publishedDate: "2026-03-10T08:30:00.000Z",
-  },
-  {
-    id: 204,
-    title:
-      'Representatives of mining and processing plants will speak at the conference "Tools for Improving the Efficiency of Mining Plants" at MiningWorld Russia 2026.',
-    slug: "representatives-of-mining-and-processing-plants-will-speak-at-the-conference-tools-for-improving-the-efficiency-of-mining-plants-at-mining-world-russia-2026",
-    excerpt: "",
-    image:
-      "https://cdn.itegroupnews.com/MW_25_AMG_2718i_63acadda70.webp",
-    publishedDate: "2026-03-06T03:30:00.000Z",
-  },
-  {
-    id: 199,
-    title: "Why you should attend MiningWorld Russia 2026",
-    slug: "why-you-should-attend-mining-world-russia-2026",
-    excerpt: "",
-    image:
-      "https://cdn.itegroupnews.com/photo_1_main_1_f5b42c6a16.webp",
-    publishedDate: "2026-02-27T08:45:00.000Z",
-  },
-  {
-    id: 200,
-    title:
-      "Stable chemistry for a stable factory: 10 years of Flotent Chemicals Rus",
-    slug: "stable-chemistry-for-a-stable-factory-10-years-of-flotent-chemicals-rus",
-    excerpt: "",
-    image:
-      "https://cdn.itegroupnews.com/mining_upd_1_image_f5d7d6fa89.webp",
-    publishedDate: "2026-02-25T09:15:00.000Z",
-  },
-  {
-    id: 201,
-    title: "The list of participants for MiningWorld Russia 2026 has been published!",
-    slug: "the-list-of-participants-for-mining-world-russia-2026-has-been-published",
-    excerpt: "",
-    image:
-      "https://cdn.itegroupnews.com/5258413703168726476_9fb1c4d00c.webp",
-    publishedDate: "2026-02-25T08:15:00.000Z",
-  },
-];
+// Get articles from data.ts
+const articlesData = getAllArticles();
 
 const ITEMS_PER_PAGE = 9;
 
@@ -161,13 +44,11 @@ export default function ArticlesPage() {
 
   return (
     <div className="page-spacing-wrapper">
-
-
       {/* Articles Grid Section */}
       <div className="animated-block">
         <div className="animated-block-target">
           <div className="container mx-auto px-4 py-16">
-        
+          
 
             {/* Articles Grid */}
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -175,7 +56,7 @@ export default function ArticlesPage() {
                 <Link
                   key={article.id}
                   href={`/articles/${article.slug}`}
-                  className="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+                  className="group block bg-[#F08400]/5 overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
                 >
                   <div className="relative h-48 overflow-hidden">
                     <Image
@@ -190,9 +71,9 @@ export default function ArticlesPage() {
                     <p className="text-sm text-gray-500 mb-2">
                       {formatDate(article.publishedDate)}
                     </p>
-                    <h3 className="text-xl font-bold text-black line-clamp-3 group-hover:text-orange-500 transition-colors duration-300">
+                    <h2 className="text-xl font-extrabold text-black line-clamp-3 group-hover:text-orange-500 transition-colors duration-300 uppercase">
                       {article.title}
-                    </h3>
+                    </h2>
                     {article.excerpt && (
                       <p className="text-gray-600 mt-2 line-clamp-3">
                         {article.excerpt}

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PartnersSection from "@/components/home/PartnersSection";
+import SectorsSection from "@/components/home/SectorsSection";
 
 export default function WhyExhibitPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -213,78 +214,7 @@ export default function WhyExhibitPage() {
             </div>
           </div>
 
-          {/* Event Sectors Section - WITH FIXED AUTO SLIDER */}
-          <div className="animated-block mt-20">
-            <div className="animated-block-target">
-              <div className="container mx-auto px-4">
-                <p className="font-bold text-[#F08400]">Event Sectors</p>
-                <h3 className="my-3 font-bebas text-6xl text-black md:text-7xl">Target the Right Sectors to Fuel Your Business Growth</h3>
-                <Link href="/sectors">
-                  <button className="flex-center global-transition group mb-10 w-fit gap-2 overflow-hidden bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white hover:bg-black">Explore Our Sectors</button>
-                </Link>
-
-                {/* Slider Container */}
-                <div 
-                  className="relative"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  {/* Slides */}
-                  <div className="overflow-hidden">
-                    <div 
-                      className="flex transition-transform duration-500 ease-out"
-                      style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-                    >
-                      {slides.map((slideGroup, slideIndex) => (
-                        <div key={slideIndex} className="w-full flex-shrink-0">
-                          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                            {slideGroup.map((sector, idx) => (
-                              <div key={idx} className="group flex flex-col overflow-hidden rounded-lg bg-gray-100 transition-shadow hover:shadow-lg">
-                                {/* FIXED: Proper Next.js Image component with working image URLs */}
-                                <div className="relative h-48 w-full overflow-hidden bg-gray-200">
-                                  <Image
-                                    src={sector.image}
-                                    alt={sector.title}
-                                    fill
-                                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
-                                    onError={(e) => {
-                                      // Fallback for broken images
-                                      const target = e.target as HTMLImageElement;
-                                      target.style.display = 'none';
-                                      const parent = target.parentElement;
-                                      if (parent) {
-                                        const fallback = document.createElement('div');
-                                        fallback.className = 'w-full h-full bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center';
-                                        fallback.innerHTML = `<div class="text-center p-4"><div class="text-4xl mb-2">🏭</div><p class="text-sm text-gray-600 font-medium">${sector.title.split(' ').slice(0, 2).join(' ')}</p></div>`;
-                                        parent.appendChild(fallback);
-                                      }
-                                    }}
-                                  />
-                                </div>
-                                <div className="flex flex-1 flex-col gap-4 p-5">
-                                  <h4 className="text-xl font-semibold text-black">{sector.title}</h4>
-                                  <p className="text-gray-600 line-clamp-2">{sector.description}</p>
-                                  <Link href={`/sectors/${sector.slug}`}>
-                                    <button className="flex-center group gap-2 font-bebas text-xl text-[#F08400] hover:text-black transition-colors">
-                                      Read More →
-                                    </button>
-                                  </Link>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-
-
-                </div>
-              </div>
-            </div>
-          </div>
+ <SectorsSection/>
 
           {/* Visitor Breakdown Section */}
           <div className="animated-block mt-20">
