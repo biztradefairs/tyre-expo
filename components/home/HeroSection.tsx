@@ -70,13 +70,14 @@ export default function HeroSection() {
     {/* BIG HEADING */}
 <h1
   className="
-    font-bebas font-bold uppercase
-    text-[28px] sm:text-[40px] lg:text-[60px] xl:text-[100px]
-    leading-[0.85]
+    font-heading
+    uppercase
+    text-[120px]
+    leading-[0.75]
     tracking-[2px]
   "
 >
-  <span className="text-white">MINING WORLD </span>
+  <span className="text-white">MINING WORLD</span>{' '}
   <span className="text-[#F08400]">2026</span>
 </h1>
 
