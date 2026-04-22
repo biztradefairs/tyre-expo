@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Logo */}
           <div>
             <Image
-              src="/ITS_logo.png"
+              src="/ITS_logoWhite.png"
               alt="MiningWorld Russia"
               width={100}
               height={60}
@@ -102,7 +102,7 @@ export default function Footer() {
           <div className="flex items-center gap-2">
             <span className="text-sm">Organised By</span>
             <Image
-              src="/imgs/ite-logo.png"
+              src="/maxx_logo.png"
               alt="ITE"
               width={70}
               height={25}
