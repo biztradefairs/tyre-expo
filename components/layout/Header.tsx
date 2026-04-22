@@ -87,7 +87,7 @@ export default function Header() {
             {/* Logo */}
             <Link href="/">
               <Image
-                src="/ITS_logo.png"
+                src="/ITS_logo final.png"
                 alt="India Tyre Show"
                 width={130}
                 height={70}
@@ -131,7 +131,7 @@ export default function Header() {
 
             <Link href="/">
               <Image
-                src="/imgs/logo-1.png"
+                src="/ITS_logo final.png"
                 alt="India Tyre Show"
                 width={140}
                 height={40}
