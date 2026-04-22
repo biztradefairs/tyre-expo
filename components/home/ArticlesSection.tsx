@@ -4,14 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import Section from '../ui/section';
-
-interface Article {
-  title: string;
-  slug: string;
-  excerpt: string;
-  image: string;
-  date: string;
-}
+import { Article, formatDate } from '@/app/articles/data'
 
 interface ArticlesSectionProps {
   articles: Article[];
@@ -27,15 +20,13 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
       <div className="flex justify-between items-end mb-12 gap-6 flex-wrap">
 
         <div className="max-w-[900px]">
-
           <p className="text-[#F08400] font-sans text-[14px] uppercase tracking-[1.5px]">
-  Articles
-</p>
+            Articles
+          </p>
 
-          {/* 🔥 ONE LINE TITLE */}
-        <h2 className="font-bebas font-bold text-[12px] sm:text-[24px] lg:text-[46px] leading-[1.05] tracking-[2px] uppercase text-black">
-  EVENT INSIGHTS & INDUSTRY TRENDS
-</h2>
+          <h2 className="font-bebas font-bold text-[12px] sm:text-[24px] lg:text-[46px] leading-[1.05] tracking-[2px] uppercase text-black">
+            EVENT INSIGHTS & INDUSTRY TRENDS
+          </h2>
 
           <p className="text-gray-600 mt-3 text-base">
             Stay up to date with the latest updates in the industry and the show
@@ -44,12 +35,12 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
         </div>
 
         {/* BUTTON */}
-       <Button
-  href="/articles/"
-  className="border border-[#F08400] !text-[#F08400] px-6 py-3 text-sm font-semibold bg-transparent hover:bg-[#F08400] hover:!text-white transition"
->
-  VIEW ALL ARTICLES
-</Button>
+        <Button
+          href="/articles/"
+          className="border border-[#F08400] !text-[#F08400] px-6 py-3 text-sm font-semibold bg-transparent hover:bg-[#F08400] hover:!text-white transition"
+        >
+          VIEW ALL ARTICLES
+        </Button>
 
       </div>
 
@@ -72,9 +63,8 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
 
             {/* TEXT */}
             <div className="mt-4">
-
               <p className="text-[#F08400] text-sm font-semibold">
-                {featuredArticle.date}
+                {formatDate(featuredArticle.publishedDate)}
               </p>
 
               <Link href={`/articles/${featuredArticle.slug}`}>
@@ -86,7 +76,6 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
               <p className="text-gray-600 mt-3 text-base leading-relaxed">
                 {featuredArticle.excerpt}
               </p>
-
             </div>
 
           </div>
@@ -94,13 +83,11 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
 
         {/* RIGHT ARTICLES */}
         <div className="flex flex-col gap-6 min-w-0">
-
           {restArticles.map((article) => (
             <div
               key={article.slug}
               className="grid grid-cols-[40%_60%] gap-4 items-start group cursor-pointer"
             >
-
               {/* IMAGE */}
               <div className="relative h-[120px] rounded-lg overflow-hidden">
                 <Image
@@ -113,9 +100,8 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
 
               {/* CONTENT */}
               <div>
-
                 <p className="text-[#F08400] text-xs font-semibold">
-                  {article.date}
+                  {formatDate(article.publishedDate)}
                 </p>
 
                 <Link href={`/articles/${article.slug}`}>
@@ -127,12 +113,9 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
                 <p className="text-gray-600 text-sm mt-2 leading-relaxed line-clamp-4">
                   {article.excerpt}
                 </p>
-
               </div>
-
             </div>
           ))}
-
         </div>
 
       </div>

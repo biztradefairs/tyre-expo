@@ -1,16 +1,27 @@
 // app/articles/[slug]/page.tsx
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams, notFound } from "next/navigation";
-import { getArticleBySlug, getRelatedArticles } from "../data";
+import { notFound } from "next/navigation";
+import { getArticleBySlug, getAllArticles, getRelatedArticles } from "../data";
 
-export default function ArticlePage() {
-  const params = useParams();
-  const slug = params.slug as string;
-  
+// Generate static paths for all articles at build time
+export async function generateStaticParams() {
+  const articles = getAllArticles();
+  return articles.map((article) => ({
+    slug: article.slug,
+  }));
+}
+
+interface ArticlePageProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
+
+export default async function ArticlePage({ params }: ArticlePageProps) {
+  // ✅ IMPORTANT: Await the params Promise
+  const { slug } = await params;
   const article = getArticleBySlug(slug);
   const relatedArticles = getRelatedArticles(slug, 3);
 
@@ -38,10 +49,10 @@ export default function ArticlePage() {
         </div>
 
         {/* Title */}
-      <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-black uppercase text-center leading-tight whitespace-nowrap overflow-hidden text-ellipsis mb-8">
-  {article.title}
-</h1>
-        
+        <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-black uppercase text-center leading-tight mb-8">
+          {article.title}
+        </h1>
+
         {/* Featured Image */}
         <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-lg mb-12">
           <Image
@@ -53,7 +64,7 @@ export default function ArticlePage() {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
           />
         </div>
-        
+
         {/* Article Content */}
         <div className="prose prose-lg md:prose-xl max-w-none mx-auto
           prose-headings:font-heading prose-headings:text-black prose-headings:uppercase
