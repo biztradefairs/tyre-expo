@@ -5,22 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 
-@font-face {
-  font-family: 'RobotoCustom';
-  src: url('/fonts/Roboto-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: 'Bebas';
-  src: url('/fonts/BebasNeue-Regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'RobotoCustom';
-  src: url('/fonts/Roboto-Thin.woff2') format('woff2');
-}
 
 @theme inline {
   --color-background: var(--background);
@@ -66,10 +51,13 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 }
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 :root {
-  --font-sans: 'RobotoCustom', sans-serif;
-  --font-heading: 'Bebas', sans-serif;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -147,5 +135,14 @@
   }
   html {
     @apply font-sans;
+  }
+}
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
   }
 }
