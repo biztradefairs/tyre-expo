@@ -270,7 +270,7 @@ export default function AboutITEPage() {
           {/* About Us Section */}
           <div className="animated-block">
             <div className="animated-block-target">
-              <div className="container mx-auto px-4">
+              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
                 <div className="lg:col-span-3">
                   <div className="flex flex-col gap-5">
                     <h2 className="font-bebas text-5xl text-black md:text-6xl">About Us</h2>
@@ -311,7 +311,7 @@ export default function AboutITEPage() {
           {/* Mission, Vision, Values Section - FIXED IMAGES */}
           <div className="animated-block mt-20">
             <div className="animated-block-target">
-              <div className="container mx-auto px-4">
+              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
                 <div className="mb-5 flex justify-between lg:items-end">
                   <div className="lg:basis-2/3">
                     <h3 className="font-bebas text-5xl text-black md:text-6xl">Working for Your Success</h3>
@@ -350,7 +350,7 @@ export default function AboutITEPage() {
           {/* Exhibitions at a Glance Section - FIXED IMAGES */}
           <div className="animated-block mt-20">
             <div className="animated-block-target">
-              <div className="container mx-auto px-4">
+              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
                 <div className="flex w-full items-end justify-between gap-10 max-lg:flex-wrap lg:gap-20 2xl:gap-40">
                   <div>
                     <h3 className="font-bebas text-5xl text-black md:text-6xl">Our Exhibitions at a Glance</h3>
