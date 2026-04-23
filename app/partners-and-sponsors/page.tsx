@@ -1,6 +1,7 @@
 // app/partners-and-sponsors/page.tsx
 'use client';
 
+import BackToTop from '@/components/layout/BackToTop';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -176,7 +177,7 @@ export default function PartnersSponsorsPage() {
         {/* Quick Navigation Section */}
 <div className="animated-block mt-20">
   <div className="animated-block-target">
-    <div className="border-t-8 border-orange-600 bg-black py-20 text-white">
+    <div className="border-t-8 border-[#F08400] bg-black py-20 text-white">
       
       <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
         
@@ -224,7 +225,9 @@ export default function PartnersSponsorsPage() {
     </div>
   </div>
 </div>
+<hr className="border-t-6 border-[#F08400]" />
       </div>
+      <BackToTop/>
     </div>
   );
 }

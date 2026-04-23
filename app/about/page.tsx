@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PartnersSection from "@/components/home/PartnersSection";
 import SectorsSection from "@/components/home/SectorsSection";
+import BackToTop from "@/components/layout/BackToTop";
 
 export default function AboutPage() {
   const [loading, setLoading] = useState(true);
@@ -456,7 +457,9 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+          <hr className="border-t-6 border-[#F08400]" />
         </div>
+        <BackToTop/>
       </div>
 
       <style jsx>{`
