@@ -152,10 +152,10 @@ export default function WhyVisitPage() {
   ];
 
   const quickLinks = [
-    { label: "Become an Exhibitor", link: "/exhibiting-enquiry", icon: "/icons/exhibit.png" },
-    { label: "Become a Visitor", link: "/visitor-registration", icon: "/icons/visit.png" },
-    { label: "Download Your Event Brochure", link: "/event-brochure", icon: "/icons/brochure.png" },
-    { label: "Plan your Travel", link: "/plan-your-travel", icon: "/icons/travel.png" }
+    { label: "Become an Exhibitor", link: "/exhibiting-enquiry", icon: "https://cdn.itegroupnews.com/Vector_1_440f5852b9.png" },
+    { label: "Become a Visitor", link: "/visitor-registration", icon: "https://cdn.itegroupnews.com/Vector_2_9be2b98909.png" },
+    { label: "Download Your Event Brochure", link: "/event-brochure", icon: "https://cdn.itegroupnews.com/Group_e024d13500.png" },
+    { label: "Plan your Travel", link: "/plan-your-travel", icon: "https://cdn.itegroupnews.com/Vector_1_b2c1ab92d0.png" }
   ];
 
   return (
