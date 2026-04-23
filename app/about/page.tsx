@@ -456,6 +456,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+          <hr className="border-t-6 border-[#F08400]" />
         </div>
       </div>
 

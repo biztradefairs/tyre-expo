@@ -384,7 +384,7 @@ export default function PlanYourTravelPage() {
         {/* Quick Navigation */}
         <div className="animated-block mt-20">
           <div className="animated-block-target">
-            <div className="border-t-8 border-orange-600 bg-black py-20 text-white">
+            <div className="border-t-8 border-[#F08400] bg-black py-20 text-white">
               <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
                 <h2 className="font-bebas text-6xl md:text-7xl">Quick Navigation</h2>
                 <div className="mt-16 grid grid-cols-2 gap-y-10 md:grid-cols-5">
@@ -410,6 +410,7 @@ export default function PlanYourTravelPage() {
             </div>
           </div>
         </div>
+        <hr className="border-t-6 border-[#F08400]" />
       </div>
 
       <style jsx>{`
