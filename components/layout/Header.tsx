@@ -60,7 +60,7 @@ export default function Header() {
   : 'translate-y-0 opacity-100 bg-[#1e1e1e]/95 backdrop-blur-md'
           }`}
         >
-          <div className="container mx-auto flex items-center justify-between px-10 py-4">
+          <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto flex items-center justify-between px-6 sm:px-8 lg:px-12 xl:px-16 py-4">
 
             {/* 🔥 Left Section */}
             <div className="flex items-center gap-6">

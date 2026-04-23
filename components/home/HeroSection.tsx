@@ -64,7 +64,7 @@ export default function HeroSection() {
       </div>
 
       {/* FIXED: Properly aligned container with consistent padding */}
-      <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-7 pb-24">
+      <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pb-24">
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-12">
           
           {/* LEFT CONTENT */}
