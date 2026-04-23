@@ -132,13 +132,13 @@ useEffect(() => {
       </div>
       {/* 🔥 Floating Exhibitor Login Button */}
 <div className="relative">
-  <div
-    className={`absolute right-10 -bottom-11 z-50 transition-all duration-500 ${
-      isScrolled
-  ? 'opacity-0 -translate-y-5 pointer-events-none'
-  : 'opacity-100 translate-y-0'
-    }`}
-  >
+<div
+  className={`absolute right-20 -bottom-11 z-50 transition-all duration-500 ${
+    isScrolled
+      ? 'opacity-0 -translate-y-5 pointer-events-none'
+      : 'opacity-100 translate-y-0'
+  }`}
+>
     <Link
       href="/exhibitor-login/"
       className="bg-[#2A2A2A] text-white px-6 py-3  shadow-xl border border-white/20 
