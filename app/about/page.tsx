@@ -113,11 +113,11 @@ export default function AboutPage() {
   ];
 
   const quickLinks = [
-    { label: "Enquire to Exhibit", link: "/exhibiting-enquiry", icon: "/icons/enquire.png" },
-    { label: "Download Event Brochure", link: "/event-brochure", icon: "/icons/brochure.png" },
-    { label: "Exhibitor List", link: "/exhibitor-list", icon: "/icons/list.png" },
-    { label: "Plan Your Travel", link: "/plan-your-travel", icon: "/icons/travel.png" },
-    { label: "Why Visit", link: "/why-visit", icon: "/icons/visit.png" }
+    { label: "Enquire to Exhibit", link: "/exhibiting-enquiry", icon: "https://cdn.itegroupnews.com/Vector_1_440f5852b9.png" },
+    { label: "Download Event Brochure", link: "/event-brochure", icon: "https://cdn.itegroupnews.com/Group_e024d13500.png" },
+    { label: "Exhibitor List", link: "/exhibitor-list", icon: "https://cdn.itegroupnews.com/Vector_ceea3d1488.png" },
+    { label: "Plan Your Travel", link: "/plan-your-travel", icon: "https://cdn.itegroupnews.com/Vector_1_b2c1ab92d0.png" },
+    { label: "Why Visit", link: "/why-visit", icon: "https://cdn.itegroupnews.com/Vector_2_9be2b98909.png" }
   ];
 
   return (
@@ -129,7 +129,7 @@ export default function AboutPage() {
 
           {/* Transforming Tyre Operations Section */}
           <div className="bg-white py-20">
-            <div className="container mx-auto grid items-center gap-12 px-4 lg:grid-cols-2 lg:gap-20">
+            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto grid items-center gap-12 px-6 sm:px-8 lg:px-12 xl:px-16 lg:grid-cols-2 lg:gap-20">
 
               {/* LEFT IMAGE */}
               <div className="w-full h-[350px] lg:h-[500px] overflow-hidden rounded-sm">
@@ -198,11 +198,11 @@ export default function AboutPage() {
           </div>
 
           {/* Explore Our Event Sectors Section */}
-          <SectorsSection/>
+          <SectorsSection />
           {/* Year-Round Industry Ecosystem Section */}
           <div className="animated-block mt-20">
             <div className="animated-block-target">
-              <div className="container mx-auto px-4">
+              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
                 <h3 className="font-bebas text-5xl text-black md:text-6xl">ITS Tyre Expo: A Year-Round Industry Ecosystem</h3>
                 <p className="mt-5 text-lg text-gray-700">
                   ITS Tyre Expo is the region's leading international exhibition for tyre manufacturing technologies. With 10 years of reputation and trust, it plays a pivotal role in connecting equipment manufacturers, technology providers, tyre companies, and procurement leaders from across Asia and abroad.
@@ -251,7 +251,7 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-black/60"></div>
 
                 {/* CONTENT */}
-                <div className="container relative z-10 mx-auto px-4">
+                <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] relative z-10 mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
                   <div className="grid items-center gap-10 md:grid-cols-12">
 
                     {/* LEFT IMAGE / MOCKUP */}
@@ -291,7 +291,7 @@ export default function AboutPage() {
           {/* Leading Exhibitors Section */}
           <div className="animated-block mt-20">
             <div className="animated-block-target">
-              <div className="container mx-auto px-4">
+              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
 
                 {/* HEADING */}
                 <h3 className="font-bebas text-5xl text-black md:text-6xl">
@@ -334,7 +334,7 @@ export default function AboutPage() {
           {/* Venue Section */}
           <div className="animated-block mt-20">
             <div className="animated-block-target">
-              <div className="container mx-auto flex flex-col gap-6 px-4 text-black">
+              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto flex flex-col gap-6 px-6 sm:px-8 lg:px-12 xl:px-16 text-black">
                 <h3 className="font-bebas text-5xl text-black md:text-6xl">Here's Where You Can Find Us!</h3>
                 <div className="grid gap-6 lg:grid-cols-2">
                   <div className="rounded-xl bg-orange-50 p-6">
@@ -348,16 +348,16 @@ export default function AboutPage() {
                     <h4 className="text-2xl font-bold">BITEC, Bangkok, Thailand</h4>
                   </div>
                 </div>
-                   <div className="mt-8 overflow-hidden">
+                <div className="mt-8 overflow-hidden">
 
-        <iframe
-          src="https://www.google.com/maps?q=Crocus%20Expo%20IEC%20Moscow&output=embed"
-          className="w-full h-[400px] border-0"
-          allowFullScreen
-          loading="lazy"
-        ></iframe>
+                  <iframe
+                    src="https://www.google.com/maps?q=Crocus%20Expo%20IEC%20Moscow&output=embed"
+                    className="w-full h-[400px] border-0"
+                    allowFullScreen
+                    loading="lazy"
+                  ></iframe>
 
-      </div>
+                </div>
               </div>
             </div>
           </div>
@@ -365,7 +365,7 @@ export default function AboutPage() {
           {/* Key Events Section */}
           <div className="animated-block mt-20">
             <div className="animated-block-target">
-              <div className="container mx-auto px-4">
+              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
                 <div className="mb-5 flex justify-between lg:items-end">
                   <div className="lg:basis-2/3">
                     <h3 className="font-bebas text-5xl text-black md:text-6xl">Key Events</h3>
@@ -378,14 +378,14 @@ export default function AboutPage() {
                   {keyEvents.map((event, idx) => (
                     <div key={idx} className="group flex flex-col overflow-hidden  bg-orange-50 transition-shadow duration-300 ease-in-out hover:shadow-lg">
                       <div className="relative h-48 w-full overflow-hidden">
-  <Image
-    src={event.image}
-    alt={event.title}
-    fill
-    className="object-cover transition-transform duration-500 group-hover:scale-105"
-  />
-  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition"></div>
-</div>
+                        <Image
+                          src={event.image}
+                          alt={event.title}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition"></div>
+                      </div>
                       <div className="flex flex-col gap-4 p-5">
                         <h4 className="text-xl font-bold text-black">{event.title}</h4>
                         <p className="text-gray-600 line-clamp-4">{event.description}</p>
@@ -410,7 +410,7 @@ export default function AboutPage() {
             <div className="animated-block-target">
               <div className="border-t-8 border-orange-600 bg-black py-20 text-white">
 
-                <div className="container mx-auto px-4">
+                <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
 
                   {/* HEADING */}
                   <h2 className="font-bebas text-6xl md:text-7xl">
@@ -431,9 +431,15 @@ export default function AboutPage() {
                         <Link href={item.link} className="flex flex-col items-center">
 
                           {/* ICON CIRCLE */}
-                          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gray-800">
-                            <div className="h-8 w-8 bg-orange-500 rounded-sm"></div>
-                          </div>
+                          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gray-800 overflow-hidden">
+  <Image
+    src={item.icon}
+    alt={item.label}
+    width={32}
+    height={32}
+    className="object-contain"
+  />
+</div>
 
                           {/* LABEL */}
                           <p className="mt-4 text-sm font-semibold text-gray-300">

@@ -83,7 +83,7 @@ export default function Navbar() {
 
   return (
     <div className="bg-[#1e1e1e]/80 py-3 text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
         {/* Logo and Navigation in one row */}
         <div className="flex items-center">
           {/* Logo on left */}
