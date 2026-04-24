@@ -15,7 +15,7 @@ import {
   CalendarIcon,
   UsersIcon,
 } from '@heroicons/react/24/outline';
-import DocumentTextIcon from '@heroicons/react/24/solid/DocumentTextIcon';
+import { DocumentTextIcon } from '@heroicons/react/24/outline';
 
 export default function CompanyProfilePage() {
   const [isEditing, setIsEditing] = useState(false);
