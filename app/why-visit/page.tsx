@@ -251,7 +251,7 @@ export default function WhyVisitPage() {
             Where Tyre Manufacturing's Key Players Meet and Opportunities Take Shape
           </h3>
 
-          <Link href="/exhibitor-list" target="_blank">
+          <Link href="/exhibition-directory" target="_blank">
             <button className="w-fit bg-[#F08400] px-8 py-3 font-bebas text-xl text-white transition-all hover:bg-black">
               Explore the Exhibitors List
             </button>
