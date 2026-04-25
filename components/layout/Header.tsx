@@ -21,32 +21,8 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Countdown Logic
-  const calculateTimeLeft = () => {
-    const targetDate = new Date('2026-04-22T09:00:00').getTime();
-    const now = new Date().getTime();
-    const diff = targetDate - now;
 
-    if (diff <= 0) {
-      return { days: 0, hours: 0, minutes: 0 };
-    }
 
-    return {
-      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((diff / (1000 * 60)) % 60),
-    };
-  };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <>
@@ -88,28 +64,7 @@ export default function Header() {
             {/* Right Section */}
             <div className="flex items-center gap-4 xl:gap-6">
               {/* Countdown */}
-              <div className="flex gap-2 xl:gap-3">
-                {[
-                  { label: 'Days', value: timeLeft.days },
-                  { label: 'Hours', value: timeLeft.hours },
-                  { label: 'Mins', value: timeLeft.minutes },
-                ].map((item, i) => (
-                  <div
-                    key={i}
-                    className="relative overflow-hidden flex flex-col items-center justify-center 
-                      bg-gray-700 backdrop-blur-md px-2 xl:px-4 py-1.5 xl:py-2 rounded-sm 
-                      border border-white/10 shadow-md transition-all duration-300 
-                      hover:bg-[#F08400] hover:text-black hover:scale-105"
-                  >
-                    <span className="text-sm xl:text-lg font-bold relative z-10">
-                      {String(item.value).padStart(2, '0')}
-                    </span>
-                    <span className="text-[9px] xl:text-xs uppercase tracking-wide relative z-10">
-                      {item.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
+
 
               {/* Buttons */}
               <div className="flex items-center gap-3 xl:gap-4">
@@ -167,23 +122,6 @@ export default function Header() {
 
           {/* Mobile Timer and Action Buttons */}
           <div className="flex items-center justify-between gap-3 mt-3">
-            <div className="flex gap-1">
-              {[
-                { label: 'D', value: timeLeft.days },
-                { label: 'H', value: timeLeft.hours },
-                { label: 'M', value: timeLeft.minutes },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-gray-800/90 backdrop-blur-md px-2 py-1 rounded min-w-[40px] text-center"
-                >
-                  <span className="text-xs font-bold text-white block">
-                    {String(item.value).padStart(2, '0')}
-                  </span>
-                  <span className="text-[8px] text-gray-400 uppercase">{item.label}</span>
-                </div>
-              ))}
-            </div>
 
             <Link
               href="/login/"
