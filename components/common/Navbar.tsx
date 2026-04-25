@@ -105,9 +105,9 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="bg-[#1e1e1e]/80 py-3 text-white">
+      <div className="bg-[#1e1e1e]/80 py-3 text-white sticky top-0 z-50">
         <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
-          <div className="flex items-center justify-between flex-wrap gap-4">
+          <div className="flex items-center">
             {/* Logo on left */}
             <div className="flex-shrink-0">
               <Link href="/">
@@ -125,7 +125,7 @@ export default function Navbar() {
             </div>
             
             {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex items-center gap-4 xl:gap-8 flex-wrap">
+            <div className="hidden lg:flex items-center gap-4 xl:gap-8">
               {navItems.map((item) => (
                 <div 
                   key={item.title} 
@@ -172,27 +172,23 @@ export default function Navbar() {
                 </div>
               ))}
             </div>
-
-            {/* Mobile Menu Button */}
-            <button className="lg:hidden text-white p-2">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
           </div>
         </div>
 
-        {/* Timer and Login Button - Below navbar (Original Design) */}
-        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 mt-3">
+        {/* Timer and Login Button Container - Separate from navbar */}
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
           <div
-            className={`transition-all duration-500 flex flex-wrap gap-4 justify-center lg:justify-end ${
+            className={`absolute -bottom-17 z-50 transition-all duration-500 flex gap-4 ${
               isScrolled
-                ? 'opacity-0 -translate-y-5 pointer-events-none hidden lg:flex'
+                ? 'opacity-0 -translate-y-5 pointer-events-none'
                 : 'opacity-100 translate-y-0'
             }`}
+            style={{
+              right: 'clamp(0rem, 0vw, 0rem)'
+            }}
           >
             {/* Timer */}
-            <div className="flex gap-0.5 sm:gap-1">
+            <div className="flex gap-0.5">
               {[
                 { label: 'Days', value: timeLeft.days },
                 { label: 'Hours', value: timeLeft.hours },
@@ -201,15 +197,21 @@ export default function Navbar() {
                 <div
                   key={i}
                   className="relative overflow-hidden flex flex-col items-center justify-center 
-                    bg-gray-700/70 backdrop-blur-md px-2 sm:px-3 py-1.5 sm:py-2 min-w-[55px] sm:min-w-[65px]
-                    border border-white/10 shadow-md rounded
+                    bg-gray-700/70 backdrop-blur-md px-2 py-1.5 min-w-[55px]
+                    border border-white/10 shadow-md
                     transition-all duration-300 
                     hover:bg-[#F08400] hover:text-black hover:scale-105"
                 >
-                  <span className="text-base sm:text-lg font-bold relative z-10">
+                  <div className="absolute inset-0 pointer-events-none">
+                    <div className="w-full h-full bg-gradient-to-br 
+                      from-white/10 via-transparent to-white/5 
+                      opacity-40 blur-xl"></div>
+                  </div>
+
+                  <span className="text-lg font-bold relative z-10">
                     {String(item.value).padStart(2, '0')}
                   </span>
-                  <span className="text-[10px] sm:text-xs uppercase tracking-wide relative z-10">
+                  <span className="text-xs uppercase tracking-wide relative z-10">
                     {item.label}
                   </span>
                 </div>
@@ -219,7 +221,7 @@ export default function Navbar() {
             {/* Exhibitor Login Button */}
             <Link
               href="/login/"
-              className="inline-block bg-[#2A2A2A] text-white px-5 sm:px-6 lg:px-8 py-2 sm:py-3 text-sm sm:text-base shadow-xl border border-white/20 rounded
+              className="inline-block bg-[#2A2A2A] text-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base shadow-xl border border-white/20 
               hover:bg-[#F08400] hover:text-black hover:scale-105 transition-all duration-300 whitespace-nowrap"
             >
               Exhibitor Login
