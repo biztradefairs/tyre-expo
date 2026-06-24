@@ -7,6 +7,8 @@ import Link from "next/link";
 import PartnersSection from "@/components/home/PartnersSection";
 import SectorsSection from "@/components/home/SectorsSection";
 import BackToTop from "@/components/layout/BackToTop";
+import Container from "@/components/ui/container";
+
 
 export default function AboutPage() {
   const [loading, setLoading] = useState(true);
@@ -127,82 +129,85 @@ export default function AboutPage() {
         {/* Add margin-top to account for fixed header */}
         <div className="pt-[100px] sm:pt-[120px] lg:pt-[140px]">
 
-          {/* Transforming Tyre Operations Section */}
-          <div className="bg-white py-12 sm:py-16 lg:py-20">
-            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto grid items-center gap-8 sm:gap-12 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-
-              {/* LEFT IMAGE */}
-              <div className="w-full h-[280px] sm:h-[350px] lg:h-[450px] xl:h-[500px] overflow-hidden rounded-sm order-1 lg:order-1">
-                <img
-                  src="/images/image1.png"
-                  alt="expo"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* RIGHT CONTENT */}
-              <div className="order-2 lg:order-2">
-                <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-black">
-                  Transforming Tyre Operations <br className="hidden sm:block" /> for Over 10 Years
-                </h2>
-
-                <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-relaxed text-gray-700">
-                  ITS Tyre Expo is the premier international exhibition for tyre
-                  manufacturing machinery, equipment, and technologies, covering the full
-                  cycle of rubber processing, tyre production, and quality testing.
-                  <br /><br />
-                  Each year, leading Asian and global companies in tyre manufacturing,
-                  rubber processing, equipment manufacturing, and logistics gather to
-                  present the latest innovations shaping the industry's future.
-                </p>
-
-                {/* STATS SECTION */}
-                <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-between bg-gray-100 px-4 sm:px-6 py-6 sm:py-8 rounded-md gap-4 sm:gap-0">
-                  <div className="text-center flex-1 min-w-[80px]">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bebas text-[#F08400]">10th</h3>
-                    <p className="text-xs sm:text-sm tracking-wide text-black mt-1 sm:mt-2">EDITION</p>
-                  </div>
-
-                  <div className="hidden md:block h-12 w-px bg-gray-300"></div>
-
-                  <div className="text-center flex-1 min-w-[80px]">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bebas text-[#F08400]">8,500+</h3>
-                    <p className="text-xs sm:text-sm tracking-wide text-black mt-1 sm:mt-2">VISITORS</p>
-                  </div>
-
-                  <div className="hidden md:block h-12 w-px bg-gray-300"></div>
-
-                  <div className="text-center flex-1 min-w-[80px]">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bebas text-[#F08400]">350+</h3>
-                    <p className="text-xs sm:text-sm tracking-wide text-black mt-1 sm:mt-2">EXHIBITORS</p>
-                  </div>
-
-                  <div className="hidden md:block h-12 w-px bg-gray-300"></div>
-
-                  <div className="text-center flex-1 min-w-[80px]">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bebas text-[#F08400]">60+</h3>
-                    <p className="text-xs sm:text-sm tracking-wide text-black mt-1 sm:mt-2">CONFERENCE SPEAKERS</p>
-                  </div>
+          <Container>
+              {/* Transforming Tyre Operations Section */}
+            <div className="bg-white py-12 sm:py-16 lg:py-20">
+              <div className="w-full grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
+    
+                {/* LEFT IMAGE */}
+                <div className="h-[800px] aspect-[10/17]">
+                  <img
+                    src="/images/image1.png"
+                    alt="expo"
+                    className="w-full h-full object-container "
+                  />
                 </div>
-
-                <div className="mt-8 sm:mt-10">
-                  <Link href="/why-exhibit">
-                    <button className="bg-[#F08400] px-8 sm:px-10 py-2.5 sm:py-3 text-lg sm:text-xl font-bebas text-white transition-all hover:bg-black">
-                      Why Exhibit
-                    </button>
-                  </Link>
+    
+                {/* RIGHT CONTENT */}
+                <div className="order-2 lg:order-2">
+                  <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-black">
+                    Transforming Tyre Operations <br className="hidden sm:block" /> for Over 10 Years
+                  </h2>
+    
+                  <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-relaxed text-gray-700">
+                    ITS Tyre Expo is the premier international exhibition for tyre
+                    manufacturing machinery, equipment, and technologies, covering the full
+                    cycle of rubber processing, tyre production, and quality testing.
+                    <br /><br />
+                    Each year, leading Asian and global companies in tyre manufacturing,
+                    rubber processing, equipment manufacturing, and logistics gather to
+                    present the latest innovations shaping the industry's future.
+                  </p>
+    
+                  {/* STATS SECTION */}
+                  <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-between bg-gray-100 px-4 sm:px-6 py-6 sm:py-8 rounded-md gap-4 sm:gap-0">
+                    <div className="text-center flex-1 min-w-[80px]">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bebas text-[#F08400]">10th</h3>
+                      <p className="text-xs sm:text-sm tracking-wide text-black mt-1 sm:mt-2">EDITION</p>
+                    </div>
+    
+                    <div className="hidden md:block h-12 w-px bg-gray-300"></div>
+    
+                    <div className="text-center flex-1 min-w-[80px]">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bebas text-[#F08400]">8,500+</h3>
+                      <p className="text-xs sm:text-sm tracking-wide text-black mt-1 sm:mt-2">VISITORS</p>
+                    </div>
+    
+                    <div className="hidden md:block h-12 w-px bg-gray-300"></div>
+    
+                    <div className="text-center flex-1 min-w-[80px]">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bebas text-[#F08400]">350+</h3>
+                      <p className="text-xs sm:text-sm tracking-wide text-black mt-1 sm:mt-2">EXHIBITORS</p>
+                    </div>
+    
+                    <div className="hidden md:block h-12 w-px bg-gray-300"></div>
+    
+                    <div className="text-center flex-1 min-w-[80px]">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bebas text-[#F08400]">60+</h3>
+                      <p className="text-xs sm:text-sm tracking-wide text-black mt-1 sm:mt-2">CONFERENCE SPEAKERS</p>
+                    </div>
+                  </div>
+    
+                  <div className="mt-8 sm:mt-10">
+                    <Link href="/why-exhibit">
+                      <button className="bg-[#F08400] px-8 sm:px-10 py-2.5 sm:py-3 text-lg sm:text-xl font-bebas text-white transition-all hover:bg-black">
+                        Why Exhibit
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </Container>
 
           {/* Explore Our Event Sectors Section */}
           <SectorsSection />
           
           {/* Year-Round Industry Ecosystem Section */}
-          <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
+          <Container> 
+          <div className="animated-block ">
             <div className="animated-block-target">
-              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] ">
                 <h3 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black">ITS Tyre Expo: A Year-Round Industry Ecosystem</h3>
                 <p className="mt-4 sm:mt-5 text-base sm:text-lg text-gray-700">
                   ITS Tyre Expo is the region's leading international exhibition for tyre manufacturing technologies. With 10 years of reputation and trust, it plays a pivotal role in connecting equipment manufacturers, technology providers, tyre companies, and procurement leaders from across Asia and abroad.
@@ -212,17 +217,25 @@ export default function AboutPage() {
 
                 <div className="mt-8 sm:mt-10 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {ecosystemItems.map((item, idx) => (
-                    <div key={idx} className="relative flex flex-col overflow-hidden rounded-lg bg-[#FCF8F3] p-5 sm:p-6 shadow-md min-h-[450px] sm:min-h-[480px]">
-                      <div className="flex flex-col gap-3 sm:gap-4">
+                    <div
+                      key={idx}
+                      className="relative flex flex-col overflow-hidden rounded-lg bg-[#FCF8F3] p-5 sm:p-6 shadow-md"
+                    >
+                      {/* Top content grows to fill available space */}
+                      <div className="flex flex-col flex-1 gap-3 sm:gap-4">
                         <h4 className="text-xl sm:text-2xl font-bold text-black">{item.title}</h4>
                         <p className="text-sm sm:text-base text-gray-600">{item.description}</p>
-                        <ul className="list-disc space-y-1.5 sm:space-y-2 pl-5 text-sm sm:text-base text-gray-600">
+                        <ul className="list-disc space-y-1.5 sm:space-y-2 pl-5 text-sm sm:text-base text-gray-600 flex-1">
                           {item.points.map((point, pIdx) => (
                             <li key={pIdx}>{point}</li>
                           ))}
                         </ul>
+                      </div>
+                        
+                      {/* Button always at the bottom */}
+                      <div className="mt-4 sm:mt-5">
                         <Link href={item.buttonLink}>
-                          <button className="mt-3 sm:mt-4 w-fit bg-[#F08400] px-5 sm:px-6 py-1.5 sm:py-2 font-bebas text-lg sm:text-xl text-white transition-all hover:bg-black">
+                          <button className="w-fit bg-[#F08400] px-5 sm:px-6 py-1.5 sm:py-2 font-bebas text-lg sm:text-xl text-white transition-all hover:bg-black">
                             {item.buttonText}
                           </button>
                         </Link>
@@ -233,6 +246,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+          </Container>
 
           {/* Download Brochure Section */}
           <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
@@ -248,10 +262,11 @@ export default function AboutPage() {
                 </div>
 
                 {/* DARK OVERLAY */}
+                <Container>
                 <div className="absolute inset-0 bg-black/60"></div>
 
                 {/* CONTENT */}
-                <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] relative z-10 mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+                <div className=" max-w-[1600px] 2xl:max-w-[1800px] relative z-10 ">
                   <div className="grid items-center gap-8 md:grid-cols-12">
                     {/* LEFT IMAGE / MOCKUP */}
                     <div className="flex justify-center md:col-span-5 lg:col-span-4">
@@ -263,71 +278,81 @@ export default function AboutPage() {
                     </div>
 
                     {/* RIGHT CONTENT */}
-                    <div className="flex flex-col gap-4 sm:gap-5 md:col-span-7 lg:col-span-8">
-                      <h3 className="font-bebas text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
-                        Download Your Event Brochure
-                      </h3>
+                      <div className="flex flex-col gap-4 sm:gap-5 md:col-span-7 lg:col-span-8">
+                        <h3 className="font-bebas text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
+                          Download Your Event Brochure
+                        </h3>
+                  
+                        <p className="max-w-[700px] text-base sm:text-lg text-gray-200">
+                          Make sure you grab your copy of the event brochure to learn more
+                          about the show and explore your participation opportunities.
+                        </p>
+                  
+                        <Link href="/event-brochure">
+                          <button className="bg-[#F08400] px-8 sm:px-10 py-2.5 sm:py-3 font-bebas text-xl sm:text-2xl text-white transition-all hover:bg-black w-fit">
+                            Download Now
+                          </button>
+                        </Link>
+                      </div>
 
-                      <p className="max-w-[700px] text-base sm:text-lg text-gray-200">
-                        Make sure you grab your copy of the event brochure to learn more
-                        about the show and explore your participation opportunities.
-                      </p>
-
-                      <Link href="/event-brochure">
-                        <button className="bg-[#F08400] px-8 sm:px-10 py-2.5 sm:py-3 font-bebas text-xl sm:text-2xl text-white transition-all hover:bg-black w-fit">
-                          Download Now
-                        </button>
-                      </Link>
-                    </div>
                   </div>
                 </div>
+                </Container>
+
               </div>
             </div>
           </div>
 
           {/* Leading Exhibitors Section */}
+          
           <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
             <div className="animated-block-target">
-              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto">
+                          
                 {/* HEADING */}
-                <h3 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black">
-                  Meet the Leading Exhibitors of 2026
-                </h3>
-
+                <Container>
+                  <h3 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black">
+                    Meet the Leading Exhibitors of 2026
+                  </h3>
+                </Container>
+                          
                 {/* CARD */}
-                <div className="mt-6 sm:mt-8 lg:mt-10 rounded-lg bg-orange-50 p-5 sm:p-6 lg:p-8">
-                  <h4 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black text-center">
+                <div className="mt-6 sm:mt-8 lg:mt-10 mx-4  bg-orange-50 p-6 sm:p-8 flex-col">
+                          
+                  <h4 className="font-bebas text-3xl xl:max-w-[1500px] px-[2.5cm]  sm:text-4xl lg:text-5xl text-black">
                     Exhibiting at ITS Tyre Expo Elevates Your Brand and Expands Your Network
                   </h4>
-
+                          
                   {/* BIG IMAGE */}
-                  <div className="mt-6 sm:mt-8 w-full overflow-hidden rounded-lg">
+                  <div className="mt-6 sm:mt-8 xl:max-w-[1500px] px-[2.5cm] xl:max-w-[1500px] px-[2.5cm]w-full overflow-hidden rounded-lg flex-1">
                     <img
                       src="/images/image2.png"
                       alt="Exhibitors"
                       className="h-[200px] sm:h-[280px] md:h-[350px] lg:h-[400px] w-full object-cover transition-transform duration-500 hover:scale-105"
                     />
                   </div>
-
+                          
                   {/* BUTTON */}
-                  <div className="mt-6 sm:mt-8 flex justify-start">
+                  <div className="mt-6 sm:mt-8 xl:max-w-[1500px] px-[2.5cm]">
                     <Link href="/exhibition-directory" target="_blank">
-                      <button className="bg-[#F08400] px-6 sm:px-8 py-2.5 sm:py-3 font-bebas text-lg sm:text-xl text-white transition-all hover:bg-black">
+                      <button className="bg-[#F08400] px-6 sm:px-8 py-2 sm:py-3 font-bebas text-lg sm:text-xl text-white transition-all hover:bg-black rounded-lg">
                         View Full Exhibitor List
                       </button>
                     </Link>
                   </div>
+                          
                 </div>
               </div>
             </div>
           </div>
 
           {/* Venue Section */}
+          <Container>
           <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
             <div className="animated-block-target">
-              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto flex flex-col gap-6 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 text-black">
-                <h3 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black">Here's Where You Can Find Us!</h3>
-                <div className="grid gap-5 sm:gap-6 lg:grid-cols-2">
+              <div className="w-full flex flex-col  text-black">
+                <h3 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black">Here's Where You Can Find Us! </h3>
+                <div className="mt-1 sm:mt-1 lg:mt-2 grid gap-5 sm:gap-6 lg:grid-cols-2">
                   <div className="rounded-xl bg-orange-50 p-5 sm:p-6">
                     <p className="mb-2 font-bold text-sm sm:text-base">Opening Hours</p>
                     <h4 className="text-xl sm:text-2xl font-bold">15 October 2026: 10:00 - 18:00</h4>
@@ -350,11 +375,13 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+          </Container>
 
           {/* Key Events Section */}
-          <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
+          <Container>
+            <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
             <div className="animated-block-target">
-              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+              <div className="w-full">
                 <div className="mb-6 sm:mb-8 flex flex-col lg:flex-row justify-between lg:items-end gap-4">
                   <div className="lg:basis-2/3">
                     <h3 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black">Key Events</h3>
@@ -392,6 +419,8 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+          </Container>
+          
 
           {/* Partners Section */}
           <PartnersSection />
