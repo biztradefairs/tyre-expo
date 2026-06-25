@@ -101,6 +101,7 @@ export default function InsightsPage() {
             {/* LEFT SECTION */}
             <div className="flex flex-col gap-6 sticky top-24 h-fit">
               <p className="text-[#F08400] font-sans text-[14px] font-semibold uppercase tracking-[1.5px]">
+                <br /><br /><br /><br /><br />
                 Explore Insights
               </p>
               
@@ -113,7 +114,7 @@ export default function InsightsPage() {
                 With growing demand for innovative products and reliable suppliers,
                 the CIS region is becoming a key player in global trade.
               </p>
-
+    
               {/* Features */}
               <div className="space-y-5 mt-4">
                 {[
@@ -149,6 +150,7 @@ export default function InsightsPage() {
 
             {/* RIGHT SECTION - FORM */}
             <div className="bg-[#f5f5f5] rounded-2xl p-6 md:p-8">
+              <br /><br /><br /><br />
               <h3 className="text-[#F08400] text-center font-semibold mb-2 text-sm uppercase tracking-wide">
                 One Step Closer to Unlocking Market Insights
               </h3>

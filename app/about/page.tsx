@@ -429,12 +429,12 @@ export default function AboutPage() {
           <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
             <div className="animated-block-target">
               <div className="border-t-8 border-orange-600 bg-black py-12 sm:py-16 lg:py-20 text-white">
-                <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+                <Container>
                   {/* HEADING */}
                   <h2 className="font-bebas text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
                     Quick Navigation
                   </h2>
-
+                          
                   {/* NAV ITEMS */}
                   <div className="mt-10 sm:mt-12 lg:mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-y-8 sm:gap-y-10 gap-x-4">
                     {quickLinks.map((item, idx) => (
@@ -450,7 +450,6 @@ export default function AboutPage() {
                               className="object-contain sm:w-8 sm:h-8"
                             />
                           </div>
-
                           {/* LABEL */}
                           <p className="mt-3 sm:mt-4 text-xs sm:text-sm font-semibold text-gray-300 group-hover:text-white transition">
                             {item.label}
@@ -459,7 +458,7 @@ export default function AboutPage() {
                       </div>
                     ))}
                   </div>
-                </div>
+                </Container>
               </div>
             </div>
           </div>

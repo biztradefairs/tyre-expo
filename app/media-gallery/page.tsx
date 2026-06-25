@@ -5,6 +5,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import BackToTop from "@/components/layout/BackToTop";
+import Container from "@/components/ui/container";
 
 // Mock Data - In production, fetch from CMS
 const galleryCategories = [
@@ -114,6 +115,7 @@ const galleryCategories = [
 
 export default function MediaGalleryPage() {
   return (
+    <Container>
     <div className="page-spacing-wrapper">
 
 
@@ -159,5 +161,6 @@ export default function MediaGalleryPage() {
       </div>
       <BackToTop/>
     </div>
+    </Container>
   );
 }

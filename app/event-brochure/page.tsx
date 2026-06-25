@@ -147,6 +147,7 @@ export default function MiningFormPage() {
             {/* LEFT SECTION */}
             <div className="flex flex-col gap-6 sticky top-24 h-fit">
               <p className="text-[#F08400] font-sans text-[14px] font-semibold uppercase tracking-[1.5px]">
+                <br /><br /><br /><br /><br />
                 Plan Your Participation
               </p>
               <h1 className="font-bebas font-bold text-[38px] lg:text-[48px] leading-[1.15] tracking-[1px] uppercase text-black">
@@ -179,8 +180,8 @@ export default function MiningFormPage() {
               </div>
 
               {/* WHY DOWNLOAD */}
-              <div>
-                <h3 className="font-semibold text-gray-800 mb-3 text-lg">
+              <div className="mt-12 pt-12"> 
+                <h3 className="font-semibold mt-12 text-gray-800 mb-3 text-lg">
                   Why Download the Brochure?
                 </h3>
                 <ul className="text-sm text-gray-600 space-y-2">
@@ -199,6 +200,7 @@ export default function MiningFormPage() {
                 </ul>
               </div>
 
+
               {/* BROCHURE IMAGE */}
               <div className="mt-6">
                 <div className="relative w-48 h-64 mx-auto lg:mx-0 rotate-[-6deg] shadow-xl rounded-lg overflow-hidden">
@@ -215,6 +217,8 @@ export default function MiningFormPage() {
             {/* RIGHT FORM */}
             <div className="bg-[#f5f5f5] rounded-2xl p-6 md:p-8">
               <h2 className="text-[#F08400] font-bold text-2xl mb-6 font-bebas">
+                
+                  <br /><br />
                 Download Event Brochure
               </h2>
 

@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PartnersSection from "@/components/home/PartnersSection";
 import BackToTop from "@/components/layout/BackToTop";
+import Container from "@/components/ui/container";
 
 export default function PlanYourTravelPage() {
   const [loading, setLoading] = useState(true);
@@ -179,16 +180,15 @@ export default function PlanYourTravelPage() {
     }
   ];
 
-  // Helper component for images with fallback
-  const ImageWithFallback = ({ 
-    src, 
-    alt, 
-    fallbackIcon, 
-    className = "" 
-  }: { 
-    src: string; 
-    alt: string; 
-    fallbackIcon?: string; 
+  const ImageWithFallback = ({
+    src,
+    alt,
+    fallbackIcon,
+    className = ""
+  }: {
+    src: string;
+    alt: string;
+    fallbackIcon?: string;
     className?: string;
   }) => {
     const [error, setError] = useState(false);
@@ -212,6 +212,8 @@ export default function PlanYourTravelPage() {
       />
     );
   };
+
+  const tabContent = activeTab === "exhibitor" ? exhibitorTabs : visitorTabs;
 
   return (
     <div className="intro-animation">
@@ -244,7 +246,7 @@ export default function PlanYourTravelPage() {
         {/* Culture Section */}
         <div className="animated-block">
           <div className="animated-block-target">
-            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-10">
+            <Container className="py-10">
               <div className="mb-5 flex justify-between lg:items-end">
                 <div className="lg:basis-2/3">
                   <h3 className="font-bebas text-5xl text-black md:text-6xl">Blend business opportunity and Bangkok's vibrant culture when you visit ITS Tyre Expo</h3>
@@ -253,14 +255,14 @@ export default function PlanYourTravelPage() {
                   </p>
                 </div>
               </div>
-            </div>
+            </Container>
           </div>
         </div>
 
         {/* Travel Information Tabs */}
         <div className="animated-block">
           <div className="animated-block-target">
-            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-10">
+            <Container className="py-10">
               <div className="flex-between mb-10 flex-wrap items-end gap-5 border-b border-gray-300 pb-10">
                 <div>
                   <h4 className="font-bebas text-5xl text-black md:text-6xl">The information you need before traveling</h4>
@@ -282,77 +284,45 @@ export default function PlanYourTravelPage() {
               </div>
 
               <div className="mt-5">
-                {activeTab === "exhibitor" ? (
-                  <div className="space-y-10">
-                    {exhibitorTabs.map((item, idx) => (
-                      <div key={idx} className="grid grid-cols-1 items-center gap-5 xl:grid-cols-7">
-                        {/* Image */}
-                        <div className="relative h-32 w-32 overflow-hidden rounded-lg bg-gray-200 xl:col-span-2">
-                          <ImageWithFallback
-                            src={item.image}
-                            alt={item.title}
-                            fallbackIcon={item.fallbackIcon}
-                            className="h-full w-full"
-                          />
-                        </div>
-                        <h5 className="text-2xl font-bold text-black xl:col-span-2">{item.title}</h5>
-                        <p className="text-gray-600 xl:col-span-2">{item.description}</p>
-                        <div className="grid xl:place-content-center">
-                          <Link href={item.buttonLink}>
-                            <button className="flex-center aspect-square rounded-full bg-[#F08400] p-3 text-white transition-all hover:bg-black">
-                              <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"></path>
-                              </svg>
-                            </button>
-                          </Link>
-                        </div>
+                <div className="space-y-10">
+                  {tabContent.map((item, idx) => (
+                    <div key={idx} className="grid grid-cols-1 items-center gap-5 xl:grid-cols-7">
+                      <div className="relative h-32 w-32 overflow-hidden rounded-lg bg-gray-200 xl:col-span-2">
+                        <ImageWithFallback
+                          src={item.image}
+                          alt={item.title}
+                          fallbackIcon={item.fallbackIcon}
+                          className="h-full w-full"
+                        />
                       </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="space-y-10">
-                    {visitorTabs.map((item, idx) => (
-                      <div key={idx} className="grid grid-cols-1 items-center gap-5 xl:grid-cols-7">
-                        {/* Image */}
-                        <div className="relative h-32 w-32 overflow-hidden rounded-lg bg-gray-200 xl:col-span-2">
-                          <ImageWithFallback
-                            src={item.image}
-                            alt={item.title}
-                            fallbackIcon={item.fallbackIcon}
-                            className="h-full w-full"
-                          />
-                        </div>
-                        <h5 className="text-2xl font-bold text-black xl:col-span-2">{item.title}</h5>
-                        <p className="text-gray-600 xl:col-span-2">{item.description}</p>
-                        <div className="grid xl:place-content-center">
-                          <Link href={item.buttonLink}>
-                            <button className="flex-center aspect-square rounded-full bg-[#F08400] p-3 text-white transition-all hover:bg-black">
-                              <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"></path>
-                              </svg>
-                            </button>
-                          </Link>
-                        </div>
+                      <h5 className="text-2xl font-bold text-black xl:col-span-2">{item.title}</h5>
+                      <p className="text-gray-600 xl:col-span-2">{item.description}</p>
+                      <div className="grid xl:place-content-center">
+                        <Link href={item.buttonLink}>
+                          <button className="flex-center aspect-square rounded-full bg-[#F08400] p-3 text-white transition-all hover:bg-black">
+                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"></path>
+                            </svg>
+                          </button>
+                        </Link>
                       </div>
-                    ))}
-                  </div>
-                )}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </Container>
           </div>
         </div>
 
         {/* Hotels Section */}
         <div className="animated-block">
           <div className="animated-block-target">
-            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+            <Container>
               <h3 className="font-bebas text-5xl text-black md:text-6xl">20% off when you book at the hotel website using the promo code "EXPO"</h3>
               <div className="mt-5 h-px w-full bg-[#F08400]"></div>
-
               <div className="mt-10 space-y-10">
                 {hotels.map((hotel, idx) => (
                   <div key={idx} className={`flex flex-col items-center gap-10 py-10 ${idx % 2 === 1 ? 'bg-orange-50' : ''} lg:flex-row lg:gap-20`}>
-                    {/* Hotel Image */}
                     <div className="relative h-48 w-48 shrink-0 overflow-hidden rounded-lg bg-gray-200 lg:h-60 lg:w-60">
                       <ImageWithFallback
                         src={hotel.image}
@@ -376,7 +346,7 @@ export default function PlanYourTravelPage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </Container>
           </div>
         </div>
 
@@ -386,7 +356,7 @@ export default function PlanYourTravelPage() {
         <div className="animated-block mt-20">
           <div className="animated-block-target">
             <div className="border-t-8 border-[#F08400] bg-black py-20 text-white">
-              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+              <Container>
                 <h2 className="font-bebas text-6xl md:text-7xl">Quick Navigation</h2>
                 <div className="mt-16 grid grid-cols-2 gap-y-10 md:grid-cols-5">
                   {quickLinks.map((item, idx) => (
@@ -396,9 +366,7 @@ export default function PlanYourTravelPage() {
                       )}
                       <Link href={item.link} className="flex flex-col items-center group">
                         <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gray-800 transition-colors group-hover:bg-[#F08400]">
-                          <div className="text-3xl">
-                            {item.icon}
-                          </div>
+                          <div className="text-3xl">{item.icon}</div>
                         </div>
                         <p className="mt-4 text-sm font-semibold text-gray-300 transition-colors group-hover:text-[#F08400]">
                           {item.label}
@@ -407,26 +375,19 @@ export default function PlanYourTravelPage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </Container>
             </div>
           </div>
         </div>
+
         <hr className="border-t-6 border-[#F08400]" />
-        <BackToTop/>
+        <BackToTop />
       </div>
 
       <style jsx>{`
-        .global-transition {
-          transition: all 0.3s ease;
-        }
-        .flex-center {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .font-bebas {
-          font-family: 'Bebas Neue', cursive;
-        }
+        .global-transition { transition: all 0.3s ease; }
+        .flex-center { display: flex; align-items: center; justify-content: center; }
+        .font-bebas { font-family: 'Bebas Neue', cursive; }
       `}</style>
     </div>
   );

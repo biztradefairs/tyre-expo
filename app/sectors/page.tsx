@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PartnersSection from "@/components/home/PartnersSection";
 import BackToTop from "@/components/layout/BackToTop";
+import Container from "@/components/ui/container";
 
 export default function SectorsPage() {
   const [loading, setLoading] = useState(true);
@@ -151,34 +152,33 @@ export default function SectorsPage() {
 
       {/* Main Content */}
       <div className="page-spacing-wrapper pt-[120px] lg:pt-[140px]">
+
         {/* Sectors Grid Section */}
         <div className="animated-block">
           <div className="animated-block-target">
-            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-              {/* Header Section */}
+            <Container>
               <div className="text-center lg:text-left">
                 <h2 className="font-bebas text-5xl text-black md:text-6xl lg:text-7xl">
+                  <br />
                   Sectors Showcased at <span className="text-[#F08400]">ITS Tyre Expo</span>
                 </h2>
                 <p className="mx-auto mt-5 max-w-9xl text-lg text-gray-700 lg:mx-0">
-                  The event highlights key sectors including raw materials, tyre manufacturing machinery, 
-                  testing equipment, and automation technologies tailored for the tyre industry. Whether 
-                  you're seeking innovative solutions for rubber processing, cutting-edge machinery, or 
-                  tools for optimizing tyre production, ITS Tyre Expo offers a platform for every professional 
+                  The event highlights key sectors including raw materials, tyre manufacturing machinery,
+                  testing equipment, and automation technologies tailored for the tyre industry. Whether
+                  you're seeking innovative solutions for rubber processing, cutting-edge machinery, or
+                  tools for optimizing tyre production, ITS Tyre Expo offers a platform for every professional
                   in the tyre manufacturing and rubber processing sectors.
                 </p>
               </div>
 
-              {/* Sectors Grid with Images */}
               <div className="my-16 md:my-20">
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {sectors.map((sector, idx) => (
-                    <Link 
-                      key={idx} 
-                      href={`/sectors/${sector.slug}`} 
+                    <Link
+                      key={idx}
+                      href={`/sectors/${sector.slug}`}
                       className="group relative block overflow-hidden rounded-xl shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
                     >
-                      {/* Image Container with Next.js Image */}
                       <div className="relative h-56 w-full overflow-hidden bg-gray-200">
                         <Image
                           src={sector.image}
@@ -187,7 +187,6 @@ export default function SectorsPage() {
                           className="object-cover transition-transform duration-300 group-hover:scale-110"
                           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                           onError={(e) => {
-                            // Fallback for broken images
                             const target = e.currentTarget;
                             target.style.display = 'none';
                             const parent = target.parentElement;
@@ -200,7 +199,6 @@ export default function SectorsPage() {
                           }}
                         />
                       </div>
-                      {/* Title overlay at bottom */}
                       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 pt-8">
                         <h3 className="text-center font-bebas text-xl text-white transition-colors duration-300 group-hover:text-[#F08400] md:text-2xl">
                           {sector.title}
@@ -210,30 +208,26 @@ export default function SectorsPage() {
                   ))}
                 </div>
               </div>
-            </div>
+            </Container>
           </div>
         </div>
 
-        {/* Quick Guide Section - Only button position changed */}
+        {/* Quick Guide Section */}
         <div className="animated-block mt-12 lg:mt-20">
           <div className="animated-block-target">
-            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-              {/* Quick Guide Header */}
+            <Container>
               <div className="mb-10 text-center lg:mb-12 lg:text-left">
                 <p className="font-bold text-[#F08400]">Quick Guide</p>
                 <h3 className="mt-2 font-bebas text-5xl text-black md:text-6xl lg:text-7xl">
                   Simplifying Your <span className="text-[#F08400]">Participation Journey</span>
                 </h3>
               </div>
-
-              {/* Quick Guide Cards - Original design, button over image */}
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {quickGuideItems.map((item, idx) => (
-                  <div 
-                    key={idx} 
+                  <div
+                    key={idx}
                     className="group flex flex-col overflow-hidden rounded-lg bg-orange-50 transition-all duration-300 ease-in-out hover:shadow-lg"
                   >
-                    {/* Image Container with Button Overlay */}
                     <div className="relative h-48 w-full overflow-hidden">
                       <Image
                         src={item.image}
@@ -241,9 +235,7 @@ export default function SectorsPage() {
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-110"
                       />
-                      {/* Dark Overlay */}
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
-                      {/* Button Overlay - positioned at bottom center over image */}
                       <div className="absolute bottom-4 left-0 right-0 flex justify-start">
                         <Link href={item.buttonLink}>
                           <button className="bg-[#F08400] px-6 py-2.5 font-bebas text-xl text-white transition-all duration-300 hover:bg-black opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
@@ -252,20 +244,14 @@ export default function SectorsPage() {
                         </Link>
                       </div>
                     </div>
-                    
-                    {/* Content - Rest of the card remains exactly the same */}
                     <div className="flex flex-1 flex-col gap-3 p-5">
-                      <h4 className="font-bebas text-2xl text-black md:text-3xl">
-                        {item.title}
-                      </h4>
-                      <p className="text-gray-600 line-clamp-3">
-                        {item.description}
-                      </p>
+                      <h4 className="font-bebas text-2xl text-black md:text-3xl">{item.title}</h4>
+                      <p className="text-gray-600 line-clamp-3">{item.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
+            </Container>
           </div>
         </div>
 
@@ -273,43 +259,27 @@ export default function SectorsPage() {
         <div className="mt-12 lg:mt-20">
           <PartnersSection />
         </div>
-        <BackToTop/>
+        <BackToTop />
       </div>
 
       <style jsx>{`
-        .global-transition {
-          transition: all 0.3s ease;
-        }
-        .flex-center {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .font-bebas {
-          font-family: 'Bebas Neue', cursive;
-        }
+        .global-transition { transition: all 0.3s ease; }
+        .flex-center { display: flex; align-items: center; justify-content: center; }
+        .font-bebas { font-family: 'Bebas Neue', cursive; }
         .line-clamp-3 {
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
           overflow: hidden;
         }
-        
-        /* Smooth animations */
         .animated-block {
           opacity: 0;
           transform: translateY(30px);
           animation: fadeInUp 0.6s ease forwards;
         }
-        
         @keyframes fadeInUp {
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          to { opacity: 1; transform: translateY(0); }
         }
-        
-        /* Stagger animation delays */
         .animated-block:nth-child(1) { animation-delay: 0.1s; }
         .animated-block:nth-child(2) { animation-delay: 0.3s; }
         .animated-block:nth-child(3) { animation-delay: 0.5s; }
@@ -318,7 +288,6 @@ export default function SectorsPage() {
   );
 }
 
-// Helper function for sector icons fallback
 function getSectorIcon(index: number): string {
   const icons = ["🌿", "🏭", "⚙️", "🔬", "🔧", "♻️", "🔨", "📦", "🧪", "🤖", "🚚", "🔥"];
   return icons[index] || "🏭";

@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PartnersSection from "@/components/home/PartnersSection";
 import BackToTop from "@/components/layout/BackToTop";
+import Container from "@/components/ui/container";
 
 export default function AboutITEPage() {
   const [loading, setLoading] = useState(true);
@@ -266,14 +267,14 @@ export default function AboutITEPage() {
     <div className="intro-animation">
       <div className="page-spacing-wrapper">
         <div className="pt-[100px] sm:pt-[120px] lg:pt-[140px]">
-          
+
           {/* About Us Section */}
           <div className="animated-block">
             <div className="animated-block-target">
-              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+              <Container>
                 <div className="lg:col-span-3">
                   <div className="flex flex-col gap-4 sm:gap-5">
-                    <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black">About Us</h2>
+                    <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black"><br />About Us</h2>
                     <p className="text-sm sm:text-base md:text-lg text-gray-700">
                       ITE Group is a business events organiser that has been operating in the Asian market since 1991. Every year, we host more than 30 of the largest industry events, including exhibitions, summits, and conferences. Powered by the Connect digital platform, the ITE ecosystem offers unique hybrid solutions for industry communities across Asia, the ASEAN countries, and beyond.
                       <br /><br />
@@ -284,8 +285,8 @@ export default function AboutITEPage() {
                       ITE offices are located in Bangkok, Dubai, Beijing, and New Delhi.
                     </p>
                   </div>
-                  
-                  {/* Stats Section - Responsive */}
+
+                  {/* Stats Section */}
                   <div className="mt-10 sm:mt-12 lg:mt-16 flex flex-wrap justify-start gap-y-8 sm:gap-y-12 border-t border-gray-200 pt-8 sm:pt-10">
                     {stats.map((stat, idx) => (
                       <div key={idx} className="flex w-1/2 sm:w-1/3 md:w-1/4 items-start justify-start">
@@ -301,14 +302,14 @@ export default function AboutITEPage() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </Container>
             </div>
           </div>
 
           {/* Mission, Vision, Values Section */}
           <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
             <div className="animated-block-target">
-              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+              <Container>
                 <div className="mb-6 sm:mb-8 flex flex-col lg:flex-row justify-between lg:items-end gap-4">
                   <div className="lg:basis-2/3">
                     <h3 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black">Working for Your Success</h3>
@@ -339,14 +340,14 @@ export default function AboutITEPage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </Container>
             </div>
           </div>
 
           {/* Exhibitions at a Glance Section */}
           <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
             <div className="animated-block-target">
-              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+              <Container>
                 <div className="flex w-full items-end justify-between gap-6 sm:gap-10 max-lg:flex-wrap lg:gap-20 2xl:gap-40">
                   <div>
                     <h3 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black">Our Exhibitions at a Glance</h3>
@@ -389,7 +390,7 @@ export default function AboutITEPage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </Container>
             </div>
           </div>
 
@@ -397,8 +398,9 @@ export default function AboutITEPage() {
           <div className="mt-12 sm:mt-16 lg:mt-20">
             <PartnersSection />
           </div>
+
         </div>
-        <BackToTop/>
+        <BackToTop />
       </div>
 
       <style jsx>{`
