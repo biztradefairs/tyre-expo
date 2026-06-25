@@ -1,20 +1,22 @@
-// app/dashboard/brochures/page.tsx
 'use client';
 
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
-import { DocumentTextIcon, PlusIcon, TrashIcon, EyeIcon, ArrowDownTrayIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { brochuresAPI } from '@/lib/api/exhibitorClient'; const API_BASE = 'https://localhost:5000/api';
 
-interface Brochure {
-    id: string;
-    name: string;
-    title: string;
-    description: string;
-    fileUrl: string;
-    fileSize: number;
-    downloads: number;
-    createdAt: string;
-}
+import {
+    DocumentTextIcon,
+    PlusIcon,
+    TrashIcon,
+    EyeIcon,
+    ArrowDownTrayIcon,
+    XMarkIcon
+} from '@heroicons/react/24/outline';
+
+import {
+    brochuresAPI,
+    Brochure
+} from '@/lib/api/exhibitorClient';
+
+const API_BASE = 'https://localhost:5000/api';
 
 interface FormData {
     title: string;
@@ -135,7 +137,7 @@ export default function BrochuresPage() {
                                     <p className="text-gray-600 text-sm mt-1">{brochure.description}</p>
                                     <div className="flex items-center gap-4 mt-2">
                                         <span className="text-xs text-gray-400">
-                                            Uploaded: {new Date(brochure.createdAt).toLocaleDateString()}
+                                            Uploaded: {brochure.createdAt ? new Date(brochure.createdAt).toLocaleDateString() : 'Unknown'}
                                         </span>
                                         <span className="text-xs text-gray-400">
                                             Size: {Math.round((brochure.fileSize || 0) / 1024)} KB

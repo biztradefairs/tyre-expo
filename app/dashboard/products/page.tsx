@@ -9,19 +9,10 @@ import {
     TrashIcon,
     XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { productsAPI } from '@/lib/api/exhibitorClient';
+import { productsAPI, Product } from '@/lib/api/exhibitorClient';
 const API_BASE = 'https://localhost:5000/api';
 
-interface Product {
-    id: string;
-    name: string;
-    description: string;
-    category: string;
-    specifications: string;
-    imageUrl: string;
-    price?: string;
-    createdAt?: string;
-}
+
 
 interface FormData {
     name: string;
@@ -158,7 +149,7 @@ export default function ProductsPage() {
                                         setEditingProduct(product);
                                         setFormData({
                                             name: product.name,
-                                            description: product.description,
+                                            description: product.description || '',
                                             category: product.category || '',
                                             specifications: product.specifications || '',
                                             imageUrl: product.imageUrl || '',
