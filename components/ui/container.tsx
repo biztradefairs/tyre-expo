@@ -1,4 +1,3 @@
-// components/ui/container.tsx
 import { ReactNode } from 'react';
 
 interface ContainerProps {
@@ -8,7 +7,7 @@ interface ContainerProps {
 
 export default function Container({ children, className = '' }: ContainerProps) {
   return (
-    <div className={`max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 ${className}`}>
+    <div className={` xl:max-w-[1500px] px-[3.7cm]  ${className}`}>
       {children}
     </div>
   );

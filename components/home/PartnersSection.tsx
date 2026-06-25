@@ -4,6 +4,7 @@ import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Section from '../ui/section';
 import SectionHeader from '../ui/sectionHeader';
+import Container from '../ui/container';
 
 const partnersData = [
   { name: 'ProfiMiner', logo: 'https://cdn.itegroupnews.com/Profi_Miner_5d476ae93b.webp', type: 'Media Partner' },
@@ -101,8 +102,9 @@ export default function PartnersSection() {
 
   return (
     <section className="bg-mainColor2 py-24">
-      <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+      <div className="w-full mx-auto ">
         {/* Header - Same as SectorsSection */}
+        <Container>
         <div className="max-w-[900px] mb-12">
           <p className="text-[#F08400] font-sans text-[14px] uppercase tracking-[1.5px]">
             Our Ecosystem
@@ -114,6 +116,7 @@ export default function PartnersSection() {
             Meet our valued partners and sponsors who make ITS Tyre Expo possible
           </p>
         </div>
+      </Container>
         
         {/* Scrolling Container */}
         <div className="relative w-full mt-8">

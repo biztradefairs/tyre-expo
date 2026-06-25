@@ -17,17 +17,20 @@ import NewsletterSection from '@/components/home/NewsletterSection';
 import PartnersSection from '@/components/home/PartnersSection';
 import { getLatestArticles } from '@/app/articles/data'; // Import from your data.ts
 
+
 // Sample data - replace with actual data from API
 const countriesData = [
-  { name: 'India', flag: 'https://cdn.itegroupnews.com/India_77390bec7a.webp' },
-  { name: 'Germany', flag: 'https://cdn.itegroupnews.com/Germany_3dc8a515f9.png' },
-  { name: 'China', flag: 'https://cdn.itegroupnews.com/Flag_icons_3e3608eca2.png' },
-  { name: 'Japan', flag: 'https://cdn.itegroupnews.com/Japan_flag.png' },
-  { name: 'USA', flag: 'https://cdn.itegroupnews.com/USA_flag.png' },
-  { name: 'South Korea', flag: 'https://cdn.itegroupnews.com/South_Korea_flag.png' },
-  { name: 'Thailand', flag: 'https://cdn.itegroupnews.com/Thailand_flag.png' },
-  { name: 'Vietnam', flag: 'https://cdn.itegroupnews.com/Vietnam_flag.png' },
+  { name: 'India', flag: 'https://flags.restcountries.com/v5/w320/in.png' },
+  { name: 'Germany', flag: 'https://flags.restcountries.com/v5/w320/de.png' },
+  { name: 'China', flag: 'https://flags.restcountries.com/v5/w320/cn.png' },
+  { name: 'Japan', flag: 'https://flags.restcountries.com/v5/w320/jp.png' },
+  { name: 'USA', flag: 'https://flags.restcountries.com/v5/w320/us.png' },
+  { name: 'South Korea', flag: 'https://flags.restcountries.com/v5/w320/kr.png' },
+  { name: 'Thailand', flag: 'https://flags.restcountries.com/v5/w320/th.png' },
+  { name: 'Vietnam', flag: 'https://flags.restcountries.com/v5/w320/vn.png' },
 ];
+
+
 
 const outcomesData = [
   {

@@ -4,9 +4,9 @@
 import BackToTop from '@/components/layout/BackToTop';
 import Image from 'next/image';
 import Link from 'next/link';
+import Container from '@/components/ui/container';
 
 export default function PartnersSponsorsPage() {
-  // Event Partners data
   const eventPartners = [
     {
       name: 'Tyre and Rubber Association of India',
@@ -28,7 +28,6 @@ export default function PartnersSponsorsPage() {
     },
   ];
 
-  // Media Partners data
   const mediaPartners = [
     { name: 'Tyre Times', logo: 'https://cdn.itegroupnews.com/mining_0bccc3a3aa.webp', type: 'General Media Partner', website: 'https://tyretimes.in' },
     { name: 'Rubber Asia', logo: 'https://cdn.itegroupnews.com/dprom_b413c2b8d8.webp', type: 'General Media Partner', website: 'https://rubberasia.com' },
@@ -84,8 +83,7 @@ export default function PartnersSponsorsPage() {
     { name: 'Cosmo World', logo: 'https://cdn.itegroupnews.com/7_5f06c7f26f.png', type: 'Media Partner', website: 'https://cosmoworld.com' },
   ];
 
-  // Quick links data
-   const quickLinks = [
+  const quickLinks = [
     { label: "Enquire to Exhibit", link: "/exhibiting-enquiry", icon: "https://cdn.itegroupnews.com/Vector_1_440f5852b9.png" },
     { label: "Download Event Brochure", link: "/event-brochure", icon: "https://cdn.itegroupnews.com/Group_e024d13500.png" },
     { label: "Exhibitor List", link: "/exhibitor-list", icon: "https://cdn.itegroupnews.com/Vector_ceea3d1488.png" },
@@ -95,12 +93,11 @@ export default function PartnersSponsorsPage() {
 
   return (
     <div className="page-spacing-wrapper">
-      {/* Header spacing to account for fixed navbar */}
       <div className="pt-[120px] lg:pt-[140px]">
-        
+
         {/* Event Partners Section */}
         <section className="py-16 lg:py-20">
-          <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+          <Container>
             <h2 className="font-bebas text-5xl text-black md:text-6xl text-center mb-10 lg:mb-16">
               Event Partners
             </h2>
@@ -132,12 +129,12 @@ export default function PartnersSponsorsPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </Container>
         </section>
 
         {/* Media Partners Section */}
         <section className="py-16 lg:py-20 bg-orange-50">
-          <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+          <Container>
             <h2 className="font-bebas text-5xl text-black md:text-6xl text-center mb-10 lg:mb-16">
               Media Partners
             </h2>
@@ -171,63 +168,54 @@ export default function PartnersSponsorsPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </Container>
         </section>
 
         {/* Quick Navigation Section */}
-<div className="animated-block mt-20">
-  <div className="animated-block-target">
-    <div className="border-t-8 border-[#F08400] bg-black py-20 text-white">
-      
-      <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-        
-        {/* HEADING */}
-        <h2 className="font-bebas text-6xl md:text-7xl">
-          Quick Navigation
-        </h2>
+        <div className="animated-block mt-20">
+          <div className="animated-block-target">
+            <div className="border-t-8 border-[#F08400] bg-black py-20 text-white">
+              <Container>
+                {/* HEADING */}
+                <h2 className="font-bebas text-6xl md:text-7xl">
+                  Quick Navigation
+                </h2>
 
-        {/* NAV ITEMS */}
-        <div className="mt-16 grid grid-cols-2 gap-y-10 md:grid-cols-5">
-          
-          {quickLinks.map((item, idx) => (
-            <div key={idx} className="relative flex flex-col items-center justify-center text-center">
-              
-              {/* VERTICAL DIVIDER */}
-              {idx !== 0 && (
-                <div className="absolute left-0 top-1/2 hidden h-16 w-px -translate-y-1/2 bg-gray-700 md:block"></div>
-              )}
-
-              <Link href={item.link} className="flex flex-col items-center">
-                
-                {/* ICON CIRCLE */}
-                                          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gray-800 overflow-hidden">
-                  <Image
-                    src={item.icon}
-                    alt={item.label}
-                    width={32}
-                    height={32}
-                    className="object-contain"
-                  />
+                {/* NAV ITEMS */}
+                <div className="mt-16 grid grid-cols-2 gap-y-10 md:grid-cols-5">
+                  {quickLinks.map((item, idx) => (
+                    <div key={idx} className="relative flex flex-col items-center justify-center text-center">
+                      {/* VERTICAL DIVIDER */}
+                      {idx !== 0 && (
+                        <div className="absolute left-0 top-1/2 hidden h-16 w-px -translate-y-1/2 bg-gray-700 md:block"></div>
+                      )}
+                      <Link href={item.link} className="flex flex-col items-center">
+                        {/* ICON CIRCLE */}
+                        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gray-800 overflow-hidden">
+                          <Image
+                            src={item.icon}
+                            alt={item.label}
+                            width={32}
+                            height={32}
+                            className="object-contain"
+                          />
+                        </div>
+                        {/* LABEL */}
+                        <p className="mt-4 text-sm font-semibold text-gray-300">
+                          {item.label}
+                        </p>
+                      </Link>
+                    </div>
+                  ))}
                 </div>
-
-                {/* LABEL */}
-                <p className="mt-4 text-sm font-semibold text-gray-300">
-                  {item.label}
-                </p>
-
-              </Link>
+              </Container>
             </div>
-          ))}
-
+          </div>
         </div>
 
+        <hr className="border-t-6 border-[#F08400]" />
       </div>
-    </div>
-  </div>
-</div>
-<hr className="border-t-6 border-[#F08400]" />
-      </div>
-      <BackToTop/>
+      <BackToTop />
     </div>
   );
 }

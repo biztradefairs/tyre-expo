@@ -235,6 +235,7 @@ export default function PostShowReportPage() {
             {/* LEFT SECTION - Content */}
             <div className="flex flex-col gap-6 sticky top-24 h-fit">
               <p className="text-[#F08400] font-sans text-[14px] font-semibold uppercase tracking-[1.5px]">
+                <br /><br /><br /><br /><br />
                 Post-Show Report
               </p>
               
@@ -305,6 +306,7 @@ export default function PostShowReportPage() {
             {/* RIGHT SECTION - Form */}
             <div className="bg-[#f5f5f5] rounded-2xl p-6 md:p-8">
               <h2 className="text-[#F08400] font-bold text-2xl mb-6 font-bebas">
+                <br /><br />
                 Download the Post Show Report
               </h2>
 

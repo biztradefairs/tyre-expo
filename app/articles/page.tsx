@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getAllArticles, type Article } from "./data";
 import BackToTop from "@/components/layout/BackToTop";
+import Container from "@/components/ui/container";
 
 // Get articles from data.ts
 const articlesData = getAllArticles();
@@ -43,6 +44,7 @@ export default function ArticlesPage() {
   };
 
   return (
+    <Container>
     <div className="page-spacing-wrapper">
       <div className="pt-[100px] sm:pt-[120px] lg:pt-[140px]">
         {/* Articles Grid Section */}
@@ -149,5 +151,6 @@ export default function ArticlesPage() {
       </div>
       <BackToTop/>
     </div>
+    </Container>
   );
 }

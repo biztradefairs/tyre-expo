@@ -55,22 +55,40 @@ export default function SectorsSection() {
 
   return (
     <section className="bg-[#f5f5f5] py-16 sm:py-20 lg:py-24">
-      <Container>
+      
         <div>
-          <div className="max-w-[900px] mb-8 sm:mb-10 lg:mb-12">
-            <p className="text-[#F08400] font-sans text-[12px] sm:text-[14px] uppercase tracking-[1.5px]">
-              Event Sectors
-            </p>
-            <h2 className="font-bebas font-bold text-[36px] sm:text-[42px] lg:text-[48px] leading-[1.05] tracking-[2px] uppercase text-black">
-              Explore Key Sectors Driving the Tyre Industry
-            </h2>
-          </div>
+          <Container>
+            <div className="max-w-[900px] mb-8 sm:mb-10 lg:mb-12">
+              <p className="text-[#F08400] font-sans text-[12px] sm:text-[14px] uppercase tracking-[1.5px]">
+                Event Sectors
+              </p>
+              <h2 className="font-bebas font-bold text-[36px] sm:text-[42px] lg:text-[48px] leading-[1.05] tracking-[2px] uppercase text-black">
+                Explore Key Sectors Driving the Tyre Industry
+              </h2>
+            </div>
+          </Container>
 
-          <div className="relative mt-8 sm:mt-10 lg:mt-12">
-            <div ref={scrollRef} className="flex gap-4 sm:gap-5 lg:gap-6 overflow-x-auto scroll-smooth no-scrollbar pb-4">
-              {sectorsData.map((sector) => (
-                <Link 
-                  key={sector.id} 
+          {/* Add this to your global CSS or a <style> tag */}
+          <style>{`
+            @keyframes marquee-scroll {
+              0%   { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .marquee-track {
+              animation: marquee-scroll 30s linear infinite;
+            }
+            .marquee-track:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
+          
+          <div className="relative mt-8 sm:mt-10 lg:mt-12 overflow-hidden">
+            <div className="marquee-track flex gap-4 sm:gap-5 lg:gap-6 w-max">
+              
+              {/* Render list TWICE for seamless loop */}
+              {[...sectorsData, ...sectorsData].map((sector, index) => (
+                <Link
+                  key={`${sector.id}-${index}`}
                   href={`/sectors/${sector.slug}`}
                   className="min-w-[280px] sm:min-w-[320px] lg:min-w-[380px] xl:min-w-[420px] flex-shrink-0 overflow-hidden group relative block cursor-pointer rounded-lg"
                 >
@@ -90,24 +108,26 @@ export default function SectorsSection() {
                     <p className="font-sans text-[12px] sm:text-[13px] lg:text-[14px] text-white/90 mt-1 sm:mt-2 leading-[1.7] line-clamp-2">
                       {sector.shortText}
                     </p>
-                    <span className="inline-block mt-2 sm:mt-3 lg:mt-4 font-sans text-[11px] sm:text-[12px] lg:text-[13px] font-semibold uppercase tracking-[1px] text-[#F08400] hover:underline group-hover:underline">
+                    <span className="inline-block mt-2 sm:mt-3 lg:mt-4 font-sans text-[11px] sm:text-[12px] lg:text-[13px] font-semibold uppercase tracking-[1px] text-[#F08400] group-hover:underline">
                       Read More →
                     </span>
                   </div>
                 </Link>
               ))}
+          
             </div>
           </div>
-
-          <div className="mt-8 sm:mt-10 lg:mt-12">
-            <Link href="/sectors/">
-              <button className="bg-[#F08400] px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 lg:py-3 font-bebas text-xl sm:text-2xl text-white hover:bg-black transition-all">
-                Explore All The Sectors
-              </button>
-            </Link>
-          </div>
+            
+          <Container> 
+            <div className="mt-8 sm:mt-10 lg:mt-12">
+              <Link href="/sectors/">
+                <button className="bg-[#F08400] px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 lg:py-3 font-bebas text-xl sm:text-2xl text-white hover:bg-black transition-all">
+                  Explore All The Sectors
+                </button>
+              </Link>
+            </div>
+          </Container>
         </div>
-      </Container>
 
       <style jsx>{`
         .no-scrollbar::-webkit-scrollbar {

@@ -18,22 +18,29 @@ export default function CountriesSection({ countries }: CountriesSectionProps) {
         src="https://cdn.itegroupnews.com/img_5_cb9a8893c7.jpg"
         alt="Background"
         fill
+        priority
+        sizes="100vw"
         className="object-cover"
       />
       <div className="absolute inset-0 bg-black/60" />
-      <div className="absolute right-0 top-0 h-full w-1/2 bg-[#F08400]/20 clip-path-polygon hidden lg:block" />
+      
+      {/* Orange polygon overlay — inline style for clip-path */}
+      <div 
+        className="absolute right-0 top-0 h-full w-1/2 bg-[#F08400]/20 hidden lg:block"
+        style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)' }}
+      />
 
-      <Container className="relative z-10">
-        <p className="text-[#F08400] font-semibold text-base sm:text-lg">
+      <Container className="relative z-10 ">
+        <p className="text-[#F08400]  font-extrabold text-5xl uppercase tracking-tight font-semibold text-base sm:text-lg">
           Countries Represented
         </p>
-        <h2 className="mt-3 sm:mt-4 text-[32px] sm:text-[38px] md:text-[44px] font-semibold leading-[1.1]">
+        <h2 className="mt-3 sm:mt-4 text-[32px]  font-extrabold text-5xl uppercase tracking-tight sm:text-[38px] md:text-[44px] font-semibold leading-[1.1]">
           DISCOVER THE GLOBAL REACH OF INDIA TYRE SHOW
         </h2>
         
         <Link
           href="/exhibitor-list/"
-          className="inline-block mt-5 sm:mt-6 bg-[#F08400] px-6 sm:px-8 py-2.5 sm:py-3 lg:py-4 font-bold uppercase tracking-wide hover:bg-orange-600 transition text-sm sm:text-base"
+          className="inline-block  font-extrabold text-5xl uppercase tracking-tight mt-5 sm:mt-6 bg-[#F08400] px-6 sm:px-8 py-2.5 sm:py-3 lg:py-4 font-bold uppercase tracking-wide hover:bg-orange-600 transition text-sm sm:text-base"
         >
           Explore the 2026 Exhibitor List
         </Link>

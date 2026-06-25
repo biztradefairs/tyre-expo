@@ -1,6 +1,5 @@
 'use client';
 
-import { ReactNode } from 'react';
 import Link from 'next/link';
 import { cva, type VariantProps } from 'class-variance-authority';
 
@@ -55,8 +54,6 @@ export function Button({
   children,
   ...props 
 }: ButtonProps) {
-  const Comp = href ? 'a' : 'button';
-  
   if (href) {
     return (
       <Link

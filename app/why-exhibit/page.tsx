@@ -6,6 +6,7 @@ import Link from "next/link";
 import PartnersSection from "@/components/home/PartnersSection";
 import SectorsSection from "@/components/home/SectorsSection";
 import BackToTop from "@/components/layout/BackToTop";
+import Container from "@/components/ui/container";
 
 export default function WhyExhibitPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -51,7 +52,6 @@ export default function WhyExhibitPage() {
     }
   ];
 
-  // Group sectors into slides (3 items per slide)
   const getSlides = () => {
     const slides = [];
     for (let i = 0; i < sectors.length; i += 3) {
@@ -63,45 +63,27 @@ export default function WhyExhibitPage() {
   const slides = getSlides();
   const totalSlides = slides.length;
 
-  // Auto-play functionality - FIXED: changed interval from 500 to 4000ms for proper viewing
   useEffect(() => {
     if (isAutoPlaying && totalSlides > 1) {
       autoPlayRef.current = setInterval(() => {
         setCurrentSlide((prev) => (prev + 1) % totalSlides);
-      }, 4000); // Changed from 500ms to 4000ms for normal sliding speed
+      }, 4000);
     }
-
     return () => {
-      if (autoPlayRef.current) {
-        clearInterval(autoPlayRef.current);
-      }
+      if (autoPlayRef.current) clearInterval(autoPlayRef.current);
     };
   }, [isAutoPlaying, totalSlides]);
 
-  // Pause auto-play on hover
   const handleMouseEnter = () => {
     setIsAutoPlaying(false);
-    if (autoPlayRef.current) {
-      clearInterval(autoPlayRef.current);
-    }
+    if (autoPlayRef.current) clearInterval(autoPlayRef.current);
   };
 
-  const handleMouseLeave = () => {
-    setIsAutoPlaying(true);
-  };
+  const handleMouseLeave = () => setIsAutoPlaying(true);
 
-  // Navigation functions
-  const goToPreviousSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
-
-  const goToNextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
+  const goToPreviousSlide = () => setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  const goToNextSlide = () => setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  const goToSlide = (index: number) => setCurrentSlide(index);
 
   const quickLinks = [
     { label: "Enquire to Exhibit", link: "/exhibiting-enquiry", icon: "/icons/enquire.png" },
@@ -111,65 +93,63 @@ export default function WhyExhibitPage() {
     { label: "Why Visit", link: "/why-visit", icon: "/icons/visit.png" }
   ];
 
-
-
   return (
     <div className="intro-animation">
-      {/* Main Content */}
       <div className="page-spacing-wrapper">
         <div className="pt-[120px] lg:pt-[140px]">
 
           {/* Powering Progress Section */}
           <div className="animated-block">
             <div className="animated-block-target">
-              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto grid items-center gap-10 overflow-hidden px-6 sm:px-8 lg:grid-cols-5 lg:gap-20">
-                <div className="lg:col-span-5">
-                  <div className="flex flex-col gap-5">
-                    <p className="font-bold text-[#F08400]">Your Gateway to Tyre Manufacturing Growth in ASEAN</p>
-                    <h2 className="font-bebas text-6xl text-black md:text-7xl">Powering Progress in the Global Rubber & Tyre Industry</h2>
-                    <p className="text-lg text-gray-700">
-                      As the global tyre industry shifts toward sustainability, automation, and high-performance materials, Southeast Asia's tyre manufacturing sector is experiencing unprecedented growth. ITS Tyre Expo connects you directly with the region's leading tyre manufacturers, rubber processors, OEMs, and government agencies driving this transformation.
-                    </p>
-                  </div>
-                  <div className="mt-10 flex flex-wrap gap-10 2xl:gap-20">
-                    <div className="flex w-fit flex-col justify-center border-r border-gray-300 pr-10 font-bebas last-of-type:border-none 2xl:pr-20">
-                      <h3 className="mb-3 text-6xl font-bold text-[#F08400] md:text-7xl">10th</h3>
-                      <p className="text-xl text-black">Edition</p>
+              <Container>
+                <div className="grid items-center gap-10 overflow-hidden lg:grid-cols-5 lg:gap-20">
+                  <div className="lg:col-span-5">
+                    <div className="flex flex-col gap-5">
+                      <p className="font-bold text-[#F08400]"><br /><br /> Your Gateway to Tyre Manufacturing Growth in ASEAN</p>
+                      <h2 className="font-bebas text-6xl text-black md:text-7xl">Powering Progress in the Global Rubber & Tyre Industry</h2>
+                      <p className="text-lg text-gray-700">
+                        As the global tyre industry shifts toward sustainability, automation, and high-performance materials, Southeast Asia's tyre manufacturing sector is experiencing unprecedented growth. ITS Tyre Expo connects you directly with the region's leading tyre manufacturers, rubber processors, OEMs, and government agencies driving this transformation.
+                      </p>
                     </div>
-                    <div className="flex w-fit flex-col justify-center border-r border-gray-300 pr-10 font-bebas last-of-type:border-none 2xl:pr-20">
-                      <h3 className="mb-3 text-6xl font-bold text-[#F08400] md:text-7xl">8,500+</h3>
-                      <p className="text-xl text-black">Trade Visitors</p>
+                    <div className="mt-10 flex flex-wrap gap-10 2xl:gap-20">
+                      <div className="flex w-fit flex-col justify-center border-r border-gray-300 pr-10 font-bebas last-of-type:border-none 2xl:pr-20">
+                        <h3 className="mb-3 text-6xl font-bold text-[#F08400] md:text-7xl">10th</h3>
+                        <p className="text-xl text-black">Edition</p>
+                      </div>
+                      <div className="flex w-fit flex-col justify-center border-r border-gray-300 pr-10 font-bebas last-of-type:border-none 2xl:pr-20">
+                        <h3 className="mb-3 text-6xl font-bold text-[#F08400] md:text-7xl">8,500+</h3>
+                        <p className="text-xl text-black">Trade Visitors</p>
+                      </div>
+                      <div className="flex w-fit flex-col justify-center border-r border-gray-300 pr-10 font-bebas last-of-type:border-none 2xl:pr-20">
+                        <h3 className="mb-3 text-6xl font-bold text-[#F08400] md:text-7xl">350+</h3>
+                        <p className="text-xl text-black">Exhibitors</p>
+                      </div>
+                      <div className="flex w-fit flex-col justify-center font-bebas last-of-type:border-none lg:border-r lg:pr-10 2xl:pr-20">
+                        <h3 className="mb-3 text-6xl font-bold text-[#F08400] md:text-7xl">60+</h3>
+                        <p className="text-xl text-black">Conference Speakers</p>
+                      </div>
                     </div>
-                    <div className="flex w-fit flex-col justify-center border-r border-gray-300 pr-10 font-bebas last-of-type:border-none 2xl:pr-20">
-                      <h3 className="mb-3 text-6xl font-bold text-[#F08400] md:text-7xl">350+</h3>
-                      <p className="text-xl text-black">Exhibitors</p>
+                    <div className="mt-10">
+                      <Link href="/about-its-tyre-expo">
+                        <button className="flex-center global-transition group w-fit gap-2 overflow-hidden bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white hover:bg-black">About ITS Tyre Expo</button>
+                      </Link>
                     </div>
-                    <div className="flex w-fit flex-col justify-center font-bebas last-of-type:border-none lg:border-r lg:pr-10 2xl:pr-20">
-                      <h3 className="mb-3 text-6xl font-bold text-[#F08400] md:text-7xl">60+</h3>
-                      <p className="text-xl text-black">Conference Speakers</p>
-                    </div>
-                  </div>
-                  <div className="mt-10">
-                    <Link href="/about-its-tyre-expo">
-                      <button className="flex-center global-transition group w-fit gap-2 overflow-hidden bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white hover:bg-black">About ITS Tyre Expo</button>
-                    </Link>
                   </div>
                 </div>
-              </div>
+              </Container>
             </div>
           </div>
 
           {/* Why Exhibit Section */}
           <div className="animated-block mt-20">
             <div className="animated-block-target">
-              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+              <Container>
                 <div className="grid gap-5">
                   <h2 className="font-bebas text-6xl text-black md:text-7xl">Why Exhibit at ITS Tyre Expo</h2>
                   <p className="text-lg text-gray-700">
                     Exhibiting at ITS Tyre Expo puts you at the center of Southeast Asia's fastest-growing tyre manufacturing hub. Connect directly with over 8,500 professionals with real purchasing power, showcase your solutions to a USD 45 billion industry, and expand your network across 50+ countries. This is your chance to generate high-quality leads, forge valuable partnerships, and position your brand as a leader in the region's rapidly modernizing rubber and tyre sector.
                   </p>
                 </div>
-
                 <div className="my-14 grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {[
                     {
@@ -195,23 +175,17 @@ export default function WhyExhibitPage() {
                   ].map((benefit, idx) => (
                     <div key={idx} className="flex flex-col gap-5">
                       <div className="flex items-center justify-center h-20 w-20 rounded-full bg-orange-50">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={benefit.icon}
-                          alt={benefit.title}
-                          className="h-10 w-10 object-contain"
-                        />
+                        <img src={benefit.icon} alt={benefit.title} className="h-10 w-10 object-contain" />
                       </div>
                       <h3 className="font-bebas text-2xl text-black">{benefit.title}</h3>
                       <p className="text-gray-600">{benefit.desc}</p>
                     </div>
                   ))}
                 </div>
-
                 <Link href="/exhibiting-enquiry">
                   <button className="flex-center global-transition group w-fit gap-2 overflow-hidden bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white hover:bg-black">Book A Stand</button>
                 </Link>
-              </div>
+              </Container>
             </div>
           </div>
 
@@ -220,75 +194,71 @@ export default function WhyExhibitPage() {
           {/* Visitor Breakdown Section */}
           <div className="animated-block mt-20">
             <div className="animated-block-target">
-              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto grid items-center gap-10 overflow-hidden px-6 sm:px-8 lg:grid-cols-5 lg:gap-20">
-                <div className="lg:col-span-3">
-                  <div className="flex flex-col gap-5">
-                    <p className="font-bold text-orange-600">Visitor Breakdown</p>
-                    <h3 className="font-bebas text-6xl text-black md:text-7xl">Connecting You to Global Tyre Industry Decision-Makers</h3>
-                    <p className="text-lg text-gray-700">
-                      From tyre manufacturing executives and procurement specialists to R&D engineers and distributors, our visitors are key players driving growth, innovation, and modernization across the ASEAN rubber industry.
-                    </p>
+              <Container>
+                <div className="grid items-center gap-10 overflow-hidden lg:grid-cols-5 lg:gap-20">
+                  <div className="lg:col-span-3">
+                    <div className="flex flex-col gap-5">
+                      <p className="font-bold text-orange-600">Visitor Breakdown</p>
+                      <h3 className="font-bebas text-6xl text-black md:text-7xl">Connecting You to Global Tyre Industry Decision-Makers</h3>
+                      <p className="text-lg text-gray-700">
+                        From tyre manufacturing executives and procurement specialists to R&D engineers and distributors, our visitors are key players driving growth, innovation, and modernization across the ASEAN rubber industry.
+                      </p>
+                    </div>
+                    <div className="mt-10 grid grid-cols-2 gap-6 bg-orange-50 p-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                      <div className="flex w-fit flex-col font-bebas">
+                        <h3 className="mb-3 text-5xl font-bold text-[#F08400]">48%</h3>
+                        <p className="text-xl text-black">First Time Exhibitors</p>
+                      </div>
+                      <div className="flex w-fit flex-col font-bebas">
+                        <h3 className="mb-3 text-5xl font-bold text-[#F08400]">52%</h3>
+                        <p className="text-xl text-black">First Time Visitors</p>
+                      </div>
+                      <div className="flex w-fit flex-col font-bebas">
+                        <h3 className="mb-3 text-5xl font-bold text-[#F08400]">35%</h3>
+                        <p className="text-xl text-black">With Budgets Over $5 Million</p>
+                      </div>
+                      <div className="flex w-fit flex-col font-bebas">
+                        <h3 className="mb-3 text-5xl font-bold text-[#F08400]">28%</h3>
+                        <p className="text-xl text-black">C-Level Decision Makers</p>
+                      </div>
+                    </div>
+                    <div className="mt-10">
+                      <Link href="/exhibiting-enquiry">
+                        <button className="flex-center global-transition group w-fit gap-2 overflow-hidden bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white hover:bg-black">Enquire to Exhibit</button>
+                      </Link>
+                    </div>
                   </div>
-                  <div className="mt-10 grid grid-cols-2 gap-6 bg-orange-50 p-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    <div className="flex w-fit flex-col font-bebas">
-                      <h3 className="mb-3 text-5xl font-bold text-[#F08400]">48%</h3>
-                      <p className="text-xl text-black">First Time Exhibitors</p>
+                  <div className="order-first h-full lg:col-span-2">
+                    <div className="h-120 w-full overflow-hidden">
+                      <img
+                        src="https://cdn.itegroupnews.com/mw24_1095_min_aaba01f5dd.jpg"
+                        alt="Visitors"
+                        className="h-full w-full object-cover"
+                      />
                     </div>
-                    <div className="flex w-fit flex-col font-bebas">
-                      <h3 className="mb-3 text-5xl font-bold text-[#F08400]">52%</h3>
-                      <p className="text-xl text-black">First Time Visitors</p>
-                    </div>
-                    <div className="flex w-fit flex-col font-bebas">
-                      <h3 className="mb-3 text-5xl font-bold text-[#F08400]">35%</h3>
-                      <p className="text-xl text-black">With Budgets Over $5 Million</p>
-                    </div>
-                    <div className="flex w-fit flex-col font-bebas">
-                      <h3 className="mb-3 text-5xl font-bold text-[#F08400]">28%</h3>
-                      <p className="text-xl text-black">C-Level Decision Makers</p>
-                    </div>
-                  </div>
-                  <div className="mt-10">
-                    <Link href="/exhibiting-enquiry">
-                      <button className="flex-center global-transition group w-fit gap-2 overflow-hidden bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white hover:bg-black">Enquire to Exhibit</button>
-                    </Link>
                   </div>
                 </div>
-                <div className="order-first h-full lg:col-span-2">
-                  <div className="h-120 w-full overflow-hidden">
-                    <img
-                      src="https://cdn.itegroupnews.com/mw24_1095_min_aaba01f5dd.jpg" // 👈 put your image here
-                      alt="Visitors"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
+              </Container>
             </div>
           </div>
 
           {/* Download Brochure Section */}
           <div className="animated-block mt-20">
             <div className="animated-block-target">
-
               <div className="relative mx-auto overflow-hidden py-20 text-white">
-
-                {/* 🔥 BACKGROUND IMAGE */}
+                {/* BACKGROUND IMAGE */}
                 <div className="absolute inset-0">
                   <img
-                    src="https://cdn.itegroupnews.com/img_3_4b6edc76d1.jpg" // 👈 your image here
+                    src="https://cdn.itegroupnews.com/img_3_4b6edc76d1.jpg"
                     alt="Event Background"
                     className="h-full w-full object-cover"
                   />
                 </div>
-
-                {/* 🔥 DARK OVERLAY */}
+                {/* DARK OVERLAY */}
                 <div className="absolute inset-0 bg-black/60"></div>
-
                 {/* CONTENT */}
-                <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] relative z-10 mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+                <Container className="relative z-10">
                   <div className="grid items-center gap-10 md:grid-cols-12">
-
-                    {/* LEFT IMAGE / MOCKUP */}
                     <div className="flex justify-center md:col-span-4">
                       <img
                         src="https://cdn.itegroupnews.com/Sales_Brochure_84b3c56f9d.png"
@@ -296,37 +266,30 @@ export default function WhyExhibitPage() {
                         className="h-64 w-auto object-contain"
                       />
                     </div>
-
-                    {/* RIGHT CONTENT */}
                     <div className="flex flex-col gap-5 md:col-span-8">
                       <h3 className="font-bebas text-6xl md:text-7xl leading-tight">
                         Download Your Event Brochure
                       </h3>
-
                       <p className="max-w-[700px] text-lg text-gray-200">
                         Make sure you grab your copy of the event brochure to learn more
                         about the show and explore your participation opportunities.
                       </p>
-
                       <Link href="/event-brochure">
                         <button className="bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white transition-all hover:bg-black">
                           Download Now
                         </button>
                       </Link>
                     </div>
-
                   </div>
-                </div>
-
+                </Container>
               </div>
             </div>
           </div>
 
-
           {/* Why ASEAN Section */}
           <div className="animated-block mt-20">
             <div className="animated-block-target">
-              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+              <Container>
                 <h2 className="mb-10 font-bebas text-6xl text-black md:text-7xl">Why Southeast Asia?</h2>
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {[
@@ -342,53 +305,30 @@ export default function WhyExhibitPage() {
                     },
                     {
                       title: "Growing Demand for Sustainable Solutions",
-                      desc: "Russia and CIS governments are increasing exploration spending to boost reserves of strategic minerals such as copper, lithium, and rare earths. The federal programme “Geology: Revival of a Legend” is being extended to 2030, supporting new deposits and advanced exploration technologies.",
+                      desc: "Russia and CIS governments are increasing exploration spending to boost reserves of strategic minerals such as copper, lithium, and rare earths. The federal programme Geology: Revival of a Legend is being extended to 2030, supporting new deposits and advanced exploration technologies.",
                       image: "https://cdn.itegroupnews.com/view_heavy_machinery_used_construction_industry_a179c698c8.jpg"
                     }
                   ].map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="relative flex min-h-[350px] flex-col overflow-hidden text-white"
-                    >
-
-                      {/* 🔥 BACKGROUND IMAGE */}
+                    <div key={idx} className="relative flex min-h-[350px] flex-col overflow-hidden text-white">
                       <div className="absolute inset-0">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="h-full w-full object-cover"
-                        />
+                        <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
                       </div>
-
-                      {/* 🔥 DARK OVERLAY */}
                       <div className="absolute inset-0 bg-black/60"></div>
-
-                      {/* CONTENT */}
                       <div className="relative z-10 flex h-full flex-col justify-end gap-4 p-6">
-
-
-
-                        {/* TEXT */}
-                        <h3 className="text-2xl font-bold leading-tight">
-                          {item.title}
-                        </h3>
-
-                        <p className="text-gray-200">
-                          {item.desc}
-                        </p>
-
+                        <h3 className="text-2xl font-bold leading-tight">{item.title}</h3>
+                        <p className="text-gray-200">{item.desc}</p>
                       </div>
                     </div>
                   ))}
                 </div>
-              </div>
+              </Container>
             </div>
           </div>
 
           {/* Testimonials Section */}
           <div className="animated-block mt-20">
             <div className="animated-block-target">
-              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] relative mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+              <Container>
                 <div className="mb-10 flex justify-between max-lg:flex-col lg:items-end">
                   <div className="lg:basis-2/3">
                     <p className="font-bold text-[#F08400]">Testimonials</p>
@@ -416,63 +356,35 @@ export default function WhyExhibitPage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </Container>
             </div>
           </div>
 
           {/* When and Where Section */}
           <div className="animated-block mt-20">
             <div className="animated-block-target">
-              <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 text-black">
-
-                {/* HEADING */}
-                <h2 className="mb-10 font-bebas text-6xl md:text-7xl">
-                  When and Where
-                </h2>
-
-                {/* TOP CARDS */}
+              <Container className="text-black">
+                <h2 className="mb-10 font-bebas text-6xl md:text-7xl">When and Where</h2>
                 <div className="grid gap-6 lg:grid-cols-2">
-
-                  {/* OPENING HOURS */}
                   <div className="rounded-xl bg-[#FEFAF5] p-6">
-                    <p className="mb-2 text-lg font-semibold text-black">
-                      Opening Hours
-                    </p>
-
-                    <h4 className="text-xl font-bold">
-                      22, 23 April 2026: 10:00 - 18:00
-                    </h4>
-                    <h4 className="mt-2 text-xl font-bold">
-                      24 April 2026: 10:00 - 16:00
-                    </h4>
+                    <p className="mb-2 text-lg font-semibold text-black">Opening Hours</p>
+                    <h4 className="text-xl font-bold">22, 23 April 2026: 10:00 - 18:00</h4>
+                    <h4 className="mt-2 text-xl font-bold">24 April 2026: 10:00 - 16:00</h4>
                   </div>
-
-                  {/* VENUE */}
                   <div className="rounded-xl bg-[#FEFAF5] p-6">
-                    <p className="mb-2 text-lg font-semibold text-black">
-                      Venue
-                    </p>
-
-                    <h4 className="text-xl font-bold">
-                      Pavilion 1 & 2, Crocus Expo IEC, Moscow, Russia
-                    </h4>
+                    <p className="mb-2 text-lg font-semibold text-black">Venue</p>
+                    <h4 className="text-xl font-bold">Pavilion 1 & 2, Crocus Expo IEC, Moscow, Russia</h4>
                   </div>
-
                 </div>
-
-                {/* 🔥 FULL WIDTH MAP */}
                 <div className="mt-8 overflow-hidden">
-
                   <iframe
                     src="https://www.google.com/maps?q=Crocus%20Expo%20IEC%20Moscow&output=embed"
                     className="w-full h-[400px] border-0"
                     allowFullScreen
                     loading="lazy"
                   ></iframe>
-
                 </div>
-
-              </div>
+              </Container>
             </div>
           </div>
 
@@ -482,7 +394,7 @@ export default function WhyExhibitPage() {
           <div className="animated-block mt-20">
             <div className="animated-block-target">
               <div className="border-t-8 border-[#F08400] bg-black py-20 text-white">
-                <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+                <Container>
                   <h2 className="font-bebas text-6xl md:text-7xl">Quick Navigation</h2>
                   <div className="mt-16 grid grid-cols-2 gap-y-10 md:grid-cols-5">
                     {quickLinks.map((item, idx) => (
@@ -505,27 +417,20 @@ export default function WhyExhibitPage() {
                       </div>
                     ))}
                   </div>
-                </div>
+                </Container>
               </div>
             </div>
           </div>
+
           <hr className="border-t-6 border-[#F08400]" />
         </div>
-        <BackToTop/>
+        <BackToTop />
       </div>
 
       <style jsx>{`
-        .global-transition {
-          transition: all 0.3s ease;
-        }
-        .flex-center {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .font-bebas {
-          font-family: 'Bebas Neue', cursive;
-        }
+        .global-transition { transition: all 0.3s ease; }
+        .flex-center { display: flex; align-items: center; justify-content: center; }
+        .font-bebas { font-family: 'Bebas Neue', cursive; }
         .line-clamp-2 {
           display: -webkit-box;
           -webkit-line-clamp: 2;

@@ -3,6 +3,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import BackToTop from '@/components/layout/BackToTop';
+import Container from '@/components/ui/container';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -79,138 +80,115 @@ const faqItems = [
 // Hero Section
 function HeroSection() {
     return (
-        <section className="relative min-h-[50vh] lg:min-h-[60vh] w-full overflow-hidden">
-            <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent z-10" />
-                <div className="absolute inset-0 bg-[url('https://www.team-bhp.com/forum/attachments/tyre-alloy-wheel-section/2716695d1737442979-bharat-mobility-expo-2025-india-international-tyre-show-2025-dscf1158.jpg')] bg-cover bg-center scale-110" />
-            </div>
-
-            <div className="relative z-20 flex min-h-[50vh] lg:min-h-[60vh] w-full items-center px-4 sm:px-6 lg:px-8">
-                <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-                    <div className="max-w-3xl">
-                        <div className="inline-block px-4 py-2 bg-[#F08400]/20 backdrop-blur-sm rounded-lg mb-4">
-                            <span className="text-[#F08400] font-semibold">
-                                October 08-09, 2026 | Pune, India
-                            </span>
-                        </div>
-
-                        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] tracking-tighter mb-4">
-                            INDIA TYRE SHOW 2027
-                        </h1>
-
-                        <p className="text-lg md:text-xl text-gray-200 mb-6 max-w-2xl">
-                            International Conference on Tyre Manufacturing Technology & Innovation
-                        </p>
-
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <Link href={"/delegates"}>
-                             <button className="px-6 py-3 bg-[#F08400] text-white font-bold hover:bg-[#d97000] hover:scale-105 transition-all duration-300 shadow-lg">
-                                Become a Delegate →
-                            </button>
-                            </Link>
-                            <Link href={"/become-partner"}>
-                              <button className="px-6 py-3 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-black transition-all duration-300">
-                                Become a Partner
-                            </button>
-                            </Link>
-                           
-
-                           
-                        </div>
+        <div className="animated-block">
+            <div className="animated-block-target">
+                <div className="relative min-h-[50vh] sm:min-h-[60vh] lg:min-h-[70vh] w-full overflow-hidden">
+                    <div className="absolute inset-0">
+                        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent z-10" />
+                        <div className="absolute inset-0 bg-[url('https://www.team-bhp.com/forum/attachments/tyre-alloy-wheel-section/2716695d1737442979-bharat-mobility-expo-2025-india-international-tyre-show-2025-dscf1158.jpg')] bg-cover bg-center scale-110" />
                     </div>
+                    <Container>
+                        <div className="relative z-20 flex min-h-[50vh] sm:min-h-[60vh] lg:min-h-[70vh] w-full items-center py-12 sm:py-16 lg:py-20">
+                            <div className="max-w-3xl">
+                                <div className="inline-block px-4 py-2 bg-[#F08400]/20 backdrop-blur-sm rounded-lg mb-4">
+                                    <span className="text-[#F08400] font-semibold text-sm sm:text-base">
+                                        October 08-09, 2026 | Pune, India
+                                    </span>
+                                </div>
+                                <h1 className="font-bebas text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-[1.1] tracking-tighter mb-4">
+                                    INDIA TYRE SHOW 2027
+                                </h1>
+                                <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 max-w-2xl leading-relaxed">
+                                    International Conference on Tyre Manufacturing Technology & Innovation
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-4">
+                                    <Link href="/delegates">
+                                        <button className="bg-[#F08400] px-8 sm:px-10 py-2.5 sm:py-3 text-lg sm:text-xl font-bebas text-white transition-all hover:bg-black">
+                                            Become a Delegate →
+                                        </button>
+                                    </Link>
+                                    <Link href="/become-partner">
+                                        <button className="border-2 border-white px-8 sm:px-10 py-2.5 sm:py-3 text-lg sm:text-xl font-bebas text-white transition-all hover:bg-white hover:text-black">
+                                            Become a Partner
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </Container>
                 </div>
             </div>
-        </section>
+        </div>
     );
 }
 
 // About Section
 function AboutSection() {
     const stats = [
-        { number: "300+", label: "Industry Leaders", color: "bg-orange-50" },
-        { number: "30+", label: "Expert Speakers", color: "bg-orange-100" },
-        { number: "15+", label: "Technical Sessions", color: "bg-orange-50" },
-        { number: "20+", label: "Countries", color: "bg-orange-100" }
+        { value: "300+", label: "Industry Leaders" },
+        { value: "30+", label: "Expert Speakers" },
+        { value: "15+", label: "Technical Sessions" },
+        { value: "20+", label: "Countries" }
     ];
 
     return (
-        <section className="py-20 lg:py-28 bg-white">
-            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <div className="inline-block px-4 py-2 bg-[#F08400]/10 rounded-lg mb-6">
-                            <span className="text-[#F08400] font-semibold">ABOUT THE EVENT</span>
+        <Container>
+            <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
+                <div className="animated-block-target">
+                    <div className="w-full grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
+                        <div className="order-2 lg:order-1">
+                            <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-black">
+                                Where <span className="text-[#F08400]">Innovation</span> Meets <span className="text-[#F08400]">Excellence</span>
+                            </h2>
+                            <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-relaxed text-gray-700">
+                                Tyre Expo 2026 is the premier international conference dedicated to tyre manufacturing technology,
+                                innovation, and sustainability. Join industry leaders, technology experts, and decision-makers
+                                from across the globe.
+                            </p>
+                            <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-between bg-gray-100 px-4 sm:px-6 py-6 sm:py-8 rounded-md gap-4 sm:gap-0">
+                                {stats.map((stat, idx) => (
+                                    <React.Fragment key={idx}>
+                                        <div className="text-center flex-1 min-w-[80px]">
+                                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bebas text-[#F08400]">{stat.value}</h3>
+                                            <p className="text-xs sm:text-sm tracking-wide text-black mt-1 sm:mt-2">{stat.label}</p>
+                                        </div>
+                                        {idx < stats.length - 1 && (
+                                            <div className="hidden md:block h-12 w-px bg-gray-300"></div>
+                                        )}
+                                    </React.Fragment>
+                                ))}
+                            </div>
                         </div>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 leading-tight">
-                            Where <span className="text-[#F08400]">Innovation</span> Meets <span className="text-[#F08400]">Excellence</span>
-                        </h2>
-                        <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                            Tyre Expo 2026 is the premier international conference dedicated to tyre manufacturing technology,
-                            innovation, and sustainability. Join industry leaders, technology experts, and decision-makers
-                            from across the globe.
-                        </p>
-                        <div className="grid grid-cols-2 gap-4">
-                            {stats.map((stat, idx) => (
-                                <div key={idx} className={`${stat.color} p-6 rounded-sm text-center hover:scale-105 transition-transform duration-300`}>
-                                    <div className="text-3xl md:text-4xl font-black text-[#F08400]">{stat.number}</div>
-                                    <div className="text-gray-700 font-medium mt-2">{stat.label}</div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="relative">
-                        <div className="absolute -top-4 -left-4 w-24 h-24 bg-[#F08400]/20 rounded-xl z-0" />
-                        <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-[#F08400]/10 rounded-xl z-0" />
-                        <div className="relative bg-gray-200 rounded-sm overflow-hidden aspect-square z-10">
-                            <img src="https://www.pace-tyres.com/static/upload/image/20230915/1694772403135963.jpg" alt="Tyre Conference" className="w-full h-full object-cover" />
+                        <div className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] lg:h-[500px] w-full overflow-hidden rounded-lg">
+                            <Image
+                                src="https://www.pace-tyres.com/static/upload/image/20230915/1694772403135963.jpg"
+                                alt="Tyre Conference"
+                                fill
+                                className="object-cover"
+                            />
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </Container>
     );
 }
 
+// Speakers Section
 function SpeakersSection() {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
-
-    const [canScrollLeft, setCanScrollLeft] = useState(false);
-    const [canScrollRight, setCanScrollRight] = useState(true);
     const [isHovered, setIsHovered] = useState(false);
 
-    // Duplicate for smooth loop feel
     const loopedSpeakers = [...speakersData, ...speakersData];
 
-    const scroll = (direction: 'left' | 'right') => {
-        if (scrollContainerRef.current) {
-            const scrollAmount = 320;
-            scrollContainerRef.current.scrollBy({
-                left: direction === 'left' ? -scrollAmount : scrollAmount,
-                behavior: 'smooth',
-            });
-        }
-    };
-
-    const checkScroll = () => {
-        const container = scrollContainerRef.current;
-        if (!container) return;
-
-        const { scrollLeft, scrollWidth, clientWidth } = container;
-        setCanScrollLeft(scrollLeft > 0);
-        setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 10);
-    };
-
-    // 🔥 Auto Scroll
     useEffect(() => {
         const container = scrollContainerRef.current;
         if (!container) return;
 
         autoScrollRef.current = setInterval(() => {
             if (isHovered) return;
-
             const maxScrollLeft = container.scrollWidth - container.clientWidth;
-
             if (container.scrollLeft >= maxScrollLeft - 1) {
                 container.scrollTo({ left: 0, behavior: 'auto' });
             } else {
@@ -223,107 +201,59 @@ function SpeakersSection() {
         };
     }, [isHovered]);
 
-    // Scroll detection
-    useEffect(() => {
-        const container = scrollContainerRef.current;
-        if (!container) return;
-
-        container.addEventListener('scroll', checkScroll);
-        checkScroll();
-
-        return () => container.removeEventListener('scroll', checkScroll);
-    }, []);
-
     return (
-        <section className="py-20 lg:py-28 bg-gradient-to-br from-gray-50 to-white">
-            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-
-                {/* Header */}
-                <div className="text-center mb-12">
-                    <div className="inline-block px-4 py-2 bg-[#F08400]/10  mb-4">
-                        <span className="text-[#F08400] font-semibold">SPEAKERS</span>
+        <Container>
+            <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
+                <div className="animated-block-target">
+                    <div className="text-center mb-8 sm:mb-10">
+                        <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">Speakers</p>
+                        <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2">
+                            Industry <span className="text-[#F08400]">Experts</span>
+                        </h2>
+                        <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                            Leading voices from global tyre manufacturers, technology providers, and research institutions
+                        </p>
                     </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4">
-                        Industry <span className="text-[#F08400]">Experts</span>
-                    </h2>
-                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                        Leading voices from global tyre manufacturers, technology providers, and research institutions
-                    </p>
-                </div>
 
-                <div className="relative">
-
-
-
-                    {/* Slider */}
                     <div
                         ref={scrollContainerRef}
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
-                        className="flex overflow-x-auto overflow-y-visible scrollbar-hide gap-8 pb-12 px-6"
+                        className="flex overflow-x-auto overflow-y-visible gap-5 sm:gap-8 pb-8 sm:pb-12"
                         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                     >
                         {loopedSpeakers.map((speaker, index) => (
-                            <div
-                                key={index}
-                                className="flex-shrink-0 w-[300px] group cursor-pointer relative z-10"
-                            >
-                                <div
-                                    className="bg-white  shadow-lg transform transition-all duration-500 ease-out
-    group-hover:scale-x-[1.15] group-hover:scale-y-[1.05]
-    group-hover:-translate-y-4
-    group-hover:z-20
-    origin-center"
-                                >
-
-                                    {/* Image */}
-                                    <div className="relative h-[300px] overflow-hidden bg-gradient-to-br from-[#F08400]/20 to-orange-100">
-                                        <img
+                            <div key={index} className="flex-shrink-0 w-[260px] sm:w-[300px] group cursor-pointer">
+                                <div className="relative flex flex-col overflow-hidden rounded-lg bg-[#FCF8F3] shadow-md transition-all duration-500 ease-out group-hover:shadow-lg">
+                                    <div className="relative h-[260px] sm:h-[300px] w-full overflow-hidden">
+                                        <Image
                                             src={speaker.imageUrl}
                                             alt={speaker.name}
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
                                         />
-
-                                        {/* Overlay */}
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                                        {/* Hover Content */}
                                         <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                                            <p className="text-white text-sm font-semibold">
-                                                {speaker.session}
-                                            </p>
-                                            <p className="text-gray-300 text-xs">
-                                                {speaker.time}
-                                            </p>
+                                            <p className="text-white text-sm font-semibold">{speaker.session}</p>
+                                            <p className="text-gray-300 text-xs">{speaker.time}</p>
                                         </div>
                                     </div>
-
-                                    {/* Content */}
-                                    <div className="p-5">
-                                        <h3 className="font-bold text-xl text-black mb-1 group-hover:text-[#F08400] transition-colors">
+                                    <div className="p-4 sm:p-5">
+                                        <h3 className="font-bebas text-lg sm:text-xl text-black group-hover:text-[#F08400] transition-colors">
                                             {speaker.name}
                                         </h3>
-                                        <p className="text-[#F08400] text-sm font-semibold mb-1">
-                                            {speaker.title}
-                                        </p>
-                                        <p className="text-gray-500 text-sm">
-                                            {speaker.company}
-                                        </p>
+                                        <p className="text-[#F08400] text-sm font-semibold">{speaker.title}</p>
+                                        <p className="text-gray-500 text-sm">{speaker.company}</p>
                                     </div>
-
                                 </div>
                             </div>
                         ))}
                     </div>
-
                 </div>
             </div>
-        </section>
+        </Container>
     );
 }
-
-
-
 
 // Conference Programme Section
 function ConferenceProgramme() {
@@ -331,76 +261,76 @@ function ConferenceProgramme() {
     const selectedDay = programData[activeDay];
 
     return (
-        <section className="py-20 lg:py-28 bg-white">
-            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-                <div className="text-center mb-12">
-                    <div className="inline-block px-4 py-2 bg-[#F08400]/10 rounded-lg mb-4">
-                        <span className="text-[#F08400] font-semibold">SCHEDULE</span>
-                    </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4">
-                        Conference <span className="text-[#F08400]">Programme</span>
-                    </h2>
-                </div>
+        <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
+            <div className="animated-block-target">
+                <div className="bg-[#FCF8F3] py-12 sm:py-16 lg:py-20">
+                    <Container>
+                        <div className="text-center mb-8 sm:mb-10">
+                            <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">Schedule</p>
+                            <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2">
+                                Conference <span className="text-[#F08400]">Programme</span>
+                            </h2>
+                        </div>
 
-                {/* Day Tabs */}
-                <div className="flex justify-center gap-4 mb-10">
-                    {programData.map((day, index) => (
-                        <button
-                            key={index}
-                            onClick={() => setActiveDay(index)}
-                            className={`px-8 py-4 rounded-lg font-bold transition-all duration-300 ${activeDay === index
-                                ? "bg-[#F08400] text-white shadow-lg scale-105"
-                                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                                }`}
-                        >
-                            {day.date}
-                        </button>
-                    ))}
-                </div>
+                        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
+                            {programData.map((day, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setActiveDay(index)}
+                                    className={`px-6 sm:px-8 py-2.5 sm:py-3 font-bebas text-lg sm:text-xl transition-all ${activeDay === index
+                                        ? "bg-[#F08400] text-white shadow-md"
+                                        : "bg-white text-gray-700 hover:bg-gray-100 shadow-sm"
+                                        }`}
+                                >
+                                    {day.date}
+                                </button>
+                            ))}
+                        </div>
 
-                {/* Programme Content */}
-                <div className="bg-gray-50 rounded-2xl p-8">
-                    <div className="mb-8 pb-4 border-b-2 border-[#F08400]">
-                        <h3 className="text-2xl font-bold text-black mb-2">{selectedDay.day}</h3>
-                        <p className="text-gray-500">{selectedDay.description}</p>
-                    </div>
-
-                    <div className="space-y-6">
-                        {selectedDay.sessions.map((session, idx) => (
-                            <div key={idx} className="group hover:bg-white p-4 rounded-xl transition-all duration-300">
-                                <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4">
-                                    <div className="text-[#F08400] font-bold">{session.time}</div>
-                                    <div>
-                                        <h4 className="text-lg font-bold text-black mb-2 group-hover:text-[#F08400] transition-colors">
-                                            {session.title}
-                                        </h4>
-                                        {session.description && (
-                                            <p className="text-gray-600 text-sm mb-2">{session.description}</p>
-                                        )}
-                                        {session.topics && (
-                                            <ul className="list-disc pl-5 space-y-1 text-gray-600 text-sm mb-2">
-                                                {session.topics.map(topic => (
-                                                    <li key={topic.id}>{topic.title}</li>
-                                                ))}
-                                            </ul>
-                                        )}
-                                        {session.speakers && (
-                                            <div className="mt-2">
-                                                {session.speakers.map((speaker, i) => (
-                                                    <p key={i} className="text-sm text-gray-500">
-                                                        {speaker.name} - {speaker.position}
-                                                    </p>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
+                        <div className="bg-white rounded-lg p-5 sm:p-6 lg:p-8 shadow-md">
+                            <div className="mb-6 sm:mb-8 pb-4 sm:pb-6 border-b-2 border-[#F08400]">
+                                <h3 className="font-bebas text-xl sm:text-2xl text-black">{selectedDay.day}</h3>
+                                <p className="mt-2 text-sm sm:text-base text-gray-500">{selectedDay.description}</p>
                             </div>
-                        ))}
-                    </div>
+
+                            <div className="space-y-4 sm:space-y-5">
+                                {selectedDay.sessions.map((session, idx) => (
+                                    <div key={idx} className="group hover:bg-[#FCF8F3] p-3 sm:p-4 rounded-lg transition-all duration-300">
+                                        <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-3 sm:gap-4">
+                                            <div className="text-[#F08400] font-bebas text-sm sm:text-base">{session.time}</div>
+                                            <div>
+                                                <h4 className="text-base sm:text-lg font-bold text-black group-hover:text-[#F08400] transition-colors">
+                                                    {session.title}
+                                                </h4>
+                                                {session.description && (
+                                                    <p className="mt-1 text-sm text-gray-600">{session.description}</p>
+                                                )}
+                                                {session.topics && (
+                                                    <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-gray-600">
+                                                        {session.topics.map(topic => (
+                                                            <li key={topic.id}>{topic.title}</li>
+                                                        ))}
+                                                    </ul>
+                                                )}
+                                                {session.speakers && (
+                                                    <div className="mt-2 space-y-1">
+                                                        {session.speakers.map((speaker, i) => (
+                                                            <p key={i} className="text-xs sm:text-sm text-gray-500">
+                                                                {speaker.name} - {speaker.position}
+                                                            </p>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </Container>
                 </div>
             </div>
-        </section>
+        </div>
     );
 }
 
@@ -416,202 +346,28 @@ function WhyAttendSection() {
     ];
 
     return (
-        <section className="py-20 lg:py-28 bg-gradient-to-br from-gray-50 to-white">
-            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-                <div className="text-center mb-12">
-                    <div className="inline-block px-4 py-2 bg-[#F08400]/10 rounded-lg mb-4">
-                        <span className="text-[#F08400] font-semibold">WHY ATTEND</span>
-                    </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4">
-                        Why Attend <span className="text-[#F08400]">Tyre Expo 2026</span>
-                    </h2>
-                </div>
-
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {reasons.map((reason, idx) => (
-                        <div key={idx} className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                            <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{reason.icon}</div>
-                            <h3 className="font-bold text-xl mb-3 text-black group-hover:text-[#F08400] transition-colors">{reason.title}</h3>
-                            <p className="text-gray-600 leading-relaxed">{reason.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-}
-
-// Venue Section
-function VenueSection() {
-    return (
-        <section className="py-20 lg:py-28 bg-white">
-            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <div className="inline-block px-4 py-2 bg-[#F08400]/10 rounded-lg mb-4">
-                            <span className="text-[#F08400] font-semibold">VENUE</span>
-                        </div>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6">
-                            Event <span className="text-[#F08400]">Location</span>
+        <Container>
+            <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
+                <div className="animated-block-target">
+                    <div className="text-center mb-8 sm:mb-10">
+                        <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">Why Attend</p>
+                        <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2">
+                            Why Attend <span className="text-[#F08400]">Tyre Expo 2026</span>
                         </h2>
-                        <div className="mb-6">
-                            <h3 className="text-2xl font-bold mb-2">Auto Cluster Exhibition Centre</h3>
-                            <p className="text-gray-600 leading-relaxed">
-                                Chinchwad East, Old Mumbai - Pune Hwy, MIDC, Chinchwad,<br />
-                                Pimpri-Chinchwad, Maharashtra 411019, India
-                            </p>
-                        </div>
-                        <div className="space-y-3">
-                            <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                                <span className="text-2xl">✈️</span>
-                                <span className="font-semibold">From Airport:</span>
-                                <span className="text-gray-600">15 km, 30 minutes</span>
-                            </div>
-                            <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                                <span className="text-2xl">🚂</span>
-                                <span className="font-semibold">From Railway Station:</span>
-                                <span className="text-gray-600">8 km, 20 minutes</span>
-                            </div>
-                            <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                                <span className="text-2xl">🏨</span>
-                                <span className="font-semibold">Nearby Hotels:</span>
-                                <span className="text-gray-600">Within 2 km radius</span>
-                            </div>
-                        </div>
                     </div>
-                    <div className="relative">
-                        <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#F08400]/20 rounded-xl z-0" />
-                        <div className="relative bg-gray-200 rounded-xl overflow-hidden h-[400px] z-10">
-                            <div className="w-full h-full">
-                                <iframe
-                                    src="https://www.google.com/maps?q=Pune,India&output=embed"
-                                    className="w-full h-full border-0"
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                ></iframe>
+
+                    <div className="grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        {reasons.map((reason, idx) => (
+                            <div key={idx} className="relative flex flex-col overflow-hidden rounded-lg bg-[#FCF8F3] p-5 sm:p-6 shadow-md transition-all hover:shadow-lg">
+                                <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{reason.icon}</div>
+                                <h3 className="font-bebas text-xl sm:text-2xl text-black">{reason.title}</h3>
+                                <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">{reason.description}</p>
                             </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>
-        </section>
-    );
-}
-
-// Organizer Section
-function OrganizerSection() {
-    return (
-        <section className="py-20 lg:py-28 bg-gradient-to-br from-gray-50 to-white">
-            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-                <div className="text-center mb-12">
-                    <div className="inline-block px-4 py-2 bg-[#F08400]/10 rounded-lg mb-4">
-                        <span className="text-[#F08400] font-semibold">ORGANIZER</span>
-                    </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4">
-                        Behind the <span className="text-[#F08400]">Event</span>
-                    </h2>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                        <h3 className="text-2xl font-bold mb-4 text-[#F08400]">Maxx Business Media</h3>
-                        <p className="text-gray-600 leading-relaxed">
-                            Tyre Expo is organized by Maxx Business Media, a leading exhibition organizer with a strong portfolio
-                            of industrial trade fairs and conferences across key manufacturing sectors.
-                        </p>
-                    </div>
-                    <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                        <h4 className="font-bold text-xl mb-4 text-black">Contact Information</h4>
-                        <div className="space-y-3">
-                            <p className="text-gray-600">📧 info@tyre-expo.com</p>
-                            <p className="text-gray-600">📞 +91 1234567890</p>
-                            <p className="text-gray-600">🌐 www.tyre-expo.com</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-}
-
-// FAQ Section
-function FAQ() {
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-    return (
-        <section className="py-20 lg:py-28 bg-white">
-            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-                <div className="text-center mb-12">
-                    <div className="inline-block px-4 py-2 bg-[#F08400]/10 rounded-lg mb-4">
-                        <span className="text-[#F08400] font-semibold">FAQ</span>
-                    </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4">
-                        Frequently Asked <span className="text-[#F08400]">Questions</span>
-                    </h2>
-                </div>
-
-                <div className="max-w-3xl mx-auto space-y-4">
-                    {faqItems.map((item, index) => {
-                        const isOpen = openIndex === index;
-                        return (
-                            <div key={item.id} className="border border-gray-200 rounded-xl overflow-hidden">
-                                <button
-                                    onClick={() => setOpenIndex(isOpen ? null : index)}
-                                    className="flex w-full justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors"
-                                >
-                                    <h3 className="text-lg md:text-xl font-semibold text-black">{item.question}</h3>
-                                    <span className={`text-[#F08400] text-2xl transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-                                        ↓
-                                    </span>
-                                </button>
-                                {isOpen && (
-                                    <div className="p-6 pt-0 text-gray-600 border-t border-gray-100 bg-gray-50">
-                                        <p>{item.answer}</p>
-                                    </div>
-                                )}
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
-        </section>
-    );
-}
-
-// Contacts Section
-function Contacts() {
-    return (
-        <section className="py-20 lg:py-28 bg-gradient-to-br from-[#F08400]/5 to-white">
-            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-                <div className="text-center mb-12">
-                    <div className="inline-block px-4 py-2 bg-[#F08400]/10 rounded-lg mb-4">
-                        <span className="text-[#F08400] font-semibold">GET IN TOUCH</span>
-                    </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4">
-                        Contact <span className="text-[#F08400]">Information</span>
-                    </h2>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                        <div className="w-16 h-16 bg-[#F08400]/10 rounded-lg flex items-center justify-center mb-4">
-                            <span className="text-3xl">🤝</span>
-                        </div>
-                        <h3 className="text-xl font-bold mb-3">For Participation & Partnership</h3>
-                        <p className="text-gray-600 mb-2">📧 partnership@tyre-expo.com</p>
-                        <p className="text-gray-600">📞 +91 9876543210</p>
-                    </div>
-                    <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                        <div className="w-16 h-16 bg-[#F08400]/10 rounded-lg flex items-center justify-center mb-4">
-                            <span className="text-3xl">🎤</span>
-                        </div>
-                        <h3 className="text-xl font-bold mb-3">For Speaking Opportunities</h3>
-                        <p className="text-gray-600 mb-2">📧 speakers@tyre-expo.com</p>
-                        <p className="text-gray-600">📞 +91 9876543211</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </Container>
     );
 }
 
@@ -624,61 +380,279 @@ function BecomeDelegate() {
     ];
 
     return (
-        <section className="py-20 lg:py-28 bg-white">
-            <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-                <div className="text-center mb-12">
-                    <div className="inline-block px-4 py-2 bg-[#F08400]/10 rounded-lg mb-4">
-                        <span className="text-[#F08400] font-semibold">REGISTRATION</span>
+        <Container>
+            <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
+                <div className="animated-block-target">
+                    <div className="text-center mb-8 sm:mb-10">
+                        <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">Registration</p>
+                        <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2">
+                            Become a <span className="text-[#F08400]">Delegate</span>
+                        </h2>
+                        <p className="mt-3 text-base sm:text-lg text-gray-600">Prices include GST</p>
                     </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4">
-                        Become a <span className="text-[#F08400]">Delegate</span>
-                    </h2>
-                    <p className="text-gray-600 text-lg">Prices include GST</p>
-                </div>
 
-                <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    {packages.map((pkg, idx) => (
-                        <div key={idx} className="bg-gray-50 rounded-xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
-                            <div className="text-center mb-6">
-                                <h3 className="text-2xl font-bold mb-2 group-hover:text-[#F08400] transition-colors">{pkg.title}</h3>
-                                <div className="text-4xl font-black text-[#F08400]">{pkg.price}</div>
+                    <div className="grid gap-5 sm:gap-6 md:grid-cols-3 max-w-6xl mx-auto">
+                        {packages.map((pkg, idx) => (
+                            <div key={idx} className="relative flex flex-col overflow-hidden rounded-lg bg-[#FCF8F3] p-5 sm:p-6 lg:p-8 shadow-md transition-all hover:shadow-lg">
+                                <div className="text-center mb-4 sm:mb-5">
+                                    <h3 className="font-bebas text-xl sm:text-2xl text-black">{pkg.title}</h3>
+                                    <div className="mt-2 text-3xl sm:text-4xl font-bebas text-[#F08400]">{pkg.price}</div>
+                                </div>
+                                <ul className="flex-1 space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+                                    {pkg.features.map((feature, i) => (
+                                        <li key={i} className="flex items-start gap-2 text-sm sm:text-base text-gray-600">
+                                            <span className="text-[#F08400] font-bold mt-0.5">✓</span>
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <button className="w-full bg-[#F08400] px-5 sm:px-6 py-2 sm:py-2.5 font-bebas text-lg sm:text-xl text-white transition-all hover:bg-black">
+                                    REGISTER NOW →
+                                </button>
                             </div>
-                            <ul className="space-y-3 mb-8">
-                                {pkg.features.map((feature, i) => (
-                                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                                        <span className="text-[#F08400] font-bold">✓</span>
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
-                            <button className="w-full bg-[#F08400] text-white py-3 rounded-lg font-bold hover:bg-[#d97000] hover:scale-105 transition-all duration-300">
-                                REGISTER NOW →
-                            </button>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
-        </section>
+        </Container>
     );
 }
 
+// Venue Section
+function VenueSection() {
+    return (
+        <Container>
+            <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
+                <div className="animated-block-target">
+                    <div className="w-full grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
+                        <div className="order-2 lg:order-1">
+                            <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">Venue</p>
+                            <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2 leading-tight">
+                                Event <span className="text-[#F08400]">Location</span>
+                            </h2>
+                            <div className="mt-4 sm:mt-5">
+                                <h3 className="text-lg sm:text-xl font-bold text-black">Auto Cluster Exhibition Centre</h3>
+                                <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">
+                                    Chinchwad East, Old Mumbai - Pune Hwy, MIDC, Chinchwad,<br />
+                                    Pimpri-Chinchwad, Maharashtra 411019, India
+                                </p>
+                            </div>
+                            <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
+                                <div className="flex items-center gap-3 p-3 sm:p-4 bg-[#FCF8F3] rounded-lg">
+                                    <span className="text-xl sm:text-2xl">✈️</span>
+                                    <div>
+                                        <span className="font-semibold text-sm sm:text-base text-black">From Airport:</span>
+                                        <span className="text-gray-600 text-sm sm:text-base ml-2">15 km, 30 minutes</span>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3 p-3 sm:p-4 bg-[#FCF8F3] rounded-lg">
+                                    <span className="text-xl sm:text-2xl">🚂</span>
+                                    <div>
+                                        <span className="font-semibold text-sm sm:text-base text-black">From Railway Station:</span>
+                                        <span className="text-gray-600 text-sm sm:text-base ml-2">8 km, 20 minutes</span>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3 p-3 sm:p-4 bg-[#FCF8F3] rounded-lg">
+                                    <span className="text-xl sm:text-2xl">🏨</span>
+                                    <div>
+                                        <span className="font-semibold text-sm sm:text-base text-black">Nearby Hotels:</span>
+                                        <span className="text-gray-600 text-sm sm:text-base ml-2">Within 2 km radius</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] lg:h-[500px] w-full overflow-hidden rounded-lg">
+                            <iframe
+                                src="https://www.google.com/maps?q=Pune,India&output=embed"
+                                className="w-full h-full border-0"
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Container>
+    );
+}
 
+// Organizer Section
+function OrganizerSection() {
+    return (
+        <Container>
+            <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
+                <div className="animated-block-target">
+                    <div className="text-center mb-8 sm:mb-10">
+                        <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">Organizer</p>
+                        <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2">
+                            Behind the <span className="text-[#F08400]">Event</span>
+                        </h2>
+                    </div>
+
+                    <div className="grid gap-5 sm:gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+                        <div className="relative flex flex-col overflow-hidden rounded-lg bg-[#FCF8F3] p-5 sm:p-6 lg:p-8 shadow-md">
+                            <h3 className="font-bebas text-xl sm:text-2xl text-[#F08400]">Maxx Business Media</h3>
+                            <p className="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed">
+                                Tyre Expo is organized by Maxx Business Media, a leading exhibition organizer with a strong portfolio
+                                of industrial trade fairs and conferences across key manufacturing sectors.
+                            </p>
+                        </div>
+                        <div className="relative flex flex-col overflow-hidden rounded-lg bg-[#FCF8F3] p-5 sm:p-6 lg:p-8 shadow-md">
+                            <h3 className="font-bebas text-xl sm:text-2xl text-black">Contact Information</h3>
+                            <div className="mt-3 space-y-2 text-sm sm:text-base text-gray-600">
+                                <p>📧 info@tyre-expo.com</p>
+                                <p>📞 +91 1234567890</p>
+                                <p>🌐 www.tyre-expo.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Container>
+    );
+}
+
+// Contacts Section
+function Contacts() {
+    return (
+        <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
+            <div className="animated-block-target">
+                <div className="bg-[#FCF8F3] py-12 sm:py-16 lg:py-20">
+                    <Container>
+                        <div className="text-center mb-8 sm:mb-10">
+                            <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">Get In Touch</p>
+                            <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2">
+                                Contact <span className="text-[#F08400]">Information</span>
+                            </h2>
+                        </div>
+
+                        <div className="grid gap-5 sm:gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+                            <div className="relative flex flex-col overflow-hidden rounded-lg bg-white p-5 sm:p-6 shadow-md transition-all hover:shadow-lg">
+                                <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-gray-100 mb-4">
+                                    <span className="text-2xl sm:text-3xl">🤝</span>
+                                </div>
+                                <h3 className="font-bebas text-xl sm:text-2xl text-black">For Participation & Partnership</h3>
+                                <div className="mt-3 space-y-2 text-sm sm:text-base text-gray-600">
+                                    <p>📧 partnership@tyre-expo.com</p>
+                                    <p>📞 +91 9876543210</p>
+                                </div>
+                            </div>
+                            <div className="relative flex flex-col overflow-hidden rounded-lg bg-white p-5 sm:p-6 shadow-md transition-all hover:shadow-lg">
+                                <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-gray-100 mb-4">
+                                    <span className="text-2xl sm:text-3xl">🎤</span>
+                                </div>
+                                <h3 className="font-bebas text-xl sm:text-2xl text-black">For Speaking Opportunities</h3>
+                                <div className="mt-3 space-y-2 text-sm sm:text-base text-gray-600">
+                                    <p>📧 speakers@tyre-expo.com</p>
+                                    <p>📞 +91 9876543211</p>
+                                </div>
+                            </div>
+                        </div>
+                    </Container>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// FAQ Section
+function FAQ() {
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+    return (
+        <Container>
+            <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
+                <div className="animated-block-target">
+                    <div className="text-center mb-8 sm:mb-10">
+                        <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">FAQ</p>
+                        <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2">
+                            Frequently Asked <span className="text-[#F08400]">Questions</span>
+                        </h2>
+                    </div>
+
+                    <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
+                        {faqItems.map((item, index) => {
+                            const isOpen = openIndex === index;
+                            return (
+                                <div key={item.id} className="rounded-lg border border-gray-200 bg-white overflow-hidden">
+                                    <button
+                                        onClick={() => setOpenIndex(isOpen ? null : index)}
+                                        className="flex w-full items-center justify-between p-4 sm:p-5 text-left transition-all hover:bg-gray-50"
+                                    >
+                                        <h3 className="text-base sm:text-lg font-semibold text-black pr-4">{item.question}</h3>
+                                        <div className="relative shrink-0">
+                                            <svg
+                                                width="20"
+                                                height="20"
+                                                viewBox="0 0 15 15"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                className={`size-5 transition-transform duration-200 ${isOpen ? "rotate-45" : ""}`}
+                                            >
+                                                <path d="M8 2.75C8 2.47386 7.77614 2.25 7.5 2.25C7.22386 2.25 7 2.47386 7 2.75V7H2.75C2.47386 7 2.25 7.22386 2.25 7.5C2.25 7.77614 2.47386 8 2.75 8H7V12.25C7 12.5261 7.22386 12.75 7.5 12.75C7.77614 12.75 8 12.5261 8 12.25V8H12.25C12.5261 8 12.75 7.77614 12.75 7.5C12.75 7.22386 12.5261 7 12.25 7H8V2.75Z" fill="#F08400" fillRule="evenodd" clipRule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                    </button>
+                                    {isOpen && (
+                                        <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-2 text-sm sm:text-base text-gray-700 border-t border-gray-100">
+                                            {item.answer}
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </div>
+        </Container>
+    );
+}
 
 // ==================== MAIN PAGE ====================
 export default function ConferencePage() {
     return (
-        <div className="relative min-h-screen font-sans antialiased bg-white">
-            <HeroSection />
-            <AboutSection />
-            <SpeakersSection />
-            <ConferenceProgramme />
-            <WhyAttendSection />
-            <BecomeDelegate />
-            <VenueSection />
-            <OrganizerSection />
-            <Contacts />
-            <FAQ />
-            <BackToTop />
+        <div className="intro-animation">
+            <div className="page-spacing-wrapper">
+                <div className="pt-[100px] sm:pt-[120px] lg:pt-[140px]">
+                    <HeroSection />
+                    <AboutSection />
+                    <SpeakersSection />
+                    <ConferenceProgramme />
+                    <WhyAttendSection />
+                    <BecomeDelegate />
+                    <VenueSection />
+                    <OrganizerSection />
+                    <Contacts />
+                    <FAQ />
+                    <BackToTop />
+                </div>
+            </div>
+
+            <style jsx>{`
+                .global-transition {
+                    transition: all 0.3s ease;
+                }
+                .flex-center {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .font-bebas {
+                    font-family: 'Bebas Neue', cursive;
+                }
+                .line-clamp-2 {
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+                .line-clamp-4 {
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+            `}</style>
         </div>
     );
 }
