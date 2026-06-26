@@ -209,7 +209,7 @@ export default function SponsorshipEnquiryPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-10">
             
             {/* LEFT SIDE - HEADER CONTENT */}
-            <div className="flex flex-col gap-6 sticky top-24 h-fit">
+            <div className="flex flex-col gap-6 lg:sticky lg:top-44 h-fit">
               <p className="text-[#F08400] font-sans text-[14px] font-semibold uppercase tracking-[1.5px]">
                 Partner With Us
               </p>

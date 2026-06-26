@@ -54,14 +54,10 @@ export default function CompanyCard({ company, onProductBrochureClick }: Company
 
   const getLogoColor = () => {
     const colors = [
-      'bg-gradient-to-br from-orange-50 to-orange-100',
-      'bg-gradient-to-br from-blue-50 to-blue-100',
-      'bg-gradient-to-br from-green-50 to-green-100',
-      'bg-gradient-to-br from-purple-50 to-purple-100',
-      'bg-gradient-to-br from-pink-50 to-pink-100',
-      'bg-gradient-to-br from-indigo-50 to-indigo-100',
-      'bg-gradient-to-br from-teal-50 to-teal-100',
-      'bg-gradient-to-br from-yellow-50 to-yellow-100'
+      'bg-orange-50',
+      'bg-amber-50',
+      'bg-stone-100',
+      'bg-[#FCF8F3]',
     ];
 
     const index = company.name.length % colors.length;
@@ -72,11 +68,11 @@ export default function CompanyCard({ company, onProductBrochureClick }: Company
     <>
       <div
         onClick={handleCardClick}
-        className="group bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1 cursor-pointer"
+        className="group bg-[#FCF8F3] rounded-sm border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full cursor-pointer"
       >
         {/* Logo Area */}
         <div
-          className={`h-32 sm:h-40 md:h-48 flex items-center justify-center p-4 sm:p-6 transition-colors duration-300 ${getLogoColor()} group-hover:from-slate-100 group-hover:to-slate-200`}
+          className={`h-32 sm:h-40 md:h-48 flex items-center justify-center p-4 sm:p-6 transition-colors duration-300 border-b border-gray-100 ${getLogoColor()} group-hover:bg-[#FCF8F3]`}
         >
           {company.logo && !imageError ? (
             <div className="relative w-full h-full">
@@ -88,53 +84,53 @@ export default function CompanyCard({ company, onProductBrochureClick }: Company
               />
             </div>
           ) : (
-            <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-700 text-center">
+            <div className="text-4xl font-bebas text-gray-700 tracking-wide">
               {company.logoInitials}
             </div>
           )}
         </div>
 
         {/* Content */}
-        <div className="p-4 sm:p-5 md:p-6 border-t border-slate-100 bg-white">
+        <div className="p-4 sm:p-5 flex flex-col justify-between flex-1">
           {/* Company Name */}
-          <h3 className="font-bold text-slate-900 mb-3 text-base sm:text-lg md:text-xl leading-tight line-clamp-2">
+          <h3 className="font-bebas text-xl sm:text-2xl text-black mb-3 leading-tight line-clamp-2 uppercase font-bold">
             {company.name}
           </h3>
 
           {/* Details */}
-          <div className="space-y-1.5 sm:space-y-2 text-sm sm:text-base text-slate-600 mb-4 sm:mb-6">
+          <div className="space-y-1.5 text-xs text-gray-650 mb-4 font-sans">
             <div className="flex items-center gap-2">
-              <Building size={16} className="text-slate-400 flex-shrink-0" />
-              <span className="text-slate-700">{company.pavilion}</span>
+              <Building size={14} className="text-gray-400 flex-shrink-0" />
+              <span>{company.pavilion}</span>
             </div>
             <div className="flex items-center gap-2">
-              <MapPin size={16} className="text-slate-400 flex-shrink-0" />
-              <span className="text-slate-700 font-semibold">Stand #{company.stand}</span>
+              <MapPin size={14} className="text-gray-400 flex-shrink-0" />
+              <span className="font-bold text-black">Stand #{company.stand}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Globe size={16} className="text-slate-400 flex-shrink-0" />
-              <span className="text-slate-700">{company.country}</span>
+              <Globe size={14} className="text-gray-400 flex-shrink-0" />
+              <span>{company.country}</span>
             </div>
           </div>
 
           {/* Action Buttons */}
           <div
             onClick={(e) => e.stopPropagation()}
-            className="grid grid-cols-2 gap-2 sm:gap-3 pt-4 border-t border-slate-200"
+            className="grid grid-cols-2 gap-2 pt-4 border-t border-gray-200"
           >
             <button
               onClick={handleBrochureClick}
-              className="px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-slate-900 border border-slate-300 rounded-lg hover:bg-slate-50 transition-all duration-300 hover:border-slate-400 hover:shadow-sm flex items-center justify-center gap-2"
+              className="px-3 py-2.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-800 border border-gray-300 rounded-sm hover:bg-black hover:text-white hover:border-black transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer"
             >
-              <ExternalLink size={14} className="sm:w-4 sm:h-4" />
+              <ExternalLink size={12} />
               <span>Details</span>
             </button>
 
             <button
               onClick={handleConnectClick}
-              className="px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white bg-orange-500 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:shadow-md flex items-center justify-center gap-2"
+              className="px-3 py-2.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white bg-[#F08400] rounded-sm hover:bg-black transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer"
             >
-              <MessageCircle size={14} className="sm:w-4 sm:h-4" />
+              <MessageCircle size={12} />
               <span>Connect</span>
             </button>
           </div>

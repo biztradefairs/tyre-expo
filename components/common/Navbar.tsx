@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
+import Container from '../ui/container';
 
 const navItems = [
   {
@@ -116,44 +117,45 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="fixed top-0 w-full max-w-[1600px] 2xl:max-w-[1800px]  left-0 right-0 z-50  bg-[#000000] ${innerPadding} text-white">
+      <div className="fixed top-0 w-full left-0 right-0 z-50 bg-black text-white">
 
         {/* ══════════════════════════════════════
             TOP BAR — timer lives here now (top-right)
             hides on scroll down, reappears on scroll up
            ══════════════════════════════════════ */}
         <div
-          
           style={{
             maxHeight: showTopBar ? '140px' : '0px',
             opacity: showTopBar ? 1 : 0,
             overflow: 'hidden',
-            transition: 'max-height 0.45s  cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.3s ease',
+            transition: 'max-height 0.45s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.3s ease',
           }}
         >
           {/* ── Ticker strip (brown bar) with timer ── */}
-          <div className="bg-[#432500] w-full 100vw ${innerPadding} ">
-            <div className={`w-full mx-auto ${innerPadding} flex items-center justify-end py-1.5`}>
-              <div className="flex items-center gap-4 text-sm font-medium text-white">
+          <div className="bg-[#432500] w-full">
+            <Container className="flex items-center justify-end py-1.5">
+              <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-wider text-white">
                 <span>
-                  <strong className="text-base">{String(timeLeft.days).padStart(2, '0')}</strong>{' '}
+                  <strong className="text-sm font-bold text-[#F08400]">{String(timeLeft.days).padStart(2, '0')}</strong>{' '}
                   <span className="text-gray-300">Days</span>
                 </span>
+                <span className="text-white/30">|</span>
                 <span>
-                  <strong className="text-base">{String(timeLeft.hours).padStart(2, '0')}</strong>{' '}
+                  <strong className="text-sm font-bold text-[#F08400]">{String(timeLeft.hours).padStart(2, '0')}</strong>{' '}
                   <span className="text-gray-300">Hours</span>
                 </span>
+                <span className="text-white/30">|</span>
                 <span>
-                  <strong className="text-base">{String(timeLeft.minutes).padStart(2, '0')}</strong>{' '}
+                  <strong className="text-sm font-bold text-[#F08400]">{String(timeLeft.minutes).padStart(2, '0')}</strong>{' '}
                   <span className="text-gray-300">Mins</span>
                 </span>
               </div>
-            </div>
+            </Container>
           </div>
 
           {/* ── Logo + date + Exhibit/Register buttons ── */}
-          <div className={`w-full mx-16 ${innerPadding}`}>
-            <div className="flex items-center justify-between py-3">
+          <div className="w-full bg-black">
+            <Container className="flex items-center justify-between py-3.5">
 
               {/* Logo + Title + Date */}
               <div className="flex items-center gap-4">
@@ -161,12 +163,17 @@ export default function Navbar() {
                   <img
                     src="/ITS_logo_white.png"
                     alt="India Tyre Show"
-                    className="h-12 w-auto cursor-pointer"
+                    className="h-10 sm:h-12 w-auto cursor-pointer object-contain"
                   />
                 </Link>
-                <div className="hidden sm:block">
-                  <h1 className="text-lg sm:text-xl font-bold tracking-tight">India Tyre Show</h1>
-                  <p className="text-xs text-gray-400">22–24 April 2026 &bull; Mumbai, India</p>
+                <div className="hidden sm:block border-l border-white/20 pl-4">
+                  <h1 className="font-[var(--font-montserrat)] text-[28px] font-semibold tracking-tight text-white leading-none">
+                    India Tyre Show
+                  </h1>
+
+                  <p className="font-[var(--font-montserrat)] text-[12px] text-gray-300 mt-1">
+                    22–24 April 2026 • Mumbai, India
+                  </p>
                 </div>
               </div>
 
@@ -174,19 +181,19 @@ export default function Navbar() {
               <div className="hidden sm:flex gap-3">
                 <Link
                   href="/exhibiting-enquiry/"
-                  className="bg-[#ff8c00] text-white text-center px-5 py-2 text-sm font-bold uppercase tracking-wide hover:bg-[#cc7000] transition whitespace-nowrap"
+                  className="bg-[#F08400] hover:bg-[#d67300] text-white text-center px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap rounded-sm"
                 >
                   Exhibit
                 </Link>
                 <Link
                   href="/visitor-registration/"
-                  className="bg-[#ff8c00] text-white text-center px-5 py-2 text-sm font-bold uppercase tracking-wide hover:bg-[#cc7000] transition whitespace-nowrap"
+                  className="bg-[#F08400] hover:bg-[#d67300] text-white text-center px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap rounded-sm"
                 >
                   Register
                 </Link>
               </div>
 
-            </div>
+            </Container>
           </div>
         </div>
 
@@ -194,32 +201,31 @@ export default function Navbar() {
             NAV ROW — always visible
             Logo icon slides in when scrolled past 80px
            ══════════════════════════════════════ */}
-        <div className="border-t px-[1.5cm] border-white/10">
-          <div className={`w-full mx-auto ${innerPadding}`}>
-            <div className="flex items-center py-2 min-h-[48px]">
+        <div className="border-t border-white/10 bg-[#121212]/90 backdrop-blur-md">
+          <Container className="flex items-center py-1 min-h-[44px]">
 
-              {/* Logo icon — slides in on scroll down */}
-              <div
-                style={{
-                  width: showLogo ? '44px' : '0px',
-                  opacity: showLogo ? 1 : 0,
-                  marginRight: showLogo ? '14px' : '0px',
-                  flexShrink: 0,
-                  overflow: 'hidden',
-                  transition: 'width 0.45s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.3s ease, margin-right 0.45s ease',
-                }}
-              >
-                <Link href="/">
-                  <img
-                    src="/ITS_logo_white.png"
-                    alt="India Tyre Show"
-                    style={{ height: '34px', width: 'auto', display: 'block', minWidth: '36px' }}
-                  />
-                </Link>
-              </div>
+            {/* Logo icon — slides in on scroll down */}
+            <div
+              style={{
+                width: showLogo ? '44px' : '0px',
+                opacity: showLogo ? 1 : 0,
+                marginRight: showLogo ? '14px' : '0px',
+                flexShrink: 0,
+                overflow: 'hidden',
+                transition: 'width 0.45s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.3s ease, margin-right 0.45s ease',
+              }}
+            >
+              <Link href="/">
+                <img
+                  src="/ITS_logo_white.png"
+                  alt="India Tyre Show"
+                  style={{ height: '30px', width: 'auto', display: 'block', minWidth: '32px' }}
+                />
+              </Link>
+            </div>
 
-              {/* Nav links */}
-              <div className="hidden lg:flex items-center gap-4 xl:gap-8 flex-1">
+            {/* Nav links */}
+            <div className="hidden lg:flex items-center gap-4 xl:gap-8 flex-1">
                 {navItems.map((item) => (
                   <div
                     key={item.title}
@@ -269,33 +275,32 @@ export default function Navbar() {
                 ))}
               </div>
 
-              {/* Compact login — slides in when scrolled */}
-              <div
-                style={{
-                  maxWidth: isScrolled ? '100px' : '0px',
-                  opacity: showLogo ? 1 : 0,
-                  overflow: 'hidden',
-                  marginLeft: 'auto',
-                  transition: 'max-width 0.45s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.3s ease',
-                }}
+            {/* Compact login — slides in when scrolled */}
+            <div
+              style={{
+                maxWidth: isScrolled ? '100px' : '0px',
+                opacity: showLogo ? 1 : 0,
+                overflow: 'hidden',
+                marginLeft: 'auto',
+                transition: 'max-width 0.45s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.3s ease',
+              }}
+            >
+              <Link
+                href="/login/"
+                className="bg-[#F08400] font-bold uppercase tracking-wider text-white px-4 py-2 text-xs 
+                  hover:bg-white hover:text-black transition-all duration-300 whitespace-nowrap inline-block rounded-sm"
               >
-                <Link
-                  href="/login/"
-                  className="bg-[#ff8c00] font-extrabold uppercase tracking-tight text-white px-4 py-2 text-sm 
-                    hover:bg-black hover:scale-105 transition-all duration-300 whitespace-nowrap inline-block"
-                >
-                  Login
-                </Link>
-              </div>
-
+                Login
+              </Link>
             </div>
-          </div>
+
+          </Container>
         </div>
 
       </div>
 
-      {/* Spacer — slightly taller now to account for the ticker strip */}
-      <div className="h-[155px] lg:h-[172px]" />
+      {/* Spacer — matches fixed header height */}
+      <div className="h-[125px] lg:h-[135px]" />
     </>
   );
 }

@@ -23,7 +23,7 @@ const mainEventsData = [
   {
     title: "Tyre Manufacturing Leaders Forum – Strategic Insights for Industry Growth",
     content: (
-      <ul className="list-disc space-y-3 pl-5 text-sm sm:text-base text-gray-700">
+      <ul className="list-disc space-y-3 pl-5 text-sm text-gray-700 leading-relaxed font-sans">
         <li>
           <strong>Main Plenary Session: </strong>Featuring top executives from leading tyre manufacturers, rubber processors, and equipment suppliers across Asia and beyond.
           <br />
@@ -38,7 +38,7 @@ const mainEventsData = [
   {
     title: "New for 2026 – Exclusive Forums and Round Tables",
     content: (
-      <ul className="list-disc space-y-3 pl-5 text-sm sm:text-base text-gray-700">
+      <ul className="list-disc space-y-3 pl-5 text-sm text-gray-700 leading-relaxed font-sans">
         <li>
           <strong>Sustainability Forum – Debut Edition: </strong>Carbon Neutrality and Circular Economy: New Standards for Tyre Manufacturing.
         </li>
@@ -60,7 +60,7 @@ const mainEventsData = [
   {
     title: "Technical Conferences",
     content: (
-      <ul className="list-disc space-y-3 pl-5 text-sm sm:text-base text-gray-700">
+      <ul className="list-disc space-y-3 pl-5 text-sm text-gray-700 leading-relaxed font-sans">
         <li>
           <strong>Rubber Processing & Compounding: </strong>Latest innovations in mixing, extrusion, and curing technologies from leading processing plant experts.
         </li>
@@ -125,204 +125,196 @@ export default function ConferenceProgrammePage() {
   }
 
   return (
-    <div className="intro-animation">
-      <div className="page-spacing-wrapper">
-        <div className="pt-[100px] sm:pt-[120px] lg:pt-[140px]">
+    <div className="intro-animation font-sans">
+      <div className="page-spacing-wrapper pt-[120px] lg:pt-[140px]">
 
-          {/* Innovate Through Knowledge Section */}
-          <Container>
-            <div className="animated-block">
-              <div className="animated-block-target">
-                <div className="w-full grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-                  <div className="order-2 lg:order-1">
-                    <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-black">
-                      <br />
-                      Innovate Through Knowledge
-                    </h2>
-                    <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-relaxed text-gray-700">
-                      A dynamic three-day conference featuring industry leaders from tyre manufacturers, rubber processing plants, and equipment suppliers. Designed for decision-makers, engineers, and specialists, the program tackles key challenges, innovations, and trends shaping the tyre manufacturing sector.
-                      <br /><br />
-                      Engage, collaborate, and stay ahead in the industry!
-                    </p>
-                    <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-between bg-gray-100 px-4 sm:px-6 py-6 sm:py-8 rounded-md gap-4 sm:gap-0">
-                      {statsData.map((stat, idx) => (
-                        <React.Fragment key={idx}>
-                          <div className="text-center flex-1 min-w-[80px]">
-                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bebas text-[#F08400]">{stat.value}</h3>
-                            <p className="text-xs sm:text-sm tracking-wide text-black mt-1 sm:mt-2">{stat.label}</p>
-                          </div>
-                          {idx < statsData.length - 1 && (
-                            <div className="hidden md:block h-12 w-px bg-gray-300"></div>
-                          )}
-                        </React.Fragment>
-                      ))}
-                    </div>
-                    <div className="mt-8 sm:mt-10">
-                      <Link href="https://cdn-ite.prismetic.com/CP_Agenda_ITS_Tyre_Expo_2026.pdf" target="_blank" rel="noopener noreferrer">
-                        <button className="bg-[#F08400] px-8 sm:px-10 py-2.5 sm:py-3 text-lg sm:text-xl font-bebas text-white transition-all hover:bg-black">
-                          View Agenda
-                        </button>
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] lg:h-[500px] w-full overflow-hidden rounded-lg">
-                    <Image
-                      src="https://cdn.itegroupnews.com/MW_24_2304_0005_G_i_1_0c28de356a.jpg"
-                      alt="Conference"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Container>
-
-          {/* Main Events Section */}
-          <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
+        {/* Innovate Through Knowledge Section */}
+        <Container className="py-10">
+          <div className="animated-block">
             <div className="animated-block-target">
-              <div className="bg-[#FCF8F3] py-12 sm:py-16 lg:py-20">
-                <Container>
-                  <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black">
-                    Main Events of the Business Programme
-                  </h2>
-                  <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600">
-                    15 – 17 October 2026
+              <div className="w-full grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
+                <div className="order-2 lg:order-1 space-y-6">
+                  <div className="space-y-3">
+                    <p className="text-[#F08400] text-xs font-bold uppercase tracking-wider">Business Programme</p>
+                    <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl leading-tight text-black uppercase">
+                      Innovate Through <span className="text-[#F08400]">Knowledge</span>
+                    </h1>
+                  </div>
+                  <p className="text-base sm:text-lg leading-relaxed text-gray-705">
+                    A dynamic three-day conference featuring industry leaders from tyre manufacturers, rubber processing plants, and equipment suppliers. Designed for decision-makers, engineers, and specialists, the program tackles key challenges, innovations, and trends shaping the tyre manufacturing sector.
                   </p>
-                  <div className="mt-8 sm:mt-10 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {mainEventsData.map((event, idx) => (
-                      <div key={idx} className="relative flex flex-col overflow-hidden rounded-lg bg-white p-5 sm:p-6 shadow-md">
-                        <div className="flex flex-col flex-1 gap-3 sm:gap-4">
-                          <h3 className="font-bebas text-xl sm:text-2xl text-black leading-tight">
-                            {event.title}
-                          </h3>
-                          <div className="text-sm sm:text-base text-gray-600 flex-1">
-                            {event.content}
-                          </div>
-                        </div>
+                  
+                  {/* Stats Grid */}
+                  <div className="grid grid-cols-3 gap-4 bg-[#FCF8F3] border border-gray-100 p-6 rounded-sm shadow-sm">
+                    {statsData.map((stat, idx) => (
+                      <div key={idx} className="text-center">
+                        <h3 className="text-3xl font-bebas text-[#F08400] uppercase font-bold">{stat.value}</h3>
+                        <p className="text-[10px] uppercase font-bold text-gray-600 mt-1 tracking-wider">{stat.label}</p>
                       </div>
                     ))}
                   </div>
-                </Container>
+
+                  <div className="pt-2">
+                    <Link href="https://cdn-ite.prismetic.com/CP_Agenda_ITS_Tyre_Expo_2026.pdf" target="_blank" rel="noopener noreferrer">
+                      <button className="bg-[#F08400] hover:bg-black text-white px-8 py-3 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-sm">
+                        View Agenda
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+                
+                {/* Image */}
+                <div className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] lg:h-[500px] w-full overflow-hidden rounded-sm border border-gray-150 bg-gray-100">
+                  <Image
+                    src="https://cdn.itegroupnews.com/MW_24_2304_0005_G_i_1_0c28de356a.jpg"
+                    alt="Conference"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
+        </Container>
 
-          {/* Key Events Carousel Section */}
-          <Container>
-            <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
-              <div className="animated-block-target">
-                <div className="mb-6 sm:mb-8 flex flex-col lg:flex-row justify-between lg:items-end gap-4">
-                  <div className="lg:basis-2/3">
-                    <h3 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black">
-                      Key Events
-                    </h3>
-                    <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600 leading-relaxed">
-                      The ITS Tyre Expo 2026 conference programme unites top experts and industry leaders for three days of in-depth discussions. Participants share valuable insights and explore sustainability in tyre manufacturing, with a focus on innovations, business processes, and management strategies vital for the sector's future.
-                    </p>
-                  </div>
+        {/* Main Events Section */}
+        <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
+          <div className="animated-block-target">
+            <div className="bg-[#FCF8F3] py-16 border-t border-b border-gray-150">
+              <Container>
+                <div className="mb-8 space-y-2">
+                  <h2 className="font-bebas text-4xl sm:text-5xl text-black uppercase font-bold">
+                    Main Events of the Business Programme
+                  </h2>
+                  <p className="text-sm font-bold text-[#F08400] uppercase tracking-wider">
+                    08 – 09 October 2026
+                  </p>
                 </div>
-                <div className="relative mt-8 sm:mt-10 w-full">
-                  <Carousel>
-                    <CarouselContent className="-ml-4">
-                      {keyEventsData.map((event, idx) => (
-                        <CarouselItem
-                          key={idx}
-                          className="pl-4 md:basis-1/2 lg:basis-1/3"
-                        >
-                          <div className="group flex flex-col overflow-hidden rounded-lg bg-[#FCF8F3] shadow-md transition-shadow duration-300 hover:shadow-lg">
-                            <div className="relative h-48 sm:h-56 w-full overflow-hidden">
-                              <Image
-                                src={event.image}
-                                alt={event.title}
-                                fill
-                                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                              />
-                              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition"></div>
-                            </div>
-                            <div className="flex flex-col gap-3 p-4 sm:p-5">
-                              <h5 className="font-bebas text-lg sm:text-xl text-black">
-                                {event.title}
-                              </h5>
-                            </div>
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                  </Carousel>
-                </div>
-              </div>
-            </div>
-          </Container>
-
-          {/* Conference Partners Section */}
-          <Container>
-            <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
-              <div className="animated-block-target">
-                <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black">
-                  Conference Partners
-                </h2>
-                <div className="mt-8 sm:mt-10 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
-                  {conferencePartners.map((partner, idx) => (
-                    <div
-                      key={idx}
-                      className="relative flex flex-col overflow-hidden rounded-lg bg-[#FCF8F3] p-5 sm:p-6 shadow-md text-center"
-                    >
-                      <div className="relative h-20 sm:h-24 w-full overflow-hidden mx-auto">
-                        <Image
-                          src={partner.logo}
-                          alt={partner.name}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                      <h3 className="mt-4 sm:mt-5 font-bebas text-xl sm:text-2xl text-black">
-                        {partner.name}
-                      </h3>
-                      <p className="text-sm sm:text-base text-gray-600">{partner.type}</p>
-                      <div className="mt-auto pt-4">
-                        <Link href={partner.url} target="_blank" rel="noopener noreferrer">
-                          <button className="w-full bg-[#F08400] px-5 sm:px-6 py-1.5 sm:py-2 font-bebas text-lg sm:text-xl text-white transition-all hover:bg-black">
-                            Visit Website
-                          </button>
-                        </Link>
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {mainEventsData.map((event, idx) => (
+                    <div key={idx} className="relative flex flex-col overflow-hidden rounded-sm border border-gray-100 bg-white p-6 shadow-sm">
+                      <div className="flex flex-col flex-1 gap-4">
+                        <h3 className="font-bebas text-2xl text-[#F08400] leading-tight uppercase font-bold">
+                          {event.title}
+                        </h3>
+                        <div className="text-gray-650 flex-1">
+                          {event.content}
+                        </div>
                       </div>
                     </div>
                   ))}
                 </div>
+              </Container>
+            </div>
+          </div>
+        </div>
+
+        {/* Key Events Carousel Section */}
+        <Container className="py-16">
+          <div className="animated-block">
+            <div className="animated-block-target">
+              <div className="mb-8 space-y-3 max-w-3xl">
+                <h3 className="font-bebas text-4xl sm:text-5xl text-black uppercase font-bold">
+                  Key Events
+                </h3>
+                <p className="text-sm text-gray-650 leading-relaxed">
+                  The ITS Tyre Expo 2026 conference programme unites top experts and industry leaders for three days of in-depth discussions. Participants share valuable insights and explore sustainability in tyre manufacturing, with a focus on innovations, business processes, and management strategies vital for the sector's future.
+                </p>
+              </div>
+              <div className="relative mt-8 w-full">
+                <Carousel>
+                  <CarouselContent className="-ml-4">
+                    {keyEventsData.map((event, idx) => (
+                      <CarouselItem
+                        key={idx}
+                        className="pl-4 md:basis-1/2 lg:basis-1/3"
+                      >
+                        <div className="group flex flex-col overflow-hidden rounded-sm border border-gray-100 bg-[#FCF8F3] shadow-sm hover:shadow-md transition-all duration-300">
+                          <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-gray-100 rounded-t-sm">
+                            <Image
+                              src={event.image}
+                              alt={event.title}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition duration-300"></div>
+                          </div>
+                          <div className="p-5 font-sans">
+                            <h5 className="font-bebas text-xl text-black uppercase font-bold">
+                              {event.title}
+                            </h5>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                </Carousel>
               </div>
             </div>
-          </Container>
+          </div>
+        </Container>
 
+        {/* Conference Partners Section */}
+        <Container className="py-10">
+          <div className="animated-block">
+            <div className="animated-block-target">
+              <h2 className="font-bebas text-4xl sm:text-5xl text-black uppercase font-bold mb-8">
+                Conference Partners
+              </h2>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                {conferencePartners.map((partner, idx) => (
+                  <div
+                    key={idx}
+                    className="relative flex flex-col justify-between overflow-hidden rounded-sm border border-gray-100 bg-[#FCF8F3] p-6 shadow-sm hover:shadow-md transition-all duration-300 text-center"
+                  >
+                    <div>
+                      <div className="relative h-20 w-full overflow-hidden mx-auto bg-white border border-gray-150 p-2 rounded-sm">
+                        <Image
+                          src={partner.logo}
+                          alt={partner.name}
+                          fill
+                          className="object-contain p-1"
+                        />
+                      </div>
+                      <h3 className="mt-5 font-bebas text-2xl text-black uppercase font-bold">
+                        {partner.name}
+                      </h3>
+                      <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mt-1">{partner.type}</p>
+                    </div>
+                    <div className="pt-6">
+                      <Link href={partner.url} target="_blank" rel="noopener noreferrer">
+                        <button className="w-full bg-[#F08400] hover:bg-black text-white py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-sm cursor-pointer">
+                          Visit Website
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Container>
+
+        <div className="mt-12 sm:mt-16 lg:mt-20">
           <PartnersSection />
-          <BackToTop />
         </div>
       </div>
+      <BackToTop />
 
       <style jsx>{`
-        .global-transition {
-          transition: all 0.3s ease;
+        .font-bebas { font-family: 'Bebas Neue', cursive; }
+        .animated-block {
+          opacity: 0;
+          transform: translateY(30px);
+          animation: fadeInUp 0.6s ease forwards;
         }
-        .flex-center {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        .font-bebas {
-          font-family: 'Bebas Neue', cursive;
-        }
-        .line-clamp-2 {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-        .line-clamp-4 {
-          display: -webkit-box;
-          -webkit-line-clamp: 4;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
+        .animated-block:nth-child(1) { animation-delay: 0.1s; }
       `}</style>
     </div>
   );

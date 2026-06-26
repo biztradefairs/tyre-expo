@@ -4,62 +4,64 @@ import Container from '../ui/container';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-gray-400">
+    <footer className="bg-black text-gray-400 border-t border-white/10">
       {/* Top Section */}
       <Container className="py-16 lg:py-20">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4 xl:gap-20">
           
           {/* Logo */}
           <div className="space-y-4">
-  <Image
-    src="/ITS_logoWhite.png"
-    alt="MiningWorld Russia"
-    width={280}
-    height={80}
-    className="object-contain"
-  />
+            <Image
+              src="/ITS_logo_white.png"
+              alt="India Tyre Show"
+              width={180}
+              height={50}
+              className="object-contain"
+            />
+            <p className="text-xs text-gray-500 font-sans mt-2">
+              The premier international exhibition for tyre manufacturing and rubber technology.
+            </p>
+          </div>
 
-
-</div>
           {/* Contacts */}
-          <div className="space-y-6">
+          <div className="space-y-6 font-sans">
             <div>
-              <h5 className="text-xs font-bold uppercase tracking-wider text-white mb-2">
+              <h5 className="text-sm font-bold uppercase tracking-wider text-white mb-2 font-bebas">
                 Contacts and Support
               </h5>
               <a
                 href="mailto:miningsupportrussia@ite.group"
-                className="hover:text-white"
+                className="hover:text-[#F08400] transition-colors text-sm"
               >
                 miningsupportrussia@ite.group
               </a>
             </div>
 
             <div>
-              <h5 className="text-xs font-bold uppercase tracking-wider text-white mb-2">
+              <h5 className="text-sm font-bold uppercase tracking-wider text-white mb-2 font-bebas">
                 Hotline
               </h5>
-              <a href="tel:+74957995585" className="hover:text-white">
+              <a href="tel:+74957995585" className="hover:text-[#F08400] transition-colors text-sm">
                 +7-(495)-799-55-85
               </a>
             </div>
 
             <div>
-              <h5 className="text-xs font-bold uppercase tracking-wider text-white mb-2">
+              <h5 className="text-sm font-bold uppercase tracking-wider text-white mb-2 font-bebas">
                 Visitor Support
               </h5>
-              <a href="tel:+74957995585" className="hover:text-white">
+              <a href="tel:+74957995585" className="hover:text-[#F08400] transition-colors text-sm">
                 +7-(495)-799-55-85
               </a>
             </div>
           </div>
 
           {/* Opening Hours */}
-          <div>
-            <h5 className="text-xs font-bold uppercase tracking-wider text-white mb-3">
+          <div className="font-sans">
+            <h5 className="text-sm font-bold uppercase tracking-wider text-white mb-3 font-bebas">
               Opening Hours
             </h5>
-            <div className="space-y-1">
+            <div className="space-y-1.5 text-sm">
               <p>22 April 2026: 10:00 - 18:00</p>
               <p>23 April 2026: 10:00 - 18:00</p>
               <p>24 April 2026: 10:00 - 16:00</p>
@@ -67,64 +69,56 @@ export default function Footer() {
           </div>
 
           {/* Venue */}
-          <div>
-            <h5 className="text-xs font-bold uppercase tracking-wider text-white mb-3">
+          <div className="font-sans">
+            <h5 className="text-sm font-bold uppercase tracking-wider text-white mb-3 font-bebas">
               Exhibition Venue
             </h5>
-            <p>
+            <p className="text-sm leading-relaxed">
               Crocus Expo IEC, Russia, Moscow, Pavilion 1
             </p>
           </div>
         </div>
       </Container>
 
-      {/* Divider Line */}
-      {/* <div className="border-t border-orange-500/40" /> */}
-
-      {/* Powered By */}
-      <Container>
-        <div className="flex justify-end py-2 text-xs text-white">
-          Powered By{' '}
-          <a
-            href="https://prismetic.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-1 font-semibold uppercase hover:underline"
-          >
-            PRISMETIC
-          </a>
-        </div>
-      </Container>
-
       {/* Bottom Section */}
       <Container>
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-t border-[#F08400] py-8">
-          {/* Left */}
-          <div className="flex items-center gap-2">
-            <span className="text-sm">Organised By</span>
-            <Image
-              src="/maxx_logo (1).png"
-              alt="ITE"
-              width={70}
-              height={25}
-            />
+        <div className="border-t border-white/10 py-8 text-xs font-sans">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            {/* Organised By */}
+            <div className="flex items-center gap-3">
+              <span className="text-[10px] uppercase tracking-wider text-neutral-500 font-bold">Organised By</span>
+              <Image
+                src="/maxx_logo (1).png"
+                alt="ITE"
+                width={70}
+                height={25}
+                className="object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+              />
+            </div>
+
+            {/* Powered By */}
+            <div className="text-left md:text-right text-[10px] text-neutral-500 font-medium">
+              Powered By{' '}
+              <a
+                href="https://prismetic.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-white uppercase hover:text-[#F08400] transition-colors"
+              >
+                PRISMETIC
+              </a>
+            </div>
           </div>
 
-          {/* Right */}
-          <div className="flex flex-wrap items-center gap-3 text-xs md:text-sm">
-            <p className="border-r border-gray-500 pr-3">
-              ©MiningWorld 2026. All Right Reserved
-            </p>
-
-            <Link href="#" className="hover:text-white">
-              Terms of Use
-            </Link>
-            <Link href="#" className="hover:text-white">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="hover:text-white">
-              Cookie Policy
-            </Link>
+          <div className="mt-6 flex flex-col gap-4 border-t border-neutral-900 pt-6 text-[11px] text-neutral-500 md:flex-row md:justify-between md:items-center">
+            <p>© India Tyre Show 2026. All Rights Reserved.</p>
+            <div className="flex items-center gap-3 flex-wrap">
+              <Link href="#" className="hover:text-white transition-colors">Terms of Use</Link>
+              <span className="text-neutral-800">|</span>
+              <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <span className="text-neutral-800">|</span>
+              <Link href="#" className="hover:text-white transition-colors">Cookie Policy</Link>
+            </div>
           </div>
         </div>
       </Container>

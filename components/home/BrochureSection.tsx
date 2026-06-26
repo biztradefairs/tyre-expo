@@ -47,19 +47,18 @@ export default function BrochureSection() {
 
           {/* RIGHT CONTENT */}
           <div className="flex flex-col gap-4 sm:gap-5 lg:gap-6 text-center lg:text-left">
-            <h2 className="text-[28px] sm:text-[34px] md:text-[42px] lg:text-[48px] font-extrabold leading-[1.05]">
-              UNLOCK OPPORTUNITIES IN TYRE <br className="hidden sm:block" />
-              <span className="block mt-1 sm:mt-2">INDUSTRY</span>
+            <h2 className="font-bebas text-4xl sm:text-5xl lg:text-6xl text-white leading-tight uppercase tracking-tight">
+              UNLOCK OPPORTUNITIES IN THE TYRE INDUSTRY
             </h2>
-            <p className="text-base sm:text-lg text-white/80">
+            <p className="text-base sm:text-lg text-white/80 font-sans font-semibold">
               Discover how India Tyre Show helps your business grow.
             </p>
-            <p className="text-sm sm:text-base text-white/70 max-w-[650px] leading-relaxed mx-auto lg:mx-0">
+            <p className="text-sm sm:text-base text-white/70 max-w-[650px] leading-relaxed mx-auto lg:mx-0 font-sans">
               Download the Event Brochure to explore participation options, audience insights, and industry sectors and learn how exhibiting can connect you with key buyers, strengthen your market presence, and accelerate your growth across the global market.
             </p>
             <Button
               href="/event-brochure/"
-              className="bg-[#F08400] px-6 sm:px-8 py-2.5 sm:py-3 lg:py-4 text-sm sm:text-base font-bold uppercase hover:bg-orange-600 w-fit mx-auto lg:mx-0"
+              className="bg-[#F08400] hover:bg-white hover:text-black text-white px-8 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-sm w-fit mx-auto lg:mx-0"
             >
               Download Your Event Brochure
             </Button>

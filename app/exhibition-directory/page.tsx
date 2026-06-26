@@ -6,6 +6,7 @@ import CompanyGrid from './company-grid'
 import { useRouter } from 'next/navigation'
 import { Search, ChevronDown, Filter, X, Loader2 } from 'lucide-react'
 import BackToTop from '@/components/layout/BackToTop'
+import Container from '@/components/ui/container'
 import { fetchExhibitionCompanies, ExhibitionCompany, generateSlug } from '@/lib/api/exhibitorClient'
 
 export default function CompanyDirectory() {
@@ -19,7 +20,6 @@ export default function CompanyDirectory() {
   const [selectedLetter, setSelectedLetter] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [isMobile, setIsMobile] = useState(false)
-  const [showMobileFilters, setShowMobileFilters] = useState(false)
 
   const companiesPerPage = 24
 
@@ -91,209 +91,225 @@ export default function CompanyDirectory() {
 
   if (loading && companies.length === 0) {
     return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center font-sans">
         <div className="text-center">
-          <Loader2 className="w-12 h-12 animate-spin text-orange-500 mx-auto mb-4" />
-          <p className="text-slate-600">Loading exhibitors...</p>
+          <Loader2 className="w-12 h-12 animate-spin text-[#F08400] mx-auto mb-4" />
+          <p className="text-slate-650 text-sm">Loading exhibitors...</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      {/* Error display */}
-      {error && (
-        <div className="fixed top-20 left-0 right-0 z-40 max-w-7xl mx-auto px-4">
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-            {error}
+    <div className="intro-animation min-h-screen bg-white font-sans">
+      <div className="page-spacing-wrapper">
+        <div className="pt-[120px] lg:pt-[140px]">
+          {/* Error display */}
+          {error && (
+            <div className="fixed top-36 left-0 right-0 z-40 max-w-7xl mx-auto px-4">
+              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-sm text-sm">
+                {error}
+              </div>
+            </div>
+          )}
+
+          <main className="pb-16">
+            <Container>
+              <div className="border-b border-gray-200 pb-6 mb-8 mt-4">
+            <h1 className="font-bebas text-5xl sm:text-6xl text-black uppercase tracking-wide">
+              <br />
+              Exhibitor <span className="text-[#F08400]">Directory</span>
+            </h1>
+            <p className="mt-2 text-sm text-gray-600 font-sans">
+              Find and connect with key tyre and rubber industry suppliers at ITS Tyre Expo.
+            </p>
           </div>
-        </div>
-      )}
 
-      <main className="pt-24 sm:pt-28 md:pt-32 pb-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Alphabetical Filter */}
-        <div className="mb-6 md:mb-8 mt-10">
-          <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
-            <button
-              onClick={() => {
-                setSelectedLetter(null)
-                setCurrentPage(1)
-              }}
-              className={`px-3 sm:px-4 py-2 text-sm font-medium rounded-lg transition-colors ${!selectedLetter
-                  ? 'bg-orange-500 text-white'
-                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-300'
-                }`}
-            >
-              All
-            </button>
+          {/* Alphabetical Filter */}
+          <div className="mb-6 md:mb-8">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
+              <button
+                onClick={() => {
+                  setSelectedLetter(null)
+                  setCurrentPage(1)
+                }}
+                className={`px-3 sm:px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm transition-colors cursor-pointer ${!selectedLetter
+                    ? 'bg-[#F08400] text-white border border-[#F08400]'
+                    : 'bg-white text-slate-800 hover:bg-slate-100 border border-gray-300'
+                  }`}
+              >
+                All
+              </button>
 
-            <div className="flex flex-wrap gap-1">
-              {Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)).map((letter) => (
-                <button
-                  key={letter}
-                  onClick={() => {
-                    setSelectedLetter(letter)
-                    setCurrentPage(1)
-                  }}
-                  className={`w-8 h-8 sm:w-9 sm:h-9 rounded text-sm font-medium transition-colors border flex items-center justify-center ${selectedLetter === letter
-                      ? 'bg-orange-500 text-white border-orange-500'
-                      : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-300'
-                    }`}
-                >
-                  {letter}
-                </button>
-              ))}
+              <div className="flex flex-wrap gap-1">
+                {Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)).map((letter) => (
+                  <button
+                    key={letter}
+                    onClick={() => {
+                      setSelectedLetter(letter)
+                      setCurrentPage(1)
+                    }}
+                    className={`w-8 h-8 sm:w-9 sm:h-9 rounded-sm text-xs font-bold uppercase tracking-wider transition-colors border flex items-center justify-center cursor-pointer ${selectedLetter === letter
+                        ? 'bg-[#F08400] text-white border-[#F08400]'
+                        : 'bg-white text-slate-700 hover:bg-slate-100 border-gray-300'
+                      }`}
+                  >
+                    {letter}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mt-4">
+              Showing {filteredCompanies.length} companies {selectedLetter && `starting with "${selectedLetter}"`}
             </div>
           </div>
 
-          <div className="text-sm text-slate-600 mt-4">
-            Showing {filteredCompanies.length} companies {selectedLetter && `starting with "${selectedLetter}"`}
+          {/* Search Bar */}
+          <div className="mb-6">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <input
+                type="text"
+                placeholder="Search by company name or sector..."
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value)
+                  setCurrentPage(1)
+                }}
+                className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-1 focus:ring-[#F08400] focus:border-[#F08400] text-sm bg-white"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => {
+                    setSearchQuery('')
+                    setCurrentPage(1)
+                  }}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-slate-600 cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
           </div>
-        </div>
 
-        {/* Search Bar */}
-        <div className="mb-6">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
-            <input
-              type="text"
-              placeholder="Search by company name or sector..."
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value)
-                setCurrentPage(1)
-              }}
-              className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+          {/* View Toggle */}
+          <div className="flex justify-end mb-6 gap-2">
+            <button
+              onClick={() => setViewMode('grid')}
+              className={`p-2 rounded-sm transition-colors cursor-pointer ${viewMode === 'grid' ? 'bg-[#F08400] text-white border border-[#F08400]' : 'bg-white text-slate-600 border border-gray-300'
+                }`}
+            >
+              <GridIcon />
+            </button>
+            <button
+              onClick={() => setViewMode('gallery')}
+              className={`p-2 rounded-sm transition-colors cursor-pointer ${viewMode === 'gallery' ? 'bg-[#F08400] text-white border border-[#F08400]' : 'bg-white text-slate-600 border border-gray-300'
+                }`}
+            >
+              <GalleryIcon />
+            </button>
+            <button
+              onClick={() => setViewMode('list')}
+              className={`p-2 rounded-sm transition-colors cursor-pointer ${viewMode === 'list' ? 'bg-[#F08400] text-white border border-[#F08400]' : 'bg-white text-slate-600 border border-gray-300'
+                }`}
+            >
+              <ListIcon />
+            </button>
+          </div>
+
+          {/* Companies Grid */}
+          {loading ? (
+            <div className="flex justify-center py-12">
+              <Loader2 className="w-8 h-8 animate-spin text-[#F08400]" />
+            </div>
+          ) : (
+            <CompanyGrid
+              companies={filteredCompanies}
+              viewMode={viewMode}
+              onProductBrochureClick={handleProductBrochure}
             />
-            {searchQuery && (
+          )}
+
+          {/* Pagination */}
+          {!loading && filteredCompanies.length > 0 && totalPages > 1 && (
+            <div className="mt-8 md:mt-12">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="text-xs font-bold text-gray-500 uppercase tracking-wider">
+                  Page {currentPage} of {totalPages}
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                    disabled={currentPage === 1}
+                    className={`px-3 py-2 rounded-sm text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1 cursor-pointer ${currentPage === 1
+                        ? 'text-gray-400 cursor-not-allowed border border-gray-200 bg-gray-50'
+                        : 'text-slate-800 border border-gray-300 hover:bg-slate-100 bg-white'
+                      }`}
+                  >
+                    <ChevronLeftIcon />
+                    <span>Previous</span>
+                  </button>
+
+                  <div className="flex items-center gap-1">
+                    {getPaginationRange().map((page) => (
+                      <button
+                        key={page}
+                        onClick={() => setCurrentPage(page)}
+                        className={`w-8 h-8 sm:w-9 sm:h-9 rounded-sm text-xs font-bold uppercase tracking-wider flex items-center justify-center transition-colors cursor-pointer ${currentPage === page
+                            ? 'bg-[#F08400] text-white border border-[#F08400]'
+                            : 'bg-white text-slate-700 hover:bg-slate-100 border border-gray-300'
+                          }`}
+                      >
+                        {page}
+                      </button>
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                    disabled={currentPage === totalPages}
+                    className={`px-3 py-2 rounded-sm text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1 cursor-pointer ${currentPage === totalPages
+                        ? 'text-gray-400 cursor-not-allowed border border-gray-200 bg-gray-50'
+                        : 'text-slate-800 border border-gray-300 hover:bg-slate-100 bg-white'
+                      }`}
+                  >
+                    <span>Next</span>
+                    <ChevronRightIcon />
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Empty state */}
+          {!loading && filteredCompanies.length === 0 && (
+            <div className="text-center py-16 border border-gray-100 rounded-sm bg-[#FCF8F3] shadow-sm max-w-md mx-auto mt-10">
+              <div className="text-gray-400 mb-4">
+                <Search size={48} className="mx-auto" />
+              </div>
+              <h3 className="font-bebas text-3xl text-black mb-2 uppercase tracking-wide">No companies found</h3>
+              <p className="text-sm text-gray-600 max-w-xs mx-auto leading-relaxed">
+                Try adjusting your search or filter to find what you're looking for.
+              </p>
               <button
                 onClick={() => {
                   setSearchQuery('')
+                  setSelectedLetter(null)
                   setCurrentPage(1)
                 }}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                className="mt-6 bg-[#F08400] hover:bg-black text-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-sm cursor-pointer"
               >
-                <X className="w-4 h-4" />
+                Clear all filters
               </button>
-            )}
-          </div>
-        </div>
-
-        {/* View Toggle */}
-        <div className="flex justify-end mb-6 gap-2">
-          <button
-            onClick={() => setViewMode('grid')}
-            className={`p-2 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-orange-500 text-white' : 'bg-white text-slate-600 border border-slate-300'
-              }`}
-          >
-            <GridIcon />
-          </button>
-          <button
-            onClick={() => setViewMode('gallery')}
-            className={`p-2 rounded-lg transition-colors ${viewMode === 'gallery' ? 'bg-orange-500 text-white' : 'bg-white text-slate-600 border border-slate-300'
-              }`}
-          >
-            <GalleryIcon />
-          </button>
-          <button
-            onClick={() => setViewMode('list')}
-            className={`p-2 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-orange-500 text-white' : 'bg-white text-slate-600 border border-slate-300'
-              }`}
-          >
-            <ListIcon />
-          </button>
-        </div>
-
-        {/* Companies Grid */}
-        {loading ? (
-          <div className="flex justify-center py-12">
-            <Loader2 className="w-8 h-8 animate-spin text-orange-500" />
-          </div>
-        ) : (
-          <CompanyGrid
-            companies={filteredCompanies}
-            viewMode={viewMode}
-            onProductBrochureClick={handleProductBrochure}
-          />
-        )}
-
-        {/* Pagination */}
-        {!loading && filteredCompanies.length > 0 && totalPages > 1 && (
-          <div className="mt-8 md:mt-12">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="text-sm text-slate-600">
-                Page {currentPage} of {totalPages}
-              </div>
-
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
-                  disabled={currentPage === 1}
-                  className={`px-3 sm:px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1 ${currentPage === 1
-                      ? 'text-slate-400 cursor-not-allowed'
-                      : 'text-slate-700 hover:bg-slate-100'
-                    }`}
-                >
-                  <ChevronLeftIcon />
-                  <span className="hidden sm:inline">Previous</span>
-                </button>
-
-                <div className="flex items-center gap-1">
-                  {getPaginationRange().map((page) => (
-                    <button
-                      key={page}
-                      onClick={() => setCurrentPage(page)}
-                      className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg text-sm font-medium flex items-center justify-center transition-colors ${currentPage === page
-                          ? 'bg-orange-500 text-white'
-                          : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-300'
-                        }`}
-                    >
-                      {page}
-                    </button>
-                  ))}
-                </div>
-
-                <button
-                  onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
-                  disabled={currentPage === totalPages}
-                  className={`px-3 sm:px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1 ${currentPage === totalPages
-                      ? 'text-slate-400 cursor-not-allowed'
-                      : 'text-slate-700 hover:bg-slate-100'
-                    }`}
-                >
-                  <span className="hidden sm:inline">Next</span>
-                  <ChevronRightIcon />
-                </button>
-              </div>
             </div>
-          </div>
-        )}
-
-        {/* Empty state */}
-        {!loading && filteredCompanies.length === 0 && (
-          <div className="text-center py-12">
-            <div className="text-slate-400 mb-4">
-              <Search size={48} className="mx-auto" />
-            </div>
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">No companies found</h3>
-            <p className="text-slate-600 max-w-md mx-auto">
-              Try adjusting your search or filter to find what you're looking for.
-            </p>
-            <button
-              onClick={() => {
-                setSearchQuery('')
-                setSelectedLetter(null)
-                setCurrentPage(1)
-              }}
-              className="mt-4 px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
-            >
-              Clear all filters
-            </button>
-          </div>
-        )}
+          )}
+        </Container>
       </main>
       <BackToTop />
+        </div>
+      </div>
     </div>
   )
 }
@@ -302,14 +318,15 @@ export default function CompanyDirectory() {
 function GridIcon() {
   return (
     <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
-      <rect x="3" y="3" width="7" height="7" rx="1" />
-      <rect x="14" y="3" width="7" height="7" rx="1" />
-      <rect x="3" y="14" width="7" height="7" rx="1" />
-      <rect x="14" y="14" width="7" height="7" rx="1" />
+      <rect x="3" y="3" width="7" height="7" rx="0.5" />
+      <rect x="14" y="3" width="7" height="7" rx="0.5" />
+      <rect x="3" y="14" width="7" height="7" rx="0.5" />
+      <rect x="14" y="14" width="7" height="7" rx="0.5" />
     </svg>
   )
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function GalleryIcon() {
   return (
     <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -321,9 +338,9 @@ function GalleryIcon() {
 function ListIcon() {
   return (
     <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
-      <rect x="3" y="4" width="18" height="2" rx="1" />
-      <rect x="3" y="11" width="18" height="2" rx="1" />
-      <rect x="3" y="18" width="18" height="2" rx="1" />
+      <rect x="3" y="4" width="18" height="2" rx="0.5" />
+      <rect x="3" y="11" width="18" height="2" rx="0.5" />
+      <rect x="3" y="18" width="18" height="2" rx="0.5" />
     </svg>
   )
 }

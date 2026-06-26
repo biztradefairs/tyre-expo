@@ -31,31 +31,31 @@ export default function CountriesSection({ countries }: CountriesSectionProps) {
       />
 
       <Container className="relative z-10 ">
-        <p className="text-[#F08400]  font-extrabold text-5xl uppercase tracking-tight font-semibold text-base sm:text-lg">
+        <p className="text-[#F08400] font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider">
           Countries Represented
         </p>
-        <h2 className="mt-3 sm:mt-4 text-[32px]  font-extrabold text-5xl uppercase tracking-tight sm:text-[38px] md:text-[44px] font-semibold leading-[1.1]">
+        <h2 className="font-bebas text-4xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight mt-3">
           DISCOVER THE GLOBAL REACH OF INDIA TYRE SHOW
         </h2>
         
         <Link
           href="/exhibitor-list/"
-          className="inline-block  font-extrabold text-5xl uppercase tracking-tight mt-5 sm:mt-6 bg-[#F08400] px-6 sm:px-8 py-2.5 sm:py-3 lg:py-4 font-bold uppercase tracking-wide hover:bg-orange-600 transition text-sm sm:text-base"
+          className="inline-block bg-[#F08400] hover:bg-[#d67300] text-white px-8 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-sm mt-6 whitespace-nowrap"
         >
           Explore the 2026 Exhibitor List
         </Link>
 
-        <div className="mt-8 sm:mt-10 lg:mt-12 bg-black/70 backdrop-blur-md rounded-2xl px-4 sm:px-6 py-5 sm:py-6 flex flex-wrap gap-4 sm:gap-6 lg:gap-8 items-center">
+        <div className="mt-8 sm:mt-10 lg:mt-12 bg-black/75 backdrop-blur-md border border-white/10 rounded-sm px-6 py-6 flex flex-wrap gap-6 sm:gap-8 items-center justify-center md:justify-start">
           {countries.map((country) => (
-            <div key={country.name} className="flex items-center gap-2 sm:gap-3">
+            <div key={country.name} className="flex items-center gap-3">
               <Image
                 src={country.flag}
                 alt={country.name}
-                width={40}
-                height={40}
-                className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 rounded-full object-cover"
+                width={32}
+                height={32}
+                className="w-6 h-6 sm:w-8 sm:h-8 rounded-full object-cover shadow-md"
               />
-              <span className="text-xs sm:text-sm lg:text-base font-semibold uppercase tracking-wide">
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-wide text-white">
                 {country.name}
               </span>
             </div>
