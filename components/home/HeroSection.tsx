@@ -59,10 +59,11 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom content */}
-      <div className="w-full pb-10 md:pb-14 relative z-10">
+      <div className="w-full pb-11 md:pb-10 relative z-10">
         <Container>
           {/* HEADING — single line, full width spanning */}
-          <h1 className="font-bebas uppercase leading-none tracking-tight whitespace-nowrap text-[10vw]">
+          <h1 className="font-bebas uppercase leading-none tracking-tight whitespace-nowrap text-[9.5vw]">
+            <br />
             <span className="text-white">MININGWORLD </span>
             <span className="text-[#F08400]">2027</span>
           </h1>
