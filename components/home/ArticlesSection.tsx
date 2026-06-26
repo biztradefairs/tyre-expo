@@ -14,25 +14,25 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
   const [featuredArticle, ...restArticles] = articles;
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-[#f5f5f5] overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-20 bg-white overflow-hidden">
       <Container>
         {/* HEADER */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-6 mb-8 sm:mb-10 lg:mb-12 flex-wrap">
           <div className="max-w-[900px]">
-            <p className="text-[#F08400] font-sans text-[12px] sm:text-[14px] uppercase tracking-[1.5px]">
+            <p className="text-[#F08400] font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider">
               Articles
             </p>
-            <h2 className="font-bebas font-bold text-[32px] sm:text-[38px] md:text-[42px] lg:text-[46px] leading-[1.05] tracking-[2px] uppercase text-black">
+            <h2 className="font-bebas text-4xl sm:text-5xl lg:text-6xl text-black leading-tight uppercase tracking-tight mt-3">
               EVENT INSIGHTS & INDUSTRY TRENDS
             </h2>
-            <p className="text-gray-600 mt-2 sm:mt-3 text-sm sm:text-base">
+            <p className="text-gray-600 mt-2 text-sm sm:text-base font-sans">
               Stay up to date with the latest updates in the industry and the show
             </p>
           </div>
 
           <Button
             href="/articles/"
-            className="border border-[#F08400] !text-[#F08400] px-5 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-semibold bg-transparent hover:bg-[#F08400] hover:!text-white transition w-full sm:w-auto text-center"
+            className="border border-[#F08400] text-[#F08400] hover:bg-[#F08400] hover:text-white px-8 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-sm w-full sm:w-auto text-center"
           >
             VIEW ALL ARTICLES
           </Button>
@@ -43,7 +43,7 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
           {/* LEFT FEATURED ARTICLE */}
           {featuredArticle && (
             <div className="lg:w-[65%] group cursor-pointer min-w-0">
-              <div className="relative h-[250px] sm:h-[300px] md:h-[340px] lg:h-[360px] rounded-xl overflow-hidden">
+              <div className="relative h-[250px] sm:h-[300px] md:h-[340px] lg:h-[360px] rounded-sm overflow-hidden shadow-sm">
                 <Image
                   src={featuredArticle.image}
                   alt={featuredArticle.title}
@@ -52,15 +52,15 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
                 />
               </div>
               <div className="mt-4">
-                <p className="text-[#F08400] text-xs sm:text-sm font-semibold">
+                <p className="text-[#F08400] text-xs font-semibold font-sans">
                   {formatDate(featuredArticle.publishedDate)}
                 </p>
                 <Link href={`/articles/${featuredArticle.slug}`}>
-                  <h3 className="text-xl sm:text-[22px] lg:text-[24px] font-bold text-black mt-2 leading-snug hover:text-[#F08400] transition">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-black mt-2 leading-snug hover:text-[#F08400] transition">
                     {featuredArticle.title}
                   </h3>
                 </Link>
-                <p className="text-gray-600 mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed line-clamp-3">
+                <p className="text-gray-600 mt-2 text-sm sm:text-base leading-relaxed line-clamp-3 font-sans">
                   {featuredArticle.excerpt}
                 </p>
               </div>
@@ -68,10 +68,10 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
           )}
 
           {/* RIGHT ARTICLES */}
-          <div className="lg:w-[35%] flex flex-col gap-5 sm:gap-6 min-w-0">
+          <div className="lg:w-[35%] flex flex-col gap-6 min-w-0">
             {restArticles.map((article) => (
               <div key={article.slug} className="grid grid-cols-[35%_65%] sm:grid-cols-[40%_60%] gap-3 sm:gap-4 items-start group cursor-pointer">
-                <div className="relative h-[90px] sm:h-[100px] md:h-[110px] lg:h-[120px] rounded-lg overflow-hidden">
+                <div className="relative h-[90px] sm:h-[100px] md:h-[110px] lg:h-[120px] rounded-sm overflow-hidden shadow-sm">
                   <Image
                     src={article.image}
                     alt={article.title}
@@ -80,15 +80,15 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
                   />
                 </div>
                 <div>
-                  <p className="text-[#F08400] text-[10px] sm:text-xs font-semibold">
+                  <p className="text-[#F08400] text-[10px] sm:text-xs font-semibold font-sans">
                     {formatDate(article.publishedDate)}
                   </p>
                   <Link href={`/articles/${article.slug}`}>
-                    <h4 className="text-[14px] sm:text-[15px] lg:text-[16px] font-bold text-black mt-1 leading-snug hover:text-[#F08400] transition line-clamp-2">
+                    <h4 className="text-xs sm:text-sm md:text-base font-bold text-black mt-1 leading-snug hover:text-[#F08400] transition line-clamp-2">
                       {article.title}
                     </h4>
                   </Link>
-                  <p className="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2 leading-relaxed line-clamp-3 sm:line-clamp-4">
+                  <p className="text-gray-600 text-xs sm:text-sm mt-1 leading-relaxed line-clamp-3 font-sans">
                     {article.excerpt}
                   </p>
                 </div>

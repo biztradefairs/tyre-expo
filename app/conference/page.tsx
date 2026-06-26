@@ -1,4 +1,4 @@
-// app/page.tsx
+// app/conference/page.tsx
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
@@ -89,26 +89,26 @@ function HeroSection() {
                     </div>
                     <Container>
                         <div className="relative z-20 flex min-h-[50vh] sm:min-h-[60vh] lg:min-h-[70vh] w-full items-center py-12 sm:py-16 lg:py-20">
-                            <div className="max-w-3xl">
-                                <div className="inline-block px-4 py-2 bg-[#F08400]/20 backdrop-blur-sm rounded-lg mb-4">
-                                    <span className="text-[#F08400] font-semibold text-sm sm:text-base">
+                            <div className="max-w-3xl space-y-6">
+                                <div className="inline-block px-4 py-1.5 bg-[#F08400]/20 backdrop-blur-sm border border-[#F08400]/30 rounded-sm">
+                                    <span className="text-[#F08400] font-bold text-xs uppercase tracking-wider">
                                         October 08-09, 2026 | Pune, India
                                     </span>
                                 </div>
-                                <h1 className="font-bebas text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-[1.1] tracking-tighter mb-4">
-                                    INDIA TYRE SHOW 2027
+                                <h1 className="font-bebas text-5xl sm:text-7xl md:text-8xl text-white leading-[1.05] tracking-tight uppercase">
+                                    ITS TYRE EXPO <span className="text-[#F08400]">CONFERENCE 2026</span>
                                 </h1>
-                                <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 max-w-2xl leading-relaxed">
-                                    International Conference on Tyre Manufacturing Technology & Innovation
+                                <p className="text-base sm:text-lg md:text-xl text-gray-250 leading-relaxed font-sans max-w-2xl">
+                                    International Conference on Tyre Manufacturing Technology, Rubber Compounds, Automation, and Sustainable Solutions
                                 </p>
-                                <div className="flex flex-col sm:flex-row gap-4">
-                                    <Link href="/delegates">
-                                        <button className="bg-[#F08400] px-8 sm:px-10 py-2.5 sm:py-3 text-lg sm:text-xl font-bebas text-white transition-all hover:bg-black">
-                                            Become a Delegate →
+                                <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                                    <Link href="/visitor-registration">
+                                        <button className="bg-[#F08400] hover:bg-black text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-sm cursor-pointer">
+                                            Become a Delegate
                                         </button>
                                     </Link>
                                     <Link href="/become-partner">
-                                        <button className="border-2 border-white px-8 sm:px-10 py-2.5 sm:py-3 text-lg sm:text-xl font-bebas text-white transition-all hover:bg-white hover:text-black">
+                                        <button className="border border-white hover:bg-white hover:text-black text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-sm cursor-pointer bg-transparent">
                                             Become a Partner
                                         </button>
                                     </Link>
@@ -136,30 +136,28 @@ function AboutSection() {
             <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
                 <div className="animated-block-target">
                     <div className="w-full grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-                        <div className="order-2 lg:order-1">
-                            <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-black">
+                        <div className="order-2 lg:order-1 space-y-6">
+                          <div className="space-y-3">
+                            <p className="text-[#F08400] text-xs font-bold uppercase tracking-wider">About The Conference</p>
+                            <h2 className="font-bebas text-4xl sm:text-5xl md:text-6xl leading-tight text-black uppercase">
                                 Where <span className="text-[#F08400]">Innovation</span> Meets <span className="text-[#F08400]">Excellence</span>
                             </h2>
-                            <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-relaxed text-gray-700">
-                                Tyre Expo 2026 is the premier international conference dedicated to tyre manufacturing technology,
-                                innovation, and sustainability. Join industry leaders, technology experts, and decision-makers
-                                from across the globe.
-                            </p>
-                            <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-between bg-gray-100 px-4 sm:px-6 py-6 sm:py-8 rounded-md gap-4 sm:gap-0">
-                                {stats.map((stat, idx) => (
-                                    <React.Fragment key={idx}>
-                                        <div className="text-center flex-1 min-w-[80px]">
-                                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bebas text-[#F08400]">{stat.value}</h3>
-                                            <p className="text-xs sm:text-sm tracking-wide text-black mt-1 sm:mt-2">{stat.label}</p>
-                                        </div>
-                                        {idx < stats.length - 1 && (
-                                            <div className="hidden md:block h-12 w-px bg-gray-300"></div>
-                                        )}
-                                    </React.Fragment>
-                                ))}
-                            </div>
+                          </div>
+                          <p className="text-base sm:text-lg leading-relaxed text-gray-705 font-sans">
+                              ITS Tyre Expo 2026 is the premier international conference dedicated to tyre manufacturing technology,
+                              innovation, and sustainability. Join industry leaders, rubber compounding technology experts, and decision-makers
+                              from across the globe to dissect upcoming market shifts and manufacturing advancements.
+                          </p>
+                          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-[#FCF8F3] border border-gray-100 p-6 rounded-sm shadow-sm">
+                              {stats.map((stat, idx) => (
+                                  <div key={idx} className="text-center">
+                                      <h3 className="text-3xl font-bebas text-[#F08400] uppercase font-bold">{stat.value}</h3>
+                                      <p className="text-[10px] uppercase font-bold text-gray-600 mt-1 tracking-wider">{stat.label}</p>
+                                  </div>
+                              ))}
+                          </div>
                         </div>
-                        <div className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] lg:h-[500px] w-full overflow-hidden rounded-lg">
+                        <div className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] lg:h-[500px] w-full overflow-hidden rounded-sm border border-gray-150 bg-gray-100">
                             <Image
                                 src="https://www.pace-tyres.com/static/upload/image/20230915/1694772403135963.jpg"
                                 alt="Tyre Conference"
@@ -205,12 +203,12 @@ function SpeakersSection() {
         <Container>
             <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
                 <div className="animated-block-target">
-                    <div className="text-center mb-8 sm:mb-10">
-                        <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">Speakers</p>
-                        <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2">
+                    <div className="text-center mb-10 max-w-2xl mx-auto space-y-3">
+                        <p className="text-xs font-bold text-[#F08400] uppercase tracking-wider">Speakers</p>
+                        <h2 className="font-bebas text-4xl sm:text-5xl md:text-6xl text-black uppercase">
                             Industry <span className="text-[#F08400]">Experts</span>
                         </h2>
-                        <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                        <p className="text-sm text-gray-650 leading-relaxed font-sans">
                             Leading voices from global tyre manufacturers, technology providers, and research institutions
                         </p>
                     </div>
@@ -219,31 +217,33 @@ function SpeakersSection() {
                         ref={scrollContainerRef}
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
-                        className="flex overflow-x-auto overflow-y-visible gap-5 sm:gap-8 pb-8 sm:pb-12"
+                        className="flex overflow-x-auto overflow-y-visible gap-6 pb-8"
                         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                     >
                         {loopedSpeakers.map((speaker, index) => (
                             <div key={index} className="flex-shrink-0 w-[260px] sm:w-[300px] group cursor-pointer">
-                                <div className="relative flex flex-col overflow-hidden rounded-lg bg-[#FCF8F3] shadow-md transition-all duration-500 ease-out group-hover:shadow-lg">
-                                    <div className="relative h-[260px] sm:h-[300px] w-full overflow-hidden">
-                                        <Image
-                                            src={speaker.imageUrl}
-                                            alt={speaker.name}
-                                            fill
-                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                        <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                                            <p className="text-white text-sm font-semibold">{speaker.session}</p>
-                                            <p className="text-gray-300 text-xs">{speaker.time}</p>
-                                        </div>
-                                    </div>
-                                    <div className="p-4 sm:p-5">
-                                        <h3 className="font-bebas text-lg sm:text-xl text-black group-hover:text-[#F08400] transition-colors">
-                                            {speaker.name}
-                                        </h3>
-                                        <p className="text-[#F08400] text-sm font-semibold">{speaker.title}</p>
-                                        <p className="text-gray-500 text-sm">{speaker.company}</p>
+                                <div className="relative flex flex-col justify-between overflow-hidden rounded-sm border border-gray-100 bg-[#FCF8F3] shadow-sm hover:shadow-md transition-all duration-300">
+                                    <div>
+                                      <div className="relative h-[260px] sm:h-[300px] w-full overflow-hidden bg-gray-100 rounded-t-sm">
+                                          <Image
+                                              src={speaker.imageUrl}
+                                              alt={speaker.name}
+                                              fill
+                                              className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                          />
+                                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                          <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 font-sans">
+                                              <p className="text-white text-xs font-bold uppercase tracking-wider">{speaker.session}</p>
+                                              <p className="text-gray-300 text-[10px] uppercase font-bold mt-1">{speaker.time}</p>
+                                          </div>
+                                      </div>
+                                      <div className="p-5 font-sans">
+                                          <h3 className="font-bebas text-2xl text-black group-hover:text-[#F08400] transition-colors uppercase font-bold">
+                                              {speaker.name}
+                                          </h3>
+                                          <p className="text-[#F08400] text-xs font-bold uppercase tracking-wide mt-1">{speaker.title}</p>
+                                          <p className="text-gray-500 text-xs mt-1">{speaker.company}</p>
+                                      </div>
                                     </div>
                                 </div>
                             </div>
@@ -263,23 +263,23 @@ function ConferenceProgramme() {
     return (
         <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
             <div className="animated-block-target">
-                <div className="bg-[#FCF8F3] py-12 sm:py-16 lg:py-20">
+                <div className="bg-[#FCF8F3] py-16 border-t border-b border-gray-150">
                     <Container>
-                        <div className="text-center mb-8 sm:mb-10">
-                            <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">Schedule</p>
-                            <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2">
+                        <div className="text-center mb-8 space-y-3">
+                            <p className="text-xs font-bold text-[#F08400] uppercase tracking-wider">Schedule</p>
+                            <h2 className="font-bebas text-4xl sm:text-5xl md:text-6xl text-black uppercase">
                                 Conference <span className="text-[#F08400]">Programme</span>
                             </h2>
                         </div>
 
-                        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
+                        <div className="flex flex-wrap justify-center gap-3 mb-8">
                             {programData.map((day, index) => (
                                 <button
                                     key={index}
                                     onClick={() => setActiveDay(index)}
-                                    className={`px-6 sm:px-8 py-2.5 sm:py-3 font-bebas text-lg sm:text-xl transition-all ${activeDay === index
-                                        ? "bg-[#F08400] text-white shadow-md"
-                                        : "bg-white text-gray-700 hover:bg-gray-100 shadow-sm"
+                                    className={`px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 border rounded-sm cursor-pointer ${activeDay === index
+                                        ? "bg-[#F08400] border-[#F08400] text-white shadow-sm"
+                                        : "bg-white border-gray-300 text-gray-700 hover:bg-slate-50"
                                         }`}
                                 >
                                     {day.date}
@@ -287,36 +287,36 @@ function ConferenceProgramme() {
                             ))}
                         </div>
 
-                        <div className="bg-white rounded-lg p-5 sm:p-6 lg:p-8 shadow-md">
-                            <div className="mb-6 sm:mb-8 pb-4 sm:pb-6 border-b-2 border-[#F08400]">
-                                <h3 className="font-bebas text-xl sm:text-2xl text-black">{selectedDay.day}</h3>
-                                <p className="mt-2 text-sm sm:text-base text-gray-500">{selectedDay.description}</p>
+                        <div className="bg-white border border-gray-100 rounded-sm p-6 sm:p-8 shadow-sm">
+                            <div className="mb-6 pb-4 border-b border-gray-200">
+                                <h3 className="font-bebas text-2xl text-black uppercase font-bold">{selectedDay.day}</h3>
+                                <p className="mt-1 text-xs font-bold text-[#F08400] uppercase tracking-wider">{selectedDay.description}</p>
                             </div>
 
-                            <div className="space-y-4 sm:space-y-5">
+                            <div className="space-y-4">
                                 {selectedDay.sessions.map((session, idx) => (
-                                    <div key={idx} className="group hover:bg-[#FCF8F3] p-3 sm:p-4 rounded-lg transition-all duration-300">
-                                        <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-3 sm:gap-4">
-                                            <div className="text-[#F08400] font-bebas text-sm sm:text-base">{session.time}</div>
-                                            <div>
-                                                <h4 className="text-base sm:text-lg font-bold text-black group-hover:text-[#F08400] transition-colors">
+                                    <div key={idx} className="group hover:bg-[#FCF8F3] p-4 rounded-sm border border-transparent hover:border-gray-100 transition-all duration-350">
+                                        <div className="grid grid-cols-1 md:grid-cols-[150px_1fr] gap-3 md:gap-6 items-start font-sans">
+                                            <div className="text-[#F08400] font-bold text-xs uppercase tracking-wider pt-0.5">{session.time}</div>
+                                            <div className="space-y-2">
+                                                <h4 className="text-base sm:text-lg font-bold text-black group-hover:text-[#F08400] transition-colors uppercase font-sans">
                                                     {session.title}
                                                 </h4>
                                                 {session.description && (
-                                                    <p className="mt-1 text-sm text-gray-600">{session.description}</p>
+                                                    <p className="text-xs text-gray-650 font-medium leading-relaxed">{session.description}</p>
                                                 )}
                                                 {session.topics && (
-                                                    <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-gray-600">
+                                                    <ul className="list-disc pl-5 space-y-1 text-xs text-gray-600 leading-relaxed pt-1">
                                                         {session.topics.map(topic => (
                                                             <li key={topic.id}>{topic.title}</li>
                                                         ))}
                                                     </ul>
                                                 )}
                                                 {session.speakers && (
-                                                    <div className="mt-2 space-y-1">
+                                                    <div className="flex flex-wrap gap-4 pt-2">
                                                         {session.speakers.map((speaker, i) => (
-                                                            <p key={i} className="text-xs sm:text-sm text-gray-500">
-                                                                {speaker.name} - {speaker.position}
+                                                            <p key={i} className="text-xs text-gray-500 font-semibold bg-gray-50 px-2.5 py-1 border border-gray-150 rounded-sm">
+                                                                <span className="text-[#F08400]">Speaker:</span> {speaker.name} ({speaker.position})
                                                             </p>
                                                         ))}
                                                     </div>
@@ -349,19 +349,19 @@ function WhyAttendSection() {
         <Container>
             <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
                 <div className="animated-block-target">
-                    <div className="text-center mb-8 sm:mb-10">
-                        <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">Why Attend</p>
-                        <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2">
-                            Why Attend <span className="text-[#F08400]">Tyre Expo 2026</span>
+                    <div className="text-center mb-10 space-y-3">
+                        <p className="text-xs font-bold text-[#F08400] uppercase tracking-wider">Why Attend</p>
+                        <h2 className="font-bebas text-4xl sm:text-5xl md:text-6xl text-black uppercase">
+                            Why Attend <span className="text-[#F08400]">ITS Tyre Expo 2026</span>
                         </h2>
                     </div>
 
-                    <div className="grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {reasons.map((reason, idx) => (
-                            <div key={idx} className="relative flex flex-col overflow-hidden rounded-lg bg-[#FCF8F3] p-5 sm:p-6 shadow-md transition-all hover:shadow-lg">
-                                <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{reason.icon}</div>
-                                <h3 className="font-bebas text-xl sm:text-2xl text-black">{reason.title}</h3>
-                                <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">{reason.description}</p>
+                            <div key={idx} className="relative flex flex-col overflow-hidden rounded-sm border border-gray-100 bg-[#FCF8F3] p-6 shadow-sm hover:shadow-md transition-all duration-300">
+                                <div className="text-4xl mb-4">{reason.icon}</div>
+                                <h3 className="font-bebas text-2xl text-[#F08400] uppercase font-bold">{reason.title}</h3>
+                                <p className="mt-3 text-xs text-gray-650 font-sans leading-relaxed">{reason.description}</p>
                             </div>
                         ))}
                     </div>
@@ -383,31 +383,33 @@ function BecomeDelegate() {
         <Container>
             <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
                 <div className="animated-block-target">
-                    <div className="text-center mb-8 sm:mb-10">
-                        <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">Registration</p>
-                        <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2">
+                    <div className="text-center mb-10 space-y-3">
+                        <p className="text-xs font-bold text-[#F08400] uppercase tracking-wider">Registration</p>
+                        <h2 className="font-bebas text-4xl sm:text-5xl md:text-6xl text-black uppercase">
                             Become a <span className="text-[#F08400]">Delegate</span>
                         </h2>
-                        <p className="mt-3 text-base sm:text-lg text-gray-600">Prices include GST</p>
+                        <p className="text-xs font-bold text-gray-505 uppercase tracking-wide">Prices include GST</p>
                     </div>
 
-                    <div className="grid gap-5 sm:gap-6 md:grid-cols-3 max-w-6xl mx-auto">
+                    <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
                         {packages.map((pkg, idx) => (
-                            <div key={idx} className="relative flex flex-col overflow-hidden rounded-lg bg-[#FCF8F3] p-5 sm:p-6 lg:p-8 shadow-md transition-all hover:shadow-lg">
-                                <div className="text-center mb-4 sm:mb-5">
-                                    <h3 className="font-bebas text-xl sm:text-2xl text-black">{pkg.title}</h3>
-                                    <div className="mt-2 text-3xl sm:text-4xl font-bebas text-[#F08400]">{pkg.price}</div>
+                            <div key={idx} className="relative flex flex-col justify-between overflow-hidden rounded-sm border border-gray-100 bg-[#FCF8F3] p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-300">
+                                <div>
+                                    <div className="text-center mb-6 border-b border-gray-200 pb-4">
+                                        <h3 className="font-bebas text-2xl text-black uppercase font-bold">{pkg.title}</h3>
+                                        <div className="mt-2 text-4xl font-bebas text-[#F08400] font-bold">{pkg.price}</div>
+                                    </div>
+                                    <ul className="space-y-3 mb-8 font-sans">
+                                        {pkg.features.map((feature, i) => (
+                                            <li key={i} className="flex items-start gap-2.5 text-xs text-gray-650 leading-relaxed">
+                                                <span className="text-[#F08400] font-bold">✓</span>
+                                                <span>{feature}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
-                                <ul className="flex-1 space-y-2 sm:space-y-3 mb-6 sm:mb-8">
-                                    {pkg.features.map((feature, i) => (
-                                        <li key={i} className="flex items-start gap-2 text-sm sm:text-base text-gray-600">
-                                            <span className="text-[#F08400] font-bold mt-0.5">✓</span>
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <button className="w-full bg-[#F08400] px-5 sm:px-6 py-2 sm:py-2.5 font-bebas text-lg sm:text-xl text-white transition-all hover:bg-black">
-                                    REGISTER NOW →
+                                <button className="w-full bg-[#F08400] hover:bg-black text-white py-3 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-sm cursor-pointer">
+                                    REGISTER NOW
                                 </button>
                             </div>
                         ))}
@@ -425,43 +427,45 @@ function VenueSection() {
             <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
                 <div className="animated-block-target">
                     <div className="w-full grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-                        <div className="order-2 lg:order-1">
-                            <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">Venue</p>
-                            <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2 leading-tight">
+                        <div className="order-2 lg:order-1 space-y-6">
+                          <div className="space-y-3">
+                            <p className="text-xs font-bold text-[#F08400] uppercase tracking-wider">Venue</p>
+                            <h2 className="font-bebas text-4xl sm:text-5xl md:text-6xl text-black uppercase leading-tight">
                                 Event <span className="text-[#F08400]">Location</span>
                             </h2>
-                            <div className="mt-4 sm:mt-5">
-                                <h3 className="text-lg sm:text-xl font-bold text-black">Auto Cluster Exhibition Centre</h3>
-                                <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">
-                                    Chinchwad East, Old Mumbai - Pune Hwy, MIDC, Chinchwad,<br />
-                                    Pimpri-Chinchwad, Maharashtra 411019, India
-                                </p>
-                            </div>
-                            <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
-                                <div className="flex items-center gap-3 p-3 sm:p-4 bg-[#FCF8F3] rounded-lg">
-                                    <span className="text-xl sm:text-2xl">✈️</span>
-                                    <div>
-                                        <span className="font-semibold text-sm sm:text-base text-black">From Airport:</span>
-                                        <span className="text-gray-600 text-sm sm:text-base ml-2">15 km, 30 minutes</span>
-                                    </div>
-                                </div>
-                                <div className="flex items-center gap-3 p-3 sm:p-4 bg-[#FCF8F3] rounded-lg">
-                                    <span className="text-xl sm:text-2xl">🚂</span>
-                                    <div>
-                                        <span className="font-semibold text-sm sm:text-base text-black">From Railway Station:</span>
-                                        <span className="text-gray-600 text-sm sm:text-base ml-2">8 km, 20 minutes</span>
-                                    </div>
-                                </div>
-                                <div className="flex items-center gap-3 p-3 sm:p-4 bg-[#FCF8F3] rounded-lg">
-                                    <span className="text-xl sm:text-2xl">🏨</span>
-                                    <div>
-                                        <span className="font-semibold text-sm sm:text-base text-black">Nearby Hotels:</span>
-                                        <span className="text-gray-600 text-sm sm:text-base ml-2">Within 2 km radius</span>
-                                    </div>
-                                </div>
-                            </div>
+                          </div>
+                          <div>
+                              <h3 className="text-lg font-bold text-black uppercase font-sans">Auto Cluster Exhibition Centre</h3>
+                              <p className="mt-2 text-sm text-gray-600 leading-relaxed font-sans">
+                                  Chinchwad East, Old Mumbai - Pune Hwy, MIDC, Chinchwad,<br />
+                                  Pimpri-Chinchwad, Maharashtra 411019, India
+                              </p>
+                          </div>
+                          <div className="space-y-3 font-sans">
+                              <div className="flex items-center gap-3 p-3 bg-[#FCF8F3] border border-gray-100 rounded-sm">
+                                  <span className="text-2xl">✈️</span>
+                                  <div>
+                                      <span className="font-bold text-xs uppercase tracking-wider text-black">From Airport:</span>
+                                      <span className="text-gray-650 text-xs font-medium ml-2">15 km, 30 minutes</span>
+                                  </div>
+                              </div>
+                              <div className="flex items-center gap-3 p-3 bg-[#FCF8F3] border border-gray-100 rounded-sm">
+                                  <span className="text-2xl">🚂</span>
+                                  <div>
+                                      <span className="font-bold text-xs uppercase tracking-wider text-black">From Railway Station:</span>
+                                      <span className="text-gray-650 text-xs font-medium ml-2">8 km, 20 minutes</span>
+                                  </div>
+                              </div>
+                              <div className="flex items-center gap-3 p-3 bg-[#FCF8F3] border border-gray-100 rounded-sm">
+                                  <span className="text-2xl">🏨</span>
+                                  <div>
+                                      <span className="font-bold text-xs uppercase tracking-wider text-black">Nearby Hotels:</span>
+                                      <span className="text-gray-650 text-xs font-medium ml-2">Within 2 km radius</span>
+                                  </div>
+                              </div>
+                          </div>
                         </div>
-                        <div className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] lg:h-[500px] w-full overflow-hidden rounded-lg">
+                        <div className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] lg:h-[500px] w-full overflow-hidden rounded-sm border border-gray-150 bg-gray-100 shadow-sm">
                             <iframe
                                 src="https://www.google.com/maps?q=Pune,India&output=embed"
                                 className="w-full h-full border-0"
@@ -482,24 +486,24 @@ function OrganizerSection() {
         <Container>
             <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
                 <div className="animated-block-target">
-                    <div className="text-center mb-8 sm:mb-10">
-                        <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">Organizer</p>
-                        <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2">
+                    <div className="text-center mb-10 space-y-3">
+                        <p className="text-xs font-bold text-[#F08400] uppercase tracking-wider">Organizer</p>
+                        <h2 className="font-bebas text-4xl sm:text-5xl md:text-6xl text-black uppercase">
                             Behind the <span className="text-[#F08400]">Event</span>
                         </h2>
                     </div>
 
-                    <div className="grid gap-5 sm:gap-6 md:grid-cols-2 max-w-4xl mx-auto">
-                        <div className="relative flex flex-col overflow-hidden rounded-lg bg-[#FCF8F3] p-5 sm:p-6 lg:p-8 shadow-md">
-                            <h3 className="font-bebas text-xl sm:text-2xl text-[#F08400]">Maxx Business Media</h3>
-                            <p className="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed">
+                    <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto font-sans">
+                        <div className="relative flex flex-col justify-between overflow-hidden rounded-sm border border-gray-100 bg-[#FCF8F3] p-6 shadow-sm">
+                            <h3 className="font-bebas text-2xl text-[#F08400] uppercase font-bold">Maxx Business Media</h3>
+                            <p className="mt-3 text-xs text-gray-650 leading-relaxed">
                                 Tyre Expo is organized by Maxx Business Media, a leading exhibition organizer with a strong portfolio
                                 of industrial trade fairs and conferences across key manufacturing sectors.
                             </p>
                         </div>
-                        <div className="relative flex flex-col overflow-hidden rounded-lg bg-[#FCF8F3] p-5 sm:p-6 lg:p-8 shadow-md">
-                            <h3 className="font-bebas text-xl sm:text-2xl text-black">Contact Information</h3>
-                            <div className="mt-3 space-y-2 text-sm sm:text-base text-gray-600">
+                        <div className="relative flex flex-col justify-between overflow-hidden rounded-sm border border-gray-100 bg-[#FCF8F3] p-6 shadow-sm">
+                            <h3 className="font-bebas text-2xl text-black uppercase font-bold">Contact Information</h3>
+                            <div className="mt-3 space-y-2 text-xs text-gray-650 leading-relaxed font-semibold">
                                 <p>📧 info@tyre-expo.com</p>
                                 <p>📞 +91 1234567890</p>
                                 <p>🌐 www.tyre-expo.com</p>
@@ -517,32 +521,32 @@ function Contacts() {
     return (
         <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
             <div className="animated-block-target">
-                <div className="bg-[#FCF8F3] py-12 sm:py-16 lg:py-20">
+                <div className="bg-[#FCF8F3] py-16 border-t border-b border-gray-150">
                     <Container>
-                        <div className="text-center mb-8 sm:mb-10">
-                            <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">Get In Touch</p>
-                            <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2">
+                        <div className="text-center mb-10 space-y-3">
+                            <p className="text-xs font-bold text-[#F08400] uppercase tracking-wider">Get In Touch</p>
+                            <h2 className="font-bebas text-4xl sm:text-5xl md:text-6xl text-black uppercase">
                                 Contact <span className="text-[#F08400]">Information</span>
                             </h2>
                         </div>
 
-                        <div className="grid gap-5 sm:gap-6 md:grid-cols-2 max-w-4xl mx-auto">
-                            <div className="relative flex flex-col overflow-hidden rounded-lg bg-white p-5 sm:p-6 shadow-md transition-all hover:shadow-lg">
-                                <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-gray-100 mb-4">
-                                    <span className="text-2xl sm:text-3xl">🤝</span>
+                        <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto font-sans">
+                            <div className="relative flex flex-col items-center text-center overflow-hidden rounded-sm border border-gray-100 bg-white p-6 shadow-sm hover:shadow-md transition-all duration-300">
+                                <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-gray-50 border border-gray-150 mb-4">
+                                    <span className="text-2xl">🤝</span>
                                 </div>
-                                <h3 className="font-bebas text-xl sm:text-2xl text-black">For Participation & Partnership</h3>
-                                <div className="mt-3 space-y-2 text-sm sm:text-base text-gray-600">
+                                <h3 className="font-bebas text-2xl text-black uppercase font-bold">For Participation & Partnership</h3>
+                                <div className="mt-3 space-y-1.5 text-xs text-gray-650 font-semibold">
                                     <p>📧 partnership@tyre-expo.com</p>
                                     <p>📞 +91 9876543210</p>
                                 </div>
                             </div>
-                            <div className="relative flex flex-col overflow-hidden rounded-lg bg-white p-5 sm:p-6 shadow-md transition-all hover:shadow-lg">
-                                <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-gray-100 mb-4">
-                                    <span className="text-2xl sm:text-3xl">🎤</span>
+                            <div className="relative flex flex-col items-center text-center overflow-hidden rounded-sm border border-gray-100 bg-white p-6 shadow-sm hover:shadow-md transition-all duration-300">
+                                <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-gray-50 border border-gray-150 mb-4">
+                                    <span className="text-2xl">🎤</span>
                                 </div>
-                                <h3 className="font-bebas text-xl sm:text-2xl text-black">For Speaking Opportunities</h3>
-                                <div className="mt-3 space-y-2 text-sm sm:text-base text-gray-600">
+                                <h3 className="font-bebas text-2xl text-black uppercase font-bold">For Speaking Opportunities</h3>
+                                <div className="mt-3 space-y-1.5 text-xs text-gray-650 font-semibold">
                                     <p>📧 speakers@tyre-expo.com</p>
                                     <p>📞 +91 9876543211</p>
                                 </div>
@@ -563,23 +567,23 @@ function FAQ() {
         <Container>
             <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
                 <div className="animated-block-target">
-                    <div className="text-center mb-8 sm:mb-10">
-                        <p className="text-sm sm:text-base font-bold text-[#F08400] uppercase tracking-wide">FAQ</p>
-                        <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mt-2">
+                    <div className="text-center mb-10 space-y-3">
+                        <p className="text-xs font-bold text-[#F08400] uppercase tracking-wider">FAQ</p>
+                        <h2 className="font-bebas text-4xl sm:text-5xl md:text-6xl text-black uppercase">
                             Frequently Asked <span className="text-[#F08400]">Questions</span>
                         </h2>
                     </div>
 
-                    <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
+                    <div className="max-w-3xl mx-auto space-y-3 font-sans">
                         {faqItems.map((item, index) => {
                             const isOpen = openIndex === index;
                             return (
-                                <div key={item.id} className="rounded-lg border border-gray-200 bg-white overflow-hidden">
+                                <div key={item.id} className="rounded-sm border border-gray-100 bg-white overflow-hidden shadow-sm">
                                     <button
                                         onClick={() => setOpenIndex(isOpen ? null : index)}
-                                        className="flex w-full items-center justify-between p-4 sm:p-5 text-left transition-all hover:bg-gray-50"
+                                        className="flex w-full items-center justify-between p-4 sm:p-5 text-left transition-all hover:bg-gray-50 cursor-pointer"
                                     >
-                                        <h3 className="text-base sm:text-lg font-semibold text-black pr-4">{item.question}</h3>
+                                        <h3 className="text-base font-bold text-black pr-4 uppercase">{item.question}</h3>
                                         <div className="relative shrink-0">
                                             <svg
                                                 width="20"
@@ -594,7 +598,7 @@ function FAQ() {
                                         </div>
                                     </button>
                                     {isOpen && (
-                                        <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-2 text-sm sm:text-base text-gray-700 border-t border-gray-100">
+                                        <div className="px-4 sm:px-5 pb-5 pt-2 text-xs text-gray-700 leading-relaxed border-t border-gray-100">
                                             {item.answer}
                                         </div>
                                     )}
@@ -612,46 +616,36 @@ function FAQ() {
 export default function ConferencePage() {
     return (
         <div className="intro-animation">
-            <div className="page-spacing-wrapper">
-                <div className="pt-[100px] sm:pt-[120px] lg:pt-[140px]">
-                    <HeroSection />
-                    <AboutSection />
-                    <SpeakersSection />
-                    <ConferenceProgramme />
-                    <WhyAttendSection />
-                    <BecomeDelegate />
-                    <VenueSection />
-                    <OrganizerSection />
-                    <Contacts />
-                    <FAQ />
-                    <BackToTop />
-                </div>
+            <div className="page-spacing-wrapper pt-[120px] lg:pt-[140px]">
+                <HeroSection />
+                <AboutSection />
+                <SpeakersSection />
+                <ConferenceProgramme />
+                <WhyAttendSection />
+                <BecomeDelegate />
+                <VenueSection />
+                <OrganizerSection />
+                <Contacts />
+                <FAQ />
             </div>
+            <BackToTop />
 
             <style jsx>{`
-                .global-transition {
-                    transition: all 0.3s ease;
-                }
-                .flex-center {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
                 .font-bebas {
                     font-family: 'Bebas Neue', cursive;
                 }
-                .line-clamp-2 {
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
+                .animated-block {
+                  opacity: 0;
+                  transform: translateY(30px);
+                  animation: fadeInUp 0.6s ease forwards;
                 }
-                .line-clamp-4 {
-                    display: -webkit-box;
-                    -webkit-line-clamp: 4;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
+                @keyframes fadeInUp {
+                  to {
+                    opacity: 1;
+                    transform: translateY(0);
+                  }
                 }
+                .animated-block:nth-child(1) { animation-delay: 0.1s; }
             `}</style>
         </div>
     );

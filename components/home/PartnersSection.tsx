@@ -101,22 +101,22 @@ export default function PartnersSection() {
   };
 
   return (
-    <section className="bg-mainColor2 py-24">
+    <section className="bg-white py-16 sm:py-20 lg:py-24 border-t border-gray-100">
       <div className="w-full mx-auto ">
         {/* Header - Same as SectorsSection */}
         <Container>
-        <div className="max-w-[900px] mb-12">
-          <p className="text-[#F08400] font-sans text-[14px] uppercase tracking-[1.5px]">
-            Our Ecosystem
-          </p>
-          <h2 className="font-bebas font-bold text-[48px] leading-[1.05] tracking-[2px] uppercase text-black">
-            Partners & Sponsors
-          </h2>
-          <p className="text-gray-600 mt-3 text-base">
-            Meet our valued partners and sponsors who make ITS Tyre Expo possible
-          </p>
-        </div>
-      </Container>
+          <div className="mb-8 sm:mb-10 lg:mb-12">
+            <p className="text-[#F08400] font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider">
+              Our Ecosystem
+            </p>
+            <h2 className="font-bebas text-4xl sm:text-5xl lg:text-6xl text-black leading-tight uppercase tracking-tight mt-3">
+              Partners & Sponsors
+            </h2>
+            <p className="text-gray-600 mt-2 text-sm sm:text-base font-sans">
+              Meet our valued partners and sponsors who make India Tyre Show possible
+            </p>
+          </div>
+        </Container>
         
         {/* Scrolling Container */}
         <div className="relative w-full mt-8">
@@ -141,7 +141,7 @@ export default function PartnersSection() {
                   className="flex flex-col items-center flex-shrink-0"
                   style={{ minWidth: '180px', maxWidth: '180px' }}
                 >
-                  <div className="overflow-hidden rounded-lg bg-white px-4 py-4 shadow-lg w-full flex items-center justify-center min-h-[100px]">
+                  <div className="overflow-hidden rounded-sm bg-white border border-gray-100 px-4 py-4 shadow-sm w-full flex items-center justify-center min-h-[100px] hover:shadow-md transition-shadow duration-300">
                     <Image
                       src={partner.logo}
                       alt={partner.name}
@@ -151,8 +151,8 @@ export default function PartnersSection() {
                       unoptimized
                     />
                   </div>
-                  <small className="mt-3 text-sm text-center text-gray-600 line-clamp-1">{partner.name}</small>
-                  <span className="text-xs text-mainColor1 mt-1">{partner.type}</span>
+                  <small className="mt-3 text-xs sm:text-sm text-center text-gray-700 font-sans font-semibold line-clamp-1">{partner.name}</small>
+                  <span className="text-[11px] font-sans uppercase font-bold tracking-wider text-[#F08400] mt-1">{partner.type}</span>
                 </div>
               ))}
             </div>

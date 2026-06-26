@@ -2,7 +2,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/container";
 import PartnersSection from "@/components/home/PartnersSection";
@@ -69,7 +68,7 @@ export default function AdvertisingDetailsPage() {
     {
       title: "Advertising Options",
       description: "Enhance brand awareness and maximize visitor engagement by leveraging a range of advertising services designed to increase your company's visibility and commercial success.",
-      buttonText: "Download Marketing Manual",
+      buttonText: "Download Manual",
       buttonLink: "/sponsorship-enquiry",
       image: "https://cdn.itegroupnews.com/1_9622597897.png",
       fallbackIcon: "📢"
@@ -135,134 +134,127 @@ export default function AdvertisingDetailsPage() {
   };
 
   return (
-    <div className="intro-animation">
-      <div className="page-spacing-wrapper">
-        <div className="pt-[100px] sm:pt-[120px] lg:pt-[140px]">
+    <div className="intro-animation font-sans">
+      <div className="page-spacing-wrapper pt-[120px] lg:pt-[140px]">
 
-          {/* Header Section */}
-          <Container>
-            <div className="animated-block">
-              <div className="animated-block-target">
-                <div className="text-center lg:text-left py-8 sm:py-10 lg:py-12">
-                  <h1 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-black">
-                    Advertising & <span className="text-[#F08400]">Sponsorship</span>
-                  </h1>
-                  <p className="mt-4 sm:mt-5 text-base sm:text-lg leading-relaxed text-gray-700 max-w-3xl">
-                    Maximize your brand exposure and reach key decision-makers through our comprehensive 
-                    advertising and sponsorship opportunities at ITS Tyre Expo 2026.
-                  </p>
-                </div>
+        {/* Header Section */}
+        <Container className="py-10">
+          <div className="animated-block">
+            <div className="animated-block-target">
+              <div className="text-center lg:text-left space-y-4">
+                <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl leading-tight text-black uppercase">
+                  Advertising & <span className="text-[#F08400]">Sponsorship</span>
+                </h1>
+                <p className="text-base sm:text-lg leading-relaxed text-gray-700 max-w-3xl font-sans">
+                  Maximize your brand exposure and reach key decision-makers through our comprehensive 
+                  advertising and sponsorship opportunities at ITS Tyre Expo 2026.
+                </p>
               </div>
             </div>
-          </Container>
+          </div>
+        </Container>
 
-          {/* Benefits Section */}
-          <Container>
-            <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
-              <div className="animated-block-target">
-                <h2 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black">
-                  By leveraging these promotional options, you can:
-                </h2>
-                <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600">Please review the requirements carefully to ensure timely submission.</p>
-                
-                <div className="mt-8 sm:mt-10 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {benefits.map((benefit, idx) => (
-                    <div key={idx} className="relative flex flex-col overflow-hidden rounded-lg bg-[#FCF8F3] p-5 sm:p-6 shadow-md transition-all hover:shadow-lg">
-                      <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center overflow-hidden">
-                        <ImageWithFallback
-                          src={benefit.icon}
-                          alt={benefit.title}
-                          fallbackIcon={benefit.fallbackIcon}
-                          objectFit="contain"
-                          className="h-full w-full bg-transparent from-transparent to-transparent"
-                        />
-                      </div>
-                      <h3 className="mt-4 sm:mt-5 font-bebas text-xl sm:text-2xl text-black">{benefit.title}</h3>
-                      <p className="mt-2 sm:mt-3 text-sm sm:text-base text-gray-600">{benefit.description}</p>
+        {/* Benefits Section */}
+        <Container className="py-10">
+          <div className="animated-block mt-8 sm:mt-12">
+            <div className="animated-block-target">
+              <h2 className="font-bebas text-4xl sm:text-5xl text-black uppercase">
+                By leveraging these promotional options, you can:
+              </h2>
+              <p className="mt-2 text-sm font-bold text-[#F08400] uppercase tracking-wider">
+                Please review the requirements carefully to ensure timely submission.
+              </p>
+              
+              <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {benefits.map((benefit, idx) => (
+                  <div key={idx} className="relative flex flex-col overflow-hidden rounded-sm border border-gray-100 bg-[#FCF8F3] p-6 shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="flex h-16 w-16 items-center justify-center overflow-hidden bg-white p-3 rounded-sm border border-gray-150">
+                      <ImageWithFallback
+                        src={benefit.icon}
+                        alt={benefit.title}
+                        fallbackIcon={benefit.fallbackIcon}
+                        objectFit="contain"
+                        className="h-full w-full"
+                      />
                     </div>
-                  ))}
-                </div>
+                    <h3 className="mt-5 font-bebas text-2xl text-[#F08400] uppercase font-bold">{benefit.title}</h3>
+                    <p className="mt-3 text-sm text-gray-650 leading-relaxed">{benefit.description}</p>
+                  </div>
+                ))}
               </div>
             </div>
-          </Container>
+          </div>
+        </Container>
 
-          {/* Advertising & Sponsorship Options Section */}
-          <Container>
-            <div className="animated-block mt-12 sm:mt-16 lg:mt-20">
-              <div className="animated-block-target">
-                <h3 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black">
-                  Advertising & <span className="text-[#F08400]">Sponsorship Options</span>
-                </h3>
-                <div className="mt-2 h-px w-full bg-gray-200"></div>
-
-                <div className="mt-8 sm:mt-10 space-y-5 sm:space-y-6">
-                  {sponsorshipTabs.map((item, idx) => (
-                    <div key={idx} className="grid grid-cols-1 gap-4 sm:gap-5 lg:gap-6 items-center rounded-lg bg-[#FCF8F3] p-4 sm:p-5 lg:p-6 shadow-md transition-all hover:shadow-lg lg:grid-cols-12">
-                      {/* Image */}
-                      <div className="flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center overflow-hidden rounded-lg bg-white mx-auto lg:mx-0 lg:col-span-2">
-                        <ImageWithFallback
-                          src={item.image}
-                          alt={item.title}
-                          fallbackIcon={item.fallbackIcon}
-                          objectFit="contain"
-                          className="h-full w-full"
-                        />
-                      </div>
-                      
-                      {/* Title */}
-                      <h5 className="text-lg sm:text-xl lg:text-2xl font-bold text-black text-center lg:text-left lg:col-span-3">
+        {/* Advertising & Sponsorship Options Section */}
+        <Container className="py-10">
+          <div className="animated-block mt-8 sm:mt-12">
+            <div className="animated-block-target">
+              <h2 className="font-bebas text-4xl sm:text-5xl text-black uppercase">
+                Advertising & <span className="text-[#F08400]">Sponsorship Options</span>
+              </h2>
+              <div className="mt-8 space-y-4">
+                {sponsorshipTabs.map((item, idx) => (
+                  <div 
+                    key={idx} 
+                    className="flex flex-col lg:flex-row items-center gap-6 rounded-sm border border-gray-100 bg-[#FCF8F3] p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                  >
+                    {/* Image */}
+                    <div className="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-sm bg-white border border-gray-150 p-2">
+                      <ImageWithFallback
+                        src={item.image}
+                        alt={item.title}
+                        fallbackIcon={item.fallbackIcon}
+                        objectFit="contain"
+                        className="h-full w-full"
+                      />
+                    </div>
+                    
+                    {/* Title & Description */}
+                    <div className="flex-1 text-center lg:text-left space-y-2">
+                      <h4 className="font-bebas text-2xl font-bold text-black uppercase tracking-wide">
                         {item.title}
-                      </h5>
-                      
-                      {/* Description */}
-                      <p className="text-sm sm:text-base text-gray-600 text-center lg:text-left lg:col-span-5">
+                      </h4>
+                      <p className="text-sm text-gray-600 leading-relaxed">
                         {item.description}
                       </p>
-                      
-                      {/* Button */}
-                      <div className="lg:col-span-2 flex justify-center lg:justify-start">
-                        <Link href={item.buttonLink}>
-                          <button className="w-fit bg-[#F08400] px-5 sm:px-6 py-1.5 sm:py-2 font-bebas text-lg sm:text-xl text-white transition-all hover:bg-black">
-                            {item.buttonText}
-                          </button>
-                        </Link>
-                      </div>
                     </div>
-                  ))}
-                </div>
+                    
+                    {/* Button */}
+                    <div className="shrink-0 mt-4 lg:mt-0">
+                      <Link href={item.buttonLink}>
+                        <button className="bg-[#F08400] hover:bg-black text-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-sm">
+                          {item.buttonText}
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          </Container>
+          </div>
+        </Container>
 
+        <div className="mt-12 sm:mt-16 lg:mt-20">
           <PartnersSection />
-          <BackToTop />
         </div>
       </div>
+      <BackToTop />
 
       <style jsx>{`
-        .global-transition {
-          transition: all 0.3s ease;
+        .font-bebas { font-family: 'Bebas Neue', cursive; }
+        .animated-block {
+          opacity: 0;
+          transform: translateY(30px);
+          animation: fadeInUp 0.6s ease forwards;
         }
-        .flex-center {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        .font-bebas {
-          font-family: 'Bebas Neue', cursive;
-        }
-        .line-clamp-2 {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-        .line-clamp-4 {
-          display: -webkit-box;
-          -webkit-line-clamp: 4;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
+        .animated-block:nth-child(1) { animation-delay: 0.1s; }
       `}</style>
     </div>
   );

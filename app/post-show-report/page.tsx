@@ -3,7 +3,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Container from "@/components/ui/container";
 import BackToTop from "@/components/layout/BackToTop";
 import PartnersSection from "@/components/home/PartnersSection";
@@ -40,8 +39,8 @@ interface CheckboxGroupProps {
 // Reusable Input Component
 function Input({ label, placeholder, required, type = "text", value, onChange, name }: InputProps) {
   return (
-    <div>
-      <label className="block mb-1 text-gray-700 font-medium text-sm">
+    <div className="space-y-1">
+      <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
         {label} {required && <span className="text-[#F08400]">*</span>}
       </label>
       <input
@@ -51,7 +50,7 @@ function Input({ label, placeholder, required, type = "text", value, onChange, n
         onChange={onChange}
         placeholder={placeholder}
         required={required}
-        className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F08400] focus:border-[#F08400] outline-none transition bg-white text-sm"
+        className="w-full px-4 py-2 border border-gray-300 rounded-sm focus:ring-1 focus:ring-[#F08400] focus:border-[#F08400] outline-none transition bg-white text-sm"
       />
     </div>
   );
@@ -60,8 +59,8 @@ function Input({ label, placeholder, required, type = "text", value, onChange, n
 // Reusable Select Component
 function Select({ label, required, value, onChange, name, options = [] }: SelectProps) {
   return (
-    <div>
-      <label className="block mb-1 text-gray-700 font-medium text-sm">
+    <div className="space-y-1">
+      <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
         {label} {required && <span className="text-[#F08400]">*</span>}
       </label>
       <select
@@ -69,7 +68,7 @@ function Select({ label, required, value, onChange, name, options = [] }: Select
         value={value}
         onChange={onChange}
         required={required}
-        className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F08400] focus:border-[#F08400] outline-none transition bg-white text-sm"
+        className="w-full px-4 py-2 border border-gray-300 rounded-sm focus:ring-1 focus:ring-[#F08400] focus:border-[#F08400] outline-none transition bg-white text-sm cursor-pointer"
       >
         <option value="">Select {label}</option>
         {options.map((option) => (
@@ -92,22 +91,22 @@ function CheckboxGroup({ label, options, required, selectedValues = [], onChange
   };
 
   return (
-    <div>
-      <label className="block mb-2 font-medium text-gray-700 text-sm">
+    <div className="space-y-2">
+      <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
         {label} {required && <span className="text-[#F08400]">*</span>}
       </label>
-      <div className="max-h-48 overflow-y-auto border border-gray-300 rounded-lg p-3 bg-white">
-        <div className="grid grid-cols-1 gap-2">
+      <div className="max-h-48 overflow-y-auto border border-gray-300 rounded-sm p-3 bg-white shadow-inner">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           {options.map((option) => (
-            <label key={option} className="flex items-start gap-2 cursor-pointer hover:bg-gray-50 p-1 rounded">
+            <label key={option} className="flex items-start gap-2 cursor-pointer hover:bg-gray-50 p-1 rounded-sm">
               <input
                 type="checkbox"
                 name={name}
                 checked={selectedValues.includes(option)}
                 onChange={() => handleCheckboxChange(option)}
-                className="mt-0.5 w-4 h-4 text-[#F08400] focus:ring-[#F08400] rounded border-gray-300"
+                className="mt-0.5 w-4 h-4 text-[#F08400] focus:ring-[#F08400] rounded-sm border-gray-300"
               />
-              <span className="text-gray-700 text-sm">{option}</span>
+              <span className="text-xs text-gray-650 font-medium">{option}</span>
             </label>
           ))}
         </div>
@@ -117,16 +116,16 @@ function CheckboxGroup({ label, options, required, selectedValues = [], onChange
 }
 
 const productSectors = [
-  "Mining Equipment and Machinery",
-  "Crushing and Processing Equipment and Machinery",
-  "Mining and Transportation Equipment and Machinery",
-  "Exploration Equipment",
-  "Spare Parts, Components and Consumables",
-  "Miner Safety Equipment",
-  "Power Supply Equipment for Mining Enterprises",
-  "IT Technologies and Automation",
-  "Laboratory Equipment",
-  "Environmental Monitoring",
+  "Raw Materials & Rubber Compounds",
+  "Tyre Manufacturing Machinery",
+  "Rubber Processing Equipment",
+  "Tyre Testing & Quality Control",
+  "Retreading & Repair Materials",
+  "Recycling & Sustainability Solutions",
+  "Mold & Tooling Solutions",
+  "Tyre Reinforcement Materials",
+  "Additives & Performance Chemicals",
+  "Automation & Industry 4.0",
 ];
 
 const countries = [
@@ -139,10 +138,10 @@ const sendSizes = ["Up to 100 sqm", "100-200 sqm", "200-500 sqm", "500+ sqm"];
 const hearAboutOptions = ["Google", "LinkedIn", "Email", "Word of Mouth", "Conference", "Other"];
 
 const statsData = [
-  { value: "10,500+", label: "Visitors" },
-  { value: "550+", label: "Exhibitors" },
-  { value: "39", label: "Visiting Countries" },
-  { value: "30,200", label: "SQM" },
+  { value: "8,500+", label: "Visitors" },
+  { value: "350+", label: "Exhibitors" },
+  { value: "50+", label: "Countries" },
+  { value: "10th", label: "Edition" },
 ];
 
 export default function PostShowReportPage() {
@@ -209,106 +208,93 @@ export default function PostShowReportPage() {
 
   if (submitSuccess) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center py-20">
-        <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md text-center">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
+      <div className="min-h-screen bg-white flex items-center justify-center py-20 font-sans">
+        <Container>
+          <div className="bg-[#FCF8F3] border border-gray-100 rounded-sm p-8 max-w-md text-center shadow-sm mx-auto">
+            <div className="w-16 h-16 bg-white border border-gray-150 rounded-sm flex items-center justify-center mx-auto mb-6">
+              <svg className="w-8 h-8 text-[#F08400]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h2 className="font-bebas text-4xl text-black mb-3 uppercase tracking-wide">Thank You!</h2>
+            <p className="text-sm text-gray-655 mb-6 leading-relaxed">Your post-show report has been sent to your email address.</p>
+            <Link href="/">
+              <button className="bg-[#F08400] hover:bg-black text-white px-8 py-3 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-sm cursor-pointer">
+                Back to Home
+              </button>
+            </Link>
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h2>
-          <p className="text-gray-600 mb-6">Your post-show report has been sent to your email address.</p>
-          <Link href="/" className="inline-block bg-[#F08400] text-white px-6 py-2 rounded-lg hover:bg-black transition">
-            Back to Home
-          </Link>
-        </div>
+        </Container>
       </div>
     );
   }
 
   return (
-    <>
-      <section className="bg-white py-20">
+    <div className="intro-animation font-sans">
+      <section className="bg-white pt-[120px] lg:pt-[140px] pb-16">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-[42%_58%] gap-12 items-start">
             
             {/* LEFT SECTION - Content */}
-            <div className="flex flex-col gap-6 sticky top-24 h-fit">
-              <p className="text-[#F08400] font-sans text-[14px] font-semibold uppercase tracking-[1.5px]">
-                <br /><br /><br /><br /><br />
-                Post-Show Report
-              </p>
-              
-              <h1 className="font-bebas font-bold text-[38px] lg:text-[48px] leading-[1.15] tracking-[1px] uppercase text-black">
-                Download the MiningWorld <br />
-                2025 <span className="text-[#F08400]">Post-Show Report</span>
-              </h1>
+            <div className="flex flex-col gap-6 lg:sticky lg:top-44 h-fit">
+              <div className="space-y-3">
+                <p className="text-[#F08400] text-xs font-bold uppercase tracking-wider">
+                  Post-Show Report
+                </p>
+                
+                <h1 className="font-bebas text-5xl sm:text-6xl leading-[1.05] tracking-tight uppercase text-black">
+                  ITS Tyre Expo <span className="text-[#F08400]">Post-Show Report</span>
+                </h1>
+              </div>
 
-              <p className="text-gray-600 text-base">
-                Gain a clear picture of the opportunities shaping Eurasia's mining industry.
-                The MiningWorld Post-Show Report provides verified visitor and exhibitor data,
-                event highlights, and insights to help you evaluate the market and plan your next move.
+              <p className="text-sm text-gray-700 leading-relaxed font-sans">
+                Gain a clear picture of the opportunities shaping Asia's tyre manufacturing and rubber processing industry.
+                The Post-Show Report provides verified visitor and exhibitor data, event highlights, 
+                and technical session summaries to help you evaluate the market and plan your next participation.
               </p>
-
-              <div className="border-t border-gray-200 my-2"></div>
 
               {/* STATS */}
-              <div className="grid grid-cols-2 gap-6 py-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-[#FCF8F3] border border-gray-100 p-6 rounded-sm shadow-sm">
                 {statsData.map((stat, idx) => (
-                  <div key={idx}>
-                    <h3 className="text-[#F08400] text-2xl lg:text-3xl font-bold font-bebas">
+                  <div key={idx} className="text-center">
+                    <h3 className="text-3xl font-bebas text-[#F08400] uppercase font-bold">
                       {stat.value}
                     </h3>
-                    <p className="text-xs text-gray-500">{stat.label}</p>
+                    <p className="text-[10px] uppercase font-bold text-gray-600 mt-1 tracking-wider">{stat.label}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="border-t border-gray-200 my-2"></div>
-
               {/* WHY DOWNLOAD */}
-              <div>
-                <h3 className="font-semibold text-black text-lg mb-3">
-                  Why Download:
+              <div className="space-y-4 pt-4 border-t border-gray-200">
+                <h3 className="font-bebas text-2xl text-black uppercase font-bold">
+                  Why Download the Report:
                 </h3>
-                <ul className="space-y-2">
+                <ul className="text-xs text-gray-655 space-y-2.5">
                   <li className="flex items-start gap-2">
-                    <span className="text-[#F08400] text-sm">•</span>
-                    <span className="text-gray-600 text-sm">Evaluate audience quality and identify new growth opportunities.</span>
+                    <span className="text-[#F08400]">•</span>
+                    <span>Evaluate audience quality and identify new growth opportunities.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#F08400] text-sm">•</span>
-                    <span className="text-gray-600 text-sm">Benchmark the results you can expect by participating in 2026.</span>
+                    <span className="text-[#F08400]">•</span>
+                    <span>Benchmark the results you can expect by participating in the next edition.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#F08400] text-sm">•</span>
-                    <span className="text-gray-600 text-sm">See which sectors and solutions were most in demand in 2025.</span>
+                    <span className="text-[#F08400]">•</span>
+                    <span>See which sectors and solutions were most in demand at the event.</span>
                   </li>
                 </ul>
-              </div>
-
-              {/* REPORT PREVIEW IMAGE */}
-              <div className="mt-6">
-                <div className="relative w-full h-48 rounded-lg overflow-hidden shadow-md border border-gray-200">
-                  <Image
-                    src="/report-preview.png"
-                    alt="Report Preview"
-                    fill
-                    className="object-cover"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = "none";
-                    }}
-                  />
-                </div>
               </div>
             </div>
 
             {/* RIGHT SECTION - Form */}
-            <div className="bg-[#f5f5f5] rounded-2xl p-6 md:p-8">
-              <h2 className="text-[#F08400] font-bold text-2xl mb-6 font-bebas">
-                <br /><br />
-                Download the Post Show Report
-              </h2>
+            <div className="bg-[#FCF8F3] border border-gray-100 rounded-sm p-6 md:p-8 shadow-sm">
+              <div className="mb-6">
+                <h2 className="text-black font-bebas text-3xl font-bold uppercase tracking-wide">
+                  Download Post-Show <span className="text-[#F08400]">Report</span>
+                </h2>
+                <p className="text-xs text-gray-600 font-sans">Fill in the details to download the report from our previous show.</p>
+              </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -414,41 +400,43 @@ export default function PostShowReportPage() {
                 />
 
                 {/* CAPTCHA */}
-                <div className="flex items-center gap-3 p-3 bg-white border border-gray-200 rounded-lg">
+                <div className="flex items-center gap-3 p-3 bg-white border border-gray-200 rounded-sm">
                   <input
                     type="checkbox"
                     id="captcha"
                     checked={formData.captcha}
                     onChange={handleCaptchaChange}
-                    className="w-4 h-4 text-[#F08400] focus:ring-[#F08400] rounded border-gray-300"
+                    className="w-4 h-4 text-[#F08400] focus:ring-[#F08400] rounded-sm border-gray-300 cursor-pointer"
                     required
                   />
-                  <label htmlFor="captcha" className="text-gray-700 text-sm">
+                  <label htmlFor="captcha" className="text-gray-650 text-sm cursor-pointer select-none">
                     I'm not a robot
                   </label>
                 </div>
 
                 {/* Error Message */}
                 {submitError && (
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                    <p className="text-red-600 text-sm text-center">{submitError}</p>
+                  <div className="bg-red-50 border border-red-200 rounded-sm p-3">
+                    <p className="text-red-650 text-xs font-semibold text-center">{submitError}</p>
                   </div>
                 )}
 
                 {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-[#F08400] text-white py-3 px-6 rounded-lg font-semibold text-lg hover:bg-black transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? 'Submitting...' : 'SUBMIT'}
-                </button>
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-[#F08400] hover:bg-black text-white py-3 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                  >
+                    {isSubmitting ? 'Submitting...' : 'DOWNLOAD REPORT'}
+                  </button>
+                </div>
 
-                <p className="text-xs text-gray-500 text-center mt-4">
+                <p className="text-xs text-gray-500 text-center leading-relaxed mt-4">
                   By submitting this form, you agree to receive marketing communications, 
                   updates, and promotional materials from us. You can unsubscribe anytime. 
                   For more information, please refer to our 
-                  <Link href="/privacy-policy" className="text-[#F08400] hover:underline ml-1">Privacy Policy</Link>.
+                  <Link href="/privacy-policy" className="text-[#F08400] hover:underline ml-1 font-semibold">Privacy Policy</Link>.
                 </p>
               </form>
             </div>
@@ -458,6 +446,6 @@ export default function PostShowReportPage() {
       </section>
       <PartnersSection />
       <BackToTop />
-    </>
+    </div>
   );
 }

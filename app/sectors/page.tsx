@@ -177,9 +177,9 @@ export default function SectorsPage() {
                     <Link
                       key={idx}
                       href={`/sectors/${sector.slug}`}
-                      className="group relative block overflow-hidden rounded-xl shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
+                      className="group relative block overflow-hidden rounded-sm shadow-sm border border-gray-100 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-md"
                     >
-                      <div className="relative h-56 w-full overflow-hidden bg-gray-200">
+                      <div className="relative h-56 w-full overflow-hidden bg-gray-100 rounded-t-sm">
                         <Image
                           src={sector.image}
                           alt={sector.title}
@@ -199,8 +199,8 @@ export default function SectorsPage() {
                           }}
                         />
                       </div>
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 pt-8">
-                        <h3 className="text-center font-bebas text-xl text-white transition-colors duration-300 group-hover:text-[#F08400] md:text-2xl">
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-4 pt-8 rounded-b-sm">
+                        <h3 className="text-center font-bebas text-lg sm:text-xl text-white transition-colors duration-300 group-hover:text-[#F08400] font-bold uppercase tracking-wide">
                           {sector.title}
                         </h3>
                       </div>
@@ -226,7 +226,7 @@ export default function SectorsPage() {
                 {quickGuideItems.map((item, idx) => (
                   <div
                     key={idx}
-                    className="group flex flex-col overflow-hidden rounded-lg bg-orange-50 transition-all duration-300 ease-in-out hover:shadow-lg"
+                    className="group flex flex-col overflow-hidden rounded-sm bg-[#FCF8F3] border border-gray-100 transition-all duration-300 ease-in-out hover:shadow-lg shadow-sm"
                   >
                     <div className="relative h-48 w-full overflow-hidden">
                       <Image
@@ -236,17 +236,17 @@ export default function SectorsPage() {
                         className="object-cover transition-transform duration-300 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
-                      <div className="absolute bottom-4 left-0 right-0 flex justify-start">
+                      <div className="absolute bottom-4 left-0 right-0 flex justify-start pl-4">
                         <Link href={item.buttonLink}>
-                          <button className="bg-[#F08400] px-6 py-2.5 font-bebas text-xl text-white transition-all duration-300 hover:bg-black opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+                          <button className="bg-[#F08400] hover:bg-black text-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-sm opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
                             {item.buttonText}
                           </button>
                         </Link>
                       </div>
                     </div>
-                    <div className="flex flex-1 flex-col gap-3 p-5">
-                      <h4 className="font-bebas text-2xl text-black md:text-3xl">{item.title}</h4>
-                      <p className="text-gray-600 line-clamp-3">{item.description}</p>
+                    <div className="flex flex-1 flex-col gap-3 p-5 font-sans">
+                      <h4 className="font-bebas text-2xl text-black md:text-3xl font-bold">{item.title}</h4>
+                      <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">{item.description}</p>
                     </div>
                   </div>
                 ))}

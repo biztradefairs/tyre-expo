@@ -320,8 +320,8 @@ export default function AboutITEPage() {
                 </div>
                 <div className="grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {missionVisionValues.map((item, idx) => (
-                    <div key={idx} className="group flex flex-col overflow-hidden rounded-lg bg-orange-50 transition-shadow duration-300 ease-in-out hover:shadow-lg">
-                      <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-gray-300">
+                    <div key={idx} className="group flex flex-col overflow-hidden rounded-sm bg-[#FCF8F3] border border-gray-100 transition-shadow duration-300 ease-in-out hover:shadow-lg">
+                      <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-gray-200 rounded-t-sm">
                         <Image
                           src={item.image}
                           alt={item.title}
@@ -333,9 +333,9 @@ export default function AboutITEPage() {
                           }}
                         />
                       </div>
-                      <div className="flex flex-col gap-3 sm:gap-4 p-4 sm:p-5">
-                        <h4 className="text-xl sm:text-2xl font-bold text-black">{item.title}</h4>
-                        <p className="text-sm sm:text-base text-gray-600">{item.content}</p>
+                      <div className="flex flex-col gap-3 sm:gap-4 p-4 sm:p-5 font-sans">
+                        <h4 className="text-lg sm:text-xl font-bold text-black">{item.title}</h4>
+                        <p className="text-sm text-gray-600 leading-relaxed">{item.content}</p>
                       </div>
                     </div>
                   ))}

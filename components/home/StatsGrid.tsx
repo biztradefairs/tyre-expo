@@ -9,21 +9,21 @@ interface StatsGridProps {
 
 export default function StatsGrid({ stats }: StatsGridProps) {
   return (
-    <div className="bg-[#f5f0e8] py-8 sm:py-10 lg:py-12">
-      <div className="grid grid-cols-2 sm:grid-cols-4">
+    <div className="bg-[#FCF8F3] border border-gray-100 rounded-sm p-8 sm:p-0 sm:py-8 lg:py-12">
+      <div className="flex flex-col gap-8 sm:grid sm:grid-cols-4 sm:gap-0">
         {stats.map((stat, index) => (
           <div
             key={index}
             className={`
-              flex flex-col items-center justify-center text-center
-              py-4 px-3 sm:px-4
-              ${index !== stats.length - 1 ? 'border-r border-[#e0d9d0]' : ''}
+              flex flex-col items-start sm:items-center justify-center text-left sm:text-center
+              py-0 sm:py-4 px-0 sm:px-4
+              ${index !== stats.length - 1 ? 'sm:border-r sm:border-gray-200' : ''}
             `}
           >
-            <span className="font-bebas text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-bold text-[#F08400] leading-none tracking-wide">
+            <span className="font-bebas text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F08400] leading-none tracking-wide">
               {stat.number}
             </span>
-            <span className="mt-2 sm:mt-3 text-[10px] sm:text-[11px] md:text-xs font-bold text-black uppercase tracking-[1.5px] leading-tight">
+            <span className="mt-1.5 sm:mt-3 text-[10px] sm:text-xs font-semibold text-black uppercase tracking-wider leading-tight font-sans">
               {stat.label}
             </span>
           </div>

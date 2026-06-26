@@ -11,7 +11,6 @@ import Container from "@/components/ui/container";
 export default function PlanYourTravelPage() {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("exhibitor");
-  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 800);
@@ -196,7 +195,7 @@ export default function PlanYourTravelPage() {
     if (error || !src) {
       return (
         <div className={`flex items-center justify-center bg-gradient-to-br from-orange-100 to-orange-200 ${className}`}>
-          <span className="text-5xl">{fallbackIcon || "🏨"}</span>
+          <span className="text-4xl">{fallbackIcon || "🏨"}</span>
         </div>
       );
     }
@@ -217,29 +216,6 @@ export default function PlanYourTravelPage() {
 
   return (
     <div className="intro-animation">
-      {/* Mobile Header */}
-      <div className="fixed left-0 top-0 z-50 w-full bg-black px-5 py-2 lg:hidden">
-        <div className="flex justify-between">
-          <Link href="/">
-            <Image src="/imgs/logo-its.png" alt="ITS Tyre Expo" width={140} height={40} className="h-auto w-auto object-contain" />
-          </Link>
-          <button className="z-10" aria-label="Menu">
-            <svg width="32" height="20" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.66667 20C0.746193 20 0 19.2538 0 18.3333C0 17.4129 0.746193 16.6667 1.66667 16.6667H30.3333C31.2538 16.6667 32 17.4129 32 18.3333C32 19.2538 31.2538 20 30.3333 20H1.66667ZM1.66667 11.6667C0.746193 11.6667 0 10.9205 0 10C0 9.07952 0.746192 8.33333 1.66667 8.33333H30.3333C31.2538 8.33333 32 9.07952 32 10C32 10.9205 31.2538 11.6667 30.3333 11.6667H1.66667ZM1.66667 3.33333C0.746193 3.33333 0 2.58714 0 1.66667C0 0.746192 0.746192 0 1.66667 0H30.3333C31.2538 0 32 0.746192 32 1.66667C32 2.58714 31.2538 3.33333 30.3333 3.33333H1.66667Z" fill="#F08400"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {/* Back to Top Button */}
-      <div className="fixed bottom-3 right-3 z-50 opacity-0 transition-all duration-300 lg:bottom-10 lg:right-2">
-        <button className="m-0 rounded-full border-none bg-white p-0 outline-hidden drop-shadow-lg" aria-label="Back to top">
-          <svg className="size-10 fill-orange-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M22 12c0-5.522-4.476-10-10-10C6.479 2 2 6.479 2 12c0 5.524 4.478 10 10 10c5.524 0 10-4.476 10-10zm-14.53.28a.75.75 0 0 1-.073-.976l.073-.084l4-4a.75.75 0 0 1 .977-.073l.085.072l4 4.002a.75.75 0 0 1-.977 1.133l-.084-.073l-2.72-2.721v6.691a.75.75 0 0 1-.649.743l-.102.007a.75.75 0 0 1-.743-.648l-.007-.102v-6.69l-2.72 2.72a.75.75 0 0 1-.976.072l-.084-.072z"></path>
-          </svg>
-        </button>
-      </div>
-
       {/* Main Content */}
       <div className="page-spacing-wrapper pt-[120px] lg:pt-[140px]">
 
@@ -247,10 +223,12 @@ export default function PlanYourTravelPage() {
         <div className="animated-block">
           <div className="animated-block-target">
             <Container className="py-10">
-              <div className="mb-5 flex justify-between lg:items-end">
-                <div className="lg:basis-2/3">
-                  <h3 className="font-bebas text-5xl text-black md:text-6xl">Blend business opportunity and Bangkok's vibrant culture when you visit ITS Tyre Expo</h3>
-                  <p className="mt-5 text-lg text-gray-700">
+              <div className="mb-5 flex flex-col lg:flex-row justify-between lg:items-start gap-6">
+                <div className="lg:w-3/4">
+                  <h1 className="font-bebas text-5xl text-black md:text-6xl lg:text-7xl uppercase">
+                    Blend business opportunity and Bangkok's vibrant culture when you visit <span className="text-[#F08400]">ITS Tyre Expo</span>
+                  </h1>
+                  <p className="mt-5 text-lg text-gray-700 leading-relaxed font-sans">
                     Join thousands of tyre industry leaders and peers to forge valuable connections, discover cutting-edge trends in the industry, and immerse yourself in the rich culture and vibrant energy of Bangkok—a city that blends innovation with timeless charm.
                   </p>
                 </div>
@@ -260,49 +238,60 @@ export default function PlanYourTravelPage() {
         </div>
 
         {/* Travel Information Tabs */}
-        <div className="animated-block">
+        <div className="animated-block mt-8">
           <div className="animated-block-target">
-            <Container className="py-10">
-              <div className="flex-between mb-10 flex-wrap items-end gap-5 border-b border-gray-300 pb-10">
-                <div>
-                  <h4 className="font-bebas text-5xl text-black md:text-6xl">The information you need before traveling</h4>
-                </div>
-                <div className="inline-flex rounded-full bg-gray-200 p-1">
+            <Container>
+              <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 border-b border-gray-200 pb-8 mb-10">
+                <h2 className="font-bebas text-4xl text-black md:text-5xl uppercase">
+                  Travel <span className="text-[#F08400]">Information</span> & Guidelines
+                </h2>
+                <div className="inline-flex bg-[#FCF8F3] border border-gray-150 p-1 rounded-sm gap-2">
                   <button
                     onClick={() => setActiveTab("exhibitor")}
-                    className={`rounded-full px-6 py-3 font-bold transition-all duration-300 ${activeTab === "exhibitor" ? "bg-[#F08400] text-white" : "text-orange-600"}`}
+                    className={`px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-sm cursor-pointer ${
+                      activeTab === "exhibitor" ? "bg-[#F08400] text-white" : "bg-transparent text-black hover:text-[#F08400]"
+                    }`}
                   >
-                    If you're an exhibitor:
+                    For Exhibitors
                   </button>
                   <button
                     onClick={() => setActiveTab("visitor")}
-                    className={`rounded-full px-6 py-3 font-bold transition-all duration-300 ${activeTab === "visitor" ? "bg-[#F08400] text-white" : "text-orange-600"}`}
+                    className={`px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-sm cursor-pointer ${
+                      activeTab === "visitor" ? "bg-[#F08400] text-white" : "bg-transparent text-black hover:text-[#F08400]"
+                    }`}
                   >
-                    If you're a visitor:
+                    For Visitors
                   </button>
                 </div>
               </div>
 
               <div className="mt-5">
-                <div className="space-y-10">
+                <div className="space-y-6">
                   {tabContent.map((item, idx) => (
-                    <div key={idx} className="grid grid-cols-1 items-center gap-5 xl:grid-cols-7">
-                      <div className="relative h-32 w-32 overflow-hidden rounded-lg bg-gray-200 xl:col-span-2">
+                    <div 
+                      key={idx} 
+                      className="flex flex-col md:flex-row items-center gap-6 rounded-sm border border-gray-100 bg-[#FCF8F3] p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                    >
+                      <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-sm bg-gray-200 border border-gray-150">
                         <ImageWithFallback
                           src={item.image}
                           alt={item.title}
                           fallbackIcon={item.fallbackIcon}
-                          className="h-full w-full"
+                          className="h-full w-full object-cover"
                         />
                       </div>
-                      <h5 className="text-2xl font-bold text-black xl:col-span-2">{item.title}</h5>
-                      <p className="text-gray-600 xl:col-span-2">{item.description}</p>
-                      <div className="grid xl:place-content-center">
+                      <div className="flex-1 text-center md:text-left space-y-2">
+                        <h4 className="font-bebas text-2xl font-bold text-black uppercase tracking-wide">
+                          {item.title}
+                        </h4>
+                        <p className="text-sm text-gray-600 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                      <div className="shrink-0 mt-4 md:mt-0">
                         <Link href={item.buttonLink}>
-                          <button className="flex-center aspect-square rounded-full bg-[#F08400] p-3 text-white transition-all hover:bg-black">
-                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"></path>
-                            </svg>
+                          <button className="bg-[#F08400] hover:bg-black text-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-sm">
+                            {item.buttonText}
                           </button>
                         </Link>
                       </div>
@@ -315,33 +304,53 @@ export default function PlanYourTravelPage() {
         </div>
 
         {/* Hotels Section */}
-        <div className="animated-block">
+        <div className="animated-block mt-16 lg:mt-24">
           <div className="animated-block-target">
             <Container>
-              <h3 className="font-bebas text-5xl text-black md:text-6xl">20% off when you book at the hotel website using the promo code "EXPO"</h3>
-              <div className="mt-5 h-px w-full bg-[#F08400]"></div>
-              <div className="mt-10 space-y-10">
+              <div className="border-l-4 border-[#F08400] pl-6 mb-10">
+                <h2 className="font-bebas text-4xl text-black md:text-5xl uppercase">
+                  Hotel Accommodation Deals
+                </h2>
+                <p className="mt-2 text-sm font-bold text-[#F08400] uppercase tracking-wider">
+                  Save 20% by using the promo code "EXPO" when booking through official links
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {hotels.map((hotel, idx) => (
-                  <div key={idx} className={`flex flex-col items-center gap-10 py-10 ${idx % 2 === 1 ? 'bg-orange-50' : ''} lg:flex-row lg:gap-20`}>
-                    <div className="relative h-48 w-48 shrink-0 overflow-hidden rounded-lg bg-gray-200 lg:h-60 lg:w-60">
-                      <ImageWithFallback
-                        src={hotel.image}
-                        alt={hotel.name}
-                        fallbackIcon={hotel.fallbackIcon || "🏨"}
-                        className="h-full w-full"
-                      />
-                    </div>
+                  <div 
+                    key={idx} 
+                    className="flex flex-col justify-between rounded-sm border border-gray-100 bg-[#FCF8F3] p-5 shadow-sm hover:shadow-md transition-all duration-300"
+                  >
                     <div>
-                      <h4 className="text-3xl font-bold text-black">{hotel.name}</h4>
-                      <p className="mt-5 text-gray-600">{hotel.description}</p>
-                      <div className="mt-5 flex flex-wrap gap-5">
-                        <Link href={hotel.bookLink} target="_blank">
-                          <button className="w-full bg-[#F08400] px-8 py-3 font-bebas text-xl text-white transition-all hover:bg-black lg:w-fit">Book your stay</button>
-                        </Link>
-                        <Link href={hotel.mapLink} target="_blank">
-                          <button className="w-full border-2 border-[#F08400] px-8 py-3 font-bebas text-xl text-[#F08400] transition-all hover:bg-black hover:text-white lg:w-fit">View Location</button>
-                        </Link>
+                      <div className="relative h-48 w-full overflow-hidden rounded-sm bg-gray-200 border border-gray-150">
+                        <ImageWithFallback
+                          src={hotel.image}
+                          alt={hotel.name}
+                          fallbackIcon={hotel.fallbackIcon || "🏨"}
+                          className="h-full w-full"
+                        />
                       </div>
+                      <div className="mt-4">
+                        <h4 className="font-bebas text-2xl font-bold text-black uppercase tracking-wide line-clamp-1">
+                          {hotel.name}
+                        </h4>
+                        <p className="mt-3 text-sm text-gray-600 leading-relaxed line-clamp-3">
+                          {hotel.description}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="mt-6 flex gap-3 pt-4 border-t border-gray-150">
+                      <Link href={hotel.bookLink} target="_blank" className="flex-1">
+                        <button className="w-full bg-[#F08400] hover:bg-black text-white py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-sm">
+                          Book Room
+                        </button>
+                      </Link>
+                      <Link href={hotel.mapLink} target="_blank" className="flex-1">
+                        <button className="w-full border border-[#F08400] text-[#F08400] hover:bg-black hover:text-white hover:border-black py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-sm">
+                          Location
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 ))}
@@ -350,25 +359,26 @@ export default function PlanYourTravelPage() {
           </div>
         </div>
 
-        <PartnersSection />
+        <div className="mt-16 lg:mt-24">
+          <PartnersSection />
+        </div>
 
         {/* Quick Navigation */}
         <div className="animated-block mt-20">
           <div className="animated-block-target">
-            <div className="border-t-8 border-[#F08400] bg-black py-20 text-white">
+            <div className="border-t border-[#F08400] bg-black py-16 text-white">
               <Container>
-                <h2 className="font-bebas text-6xl md:text-7xl">Quick Navigation</h2>
-                <div className="mt-16 grid grid-cols-2 gap-y-10 md:grid-cols-5">
+                <h2 className="font-bebas text-5xl md:text-6xl uppercase tracking-wider text-center lg:text-left">
+                  Quick Navigation
+                </h2>
+                <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
                   {quickLinks.map((item, idx) => (
                     <div key={idx} className="relative flex flex-col items-center justify-center text-center">
-                      {idx !== 0 && (
-                        <div className="absolute left-0 top-1/2 hidden h-16 w-px -translate-y-1/2 bg-gray-700 md:block"></div>
-                      )}
                       <Link href={item.link} className="flex flex-col items-center group">
-                        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gray-800 transition-colors group-hover:bg-[#F08400]">
-                          <div className="text-3xl">{item.icon}</div>
+                        <div className="flex h-16 w-16 items-center justify-center rounded-sm bg-gray-800 transition-colors group-hover:bg-[#F08400]">
+                          <div className="text-2xl">{item.icon}</div>
                         </div>
-                        <p className="mt-4 text-sm font-semibold text-gray-300 transition-colors group-hover:text-[#F08400]">
+                        <p className="mt-4 text-xs font-bold uppercase tracking-wider text-gray-300 transition-colors group-hover:text-[#F08400]">
                           {item.label}
                         </p>
                       </Link>
@@ -380,14 +390,40 @@ export default function PlanYourTravelPage() {
           </div>
         </div>
 
-        <hr className="border-t-6 border-[#F08400]" />
         <BackToTop />
       </div>
 
       <style jsx>{`
-        .global-transition { transition: all 0.3s ease; }
-        .flex-center { display: flex; align-items: center; justify-content: center; }
         .font-bebas { font-family: 'Bebas Neue', cursive; }
+        .line-clamp-1 {
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        .line-clamp-3 {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        
+        .animated-block {
+          opacity: 0;
+          transform: translateY(30px);
+          animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animated-block:nth-child(1) { animation-delay: 0.1s; }
+        .animated-block:nth-child(2) { animation-delay: 0.3s; }
+        .animated-block:nth-child(3) { animation-delay: 0.5s; }
       `}</style>
     </div>
   );

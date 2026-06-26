@@ -157,7 +157,7 @@ export default function DelegatesPackagesPage() {
 
             {/* RIGHT FORM */}
             <div className="relative">
-              <div className="sticky top-32">
+              <div className="lg:sticky lg:top-44">
                 <DelegateForm />
               </div>
             </div>

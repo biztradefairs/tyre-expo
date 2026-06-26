@@ -1,6 +1,6 @@
 "use client";
-// import type { Metadata } from "next";
-import { Bebas_Neue, Roboto } from "next/font/google";
+
+import { Bebas_Neue, Roboto, Montserrat } from "next/font/google";
 import "./globals.css";
 import { usePathname } from "next/navigation";
 
@@ -21,10 +21,11 @@ const roboto = Roboto({
   variable: "--font-sans",
 });
 
-// export const metadata: Metadata = {
-//   title: "ITS TYRE EXPO",
-//   description: "Expo Website",
-// };
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-montserrat",
+});
 
 export default function RootLayout({
   children,
@@ -32,29 +33,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const hideHeaderFooter = pathname.startsWith("/dashboard") || pathname.startsWith("/register") || pathname.startsWith("/admin") || pathname === "/exhibition-directory" || pathname.startsWith("/exhibition-directory/");
+
+  const hideHeaderFooter = pathname.startsWith("/dashboard") || pathname.startsWith("/register") || pathname.startsWith("/admin");
+
   return (
     <html
       lang="en"
-      className={`${bebas.variable} ${roboto.variable} h-full antialiased`}
+      className={`${bebas.variable} ${roboto.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
-        
-        {/* ✅ Header */}
-       
+        {!hideHeaderFooter && <Header />}
 
-        {/* ✅ IMPORTANT: spacing for fixed header */}
-       
-           {!hideHeaderFooter && <Header />}
-        <Providers>{children}
+        <Providers>
+          {children}
           <Toaster position="top-right" />
         </Providers>
 
-      
-
-        {/* ✅ Footer */}
         {!hideHeaderFooter && <Footer />}
-
       </body>
     </html>
   );

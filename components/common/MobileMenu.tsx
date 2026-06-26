@@ -2,12 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { X, ChevronDown } from 'lucide-react';
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
-  timeLeft: { days: number; hours: number; minutes: number };
 }
 
 const navItems = [
@@ -48,14 +46,13 @@ const navItems = [
       { text: 'Event Brochure', href: '/event-brochure/' },
       { text: 'Post-Show Report', href: '/post-show-report/' },
       { text: 'Media Gallery', href: '/media-gallery/' },
-      { text: 'Conference Programme', href: '/conference-programme/' },
     ],
   },
   { title: 'Contact us', href: '/contact-us/', links: [] },
   { title: 'Conference', href: '/conference/', links: [] },
 ];
 
-export default function MobileMenu({ isOpen, onClose, timeLeft }: MobileMenuProps) {
+export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
@@ -82,113 +79,107 @@ export default function MobileMenu({ isOpen, onClose, timeLeft }: MobileMenuProp
   return (
     <>
       {/* Overlay */}
-      <div className="fixed inset-0 bg-black/70 z-50 lg:hidden" onClick={onClose} />
+      <div 
+        className="fixed inset-0 bg-black/60 z-40 lg:hidden transition-opacity duration-300" 
+        onClick={onClose} 
+      />
       
-      {/* Sidebar Menu */}
-      <div className="fixed top-0 right-0 h-full w-85 bg-[#1e1e1e] z-50 shadow-2xl overflow-y-auto animate-slide-in-right lg:hidden">
-        {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-700 sticky top-0 bg-[#1e1e1e]">
-          <Link href="/" onClick={onClose}>
-            <img 
-              src="/ITS_logo_white.png" 
-              alt="India Tyre Show" 
-              className="h-8 w-auto"
-            />
-          </Link>
-          <button
-            onClick={onClose}
-            className="p-2 rounded-lg hover:bg-white/10 transition-colors"
-          >
-            <X className="h-6 w-6 text-white" />
-          </button>
-        </div>
+      {/* Floating Rounded Menu Card */}
+      <div className="fixed top-[160px] left-4 right-4 bottom-4 bg-[#0A0A0A] border border-neutral-900 z-45 shadow-2xl overflow-y-auto rounded-[28px] p-6 text-white lg:hidden flex flex-col justify-between font-sans transition-all duration-300 animate-slide-up no-scrollbar">
+        
+        {/* Main Content Area */}
+        <div className="flex-1">
+          {/* Label */}
+          <div className="text-[11px] font-sans font-semibold uppercase tracking-wider text-neutral-500 mb-5 pl-1">
+            Main menu
+          </div>
 
-        {/* Timer Section in Mobile Menu */}
-        <div className="p-4 border-b border-gray-700 bg-gray-800/50">
-          <h3 className="text-xs text-gray-400 mb-3 uppercase tracking-wider">Countdown to Expo</h3>
-          <div className="flex gap-2 justify-center">
-            {[
-              { label: 'Days', value: timeLeft.days },
-              { label: 'Hours', value: timeLeft.hours },
-              { label: 'Mins', value: timeLeft.minutes },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="flex-1 text-center bg-gray-700/50 rounded-lg py-2 px-1"
-              >
-                <div className="text-xl font-bold text-orange-500">
-                  {String(item.value).padStart(2, '0')}
+          {/* Navigation Links */}
+          <div className="flex flex-col">
+            {navItems.map((item) => {
+              const hasLinks = item.links && item.links.length > 0;
+              const isDropdownOpen = openDropdown === item.title;
+              return (
+                <div key={item.title} className="border-b border-neutral-900 py-3">
+                  {hasLinks ? (
+                    <div>
+                      <button
+                        onClick={() => toggleDropdown(item.title)}
+                        className="w-full flex items-center justify-between py-2 text-white transition-colors cursor-pointer group"
+                      >
+                        <span className="font-bold text-white text-lg sm:text-xl font-sans tracking-tight group-hover:text-[#F08400] transition-colors">
+                          {item.title}
+                        </span>
+                        <span className="text-2xl text-neutral-400 font-light pr-1 select-none leading-none">
+                          {isDropdownOpen ? '−' : '+'}
+                        </span>
+                      </button>
+                      
+                      {isDropdownOpen && (
+                        <div className="mt-2 mb-3 pl-2 flex flex-col gap-3 transition-all duration-300">
+                          {item.links.map((link) => (
+                            <Link
+                              key={link.text}
+                              href={link.href}
+                              onClick={onClose}
+                              className="block text-[15px] text-gray-300 hover:text-[#F08400] font-sans font-medium transition-colors"
+                            >
+                              {link.text}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div>
+                      <Link
+                        href={item.href || '#'}
+                        onClick={onClose}
+                        className="block py-2 font-bold text-white text-lg sm:text-xl font-sans tracking-tight hover:text-[#F08400] transition-colors"
+                      >
+                        {item.title}
+                      </Link>
+                    </div>
+                  )}
                 </div>
-                <div className="text-[10px] text-gray-400 uppercase">{item.label}</div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
-        {/* Navigation Links */}
-        <div className="py-4">
-          {navItems.map((item) => (
-            <div key={item.title} className="border-b border-gray-800">
-              {item.links && item.links.length > 0 ? (
-                <>
-                  <button
-                    onClick={() => toggleDropdown(item.title)}
-                    className="w-full flex items-center justify-between px-4 py-3 text-white hover:bg-white/5 transition-colors"
-                  >
-                    <span className="text-sm font-medium">{item.title}</span>
-                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${openDropdown === item.title ? 'rotate-180' : ''}`} />
-                  </button>
-                  {openDropdown === item.title && (
-                    <div className="bg-black/20">
-                      {item.links.map((link) => (
-                        <Link
-                          key={link.text}
-                          href={link.href}
-                          onClick={onClose}
-                          className="block px-6 py-2.5 text-sm text-gray-300 hover:text-orange-500 transition-colors"
-                        >
-                          {link.text}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </>
-              ) : (
-                <Link
-                  href={item.href || '#'}
-                  onClick={onClose}
-                  className="block px-4 py-3 text-sm font-medium text-white hover:bg-white/5 transition-colors"
-                >
-                  {item.title}
-                </Link>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Login Button in Mobile Menu */}
-        <div className="p-4 border-t border-gray-700 mt-4">
+        {/* Action Button at the Bottom */}
+        <div className="mt-8 pt-4">
           <Link
-            href="/login/"
+            href="/exhibiting-enquiry/"
             onClick={onClose}
-            className="block w-full text-center bg-orange-500 text-white px-4 py-3 rounded-lg text-sm font-medium hover:bg-orange-600 transition-colors"
+            className="block w-full text-center bg-[#F08400] border border-[#F08400] hover:bg-black text-white py-3.5 text-sm font-bold uppercase tracking-widest transition-all duration-300 rounded-sm font-bebas"
           >
-            Exhibitor Login
+            Exhibit
           </Link>
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes slideInRight {
+        .font-bebas { font-family: 'Bebas Neue', cursive; }
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        @keyframes slideUp {
           from {
-            transform: translateX(100%);
+            transform: translateY(15px);
+            opacity: 0;
           }
           to {
-            transform: translateX(0);
+            transform: translateY(0);
+            opacity: 1;
           }
         }
-        .animate-slide-in-right {
-          animation: slideInRight 0.3s ease-out;
+        .animate-slide-up {
+          animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
       `}</style>
     </>

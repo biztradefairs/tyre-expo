@@ -158,7 +158,7 @@ export default function VisitorRegistrationPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-[35%_65%] gap-12">
             {/* LEFT SECTION - Info */}
-            <div className="flex flex-col gap-6 sticky top-24 h-fit">
+            <div className="flex flex-col gap-6 lg:sticky lg:top-44 h-fit">
               <div className="bg-[#f5f5f5] rounded-2xl p-6">
                 <h3 className="font-bebas text-2xl text-black mb-4">Event Details</h3>
                 <div className="space-y-4">

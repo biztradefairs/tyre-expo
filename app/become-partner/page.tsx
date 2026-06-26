@@ -97,7 +97,7 @@ export default function BecomePartnerPage() {
 
             {/* RIGHT — FORM */}
             <div className="order-1 lg:order-2">
-              <div className="sticky top-32">
+              <div className="lg:sticky lg:top-44">
                 <PartnerForm />
               </div>
             </div>

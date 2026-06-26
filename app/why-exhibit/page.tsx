@@ -111,27 +111,29 @@ export default function WhyExhibitPage() {
                         As the global tyre industry shifts toward sustainability, automation, and high-performance materials, Southeast Asia's tyre manufacturing sector is experiencing unprecedented growth. ITS Tyre Expo connects you directly with the region's leading tyre manufacturers, rubber processors, OEMs, and government agencies driving this transformation.
                       </p>
                     </div>
-                    <div className="mt-10 flex flex-wrap gap-10 2xl:gap-20">
-                      <div className="flex w-fit flex-col justify-center border-r border-gray-300 pr-10 font-bebas last-of-type:border-none 2xl:pr-20">
-                        <h3 className="mb-3 text-6xl font-bold text-[#F08400] md:text-7xl">10th</h3>
-                        <p className="text-xl text-black">Edition</p>
+                    <div className="mt-10 flex flex-wrap gap-8 2xl:gap-16">
+                      <div className="flex w-fit flex-col justify-center border-r border-gray-200 pr-8 font-bebas last-of-type:border-none 2xl:pr-16">
+                        <h3 className="mb-3 text-5xl font-bold text-[#F08400] md:text-6xl">10th</h3>
+                        <p className="text-sm font-semibold tracking-wider uppercase text-black font-sans">Edition</p>
                       </div>
-                      <div className="flex w-fit flex-col justify-center border-r border-gray-300 pr-10 font-bebas last-of-type:border-none 2xl:pr-20">
-                        <h3 className="mb-3 text-6xl font-bold text-[#F08400] md:text-7xl">8,500+</h3>
-                        <p className="text-xl text-black">Trade Visitors</p>
+                      <div className="flex w-fit flex-col justify-center border-r border-gray-200 pr-8 font-bebas last-of-type:border-none 2xl:pr-16">
+                        <h3 className="mb-3 text-5xl font-bold text-[#F08400] md:text-6xl">8,500+</h3>
+                        <p className="text-sm font-semibold tracking-wider uppercase text-black font-sans">Trade Visitors</p>
                       </div>
-                      <div className="flex w-fit flex-col justify-center border-r border-gray-300 pr-10 font-bebas last-of-type:border-none 2xl:pr-20">
-                        <h3 className="mb-3 text-6xl font-bold text-[#F08400] md:text-7xl">350+</h3>
-                        <p className="text-xl text-black">Exhibitors</p>
+                      <div className="flex w-fit flex-col justify-center border-r border-gray-200 pr-8 font-bebas last-of-type:border-none 2xl:pr-16">
+                        <h3 className="mb-3 text-5xl font-bold text-[#F08400] md:text-6xl">350+</h3>
+                        <p className="text-sm font-semibold tracking-wider uppercase text-black font-sans">Exhibitors</p>
                       </div>
-                      <div className="flex w-fit flex-col justify-center font-bebas last-of-type:border-none lg:border-r lg:pr-10 2xl:pr-20">
-                        <h3 className="mb-3 text-6xl font-bold text-[#F08400] md:text-7xl">60+</h3>
-                        <p className="text-xl text-black">Conference Speakers</p>
+                      <div className="flex w-fit flex-col justify-center font-bebas last-of-type:border-none lg:border-r lg:pr-8 2xl:pr-16">
+                        <h3 className="mb-3 text-5xl font-bold text-[#F08400] md:text-6xl">60+</h3>
+                        <p className="text-sm font-semibold tracking-wider uppercase text-black font-sans">Conference Speakers</p>
                       </div>
                     </div>
                     <div className="mt-10">
                       <Link href="/about-its-tyre-expo">
-                        <button className="flex-center global-transition group w-fit gap-2 overflow-hidden bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white hover:bg-black">About ITS Tyre Expo</button>
+                        <button className="bg-[#F08400] hover:bg-black text-white px-8 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-sm">
+                          About ITS Tyre Expo
+                        </button>
                       </Link>
                     </div>
                   </div>
@@ -173,17 +175,17 @@ export default function WhyExhibitPage() {
                       icon: "https://cdn.itegroupnews.com/contract_10861184_2c90043b14.png"
                     }
                   ].map((benefit, idx) => (
-                    <div key={idx} className="flex flex-col gap-5">
-                      <div className="flex items-center justify-center h-20 w-20 rounded-full bg-orange-50">
-                        <img src={benefit.icon} alt={benefit.title} className="h-10 w-10 object-contain" />
+                    <div key={idx} className="flex flex-col gap-4 font-sans">
+                      <div className="flex items-center justify-center h-16 w-16 rounded-sm bg-[#FCF8F3] border border-gray-100 shadow-sm">
+                        <img src={benefit.icon} alt={benefit.title} className="h-8 w-8 object-contain" />
                       </div>
-                      <h3 className="font-bebas text-2xl text-black">{benefit.title}</h3>
-                      <p className="text-gray-600">{benefit.desc}</p>
+                      <h3 className="font-bebas text-2xl text-black mt-2 font-bold">{benefit.title}</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">{benefit.desc}</p>
                     </div>
                   ))}
                 </div>
                 <Link href="/exhibiting-enquiry">
-                  <button className="flex-center global-transition group w-fit gap-2 overflow-hidden bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white hover:bg-black">Book A Stand</button>
+                  <button className="bg-[#F08400] hover:bg-black text-white px-8 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-sm">Book A Stand</button>
                 </Link>
               </Container>
             </div>
@@ -204,32 +206,32 @@ export default function WhyExhibitPage() {
                         From tyre manufacturing executives and procurement specialists to R&D engineers and distributors, our visitors are key players driving growth, innovation, and modernization across the ASEAN rubber industry.
                       </p>
                     </div>
-                    <div className="mt-10 grid grid-cols-2 gap-6 bg-orange-50 p-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                      <div className="flex w-fit flex-col font-bebas">
-                        <h3 className="mb-3 text-5xl font-bold text-[#F08400]">48%</h3>
-                        <p className="text-xl text-black">First Time Exhibitors</p>
+                    <div className="mt-10 grid grid-cols-2 gap-6 bg-[#FCF8F3] border border-gray-100 p-8 rounded-sm font-sans">
+                      <div className="flex w-fit flex-col">
+                        <h3 className="mb-3 text-5xl font-bold text-[#F08400] font-bebas">48%</h3>
+                        <p className="text-sm font-semibold uppercase text-black">First Time Exhibitors</p>
                       </div>
-                      <div className="flex w-fit flex-col font-bebas">
-                        <h3 className="mb-3 text-5xl font-bold text-[#F08400]">52%</h3>
-                        <p className="text-xl text-black">First Time Visitors</p>
+                      <div className="flex w-fit flex-col">
+                        <h3 className="mb-3 text-5xl font-bold text-[#F08400] font-bebas">52%</h3>
+                        <p className="text-sm font-semibold uppercase text-black">First Time Visitors</p>
                       </div>
-                      <div className="flex w-fit flex-col font-bebas">
-                        <h3 className="mb-3 text-5xl font-bold text-[#F08400]">35%</h3>
-                        <p className="text-xl text-black">With Budgets Over $5 Million</p>
+                      <div className="flex w-fit flex-col">
+                        <h3 className="mb-3 text-5xl font-bold text-[#F08400] font-bebas">35%</h3>
+                        <p className="text-sm font-semibold uppercase text-black">With Budgets Over $5 Million</p>
                       </div>
-                      <div className="flex w-fit flex-col font-bebas">
-                        <h3 className="mb-3 text-5xl font-bold text-[#F08400]">28%</h3>
-                        <p className="text-xl text-black">C-Level Decision Makers</p>
+                      <div className="flex w-fit flex-col">
+                        <h3 className="mb-3 text-5xl font-bold text-[#F08400] font-bebas">28%</h3>
+                        <p className="text-sm font-semibold uppercase text-black">C-Level Decision Makers</p>
                       </div>
                     </div>
                     <div className="mt-10">
                       <Link href="/exhibiting-enquiry">
-                        <button className="flex-center global-transition group w-fit gap-2 overflow-hidden bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white hover:bg-black">Enquire to Exhibit</button>
+                        <button className="bg-[#F08400] hover:bg-black text-white px-8 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-sm">Enquire to Exhibit</button>
                       </Link>
                     </div>
                   </div>
                   <div className="order-first h-full lg:col-span-2">
-                    <div className="h-120 w-full overflow-hidden">
+                    <div className="h-[300px] sm:h-[400px] lg:h-full w-full overflow-hidden rounded-sm">
                       <img
                         src="https://cdn.itegroupnews.com/mw24_1095_min_aaba01f5dd.jpg"
                         alt="Visitors"
@@ -275,7 +277,7 @@ export default function WhyExhibitPage() {
                         about the show and explore your participation opportunities.
                       </p>
                       <Link href="/event-brochure">
-                        <button className="bg-[#F08400] px-10 py-3 font-bebas text-2xl text-white transition-all hover:bg-black">
+                        <button className="bg-[#F08400] hover:bg-white hover:text-black text-white px-8 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-sm">
                           Download Now
                         </button>
                       </Link>
@@ -309,14 +311,14 @@ export default function WhyExhibitPage() {
                       image: "https://cdn.itegroupnews.com/view_heavy_machinery_used_construction_industry_a179c698c8.jpg"
                     }
                   ].map((item, idx) => (
-                    <div key={idx} className="relative flex min-h-[350px] flex-col overflow-hidden text-white">
+                    <div key={idx} className="relative flex min-h-[350px] flex-col overflow-hidden text-white rounded-sm border border-white/10">
                       <div className="absolute inset-0">
                         <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
                       </div>
                       <div className="absolute inset-0 bg-black/60"></div>
-                      <div className="relative z-10 flex h-full flex-col justify-end gap-4 p-6">
-                        <h3 className="text-2xl font-bold leading-tight">{item.title}</h3>
-                        <p className="text-gray-200">{item.desc}</p>
+                      <div className="relative z-10 flex h-full flex-col justify-end gap-4 p-6 font-sans">
+                        <h3 className="text-xl font-bold leading-tight">{item.title}</h3>
+                        <p className="text-sm text-gray-300 leading-relaxed">{item.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -341,16 +343,16 @@ export default function WhyExhibitPage() {
                     { name: "Lisa Tan", title: "Regional Director", company: "Continental Tyres", quote: "We've exhibited for 5 consecutive years, and ITS remains our most valuable platform for launching new products and networking with industry leaders across Southeast Asia." },
                     { name: "Nguyen Van Hieu", title: "Procurement Manager", company: "Casumina", quote: "The quality of visitors and exhibitors is exceptional. We found new raw material suppliers and advanced testing equipment that significantly improved our production efficiency." }
                   ].map((testimonial, idx) => (
-                    <div key={idx} className="relative flex h-full flex-col overflow-hidden rounded-xl bg-gray-100 p-6">
-                      <div className="text-4xl mb-4 text-orange-400">"</div>
-                      <p className="mb-auto text-lg italic text-gray-700">{testimonial.quote}</p>
-                      <div className="mt-6 flex items-center gap-4 border-t border-gray-300 pt-5">
-                        <div className="h-14 w-14 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center text-white font-bold text-xl">
+                    <div key={idx} className="relative flex h-full flex-col overflow-hidden rounded-sm bg-[#FCF8F3] border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow duration-300 font-sans">
+                      <div className="text-4xl mb-4 text-[#F08400] font-serif">&ldquo;</div>
+                      <p className="mb-auto text-sm italic text-gray-700 leading-relaxed">&ldquo;{testimonial.quote}&rdquo;</p>
+                      <div className="mt-6 flex items-center gap-4 border-t border-gray-200 pt-5">
+                        <div className="h-12 w-12 rounded-sm bg-gradient-to-br from-[#F08400] to-orange-600 flex items-center justify-center text-white font-bold text-lg">
                           {testimonial.name.charAt(0)}
                         </div>
                         <div>
-                          <h5 className="text-lg font-semibold">{testimonial.name}</h5>
-                          <p className="text-sm text-gray-600">{testimonial.title}<br />{testimonial.company}</p>
+                          <h5 className="text-sm font-bold text-black">{testimonial.name}</h5>
+                          <p className="text-xs text-gray-500 leading-tight mt-1">{testimonial.title}<br />{testimonial.company}</p>
                         </div>
                       </div>
                     </div>
@@ -366,17 +368,17 @@ export default function WhyExhibitPage() {
               <Container className="text-black">
                 <h2 className="mb-10 font-bebas text-6xl md:text-7xl">When and Where</h2>
                 <div className="grid gap-6 lg:grid-cols-2">
-                  <div className="rounded-xl bg-[#FEFAF5] p-6">
-                    <p className="mb-2 text-lg font-semibold text-black">Opening Hours</p>
-                    <h4 className="text-xl font-bold">22, 23 April 2026: 10:00 - 18:00</h4>
-                    <h4 className="mt-2 text-xl font-bold">24 April 2026: 10:00 - 16:00</h4>
+                  <div className="rounded-sm bg-[#FCF8F3] border border-gray-100 p-6 font-sans">
+                    <p className="mb-2 text-sm font-bold uppercase tracking-wider text-black">Opening Hours</p>
+                    <h4 className="text-lg font-bold text-gray-800">22, 23 April 2026: 10:00 - 18:00</h4>
+                    <h4 className="mt-2 text-lg font-bold text-gray-800">24 April 2026: 10:00 - 16:00</h4>
                   </div>
-                  <div className="rounded-xl bg-[#FEFAF5] p-6">
-                    <p className="mb-2 text-lg font-semibold text-black">Venue</p>
-                    <h4 className="text-xl font-bold">Pavilion 1 & 2, Crocus Expo IEC, Moscow, Russia</h4>
+                  <div className="rounded-sm bg-[#FCF8F3] border border-gray-100 p-6 font-sans">
+                    <p className="mb-2 text-sm font-bold uppercase tracking-wider text-black">Venue</p>
+                    <h4 className="text-lg font-bold text-gray-800">Pavilion 1 & 2, Crocus Expo IEC, Moscow, Russia</h4>
                   </div>
                 </div>
-                <div className="mt-8 overflow-hidden">
+                <div className="mt-8 overflow-hidden rounded-sm border border-gray-200">
                   <iframe
                     src="https://www.google.com/maps?q=Crocus%20Expo%20IEC%20Moscow&output=embed"
                     className="w-full h-[400px] border-0"

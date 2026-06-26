@@ -64,19 +64,19 @@ export default function HeroSection() {
       </div>
 
       {/* FIXED: Properly aligned container with consistent padding */}
-      <div className="w-full max-w-[1600px] 2xl:max-w-[1800px] px-[3.7cm]  pb-24 ">
-        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-12">
+      <div className="w-full pb-16 md:pb-24 relative z-10">
+        <Container className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 lg:gap-16">
           
           {/* LEFT CONTENT */}
-          <div className="flex-1">
+          <div className="flex-1 max-w-4xl">
             {/* BIG HEADING */}
-            <h1 className="font-heading uppercase text-[80px] sm:text-[100px] lg:text-[120px] leading-[0.85] lg:leading-[0.75] tracking-[2px]">
-              <span className="text-white">MINING WORLD</span>{' '}
-              <span className="text-[#F08400]">2026</span>
+            <h1 className="font-bebas uppercase text-6xl sm:text-7xl md:text-8xl lg:text-[100px] xl:text-[110px] leading-[0.9] tracking-tight">
+              <span className="text-white block sm:inline">MINING WORLD</span>{' '}
+              <span className="text-[#F08400] block sm:inline">2027</span>
             </h1>
 
             {/* DESCRIPTION */}
-            <p className="mt-6 font-sans text-[16px] sm:text-[18px] lg:text-[20px] text-white/90 leading-[1.5] max-w-5xl">
+            <p className="mt-6 font-sans text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed max-w-3xl">
               Celebrating 30 Years of Driving Mining Innovation and Business Growth. 
               MiningWorld Russia unites equipment manufacturers, technology pioneers, 
               and buyers from across the CIS to accelerate the future of mining and mineral processing.
@@ -84,15 +84,15 @@ export default function HeroSection() {
           </div>
 
           {/* RIGHT BUTTON - Aligned to bottom on large screens */}
-          <div className="flex-shrink-0 lg:self-end">
+          <div className="flex-shrink-0">
             <Link
               href="/exhibiting-enquiry/"
-              className="inline-block bg-[#F08400] px-10 py-4 text-sm font-semibold uppercase tracking-[1.5px] hover:bg-orange-600 transition-all duration-300 whitespace-nowrap"
+              className="inline-block bg-[#F08400] hover:bg-[#d67300] text-white px-8 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap rounded-sm shadow-lg hover:scale-105"
             >
               Exhibit
             </Link>
           </div>
-        </div>
+        </Container>
       </div>
     </section>
   );
