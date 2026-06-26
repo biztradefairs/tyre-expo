@@ -28,7 +28,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative flex h-screen items-end justify-end overflow-hidden text-white w-full">
+    <section className="relative flex h-screen items-end justify-center overflow-hidden text-white w-full">
       <div className="absolute inset-0 z-[-1] bg-gradient-to-t from-black from-10% via-black/40" />
       
       <div className="absolute inset-0 z-[-2] size-full bg-black">
@@ -70,7 +70,7 @@ export default function HeroSection() {
           {/* LEFT CONTENT */}
           <div className="flex-1 max-w-4xl">
             {/* BIG HEADING */}
-            <h1 className="font-bebas uppercase text-6xl sm:text-7xl md:text-8xl lg:text-[100px] xl:text-[110px] leading-[0.9] tracking-tight">
+            <h1 className="font-bebas uppercase text-6xl sm:text-7xl md:text-8xl lg:text-[80px] xl:text-[100px] 2xl:text-[110px] leading-[0.9] tracking-tight">
               <span className="text-white block sm:inline">MINING WORLD</span>{' '}
               <span className="text-[#F08400] block sm:inline">2027</span>
             </h1>
