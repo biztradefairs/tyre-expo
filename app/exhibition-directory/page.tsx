@@ -106,7 +106,7 @@ export default function CompanyDirectory() {
         <div className="pt-[120px] lg:pt-[140px]">
           {/* Error display */}
           {error && (
-            <div className="fixed top-36 left-0 right-0 z-40 max-w-7xl mx-auto px-4">
+            <div className="fixed top-36 left-0 right-0 z-40 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
               <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-sm text-sm">
                 {error}
               </div>

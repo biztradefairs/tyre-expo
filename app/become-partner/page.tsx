@@ -8,7 +8,7 @@ export default function BecomePartnerPage() {
     <main className="min-h-screen bg-white font-sans">
       {/* PAGE HEADER */}
       <div className="relative bg-orange-50 pt-48 pb-16">
-        <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto max-w-[1440px]">
+        <div className="w-full px-4 sm:px-6 mx-auto max-w-[1440px]">
           <div className="flex flex-col">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-black">
               Become a Partner
@@ -22,7 +22,7 @@ export default function BecomePartnerPage() {
 
       {/* FORM + CONTENT SECTION */}
       <div className="py-20">
-        <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto max-w-[1440px]">
+        <div className="w-full px-4 sm:px-6 mx-auto max-w-[1440px]">
           <div className="grid gap-12 lg:grid-cols-2">
             
             {/* LEFT — CONTENT */}
