@@ -32,7 +32,7 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
 
           <Button
             href="/articles/"
-            className="border border-[#F08400] text-[#F08400] hover:bg-[#F08400] hover:text-white px-8 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-sm w-full sm:w-auto text-center"
+            className="border border-[#F08400] text-[#F08400] bg-[#F08400] hover:bg-[#ff8c00] hover:text-white px-8 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-sm w-full sm:w-auto text-center"
           >
             VIEW ALL ARTICLES
           </Button>
