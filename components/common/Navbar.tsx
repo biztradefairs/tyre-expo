@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
 import Container from '../ui/container';
 
@@ -51,6 +52,25 @@ const navItems = [
 
 const innerPadding = 'px-[calc(1rem+1cm)] sm:px-[calc(1.5rem+1cm)] lg:px-[calc(2rem+1cm)] xl:px-[calc(3rem+1cm)]';
 
+// ═══════════════════════════════════════════════════════════════
+// NEW: Hook to preserve UTM params in navigation
+// ═══════════════════════════════════════════════════════════════
+function useUTMQueryString() {
+  const searchParams = useSearchParams();
+  
+  if (!searchParams) return '';
+  
+  const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'utm_id'];
+  const utmPairs = utmKeys
+    .map(key => {
+      const val = searchParams.get(key);
+      return val ? `${key}=${encodeURIComponent(val)}` : '';
+    })
+    .filter(Boolean);
+  
+  return utmPairs.length > 0 ? `?${utmPairs.join('&')}` : '';
+}
+
 export function useScrollDirection() {
   const [scrollDirection, setScrollDirection] = useState('none');
   const [scrollY, setScrollY] = useState(0);
@@ -77,6 +97,23 @@ export function useScrollDirection() {
   }, []);
 
   return { scrollDirection, scrollY };
+}
+
+// ═══════════════════════════════════════════════════════════════
+// NEW: UTM-preserving Link component
+// ═══════════════════════════════════════════════════════════════
+function UTMLink({ href, className, children, ...props }: { href: string; className?: string; children: React.ReactNode; [key: string]: any }) {
+  const utmQuery = useUTMQueryString();
+  
+  // Don't append UTMs to external links or anchors
+  const isExternal = href.startsWith('http') || href.startsWith('#');
+  const finalHref = isExternal ? href : `${href.replace(/\/?$/, '/')}${utmQuery}`;
+  
+  return (
+    <Link href={finalHref} className={className} {...props}>
+      {children}
+    </Link>
+  );
 }
 
 export default function Navbar() {
@@ -119,10 +156,7 @@ export default function Navbar() {
     <>
       <div className="fixed top-0 w-full left-0 right-0 z-50 bg-black text-white">
 
-        {/* ══════════════════════════════════════
-            TOP BAR — timer lives here now (top-right)
-            hides on scroll down, reappears on scroll up
-           ══════════════════════════════════════ */}
+        {/* TOP BAR */}
         <div
           style={{
             maxHeight: showTopBar ? '140px' : '0px',
@@ -131,7 +165,7 @@ export default function Navbar() {
             transition: 'max-height 0.45s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.3s ease',
           }}
         >
-          {/* ── Ticker strip (brown bar) with timer ── */}
+          {/* Ticker strip */}
           <div className="bg-[#432500] w-full">
             <Container className="flex items-center justify-end py-1.5">
               <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-wider text-white">
@@ -153,58 +187,48 @@ export default function Navbar() {
             </Container>
           </div>
 
-          {/* ── Logo + date + Exhibit/Register buttons ── */}
+          {/* Logo + buttons */}
           <div className="w-full bg-black">
             <Container className="flex items-center justify-between py-3.5">
-
-              {/* Logo + Title + Date */}
               <div className="flex items-center gap-4">
-                <Link href="/">
+                <UTMLink href="/">
                   <img
                     src="/ITS_logo_white.png"
                     alt="India Tyre Show"
                     className="h-10 sm:h-12 w-auto cursor-pointer object-contain"
                   />
-                </Link>
+                </UTMLink>
                 <div className="hidden sm:block border-l border-white/20 pl-4">
                   <h1 className="font-[var(--font-montserrat)] text-[28px] font-semibold tracking-tight text-white leading-none">
                     India Tyre Show
                   </h1>
-
                   <p className="font-[var(--font-montserrat)] text-[12px] text-gray-300 mt-1">
                     22–24 April 2026 • Mumbai, India
                   </p>
                 </div>
               </div>
 
-              {/* Exhibit + Register buttons */}
               <div className="hidden sm:flex gap-3">
-                <Link
+                <UTMLink
                   href="/exhibiting-enquiry/"
                   className="bg-[#F08400] hover:bg-[#d67300] text-white text-center px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap rounded-sm"
                 >
                   Exhibit
-                </Link>
-                <Link
+                </UTMLink>
+                <UTMLink
                   href="/visitor-registration/"
                   className="bg-[#F08400] hover:bg-[#d67300] text-white text-center px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap rounded-sm"
                 >
                   Register
-                </Link>
+                </UTMLink>
               </div>
-
             </Container>
           </div>
         </div>
 
-        {/* ══════════════════════════════════════
-            NAV ROW — always visible
-            Logo icon slides in when scrolled past 80px
-           ══════════════════════════════════════ */}
+        {/* NAV ROW */}
         <div className="border-t border-white/10 bg-[#121212]/90 backdrop-blur-md">
           <Container className="flex items-center py-1 min-h-[44px]">
-
-            {/* Logo icon — slides in on scroll down */}
             <div
               style={{
                 width: showLogo ? '44px' : '0px',
@@ -215,67 +239,65 @@ export default function Navbar() {
                 transition: 'width 0.45s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.3s ease, margin-right 0.45s ease',
               }}
             >
-              <Link href="/">
+              <UTMLink href="/">
                 <img
                   src="/ITS_logo_white.png"
                   alt="India Tyre Show"
                   style={{ height: '30px', width: 'auto', display: 'block', minWidth: '32px' }}
                 />
-              </Link>
+              </UTMLink>
             </div>
 
-            {/* Nav links */}
             <div className="hidden lg:flex items-center gap-4 xl:gap-8 flex-1">
-                {navItems.map((item) => (
-                  <div
-                    key={item.title}
-                    className="relative"
-                    onMouseEnter={() => item.links && item.links.length > 0 && handleMouseEnter(item.title)}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    {item.links && item.links.length > 0 ? (
-                      <>
-                        <button className="flex items-center gap-1 text-sm xl:text-base hover:text-orange-500 transition-colors whitespace-nowrap py-2">
-                          {item.title}
-                          <ChevronDown
-                            className={`h-3 w-3 transition-transform duration-200 ${
-                              openDropdown === item.title ? 'rotate-180' : ''
-                            }`}
-                          />
-                        </button>
-                        {openDropdown === item.title && (
-                          <div
-                            className="absolute left-0 top-full z-50 w-56 rounded-md bg-[#1e1e1e] shadow-lg border border-gray-700"
-                            onMouseEnter={() => handleMouseEnter(item.title)}
-                            onMouseLeave={handleMouseLeave}
-                          >
-                            <div className="py-2">
-                              {item.links.map((link) => (
-                                <Link
-                                  key={link.text}
-                                  href={link.href}
-                                  className="block px-4 py-2 text-sm hover:bg-orange-500 hover:text-white transition-colors"
-                                >
-                                  {link.text}
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </>
-                    ) : (
-                      <Link
-                        href={item.href || '#'}
-                        className="text-sm xl:text-base hover:text-orange-500 transition-colors whitespace-nowrap block py-2"
-                      >
+              {navItems.map((item) => (
+                <div
+                  key={item.title}
+                  className="relative"
+                  onMouseEnter={() => item.links && item.links.length > 0 && handleMouseEnter(item.title)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {item.links && item.links.length > 0 ? (
+                    <>
+                      <button className="flex items-center gap-1 text-sm xl:text-base hover:text-orange-500 transition-colors whitespace-nowrap py-2">
                         {item.title}
-                      </Link>
-                    )}
-                  </div>
-                ))}
-              </div>
+                        <ChevronDown
+                          className={`h-3 w-3 transition-transform duration-200 ${
+                            openDropdown === item.title ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                      {openDropdown === item.title && (
+                        <div
+                          className="absolute left-0 top-full z-50 w-56 rounded-md bg-[#1e1e1e] shadow-lg border border-gray-700"
+                          onMouseEnter={() => handleMouseEnter(item.title)}
+                          onMouseLeave={handleMouseLeave}
+                        >
+                          <div className="py-2">
+                            {item.links.map((link) => (
+                              <UTMLink
+                                key={link.text}
+                                href={link.href}
+                                className="block px-4 py-2 text-sm hover:bg-orange-500 hover:text-white transition-colors"
+                              >
+                                {link.text}
+                              </UTMLink>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <UTMLink
+                      href={item.href || '#'}
+                      className="text-sm xl:text-base hover:text-orange-500 transition-colors whitespace-nowrap block py-2"
+                    >
+                      {item.title}
+                    </UTMLink>
+                  )}
+                </div>
+              ))}
+            </div>
 
-            {/* Compact login — slides in when scrolled */}
             <div
               style={{
                 maxWidth: isScrolled ? '100px' : '0px',
@@ -285,21 +307,18 @@ export default function Navbar() {
                 transition: 'max-width 0.45s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.3s ease',
               }}
             >
-              <Link
+              <UTMLink
                 href="/login/"
                 className="bg-[#F08400] font-bold uppercase tracking-wider text-white px-4 py-2 text-xs 
                   hover:bg-white hover:text-black transition-all duration-300 whitespace-nowrap inline-block rounded-sm"
               >
                 Login
-              </Link>
+              </UTMLink>
             </div>
-
           </Container>
         </div>
-
       </div>
 
-      {/* Spacer — matches fixed header height */}
       <div className="h-[125px] lg:h-[135px]" />
     </>
   );

@@ -119,7 +119,12 @@ const countries = [
   "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
 ];
 
+import { useUTMData } from "@/hooks/useUTMTracker";
+import toast from "react-hot-toast";
+import { submitContactForm, PROJECT_ID_VAR } from "@/lib/graphql-client";
+
 export default function SponsorshipEnquiryPage() {
+  const { utmData, campaign } = useUTMData();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -161,26 +166,69 @@ export default function SponsorshipEnquiryPage() {
     setIsSubmitting(true);
     setSubmitError('');
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
+    const payload = {
+      // Form fields
+      email: formData.workEmail,
+      formType: 'sponsor-registration',
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      contactPerson: `${formData.firstName} ${formData.lastName}`.trim(),
+      companyName: formData.companyName,
+      jobTitle: formData.jobTitle,
+      phone: formData.phone,
+      country: formData.country,
+      productSectors: formData.productSectors,
+      submittedAt: new Date().toISOString(),
+
+      // UTM Tracking Data
+      utmSource: utmData?.utm_source || '',
+      utmMedium: utmData?.utm_medium || '',
+      utmCampaign: utmData?.utm_campaign || '',
+      utmTerm: utmData?.utm_term || '',
+      utmContent: utmData?.utm_content || '',
+      utmId: utmData?.utm_id || '',
+      referrer: utmData?.referrer || '',
+      landingPage: utmData?.landingPage || '',
+      utmTimestamp: utmData?.timestamp || '',
+
+      // CMS Campaign Data
+      cmsCampaignId: campaign?.id || '',
+      cmsCampaignName: campaign?.name || '',
+      cmsCampaignSource: campaign?.utm_source || '',
+      cmsCampaignMedium: campaign?.utm_medium || '',
+    };
+
+    try {
+      // 1. Submit to GraphQL CMS
+      const result = await submitContactForm(PROJECT_ID_VAR.projectId, payload);
+
+      // 2. Submit notification API
+      const emailResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const emailResult = await emailResponse.json().catch(() => ({ success: false }));
+
+      if (result.errors) {
+        setSubmitError(result.errors[0]?.message || 'Failed to submit sponsorship enquiry');
+        toast.error("Submission failed. Please try again.");
+        setIsSubmitting(false);
+        return;
+      }
+
       setSubmitSuccess(true);
+      toast.success("Thank you! Your sponsorship enquiry has been submitted.");
+    } catch (error: any) {
+      console.error('Error submitting form:', error);
+      setSubmitError(error.message || 'Network error occurred. Please try again.');
+      toast.error("A network error occurred. Please try again.");
+    } finally {
       setIsSubmitting(false);
-      
-      setTimeout(() => {
-        setSubmitSuccess(false);
-        setFormData({
-          firstName: '',
-          lastName: '',
-          companyName: '',
-          jobTitle: '',
-          country: '',
-          phone: '',
-          workEmail: '',
-          productSectors: [],
-        });
-      }, 3000);
-    }, 1500);
+    }
   };
 
   if (submitSuccess) {

@@ -8,6 +8,8 @@ import Container from "@/components/ui/container";
 import BackToTop from "@/components/layout/BackToTop";
 import PartnersSection from "@/components/home/PartnersSection";
 import toast, { Toaster } from "react-hot-toast";
+import { useUTMData } from "@/hooks/useUTMTracker";
+import { submitContactForm, PROJECT_ID_VAR } from "@/lib/graphql-client";
 import dynamic from "next/dynamic";
 
 // // Dynamically import ReCAPTCHA to avoid SSR issues
@@ -16,11 +18,13 @@ import dynamic from "next/dynamic";
 //   loading: () => <div className="h-20 w-full bg-gray-100 rounded-lg animate-pulse"></div>,
 // });
 
+
 interface Country {
   name: string;
 }
 
 export default function VisitorRegistrationPage() {
+  const { utmData, campaign } = useUTMData();
   const [countries, setCountries] = useState<Country[]>([]);
   const [countriesLoading, setCountriesLoading] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
@@ -88,9 +92,65 @@ export default function VisitorRegistrationPage() {
 
     setLoading(true);
 
-    // Simulate API call - Replace with actual API endpoint
-    setTimeout(() => {
-      console.log("Form submitted:", formData);
+    const payload = {
+      // Form fields
+      email: formData.email,
+      formType: 'visitor-registration',
+      firstName: formData.name.split(' ')[0] || '',
+      lastName: formData.name.split(' ').slice(1).join(' ') || '',
+      contactPerson: formData.name,
+      companyName: formData.company,
+      jobTitle: formData.designation,
+      phone: formData.mobile,
+      country: formData.country,
+      state: formData.state,
+      city: formData.city,
+      address: formData.address,
+      pincode: formData.pincode,
+      profile: formData.profile,
+      promocode: formData.promocode,
+      captchaToken,
+      submittedAt: new Date().toISOString(),
+
+      // UTM Tracking Data
+      utmSource: utmData?.utm_source || '',
+      utmMedium: utmData?.utm_medium || '',
+      utmCampaign: utmData?.utm_campaign || '',
+      utmTerm: utmData?.utm_term || '',
+      utmContent: utmData?.utm_content || '',
+      utmId: utmData?.utm_id || '',
+      referrer: utmData?.referrer || '',
+      landingPage: utmData?.landingPage || '',
+      utmTimestamp: utmData?.timestamp || '',
+
+      // CMS Campaign Data
+      cmsCampaignId: campaign?.id || '',
+      cmsCampaignName: campaign?.name || '',
+      cmsCampaignSource: campaign?.utm_source || '',
+      cmsCampaignMedium: campaign?.utm_medium || '',
+    };
+
+    try {
+      // 1. Submit lead to GraphQL CMS
+      const result = await submitContactForm(PROJECT_ID_VAR.projectId, payload);
+      
+      // 2. Submit notification API
+      const emailResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const emailResult = await emailResponse.json().catch(() => ({ success: false }));
+
+      if (result.errors) {
+        toast.error(result.errors[0]?.message || "Failed to save registration lead");
+        setLoading(false);
+        return;
+      }
+
       setSubmittedName(formData.name.split(" ")[0] || "Visitor");
       setSubmitSuccess(true);
       setLoading(false);
@@ -112,7 +172,11 @@ export default function VisitorRegistrationPage() {
       });
       setTermsAccepted(false);
       setCaptchaToken(null);
-    }, 1500);
+    } catch (error: any) {
+      console.error("Submission error:", error);
+      toast.error(error.message || "Network error. Please try again.");
+      setLoading(false);
+    }
   };
 
   if (submitSuccess) {

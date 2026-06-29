@@ -1,12 +1,14 @@
-// app/event-brochure/page.tsx
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/ui/container";
 import BackToTop from "@/components/layout/BackToTop";
 import PartnersSection from "@/components/home/PartnersSection";
+import { useUTMData } from "@/hooks/useUTMTracker";
+import toast from "react-hot-toast";
+import { submitContactForm, PROJECT_ID_VAR } from "@/lib/graphql-client";
 
 const productSectors = [
   "Raw Materials & Rubber Compounds",
@@ -38,7 +40,18 @@ const countries = [
   "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vietnam", "Zambia", "Zimbabwe"
 ];
 
-export default function MiningFormPage() {
+export default function EventBrochurePage() {
+  const { utmData, campaign } = useUTMData();
+
+  // ═══════════════════════════════════════════════════════════════
+  // DEBUG: Log UTM data to verify it's being captured
+  // ═══════════════════════════════════════════════════════════════
+  useEffect(() => {
+    console.log('📊 EventBrochurePage - UTM Data:', utmData);
+    console.log('📊 EventBrochurePage - Campaign:', campaign);
+    console.log('📊 EventBrochurePage - Current URL:', typeof window !== 'undefined' ? window.location.href : 'SSR');
+  }, [utmData, campaign]);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -95,28 +108,89 @@ export default function MiningFormPage() {
     setIsSubmitting(true);
     setSubmitError('');
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
+    const payload = {
+      // Form fields
+      email: formData.email,
+      formType: 'event-brochure',
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      contactPerson: `${formData.firstName} ${formData.lastName}`.trim(),
+      companyName: formData.company,
+      jobTitle: formData.jobTitle,
+      phone: formData.phone,
+      country: formData.country,
+      website: formData.website,
+      productSectors: formData.productSectors,
+      submittedAt: new Date().toISOString(),
+
+      // UTM Tracking Data
+      utmSource: utmData?.utm_source || '',
+      utmMedium: utmData?.utm_medium || '',
+      utmCampaign: utmData?.utm_campaign || '',
+      utmTerm: utmData?.utm_term || '',
+      utmContent: utmData?.utm_content || '',
+      utmId: utmData?.utm_id || '',
+      referrer: utmData?.referrer || '',
+      landingPage: utmData?.landingPage || '',
+      utmTimestamp: utmData?.timestamp || '',
+
+      // CMS Campaign Data
+      cmsCampaignId: campaign?.id || '',
+      cmsCampaignName: campaign?.name || '',
+      cmsCampaignSource: campaign?.utm_source || '',
+      cmsCampaignMedium: campaign?.utm_medium || '',
+    };
+
+    // Debug log the payload before sending
+    console.log('📤 Submitting payload with UTM:', {
+      utmSource: payload.utmSource,
+      utmMedium: payload.utmMedium,
+      utmCampaign: payload.utmCampaign,
+    });
+
+    try {
+      // 1. Submit to GraphQL CMS
+      const result = await submitContactForm(PROJECT_ID_VAR.projectId, payload);
+
+      // 2. Submit notification API
+      const emailResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const emailResult = await emailResponse.json().catch(() => ({ success: false }));
+
+      if (result.errors) {
+        setSubmitError(result.errors[0]?.message || 'Failed to save brochure download request');
+        toast.error("Submission failed. Please try again.");
+        setIsSubmitting(false);
+        return;
+      }
+
       setSubmitSuccess(true);
+      toast.success("Thank you! Your brochure request has been submitted.");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        company: "",
+        website: "",
+        jobTitle: "",
+        country: "",
+        phone: "",
+        email: "",
+        productSectors: [],
+        confirm: false,
+      });
+    } catch (error: any) {
+      console.error('Error submitting form:', error);
+      setSubmitError(error.message || 'Network error occurred. Please try again.');
+      toast.error("A network error occurred. Please try again.");
+    } finally {
       setIsSubmitting(false);
-      
-      setTimeout(() => {
-        setSubmitSuccess(false);
-        setFormData({
-          firstName: "",
-          lastName: "",
-          company: "",
-          website: "",
-          jobTitle: "",
-          country: "",
-          phone: "",
-          email: "",
-          productSectors: [],
-          confirm: false,
-        });
-      }, 3000);
-    }, 1500);
+    }
   };
 
   if (submitSuccess) {

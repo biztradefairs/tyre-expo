@@ -1,5 +1,4 @@
 'use client';
-
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Container from '../ui/container';
@@ -22,12 +21,12 @@ export default function HeroSection() {
   }, []);
 
   const handleImageError = (id: number) => {
-    setImageErrors(prev => ({ ...prev, [id]: true }));
+    setImageErrors((prev) => ({ ...prev, [id]: true }));
   };
 
   return (
     <section className="relative flex h-screen items-end justify-center overflow-hidden text-white w-full">
-      {/* Gradient overlay — strong at bottom for text legibility */}
+      {/* Gradient overlay */}
       <div className="absolute inset-0 z-[-1] bg-gradient-to-t from-black via-black/50 to-transparent" />
 
       {/* Slideshow background */}
@@ -59,29 +58,33 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom content */}
-      <div className="w-full pb-11 md:pb-10 relative z-10">
+      <div className="w-full pb-8 sm:pb-10 md:pb-12 relative z-10">
         <Container>
-          {/* HEADING — single line, full width spanning */}
-          <h1 className="font-bebas uppercase leading-none tracking-tight whitespace-nowrap text-[9.5vw]">
+          {/* HEADING — vw-based but clamped so it never overflows on mobile */}
+          <h1
+            className="font-bebas uppercase leading-none tracking-tight"
+            style={{ fontSize: 'clamp(2.5rem, 9.5vw, 9rem)' }}
+          >
             <br />
             <span className="text-white">MININGWORLD </span>
             <span className="text-[#F08400]">2027</span>
           </h1>
 
-          {/* BOTTOM ROW — description left, button right */}
-          <div className="mt-4 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6">
-            {/* Description */}
-            <p className="font-sans text-base sm:text-lg md:text-xl text-gray-200 text-[10vw] leading-relaxed max-w-3xl">
-              Celebrating 30 Years of Driving Mining Innovation and Business Growth. 
-              MiningWorld Russia unites equipment manufacturers, technology pioneers, 
-              and buyers from across the CIS to accelerate the future of mining and mineral processing.
+          {/* BOTTOM ROW — stacks on mobile, side-by-side on lg+ */}
+          <div className="mt-4 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-5 lg:gap-8">
+            {/* Description — fixed readable font size, no vw */}
+            <p className="font-sans text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed max-w-3xl">
+              Celebrating 30 Years of Driving Mining Innovation and Business Growth.
+              MiningWorld Russia unites equipment manufacturers, technology pioneers,
+              and buyers from across the CIS to accelerate the future of mining and
+              mineral processing.
             </p>
 
             {/* Exhibit button */}
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 w-full lg:w-auto">
               <Link
                 href="/exhibiting-enquiry/"
-                className="inline-block bg-[#F08400] hover:bg-[#d67300] text-white px-10 py-4 text-base md:text-lg font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap rounded-sm shadow-lg hover:scale-105"
+                className="inline-block w-full lg:w-auto text-center bg-[#F08400] hover:bg-[#d67300] text-white px-10 py-4 text-base md:text-lg font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap rounded-sm shadow-lg hover:scale-105"
               >
                 Exhibit
               </Link>
