@@ -200,7 +200,15 @@ export default function SponsorshipEnquiryPage() {
 
     try {
       // 1. Submit to GraphQL CMS
-      const result = await submitContactForm(PROJECT_ID_VAR.projectId, payload);
+      if (!PROJECT_ID_VAR.projectId) {
+        toast.error("CMS Project ID is missing.");
+        return;
+      }
+      
+      const result = await submitContactForm(
+        PROJECT_ID_VAR.projectId,
+        payload
+      );
 
       // 2. Submit notification API
       const emailResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/contact`, {

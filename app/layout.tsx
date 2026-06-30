@@ -132,7 +132,11 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-sans">
-        {!hideHeaderFooter && <Header />}
+        {!hideHeaderFooter && (
+          <Suspense fallback={null}>
+            <Header />
+          </Suspense>
+        )}
 
         <Suspense fallback={null}>
           <UTMProvider>
