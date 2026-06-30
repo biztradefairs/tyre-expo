@@ -39,8 +39,7 @@ export default function RootLayout({
 }) {
   const pathname = usePathname();
 
-  const hideHeaderFooter = pathname.startsWith("/dashboard") || pathname.startsWith("/register") || pathname.startsWith("/admin");
-
+const hideHeaderFooter = pathname.startsWith("/dashboard") || pathname.startsWith("/admin");
   // Track page views on route change with UTM data
   useEffect(() => {
     if (typeof window !== 'undefined' && (window as any).gtag && !hideHeaderFooter) {

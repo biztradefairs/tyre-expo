@@ -4,6 +4,7 @@
 import React from "react"
 import { useState, useEffect } from 'react'
 import { X, Loader2, CheckCircle, AlertCircle } from 'lucide-react'
+import { env } from "process"
 
 interface VisitorRegistrationFormProps {
   isOpen: boolean
@@ -45,7 +46,7 @@ const COUNTRIES = [
   'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe',
 ]
 
-const API_BASE_URL = 'https://diemex-backend.onrender.com/api';
+const API_BASE_URL = env.NEXT_PUBLIC_API_URL;
 
 export default function VisitorRegistrationForm({
   isOpen,
