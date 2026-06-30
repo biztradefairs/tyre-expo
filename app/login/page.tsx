@@ -69,7 +69,7 @@ export default function ExhibitorLoginPage() {
   };
 
   const handleDemoLogin = () => {
-    setEmail('exhibitor@tyre-expo.com');
+    setEmail('gopinath2322002@gmail.com');
     setPassword('password123');
   };
 
@@ -109,7 +109,7 @@ export default function ExhibitorLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition"
-                placeholder="exhibitor@tyre-expo.com"
+                placeholder="gopinath2322002@gmail.com"
                 required
               />
             </div>
@@ -175,9 +175,9 @@ export default function ExhibitorLoginPage() {
               onClick={handleDemoLogin}
               className="w-full text-sm text-gray-300 hover:text-white transition flex items-center justify-center gap-2"
             >
-              <span className="opacity-70">📧</span> exhibitor@tyre-expo.com
+              <span className="opacity-70">📧</span> gopinath2322002@gmail.com
               <span className="mx-2">•</span>
-              <span className="opacity-70">🔒</span> password123
+              <span className="opacity-70">🔒</span> exe123
             </button>
           </div>
 

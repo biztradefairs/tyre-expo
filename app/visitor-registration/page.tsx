@@ -23,6 +23,13 @@ interface Country {
   name: string;
 }
 
+const FALLBACK_COUNTRIES = [
+  "India", "United States", "United Kingdom", "United Arab Emirates", "Germany",
+  "China", "Japan", "Singapore", "Australia", "Canada", "France", "Italy",
+  "South Korea", "Brazil", "South Africa", "Thailand", "Malaysia", "Indonesia",
+  "Sri Lanka", "Bangladesh", "Nepal", "Saudi Arabia", "Qatar", "Other",
+];
+
 export default function VisitorRegistrationPage() {
   const { utmData, campaign } = useUTMData();
   const [countries, setCountries] = useState<Country[]>([]);
@@ -51,15 +58,29 @@ export default function VisitorRegistrationPage() {
     const fetchCountries = async () => {
       try {
         setCountriesLoading(true);
-        const res = await fetch("https://restcountries.com/v3.1/all?fields=name");
+        const res = await fetch("https://restcountries.com/v3.1/all?fields=name,cca2");
+      
+        if (!res.ok) {
+          throw new Error(`Countries API returned ${res.status}`);
+        }
+      
         const data = await res.json();
+      
+        if (!Array.isArray(data)) {
+          throw new Error("Unexpected response shape from countries API");
+        }
+      
         const sortedCountries = data
-          .map((c: any) => ({ name: c.name.common }))
+          .map((c: any) => ({ name: c.name?.common }))
+          .filter((c: Country) => Boolean(c.name))
           .sort((a: Country, b: Country) => a.name.localeCompare(b.name));
+      
         setCountries(sortedCountries);
       } catch (error) {
         console.error("Failed to fetch countries", error);
-        toast.error("Failed to load countries");
+        toast.error("Failed to load countries, using fallback list");
+        // Fallback so the dropdown is never empty
+        setCountries(FALLBACK_COUNTRIES.map((name) => ({ name })));
       } finally {
         setCountriesLoading(false);
       }
