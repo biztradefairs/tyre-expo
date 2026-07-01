@@ -81,19 +81,52 @@ export async function graphqlRequest<T>(
 
 export async function submitContactForm(projectId: string, input: any) {
     const query = `
-        mutation CreateContactFormSubmit($projectId: String!, $input: ContactFormSubmitInput!) {
-            createContactFormSubmit(projectId: $projectId, input: $input) {
+        mutation CreateLead($input: CreateLeadInput!) {
+            createLead(input: $input) {
                 id
                 email
-                formType
             }
         }
     `;
-    // Clean up input fields that might not be compatible with CMS GraphQL Schema
-    const cleanedInput = { ...input };
-    // Remove fields if they are client-only or need normalization
-    return graphqlRequest<{ createContactFormSubmit: { id: string } }>(query, {
+
+    // Map input fields to CreateLeadInput schema
+    const leadTypeMap: Record<string, string> = {
+        'visitor-registration': 'VISITOR',
+        'exhibitor-enquiry': 'EXHIBITOR',
+        'event-brochure': 'BROCHURE',
+        'sponsor-registration': 'SPONSOR',
+    };
+
+    const leadType = leadTypeMap[input.formType] || 'OTHER';
+    const name = input.name || input.contactPerson || `${input.firstName || ''} ${input.lastName || ''}`.trim() || 'Unknown';
+
+    const graphqlInput = {
         projectId,
-        input: cleanedInput,
+        email: input.email || '',
+        name,
+        leadType,
+        companyName: input.companyName || input.company || '',
+        jobTitle: input.jobTitle || input.designation || '',
+        phone: input.phone || input.mobile || '',
+        country: input.country || '',
+        state: input.state || '',
+        city: input.city || '',
+        message: input.message || input.comments || input.profile || '',
+        source: 'WEBSITE_UTM', // maps to LeadSource enum
+        status: 'NEW', // maps to LeadStatus enum
+
+        // UTM tracking fields
+        utmSource: input.utmSource || '',
+        utmMedium: input.utmMedium || '',
+        utmCampaign: input.utmCampaign || '',
+        utmTerm: input.utmTerm || '',
+        utmContent: input.utmContent || '',
+        utmId: input.utmId || '',
+        utmUrl: input.landingPage || input.referrer || '',
+    };
+
+    return graphqlRequest<{ createLead: { id: string } }>(query, {
+        input: graphqlInput,
     });
 }
+

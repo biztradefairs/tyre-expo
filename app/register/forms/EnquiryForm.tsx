@@ -90,24 +90,21 @@ export default function EnquiryForm() {
     setLoading(true);
 
     const payload = {
-      email: formData.email,
       formType: "visitor-registration",
-      firstName: formData.name.split(" ")[0] || "",
-      lastName: formData.name.split(" ").slice(1).join(" ") || "",
-      contactPerson: formData.name,
-      companyName: formData.company,
-      jobTitle: formData.designation,
-      phone: formData.mobile,
+      name: formData.name,
+      designation: formData.designation,
+      company: formData.company,
+      address: formData.address,
       country: formData.country,
       state: formData.state,
       city: formData.city,
-      address: formData.address,
       pincode: formData.pincode,
+      email: formData.email,
+      mobile: formData.mobile,
       profile: formData.profile,
       promocode: formData.promocode,
-      captchaToken,
       submittedAt: new Date().toISOString(),
-
+        
       utmSource: utmData?.utm_source || "",
       utmMedium: utmData?.utm_medium || "",
       utmCampaign: utmData?.utm_campaign || "",
@@ -117,7 +114,7 @@ export default function EnquiryForm() {
       referrer: utmData?.referrer || "",
       landingPage: utmData?.landingPage || "",
       utmTimestamp: utmData?.timestamp || "",
-
+        
       cmsCampaignId: campaign?.id || "",
       cmsCampaignName: campaign?.name || "",
       cmsCampaignSource: campaign?.utm_source || "",
