@@ -127,7 +127,7 @@ export default function Navbar() {
   const showLogo = isScrolled && scrollDirection === 'down';
 
   const calculateTimeLeft = () => {
-    const targetDate = new Date('2026-04-22T09:00:00').getTime();
+    const targetDate = new Date('2027-04-22T09:00:00').getTime();
     const diff = targetDate - Date.now();
     if (diff <= 0) return { days: 0, hours: 0, minutes: 0 };
     return {
@@ -166,7 +166,7 @@ export default function Navbar() {
           }}
         >
           {/* Ticker strip */}
-          <div className="bg-[#002926] w-full">
+          <div className="bg-[#000E24] w-full">
             <Container className="flex items-center justify-end py-1.5">
               <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-wider text-white">
                 <span>
@@ -188,7 +188,7 @@ export default function Navbar() {
           </div>
 
           {/* Logo + buttons */}
-          <div className="w-full bg ">
+          <div className="w-full bg-[#000E24]">
             <Container className="flex items-center justify-between py-3.5">
               <div className="flex items-center gap-4">
                 <UTMLink href="/">
@@ -211,13 +211,13 @@ export default function Navbar() {
               <div className="hidden sm:flex gap-3">
                 <UTMLink
                   href="/exhibiting-enquiry/"
-                  className="bg-[#F08400] hover:bg-[#d67300] text-white text-center px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap rounded-sm"
+                  className="bg-[#CC9808] hover:bg-[#FEBB02 text-white text-center px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap rounded-sm"
                 >
                   Exhibit
                 </UTMLink>
                 <UTMLink
                   href="/visitor-registration/"
-                  className="bg-[#F08400] hover:bg-[#d67300] text-white text-center px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap rounded-sm"
+                  className="bg-[#CC9808] hover:bg-[#FEBB02] text-white text-center px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap rounded-sm"
                 >
                   Register
                 </UTMLink>
