@@ -66,7 +66,7 @@ export default function HeroSection() {
             style={{ fontSize: 'clamp(2.5rem, 9.5vw, 9rem)' }}
           >
             <br />
-            <span className="text-white">MININGWORLD </span>
+            <span className="text-white">INDIAMET </span>
             <span className="text-[#F08400]">2027</span>
           </h1>
 
