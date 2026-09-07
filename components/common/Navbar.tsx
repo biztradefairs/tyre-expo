@@ -166,21 +166,21 @@ export default function Navbar() {
           }}
         >
           {/* Ticker strip */}
-          <div className="bg-[#000E24] w-full">
+          <div className="bg-[#000E24E24] w-full">
             <Container className="flex items-center justify-end py-1.5">
               <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-wider text-white">
                 <span>
-                  <strong className="text-sm font-bold text-[#F08400]">{String(timeLeft.days).padStart(2, '0')}</strong>{' '}
+                  <strong className="text-sm font-bold text-[#CC9808]">{String(timeLeft.days).padStart(2, '0')}</strong>{' '}
                   <span className="text-gray-300">Days</span>
                 </span>
                 <span className="text-white/30">|</span>
                 <span>
-                  <strong className="text-sm font-bold text-[#F08400]">{String(timeLeft.hours).padStart(2, '0')}</strong>{' '}
+                  <strong className="text-sm font-bold text-[#CC9808]">{String(timeLeft.hours).padStart(2, '0')}</strong>{' '}
                   <span className="text-gray-300">Hours</span>
                 </span>
                 <span className="text-white/30">|</span>
                 <span>
-                  <strong className="text-sm font-bold text-[#F08400]">{String(timeLeft.minutes).padStart(2, '0')}</strong>{' '}
+                  <strong className="text-sm font-bold text-[#CC9808]">{String(timeLeft.minutes).padStart(2, '0')}</strong>{' '}
                   <span className="text-gray-300">Mins</span>
                 </span>
               </div>
@@ -188,7 +188,7 @@ export default function Navbar() {
           </div>
 
           {/* Logo + buttons */}
-          <div className="w-full bg-[#000E24]">
+          <div className="w-full bg-[#000E24E24]">
             <Container className="flex items-center justify-between py-3.5">
               <div className="flex items-center gap-4">
                 <UTMLink href="/">
@@ -309,7 +309,7 @@ export default function Navbar() {
             >
               <UTMLink
                 href="/login/"
-                className="bg-[#F08400] font-bold uppercase tracking-wider text-white px-4 py-2 text-xs 
+                className="bg-[#CC9808] font-bold uppercase tracking-wider text-white px-4 py-2 text-xs 
                   hover:bg-white hover:text-black transition-all duration-300 whitespace-nowrap inline-block rounded-sm"
               >
                 Login
