@@ -188,7 +188,7 @@ export default function Navbar() {
           </div>
 
           {/* Logo + buttons */}
-          <div className="w-full bg-black">
+          <div className="w-full bg-[#F08400]">
             <Container className="flex items-center justify-between py-3.5">
               <div className="flex items-center gap-4">
                 <UTMLink href="/">
