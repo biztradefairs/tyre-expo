@@ -166,7 +166,7 @@ export default function Navbar() {
           }}
         >
           {/* Ticker strip */}
-          <div className="bg-[#000E24E24] w-full">
+          <div className="bg-[#000E24] w-full">
             <Container className="flex items-center justify-end py-1.5">
               <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-wider text-white">
                 <span>
@@ -188,7 +188,7 @@ export default function Navbar() {
           </div>
 
           {/* Logo + buttons */}
-          <div className="w-full bg-[#000E24E24]">
+          <div className="w-full bg-[#000E24]">
             <Container className="flex items-center justify-between py-3.5">
               <div className="flex items-center gap-4">
                 <UTMLink href="/">
